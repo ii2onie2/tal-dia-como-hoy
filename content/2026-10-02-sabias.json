@@ -1,0 +1,37 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que el Ritz de Madrid fue también un hospital?",
+  "date": "2026-10-02",
+  "slot": "19:00",
+  "hook": "El mismo hotel de lujo de Madrid tuvo una función completamente distinta durante la Guerra Civil.",
+  "narration": "¿Sabías que el histórico Ritz de Madrid llegó a funcionar como hospital durante la Guerra Civil? El hotel, inaugurado en 1910, había sido concebido como uno de los grandes establecimientos de lujo de la capital. Pero durante la Guerra Civil su historia cambió y el edificio fue utilizado como hospital militar. Décadas después, el Ritz seguiría vinculado a acontecimientos, visitantes y personajes conocidos de la historia contemporánea de Madrid. Es un ejemplo de cómo un mismo edificio puede cambiar de función y convertirse en testigo de épocas muy diferentes. Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "caption": "Un dato poco conocido de la historia del Ritz de Madrid: durante la Guerra Civil, el edificio fue utilizado como hospital militar.",
+  "hashtags": [
+    "#SabiasEstoDeEspaña",
+    "#HistoriaDeEspaña",
+    "#Madrid",
+    "#HotelRitz",
+    "#Curiosidades"
+  ],
+  "sources": [
+    {
+      "name": "RTVE - Hotel Ritz de Madrid",
+      "url": "https://www.rtve.es/play/videos/d-corazon/hotel-ritz-madrid-famosos-noche-ava-gardner-michael-jackson-nicole-kidman/6415008/"
+    },
+    {
+      "name": "Hotel Ritz (Madrid) - Historia",
+      "url": "https://es.wikipedia.org/wiki/Hotel_Ritz_(Madrid)"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Hotel Ritz (Madrid) 02.jpg",
+      "role": "Vista del Hotel Ritz de Madrid",
+      "license_note": "Wikimedia Commons CC BY-SA 2.5; atribución a Luis García"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "format": "forgotten_story",
+  "hook_pattern": "overlooked_detail",
+  "topic_family": "historias_olvidadas"
+}
