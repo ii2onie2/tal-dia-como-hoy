@@ -1,4 +1,4 @@
-name: Render daily TikTok video
+name: Render TikTok videos
 
 on:
   workflow_dispatch:
@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Install FFmpeg and fonts
         run: |
@@ -40,70 +42,79 @@ jobs:
           pip install -r requirements.txt
           pip install piper-tts
 
-      - name: Resolve content file
+      - name: Resolve content files
         id: content
         shell: bash
         run: |
+          : > render_list.txt
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "file=${{ inputs.content_file }}" >> "$GITHUB_OUTPUT"
+            printf '%s\n' "${{ inputs.content_file }}" >> render_list.txt
           elif [ "${{ github.event_name }}" = "push" ]; then
-            TODAY=$(TZ=Europe/Madrid date +%F)
-            if [ -f "content/${TODAY}.json" ]; then
-              echo "file=content/${TODAY}.json" >> "$GITHUB_OUTPUT"
-            else
-              echo "file=content/example.json" >> "$GITHUB_OUTPUT"
-            fi
+            git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" -- 'content/*.json'               | grep '^content/.*\.json$' >> render_list.txt || true
           else
             TODAY=$(TZ=Europe/Madrid date +%F)
-            if [ -f "content/${TODAY}.json" ]; then
-              echo "file=content/${TODAY}.json" >> "$GITHUB_OUTPUT"
-            else
-              echo "No content file for ${TODAY}; nothing to render."
-              echo "file=" >> "$GITHUB_OUTPUT"
-            fi
+            find content -maxdepth 1 -type f -name "${TODAY}*.json" -print | sort >> render_list.txt
           fi
+          sort -u -o render_list.txt render_list.txt
+          echo "files<<EOF" >> "$GITHUB_OUTPUT"
+          cat render_list.txt >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+          echo "Resolved files:"
+          cat render_list.txt || true
 
       - name: Download Spanish Piper voice
-        if: steps.content.outputs.file != ''
+        if: steps.content.outputs.files != ''
         run: |
           mkdir -p voices
           curl -L --fail -o voices/es_ES-sharvard-medium.onnx             https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
           curl -L --fail -o voices/es_ES-sharvard-medium.onnx.json             https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
 
-      - name: Fetch declared Wikimedia Commons media
-        if: steps.content.outputs.file != ''
-        run: python scripts/fetch_media.py --content "${{ steps.content.outputs.file }}" --out media
-
-      - name: Render
-        if: steps.content.outputs.file != ''
+      - name: Render all resolved content files
+        if: steps.content.outputs.files != ''
         env:
           PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
           PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
-        run: python scripts/render.py --content "${{ steps.content.outputs.file }}" --out out
-
-      - name: Publish rendered MP4 in repository
-        if: steps.content.outputs.file != ''
         shell: bash
         run: |
-          DATE=$(python -c 'import json; print(json.load(open("${{ steps.content.outputs.file }}"))["date"])')
+          while IFS= read -r FILE; do
+            [ -n "$FILE" ] || continue
+            STEM=$(basename "$FILE" .json)
+            MEDIA_DIR="media/$STEM"
+            OUT_DIR="out/$STEM"
+            mkdir -p "$MEDIA_DIR" "$OUT_DIR"
+            python scripts/fetch_media.py --content "$FILE" --out "$MEDIA_DIR"
+            python scripts/render.py --content "$FILE" --out "$OUT_DIR"
+          done < render_list.txt
+
+      - name: Publish rendered MP4s in repository
+        if: steps.content.outputs.files != ''
+        shell: bash
+        run: |
           mkdir -p videos
-          cp out/video.mp4 "videos/${DATE}.mp4"
-          cp out/caption.txt "videos/${DATE}.caption.txt"
-          cp out/sources.json "videos/${DATE}.sources.json"
+          while IFS= read -r FILE; do
+            [ -n "$FILE" ] || continue
+            STEM=$(basename "$FILE" .json)
+            cp "out/$STEM/video.mp4" "videos/$STEM.mp4"
+            cp "out/$STEM/caption.txt" "videos/$STEM.caption.txt"
+            cp "out/$STEM/sources.json" "videos/$STEM.sources.json"
+            if [ -f "media/$STEM/credits.json" ]; then
+              cp "media/$STEM/credits.json" "videos/$STEM.credits.json"
+            fi
+          done < render_list.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "videos/${DATE}.mp4" "videos/${DATE}.caption.txt" "videos/${DATE}.sources.json"
+          git add videos/
           if ! git diff --cached --quiet; then
-            git commit -m "Publish rendered video ${DATE}"
+            git commit -m "Publish rendered TikTok videos"
             git push
           fi
 
-      - name: Upload video package
-        if: steps.content.outputs.file != ''
+      - name: Upload video packages
+        if: steps.content.outputs.files != ''
         uses: actions/upload-artifact@v4
         with:
           name: tal-dia-como-hoy-${{ github.run_id }}
           path: |
             out/
-            media/credits.json
+            media/
           retention-days: 30
