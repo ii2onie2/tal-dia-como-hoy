@@ -6,7 +6,14 @@
   "hook": "¿Sabías que muchas carreteras españolas empiezan, simbólicamente, en una pequeña placa en pleno centro de Madrid?",
   "narration": "¿Sabías que en la Puerta del Sol de Madrid está el Kilómetro Cero de las carreteras radiales españolas? La placa, situada junto a la Casa de Correos, marca el punto de origen desde el que se referencia el kilometraje de varias de las grandes carreteras radiales que parten de Madrid. Por eso aparecen representadas las seis rutas tradicionales: N-1, N-2, N-3, N-4, N-5 y N-6. Hoy es uno de los puntos más fotografiados de la Puerta del Sol y un símbolo muy reconocible del centro de España. Así que, cuando alguien habla del Kilómetro Cero de España, no es solo una expresión: puedes encontrarlo literalmente bajo tus pies en Madrid. ¿Sabías esto de España?",
   "caption": "¿Sabías que el Kilómetro Cero de las carreteras radiales españolas está en la Puerta del Sol de Madrid? La placa marca el origen del kilometraje de las grandes carreteras radiales que parten de la capital.",
-  "hashtags": ["#SabiasEstoDeEspaña", "#TalDiaComoHoy", "#HistoriaDeEspaña", "#CuriosidadesDeEspaña", "#Madrid", "#PuertaDelSol"],
+  "hashtags": [
+    "#SabiasEstoDeEspaña",
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#CuriosidadesDeEspaña",
+    "#Madrid",
+    "#PuertaDelSol"
+  ],
   "sources": [
     {
       "name": "Turismo Madrid - Puerta del Sol",
