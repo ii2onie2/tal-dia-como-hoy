@@ -1,0 +1,80 @@
+name: Render daily TikTok video
+
+on:
+  workflow_dispatch:
+    inputs:
+      content_file:
+        description: JSON content file to render
+        required: true
+        default: content/example.json
+  schedule:
+    - cron: "15 6 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install FFmpeg and fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies and Piper
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install piper-tts
+
+      - name: Resolve content file
+        id: content
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "file=${{ inputs.content_file }}" >> "$GITHUB_OUTPUT"
+          else
+            TODAY=$(TZ=Europe/Madrid date +%F)
+            if [ -f "content/${TODAY}.json" ]; then
+              echo "file=content/${TODAY}.json" >> "$GITHUB_OUTPUT"
+            else
+              echo "No content file for ${TODAY}; nothing to render."
+              echo "file=" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - name: Download licensed Spanish Piper voice
+        if: steps.content.outputs.file != ''
+        run: |
+          mkdir -p voices
+          curl -L --fail -o voices/es_ES-sharvard-medium.onnx             https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
+          curl -L --fail -o voices/es_ES-sharvard-medium.onnx.json             https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
+
+      - name: Fetch declared Wikimedia Commons media
+        if: steps.content.outputs.file != ''
+        run: python scripts/fetch_media.py --content "${{ steps.content.outputs.file }}" --out media
+
+      - name: Render
+        if: steps.content.outputs.file != ''
+        env:
+          PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
+          PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
+        run: python scripts/render.py --content "${{ steps.content.outputs.file }}" --out out
+
+      - name: Upload video package
+        if: steps.content.outputs.file != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: tal-dia-como-hoy-${{ github.run_id }}
+          path: |
+            out/
+            media/credits.json
+          retention-days: 30
