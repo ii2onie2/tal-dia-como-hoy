@@ -71,6 +71,10 @@ jobs:
         shell: bash
         run: |
           python scripts/validate_content.py $(cat render_list.txt)
+          while IFS= read -r FILE; do
+            [ -n "$FILE" ] || continue
+            python scripts/select_format.py "$FILE"
+          done < render_list.txt
 
       - name: Download Spanish Piper voice
         if: steps.content.outputs.files != ''
@@ -114,7 +118,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git restore --worktree -- content/ || true
-          git add videos/
+          python scripts/update_history.py $(cat render_list.txt)
+          git add videos/ content/published_history.json
           if ! git diff --cached --quiet; then
             git commit -m "Publish rendered TikTok videos"
             git pull --rebase origin main
