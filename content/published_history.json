@@ -9,5 +9,16 @@
     "format": "forgotten_story",
     "hook_pattern": "overlooked_detail",
     "duration_target": null
+  },
+  {
+    "date": "2026-10-02",
+    "series": "Tal Día Como Hoy",
+    "title": "2 de octubre de 1910: Madrid inaugura el Hotel Ritz",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "lugares",
+    "format": "place_with_history",
+    "hook_pattern": "consequence_first",
+    "duration_target": null
   }
 ]

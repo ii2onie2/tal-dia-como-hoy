@@ -1,0 +1,92 @@
+[
+  {
+    "commons_title": "File:Hotel Ritz (Madrid) 01.jpg",
+    "path": "media/2026-10-02/01.jpg",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Hotel_Ritz_%28Madrid%29_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "metadata": {
+      "DateTime": {
+        "value": "2006-01-13 12:14:26",
+        "source": "mediawiki-metadata",
+        "hidden": ""
+      },
+      "ObjectName": {
+        "value": "Hotel Ritz (Madrid) 01",
+        "source": "mediawiki-metadata"
+      },
+      "CommonsMetadataExtension": {
+        "value": 1.2,
+        "source": "extension",
+        "hidden": ""
+      },
+      "Categories": {
+        "value": "GFDL|Taken with Kodak EasyShare CX4200|2006 in Madrid|Ritz Hotel, Madrid|License migration redundant|Self-published work|Files by User:Zaqarbal",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "Assessments": {
+        "value": "",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "ImageDescription": {
+        "value": "Façade of <a href=\"//commons.wikimedia.org/wiki/Category:Ritz_Hotel,_Madrid\" title=\"Category:Ritz Hotel, Madrid\"><b>Ritz Hotel</b></a> in <b><a href=\"//commons.wikimedia.org/wiki/Madrid\" title=\"Madrid\">Madrid</a></b> (<a href=\"//commons.wikimedia.org/wiki/Spain\" class=\"mw-redirect\" title=\"Spain\">Spain</a>). Projected in 1908 by <a href=\"https://en.wikipedia.org/wiki/Charles_Mew%C3%A8s\" class=\"extiw\" title=\"en:Charles Mewès\">Charles Frédéric Mewes</a> (1858–1914) and built from 1908 to 1910 under the direction of <a href=\"https://en.wikipedia.org/wiki/Luis_de_Landecho\" class=\"extiw\" title=\"en:Luis de Landecho\">Luis de Landecho</a> (1852–1941).",
+        "source": "commons-desc-page"
+      },
+      "DateTimeOriginal": {
+        "value": "2006-01-12",
+        "source": "commons-desc-page"
+      },
+      "Credit": {
+        "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "source": "commons-desc-page"
+      },
+      "Artist": {
+        "value": "Luis García (<a href=\"//commons.wikimedia.org/wiki/User:Zaqarbal\" title=\"User:Zaqarbal\">Zaqarbal</a>)",
+        "source": "commons-desc-page"
+      },
+      "Permission": {
+        "value": "You may select the license of your choice.",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "LicenseShortName": {
+        "value": "CC BY-SA 3.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "UsageTerms": {
+        "value": "Creative Commons Attribution-Share Alike 3.0",
+        "source": "commons-desc-page"
+      },
+      "AttributionRequired": {
+        "value": "true",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Attribution": {
+        "value": "Luis García",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "LicenseUrl": {
+        "value": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "source": "commons-desc-page"
+      },
+      "Copyrighted": {
+        "value": "True",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Restrictions": {
+        "value": "",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "License": {
+        "value": "cc-by-sa-3.0",
+        "source": "commons-templates",
+        "hidden": ""
+      }
+    }
+  }
+]
