@@ -4,7 +4,14 @@
   "hook": "Tal día como hoy, España dio un paso decisivo hacia el sufragio universal.",
   "narration": "Tal día como hoy, el 1 de octubre de 1931, las Cortes Constituyentes de la Segunda República aprobaron el derecho de voto de las mujeres en España. La diputada Clara Campoamor defendió que las mujeres debían ser reconocidas como ciudadanas con los mismos derechos políticos que los hombres. La decisión se adoptó en el marco del debate constitucional de 1931. A partir de esa aprobación, el sufragio femenino quedó incorporado al nuevo marco constitucional, y las mujeres pudieron votar por primera vez en unas elecciones generales españolas en noviembre de 1933. Aquel 1 de octubre de 1931 quedó así asociado a uno de los cambios más relevantes en la ampliación de los derechos políticos en España. Tal Día Como Hoy. España tiene una historia para cada día.",
   "caption": "El 1 de octubre de 1931, las Cortes Constituyentes aprobaron el sufragio femenino en España. Clara Campoamor fue una de las principales defensoras de esta medida durante el debate parlamentario. Las mujeres votarían por primera vez en unas elecciones generales en 1933. ¿Conocías esta fecha?",
-  "hashtags": ["#TalDiaComoHoy", "#HistoriaDeEspaña", "#Historia", "#España", "#ClaraCampoamor", "#SufragioFemenino"],
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Historia",
+    "#España",
+    "#ClaraCampoamor",
+    "#SufragioFemenino"
+  ],
   "sources": [
     {
       "name": "RTVE - Homenaje a Clara Campoamor, campeona del voto femenino en España",
@@ -21,5 +28,7 @@
       "role": "Retrato de Clara Campoamor",
       "license_note": "Public domain en España según Wikimedia Commons"
     }
-  ]
+  ],
+  "series": "Tal Día Como Hoy",
+  "slot": "10:00"
 }
