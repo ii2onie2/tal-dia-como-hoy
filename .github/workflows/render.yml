@@ -90,6 +90,7 @@ jobs:
           PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
         shell: bash
         run: |
+          python scripts/growth_plan.py || true
           while IFS= read -r FILE; do
             [ -n "$FILE" ] || continue
             STEM=$(basename "$FILE" .json)
