@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "date": "2026-10-02",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que el Ritz de Madrid fue también un hospital?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "historias_olvidadas",
+    "format": "forgotten_story",
+    "hook_pattern": "overlooked_detail",
+    "duration_target": null
+  }
+]
