@@ -16,7 +16,7 @@ on:
     - cron: "15 6 * * *"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   render:
@@ -80,6 +80,23 @@ jobs:
           PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
           PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
         run: python scripts/render.py --content "${{ steps.content.outputs.file }}" --out out
+
+      - name: Publish rendered MP4 in repository
+        if: steps.content.outputs.file != ''
+        shell: bash
+        run: |
+          DATE=$(python -c 'import json; print(json.load(open("${{ steps.content.outputs.file }}"))["date"])')
+          mkdir -p videos
+          cp out/video.mp4 "videos/${DATE}.mp4"
+          cp out/caption.txt "videos/${DATE}.caption.txt"
+          cp out/sources.json "videos/${DATE}.sources.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "videos/${DATE}.mp4" "videos/${DATE}.caption.txt" "videos/${DATE}.sources.json"
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish rendered video ${DATE}"
+            git push
+          fi
 
       - name: Upload video package
         if: steps.content.outputs.file != ''
