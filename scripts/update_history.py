@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import json, pathlib, sys
-
 HISTORY=pathlib.Path("content/published_history.json")
 def main():
     files=sys.argv[1:]
@@ -11,8 +10,8 @@ def main():
         history.append({
             "date":d.get("date"),"series":d.get("series"),"title":d.get("title"),
             "subject":d.get("subject"),"principal_person":d.get("principal_person"),
-            "format":d.get("format"),"hook_pattern":d.get("hook_pattern")
+            "topic_family":d.get("topic_family"),"format":d.get("format"),
+            "hook_pattern":d.get("hook_pattern"),"duration_target":d.get("duration_target")
         })
-    history=history[-365:]
-    HISTORY.write_text(json.dumps(history,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    HISTORY.write_text(json.dumps(history[-365:],ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 if __name__=="__main__": main()
