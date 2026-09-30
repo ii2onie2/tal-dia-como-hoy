@@ -103,9 +103,11 @@ jobs:
           done < render_list.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore --worktree -- content/ || true
           git add videos/
           if ! git diff --cached --quiet; then
             git commit -m "Publish rendered TikTok videos"
+            git pull --rebase origin main
             git push
           fi
 
