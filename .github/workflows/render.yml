@@ -7,6 +7,11 @@ on:
         description: JSON content file to render
         required: true
         default: content/example.json
+  push:
+    paths:
+      - "content/*.json"
+      - "scripts/**"
+      - ".github/workflows/render.yml"
   schedule:
     - cron: "15 6 * * *"
 
@@ -41,6 +46,13 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "file=${{ inputs.content_file }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            TODAY=$(TZ=Europe/Madrid date +%F)
+            if [ -f "content/${TODAY}.json" ]; then
+              echo "file=content/${TODAY}.json" >> "$GITHUB_OUTPUT"
+            else
+              echo "file=content/example.json" >> "$GITHUB_OUTPUT"
+            fi
           else
             TODAY=$(TZ=Europe/Madrid date +%F)
             if [ -f "content/${TODAY}.json" ]; then
@@ -51,7 +63,7 @@ jobs:
             fi
           fi
 
-      - name: Download licensed Spanish Piper voice
+      - name: Download Spanish Piper voice
         if: steps.content.outputs.file != ''
         run: |
           mkdir -p voices
