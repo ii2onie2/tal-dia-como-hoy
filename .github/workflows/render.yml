@@ -62,6 +62,12 @@ jobs:
           echo "Resolved files:"
           cat render_list.txt || true
 
+      - name: Validate content quality
+        if: steps.content.outputs.files != ''
+        shell: bash
+        run: |
+          python scripts/validate_content.py $(cat render_list.txt)
+
       - name: Download Spanish Piper voice
         if: steps.content.outputs.files != ''
         run: |
