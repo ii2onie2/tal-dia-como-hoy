@@ -89,7 +89,7 @@ def main():
     subtitle_filter=(
         f"subtitles={ffpath(srt)}:"
         "force_style='FontName=DejaVu Sans,FontSize=18,Outline=2,Shadow=0,"
-        "Alignment=2,MarginV=140'"
+        "Alignment=2,MarginV=120'"
     )
     hook_end=min(4.5,max(2.5,duration*0.12))
     cta_start=max(0.0,duration-5.5)
@@ -100,14 +100,14 @@ def main():
     )
     hook_overlay=(
         f",drawtext=textfile='{ffpath(hook_file)}':font='DejaVu Sans':"
-        "fontsize=60:fontcolor=white:box=1:boxcolor=black@0.62:boxborderw=20:"
-        f"x=(w-text_w)/2:y=260:enable='between(t,0,{hook_end:.2f})'"
+        "fontsize=44:fontcolor=white:box=1:boxcolor=black@0.68:boxborderw=14:"
+        f"x=(w-text_w)/2:y=155:enable='between(t,0,{hook_end:.2f})'"
         if hook else ""
     )
     cta_overlay=(
         f",drawtext=textfile='{ffpath(cta_file)}':font='DejaVu Sans':"
-        "fontsize=54:fontcolor=white:box=1:boxcolor=black@0.68:boxborderw=20:"
-        f"x=(w-text_w)/2:y=h-430:enable='gte(t,{cta_start:.2f})'"
+        "fontsize=42:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=14:"
+        f"x=(w-text_w)/2:y=h-360:enable='gte(t,{cta_start:.2f})'"
     )
 
     if bgs:
