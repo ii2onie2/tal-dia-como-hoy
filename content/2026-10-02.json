@@ -1,0 +1,37 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "2 de octubre de 1910: Madrid inaugura el Hotel Ritz",
+  "date": "2026-10-02",
+  "slot": "10:00",
+  "hook": "Hace más de un siglo, Madrid abrió un hotel pensado para recibir a la realeza europea.",
+  "narration": "Tal día como hoy, el 2 de octubre de 1910, se inauguró el Hotel Ritz de Madrid. El proyecto había nacido por iniciativa del rey Alfonso XIII, que quería que la capital tuviera un gran hotel de lujo capaz de recibir a visitantes y miembros de las casas reales europeas. El edificio había sido proyectado en 1908 por el arquitecto francés Charles Frédéric Mewes y se construyó entre 1908 y 1910 bajo la dirección de Luis de Landecho. La inauguración contó con Alfonso XIII y la reina Victoria Eugenia. Desde entonces, el Ritz se convirtió en uno de los grandes escenarios de la vida social y cultural madrileña. Síguenos y descubre cada día una historia de España que probablemente no conocías.",
+  "caption": "El 2 de octubre de 1910 se inauguró el Hotel Ritz de Madrid, creado para dotar a la capital de un gran hotel de lujo capaz de recibir a visitantes ilustres y casas reales europeas.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Madrid",
+    "#HotelRitz",
+    "#Historia"
+  ],
+  "sources": [
+    {
+      "name": "Ayuntamiento de Madrid - El Hotel Ritz del siglo XXI",
+      "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/Actualidad/Noticias/El-Hotel-Ritz-del-siglo-XXI/"
+    },
+    {
+      "name": "Mandarin Oriental Ritz Madrid - History",
+      "url": "https://photos.mandarinoriental.com/is/content/MandarinOriental/corporate-madrid-PK-hotel-history"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Hotel Ritz (Madrid) 01.jpg",
+      "role": "Fachada del Hotel Ritz de Madrid",
+      "license_note": "Wikimedia Commons; verificar y conservar la licencia y atribución indicadas sur la page du fichier"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día una historia de España que probablemente no conocías.",
+  "format": "place_with_history",
+  "hook_pattern": "consequence_first",
+  "topic_family": "lugares"
+}
