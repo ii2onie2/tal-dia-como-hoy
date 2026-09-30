@@ -33,5 +33,6 @@
   "cta": "Síguenos y descubre cada día una historia de España que probablemente no conocías.",
   "format": "place_with_history",
   "hook_pattern": "consequence_first",
-  "topic_family": "lugares"
+  "topic_family": "lugares",
+  "autopilot_rebuild": "2026-10-01T01:24:00+02:00"
 }
