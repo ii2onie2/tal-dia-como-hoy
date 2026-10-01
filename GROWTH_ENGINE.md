@@ -4,6 +4,7 @@
 
 - 10:00 — Tal Día Como Hoy
 - 19:00 — ¿Sabías esto de España?
+- Pilot format (not an automatic third daily post): Antes y ahora / then-and-now comparisons
 
 ## Editorial system
 
@@ -23,11 +24,13 @@ Do not use the same format, hook pattern, main person, period or narrative struc
 
 ## Retention structure
 
-1. 0-3 seconds: concrete curiosity gap; no long intro or logo-only opening.
-2. 3-15 seconds: immediate context.
-3. Middle: progressive revelations and one or more factual turns.
-4. Final 5 seconds: concise takeaway + follow CTA + natural question.
-5. Keep on-screen text out of faces and other important visual subjects.
+1. 0-2 seconds: strongest factual surprise or consequence first.
+2. 2-8 seconds: immediate context; no long intro or logo-only opening.
+3. 8-25 seconds: two or three short factual beats with visual changes every 3-5 seconds when source media allows it.
+4. Final factual turn: surface the most surprising documented detail.
+5. Final 5 seconds: concise takeaway + follow CTA + natural question.
+6. Keep on-screen text out of faces and other important visual subjects.
+7. Prefer short date/location labels and keyword overlays instead of long paragraphs on screen.
 
 ## Duration targets
 
@@ -81,3 +84,22 @@ The MP4 should remain compatible with TikTok, YouTube Shorts and Instagram Reels
 ## Safety and accuracy
 
 Historical and political subjects must remain factual and sourced. Do not invent quotations, motives, statistics, archival provenance or visual evidence. Preserve source and media-credit metadata.
+
+
+## Video format proposals
+
+### Tal Día Como Hoy — mini-documentary
+Target: 45-70 seconds.
+Structure: shock/consequence hook -> immediate historical context -> 2-3 factual turns -> strongest detail -> CTA/question.
+Visual language: archival images, slow pan/zoom, date/location badge, maps or document details when available.
+
+### ¿Sabías esto de España? — fast curiosity
+Target: 25-40 seconds.
+Structure: one surprising claim -> explanation -> unexpected detail -> one-line takeaway -> CTA.
+Visual language: faster cuts, one main object/place, text emphasis on the surprising detail.
+
+### Antes y ahora — pilot
+Target: 20-35 seconds.
+Use only when there is reliable historical and present-day visual evidence for the same place/object.
+Structure: old view -> what changed -> current view -> one historical fact -> CTA/question.
+Do not create a third daily scheduled post automatically until performance has been reviewed.
