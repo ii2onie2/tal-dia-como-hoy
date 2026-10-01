@@ -111,3 +111,13 @@ Target: 20-35 seconds.
 Use only when there is reliable historical and present-day visual evidence for the same place/object.
 Structure: old view -> what changed -> current view -> one historical fact -> CTA/question.
 Do not create a third daily scheduled post automatically until performance has been reviewed.
+
+
+### Este lugar fue otra cosa — weekly transformation story
+Frequency: once per week.
+Recommended slot: Sunday 21:30 Europe/Madrid.
+Target: 25-40 seconds.
+Concept: show a place people recognize today, reveal its former use, then explain the transformation with one strong documented fact.
+Structure: "Este lugar fue..." hook -> old function/use -> what changed -> what it is today -> CTA/question.
+Visual language: old photo or archival view first, then present-day view when reliable reusable media is available.
+Default CTA: "Síguenos para descubrir los lugares de España que esconden otra historia."
