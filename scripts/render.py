@@ -74,6 +74,8 @@ def main():
             pass
     if series == "¿Sabías esto de España?":
         default_cta="Síguenos y descubre cada día algo de España que probablemente no conocías."
+    elif series == "El detalle que casi nadie ve":
+        default_cta="Síguenos para descubrir más detalles de España que casi nadie ve."
     else:
         default_cta="Síguenos y descubre cada día una historia de España que probablemente no conocías."
     cta=(data.get("cta") or default_cta).strip()
