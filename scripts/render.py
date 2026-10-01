@@ -5,6 +5,8 @@ W,H=1080,1920
 FPS=30
 
 def run(cmd):
+    if cmd and cmd[0] == "ffmpeg" and "-nostdin" not in cmd:
+        cmd = [cmd[0], "-nostdin", *cmd[1:]]
     print("+", " ".join(cmd), flush=True)
     subprocess.run(cmd, check=True)
 
