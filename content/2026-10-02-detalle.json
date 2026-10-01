@@ -1,0 +1,37 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "El detalle del escudo de España que muchos pasan por alto",
+  "date": "2026-10-02",
+  "slot": "16:00",
+  "hook": "Mira a los lados del escudo de España: hay un detalle que cuenta una historia enorme.",
+  "narration": "Mira a los lados del escudo de España. Las dos columnas que lo acompañan no están ahí por casualidad. La ley que describe oficialmente el escudo establece que aparecen sobre ondas azules y plateadas, coronadas y rodeadas por una cinta roja con las palabras «Plus» y «Ultra». Juntas forman la expresión «Plus Ultra». Este detalle convierte el escudo en algo más que un conjunto de reinos y símbolos: también incorpora una referencia histórica reconocible en la iconografía española. La próxima vez que veas el escudo, fíjate en esas dos columnas y en la pequeña cinta que las rodea. ¿Te habías fijado alguna vez? Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "caption": "Dos columnas, una cinta roja y dos palabras: «Plus Ultra». Un detalle del escudo de España que muchas veces pasa desapercibido.",
+  "hashtags": [
+    "#ElDetalleQueCasiNadieVe",
+    "#HistoriaDeEspaña",
+    "#España",
+    "#CuriosidadesDeEspaña",
+    "#EscudoDeEspaña"
+  ],
+  "sources": [
+    {
+      "name": "BOE - Ley 33/1981, de 5 de octubre, del Escudo de España",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1981-24155"
+    },
+    {
+      "name": "Wikimedia Commons - Escudo de España.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Escudo_de_Espa%C3%B1a.png"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Escudo de España.png",
+      "role": "Escudo de España, con las columnas y la cinta Plus Ultra visibles",
+      "license_note": "Wikimedia Commons; conservar la atribución y las condiciones de reutilización indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "format": "historical_object_word_custom",
+  "hook_pattern": "overlooked_detail",
+  "topic_family": "simbolos_y_detalles"
+}
