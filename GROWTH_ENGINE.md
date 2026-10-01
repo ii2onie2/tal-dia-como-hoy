@@ -3,8 +3,9 @@
 ## Publication rhythm
 
 - 10:00 — Tal Día Como Hoy
+- 16:00 — El detalle que casi nadie ve
 - 19:00 — ¿Sabías esto de España?
-- Pilot format (not an automatic third daily post): Antes y ahora / then-and-now comparisons
+- Optional pilot format: Antes y ahora / then-and-now comparisons
 
 ## Editorial system
 
@@ -97,6 +98,13 @@ Visual language: archival images, slow pan/zoom, date/location badge, maps or do
 Target: 25-40 seconds.
 Structure: one surprising claim -> explanation -> unexpected detail -> one-line takeaway -> CTA.
 Visual language: faster cuts, one main object/place, text emphasis on the surprising detail.
+
+### El detalle que casi nadie ve — short visual discovery
+Target: 20-35 seconds.
+Schedule: 16:00.
+Structure: ultra-direct hook -> show the detail immediately -> explain what/where -> surprising meaning/origin -> CTA/question.
+Visual language: close crop, zoom/highlight, one object or architectural detail, short labels, rapid visual emphasis.
+Default CTA: "Síguenos para descubrir más detalles de España que casi nadie ve."
 
 ### Antes y ahora — pilot
 Target: 20-35 seconds.
