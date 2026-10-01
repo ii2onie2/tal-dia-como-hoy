@@ -70,11 +70,12 @@ jobs:
         if: steps.content.outputs.files != ''
         shell: bash
         run: |
-          python scripts/validate_content.py $(cat render_list.txt)
-          while IFS= read -r FILE; do
+          mapfile -t FILES < render_list.txt
+          python scripts/validate_content.py "${FILES[@]}"
+          for FILE in "${FILES[@]}"; do
             [ -n "$FILE" ] || continue
             python scripts/select_format.py "$FILE"
-          done < render_list.txt
+          done
 
       - name: Download Spanish Piper voice
         if: steps.content.outputs.files != ''
@@ -91,7 +92,8 @@ jobs:
         shell: bash
         run: |
           python scripts/growth_plan.py || true
-          while IFS= read -r FILE; do
+          mapfile -t FILES < render_list.txt
+          for FILE in "${FILES[@]}"; do
             [ -n "$FILE" ] || continue
             STEM=$(basename "$FILE" .json)
             MEDIA_DIR="media/$STEM"
@@ -99,14 +101,18 @@ jobs:
             mkdir -p "$MEDIA_DIR" "$OUT_DIR"
             python scripts/fetch_media.py --content "$FILE" --out "$MEDIA_DIR"
             python scripts/render.py --content "$FILE" --out "$OUT_DIR"
-          done < render_list.txt
+            test -s "$OUT_DIR/video.mp4"
+            test -s "$OUT_DIR/caption.txt"
+            test -s "$OUT_DIR/sources.json"
+          done
 
       - name: Publish rendered MP4s in repository
         if: steps.content.outputs.files != ''
         shell: bash
         run: |
           mkdir -p videos
-          while IFS= read -r FILE; do
+          mapfile -t FILES < render_list.txt
+          for FILE in "${FILES[@]}"; do
             [ -n "$FILE" ] || continue
             STEM=$(basename "$FILE" .json)
             cp "out/$STEM/video.mp4" "videos/$STEM.mp4"
@@ -115,11 +121,11 @@ jobs:
             if [ -f "media/$STEM/credits.json" ]; then
               cp "media/$STEM/credits.json" "videos/$STEM.credits.json"
             fi
-          done < render_list.txt
+          done
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git restore --worktree -- content/ || true
-          python scripts/update_history.py $(cat render_list.txt)
+          python scripts/update_history.py "${FILES[@]}"
           git add videos/ content/published_history.json
           if ! git diff --cached --quiet; then
             git commit -m "Publish rendered TikTok videos"
@@ -128,7 +134,7 @@ jobs:
           fi
 
       - name: Upload video packages
-        if: steps.content.outputs.files != ''
+        if: always() && steps.content.outputs.files != ''
         uses: actions/upload-artifact@v4
         with:
           name: tal-dia-como-hoy-${{ github.run_id }}
