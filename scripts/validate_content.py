@@ -13,9 +13,10 @@ for name in files:
     d=json.loads(p.read_text(encoding="utf-8"))
     for key in ["series","title","date","hook","narration","caption","hashtags","sources","media"]:
         if key not in d: fail(f"{name}: missing {key}")
-    if d["series"] not in {"Tal Día Como Hoy","¿Sabías esto de España?"}:
+    if d["series"] not in {"Tal Día Como Hoy","¿Sabías esto de España?","El detalle que casi nadie ve"}:
         fail(f"{name}: unknown series")
-    if len(d["narration"].split()) < 70:
+    min_words=45 if d["series"]=="El detalle que casi nadie ve" else 70
+    if len(d["narration"].split()) < min_words:
         fail(f"{name}: narration too short")
     if len(d["narration"]) > 3800:
         fail(f"{name}: narration too long")
