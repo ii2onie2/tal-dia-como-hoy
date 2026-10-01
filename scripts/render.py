@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import argparse, json, os, pathlib, subprocess, textwrap
+import argparse, json, math, os, pathlib, subprocess, textwrap
 
 W,H=1080,1920
 FPS=30
@@ -65,6 +65,13 @@ def main():
 
     series=(data.get("series") or "Tal Día Como Hoy").strip()
     hook=(data.get("hook") or "").strip()
+    date_label=(data.get("date") or "").strip()
+    if date_label:
+        try:
+            yyyy,mm,dd=date_label.split("-")
+            date_label=f"{dd}/{mm}/{yyyy}"
+        except ValueError:
+            pass
     if series == "¿Sabías esto de España?":
         default_cta="Síguenos y descubre cada día algo de España que probablemente no conocías."
     else:
@@ -74,9 +81,11 @@ def main():
     hook_file=out/"hook.txt"
     cta_file=out/"cta.txt"
     series_file=out/"series.txt"
+    date_file=out/"date.txt"
     hook_file.write_text(hook+"\n",encoding="utf-8")
     cta_file.write_text(cta+"\n",encoding="utf-8")
     series_file.write_text(series+"\n",encoding="utf-8")
+    date_file.write_text(date_label+"\n",encoding="utf-8")
 
     media=data.get("media") or []
     bgs=[]
@@ -85,7 +94,9 @@ def main():
         if pth and pathlib.Path(pth).exists():
             bgs.append(pth)
 
-    # Keep visual pacing bounded: up to four licensed/reusable images per video.
+    # Use only licensed/reusable source images, but recycle them into short
+    # visual beats so the viewer sees a framing/motion change roughly every
+    # 3-5 seconds on short/standard episodes.
     bgs=bgs[:4]
     video=str(out/"video.mp4")
     subtitle_filter=(
@@ -100,6 +111,12 @@ def main():
         "fontsize=42:fontcolor=white:box=1:boxcolor=black@0.45:boxborderw=12:"
         "x=(w-text_w)/2:y=70"
     )
+    date_overlay=(
+        f",drawtext=textfile='{ffpath(date_file)}':font='DejaVu Sans':"
+        "fontsize=34:fontcolor=white:box=1:boxcolor=black@0.58:boxborderw=10:"
+        "x=50:y=130"
+        if date_label else ""
+    )
     hook_overlay=(
         f",drawtext=textfile='{ffpath(hook_file)}':font='DejaVu Sans':"
         "fontsize=44:fontcolor=white:box=1:boxcolor=black@0.68:boxborderw=14:"
@@ -113,31 +130,40 @@ def main():
     )
 
     if bgs:
-        seg=duration/len(bgs)
+        target_seg=4.5 if duration <= 60 else 5.5
+        beat_count=max(len(bgs), min(12, int(math.ceil(duration/target_seg))))
+        seg=duration/beat_count
+        beat_bgs=[bgs[i % len(bgs)] for i in range(beat_count)]
+
         cmd=["ffmpeg","-y"]
-        for bg in bgs:
+        for bg in beat_bgs:
             cmd += ["-loop","1","-framerate",str(FPS),"-t",f"{seg:.3f}","-i",bg]
-        audio_index=len(bgs)
+        audio_index=len(beat_bgs)
         cmd += ["-i",wav]
 
         parts=[]
         labels=[]
-        frames=max(1,int(round(seg*FPS)))
-        for i in range(len(bgs)):
+        for i in range(len(beat_bgs)):
             label=f"v{i}"
             labels.append(f"[{label}]")
+            if i % 2 == 0:
+                zexpr="min(zoom+0.0010,1.14)"
+                xexpr="iw/2-(iw/zoom/2)"
+            else:
+                zexpr="if(eq(on,1),1.14,max(zoom-0.0010,1.0))"
+                xexpr="iw/2-(iw/zoom/2)+sin(on/35)*18"
             parts.append(
                 f"[{i}:v]"
                 f"scale=1200:2134:force_original_aspect_ratio=increase,"
                 f"crop=1200:2134,"
-                f"zoompan=z='min(zoom+0.0008,1.12)':"
-                f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+                f"zoompan=z='{zexpr}':"
+                f"x='{xexpr}':y='ih/2-(ih/zoom/2)':"
                 f"d=1:s={W}x{H}:fps={FPS},"
                 f"trim=duration={seg:.3f},setpts=PTS-STARTPTS[{label}]"
             )
-        parts.append("".join(labels)+f"concat=n={len(bgs)}:v=1:a=0[base]")
+        parts.append("".join(labels)+f"concat=n={len(beat_bgs)}:v=1:a=0[base]")
         parts.append(
-            f"[base]{subtitle_filter}{branding}{hook_overlay}{cta_overlay}[vout]"
+            f"[base]{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}[vout]"
         )
         cmd += [
             "-filter_complex",";".join(parts),
@@ -149,7 +175,7 @@ def main():
         ]
         run(cmd)
     else:
-        vf=f"{subtitle_filter}{branding}{hook_overlay}{cta_overlay}"
+        vf=f"{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}"
         run([
             "ffmpeg","-y",
             "-f","lavfi","-i",f"color=c=0x111111:s={W}x{H}:r={FPS}",
