@@ -16,13 +16,16 @@ def main():
     recent=history[-7:]
     used_formats={x.get("format") for x in recent}
     title=(d.get("title") or "").lower()
-    if any(k in title for k in ["batalla","guerra","conflicto"]): fmt="battle_or_conflict"
+    explicit_format=d.get("format")
+    if explicit_format in formats:
+        fmt=explicit_format
+    elif any(k in title for k in ["batalla","guerra","conflicto"]): fmt="battle_or_conflict"
     elif any(k in title for k in ["nace","nació","invent","descubr","cient"]): fmt="invention_science_culture"
     elif "¿por qué" in title or "por que" in title: fmt="mystery"
     elif "3 " in title or "tres " in title: fmt="three_facts"
     elif any(k in title for k in ["madrid","barcelona","sevilla","valencia","puerta","castillo","palacio"]): fmt="place_with_history"
     else: fmt="chronological_event"
-    if fmt in used_formats:
+    if not explicit_format and fmt in used_formats:
         fmt=next((x for x in formats if x not in used_formats),fmt)
     d["format"]=fmt
     d["hook_pattern"]=d.get("hook_pattern","surprising_fact")
