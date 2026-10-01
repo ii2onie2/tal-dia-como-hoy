@@ -9,7 +9,7 @@ on:
         default: content/example.json
   push:
     paths:
-      - "content/20*.json"
+      - "content/20??-??-??*.json"
       - "scripts/**"
       - ".github/workflows/render.yml"
   schedule:
@@ -56,94 +56,9 @@ jobs:
             test -f "$FILE"
             printf '%s\n' "$FILE" >> render_list.txt
           elif [ "${{ github.event_name }}" = "push" ]; then
-            git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" -- 'content/20*.json' \
-              | grep -E '^content/20[0-9]{2}-[0-9]{2}-[0-9]{2}(-[A-Za-z0-9_-]+)?\.json
-
-      - name: Validate content quality
-        if: steps.content.outputs.files != ''
-        shell: bash
-        run: |
-          mapfile -t FILES < render_list.txt
-          python scripts/validate_content.py "${FILES[@]}"
-          for FILE in "${FILES[@]}"; do
-            [ -n "$FILE" ] || continue
-            python scripts/select_format.py "$FILE"
-          done
-
-      - name: Download Spanish Piper voice
-        if: steps.content.outputs.files != ''
-        run: |
-          mkdir -p voices
-          curl -L --fail -o voices/es_ES-sharvard-medium.onnx             https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
-          curl -L --fail -o voices/es_ES-sharvard-medium.onnx.json             https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
-
-      - name: Render all resolved content files
-        if: steps.content.outputs.files != ''
-        env:
-          PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
-          PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
-        shell: bash
-        run: |
-          python scripts/growth_plan.py || true
-          mapfile -t FILES < render_list.txt
-          for FILE in "${FILES[@]}"; do
-            [ -n "$FILE" ] || continue
-            STEM=$(basename "$FILE" .json)
-            MEDIA_DIR="media/$STEM"
-            OUT_DIR="out/$STEM"
-            mkdir -p "$MEDIA_DIR" "$OUT_DIR"
-            python scripts/fetch_media.py --content "$FILE" --out "$MEDIA_DIR"
-            python scripts/render.py --content "$FILE" --out "$OUT_DIR"
-            test -s "$OUT_DIR/video.mp4"
-            test -s "$OUT_DIR/caption.txt"
-            test -s "$OUT_DIR/sources.json"
-          done
-
-      - name: Publish rendered MP4s in repository
-        if: steps.content.outputs.files != ''
-        shell: bash
-        run: |
-          mkdir -p videos
-          mapfile -t FILES < render_list.txt
-          for FILE in "${FILES[@]}"; do
-            [ -n "$FILE" ] || continue
-            STEM=$(basename "$FILE" .json)
-            cp "out/$STEM/video.mp4" "videos/$STEM.mp4"
-            cp "out/$STEM/caption.txt" "videos/$STEM.caption.txt"
-            cp "out/$STEM/sources.json" "videos/$STEM.sources.json"
-            if [ -f "media/$STEM/credits.json" ]; then
-              cp "media/$STEM/credits.json" "videos/$STEM.credits.json"
-            fi
-          done
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git restore --worktree -- content/ || true
-          python scripts/update_history.py "${FILES[@]}"
-          git add videos/ content/published_history.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Publish rendered TikTok videos"
-            git pull --rebase origin main
-            git push
-          fi
-
-      - name: Upload video packages
-        if: always() && steps.content.outputs.files != ''
-        uses: actions/upload-artifact@v4
-        with:
-          name: tal-dia-como-hoy-${{ github.run_id }}
-          path: |
-            out/
-            media/
-          retention-days: 30
- \
-              >> render_list.txt || true
-
-            # A scripts/workflow-only change must still exercise the real render path.
+            git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" -- 'content/20??-??-??*.json' | grep -E '^content/20[0-9]{2}-[0-9]{2}-[0-9]{2}(-[A-Za-z0-9_-]+)?\.json$' >> render_list.txt || true
             if [ ! -s render_list.txt ]; then
-              LATEST_MAIN=$(find content -maxdepth 1 -type f \
-                -regextype posix-extended \
-                -regex 'content/20[0-9]{2}-[0-9]{2}-[0-9]{2}\.json' \
-                -print | sort | tail -n 1)
+              LATEST_MAIN=$(find content -maxdepth 1 -type f -name '20??-??-??.json' -print | sort | tail -n 1)
               test -n "$LATEST_MAIN"
               DATE_PREFIX=$(basename "$LATEST_MAIN" .json)
               find content -maxdepth 1 -type f -name "${DATE_PREFIX}*.json" -print | sort >> render_list.txt
@@ -157,7 +72,6 @@ jobs:
             test -f "$SABIAS"
             printf '%s\n' "$MAIN" "$SABIAS" >> render_list.txt
           fi
-
           sort -u -o render_list.txt render_list.txt
           test -s render_list.txt
           echo "files<<EOF" >> "$GITHUB_OUTPUT"
