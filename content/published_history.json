@@ -20,5 +20,16 @@
     "format": "place_with_history",
     "hook_pattern": "consequence_first",
     "duration_target": null
+  },
+  {
+    "date": "2026-10-02",
+    "series": "El detalle que casi nadie ve",
+    "title": "El detalle del escudo de España que muchos pasan por alto",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "simbolos_y_detalles",
+    "format": "historical_object_word_custom",
+    "hook_pattern": "overlooked_detail",
+    "duration_target": null
   }
 ]
