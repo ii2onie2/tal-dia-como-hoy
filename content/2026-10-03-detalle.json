@@ -1,0 +1,38 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "La mano y la llave de la Puerta de la Justicia de la Alhambra",
+  "date": "2026-10-03",
+  "slot": "16:00",
+  "hook": "Mira la Puerta de la Justicia de la Alhambra: una mano aparece en el arco exterior y una llave en el interior.",
+  "narration": "En la Puerta de la Justicia de la Alhambra hay dos símbolos que muchos visitantes pasan por alto: una mano grabada en la clave del gran arco exterior y una llave sobre el arco interior. El Patronato de la Alhambra explica que son símbolos islámicos: la llave representa la fe y la mano alude a los cinco preceptos de la ley musulmana. La puerta fue levantada en 1348 durante el reinado de Yusuf I. Más tarde, los Reyes Católicos ordenaron colocar también una Virgen con el Niño sobre la inscripción fundacional árabe, creando un contraste visible entre etapas distintas del monumento. ¿Las habías visto? Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "caption": "Una mano en el arco exterior y una llave en el interior: dos símbolos visibles en la Puerta de la Justicia de la Alhambra, construida en 1348 bajo Yusuf I.",
+  "hashtags": [
+    "#ElDetalleQueCasiNadieVe",
+    "#Alhambra",
+    "#Granada",
+    "#HistoriaDeEspaña",
+    "#ArteNazari"
+  ],
+  "sources": [
+    {
+      "name": "Patronato de la Alhambra y Generalife - Puerta de la Justicia",
+      "url": "https://www.alhambra-patronato.es/edificios-lugares/puerta-de-la-justicia"
+    },
+    {
+      "name": "Patronato de la Alhambra y Generalife - Restauración de la portada principal de la Torre de la Justicia",
+      "url": "https://www.alhambra-patronato.es/proyectos/la-restauracion-de-la-portada-principal-de-la-torre-de-la-justicia"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Puerta de la Justicia, o Bab al-Shari'a (la Alhambra).jpg",
+      "role": "Puerta de la Justicia de la Alhambra con la mano y la llave visibles en sus arcos",
+      "license_note": "Wikimedia Commons CC BY 4.0; conservar la atribución y las condiciones indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "format": "three_facts",
+  "hook_pattern": "this_happened_here",
+  "topic_family": "patrimonio_nazari",
+  "duration_target": "20-35s"
+}

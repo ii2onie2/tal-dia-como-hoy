@@ -1,0 +1,38 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "3 de octubre de 1714: Felipe V aprueba oficialmente la Real Academia Española",
+  "date": "2026-10-03",
+  "slot": "10:00",
+  "hook": "Una de las instituciones lingüísticas más conocidas del mundo hispánico quedó oficialmente reconocida un día como hoy hace más de tres siglos.",
+  "narration": "Tal día como hoy, el 3 de octubre de 1714, Felipe V aprobó oficialmente mediante una real cédula la constitución de la Real Academia Española. La institución había nacido en Madrid un año antes por iniciativa de Juan Manuel Fernández Pacheco, marqués de Villena, que fue su primer director. Desde sus primeros años, la Academia se propuso elaborar un gran diccionario de la lengua castellana y después también una gramática y una poética. Su emblema, un crisol al fuego con la leyenda «Limpia, fija y da esplendor», acabaría convirtiéndose en uno de sus símbolos más reconocibles. Síguenos y descubre cada día una historia de España que probablemente no conocías. ¿Conocías el origen de la RAE?",
+  "caption": "El 3 de octubre de 1714, una real cédula de Felipe V aprobó oficialmente la constitución de la Real Academia Española, nacida en Madrid el año anterior por iniciativa del marqués de Villena.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#RAE",
+    "#LenguaEspañola",
+    "#Historia"
+  ],
+  "sources": [
+    {
+      "name": "ASALE - Historia de la Real Academia Española",
+      "url": "https://temporalweb.asale.org/academias/real-academia-espanola/historia"
+    },
+    {
+      "name": "Real Academia Española - Anuario 2014",
+      "url": "https://www.rae.es/sites/default/files/Anuario_2014_web.pdf"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Juan Manuel Fernandez Pacheco.jpg",
+      "role": "Retrato de Juan Manuel Fernández Pacheco, fundador y primer director de la Real Academia Española",
+      "license_note": "Wikimedia Commons; conservar la atribución y las condiciones de reutilización indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día una historia de España que probablemente no conocías.",
+  "format": "chronological_event",
+  "hook_pattern": "surprising_fact",
+  "topic_family": "lengua_y_cultura",
+  "duration_target": "45-70s"
+}
