@@ -1,0 +1,38 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que España adelantó una hora en 1940 y nunca la restableció?",
+  "date": "2026-10-03",
+  "slot": "19:00",
+  "hook": "En 1940, la hora oficial española se adelantó 60 minutos con la idea de volver después al horario normal. Ese regreso no llegó.",
+  "narration": "¿Sabías que el horario oficial de España cambió en marzo de 1940 y que aquel cambio acabó siendo permanente? Una orden publicada en el BOE dispuso que el 16 de marzo, a las once de la noche, los relojes se adelantaran sesenta minutos. El propio texto decía que más adelante se señalaría la fecha para restablecer la hora normal. Sin embargo, una publicación del Instituto Geográfico Nacional explica que ese restablecimiento nunca se produjo. En la práctica, la Península y Baleares quedaron en el huso horario +1, mientras Canarias quedó en el huso 0. Un cambio anunciado como temporal terminó formando parte de la vida diaria. Síguenos y descubre cada día algo de España que probablemente no conocías. ¿Lo sabías?",
+  "caption": "Una orden de 1940 adelantó 60 minutos la hora legal en España. El restablecimiento anunciado no llegó y el cambio acabó siendo permanente.",
+  "hashtags": [
+    "#SabiasEstoDeEspaña",
+    "#CuriosidadesDeEspaña",
+    "#HistoriaDeEspaña",
+    "#HusoHorario",
+    "#MeridianoDeGreenwich"
+  ],
+  "sources": [
+    {
+      "name": "BOE - Orden de 7 de marzo de 1940 sobre adelanto de la hora legal",
+      "url": "https://www.boe.es/gazeta/dias/1940/03/08/pdfs/BOE-1940-68.pdf"
+    },
+    {
+      "name": "Instituto Geográfico Nacional - Cuestiones de astronomía",
+      "url": "https://www.ign.es/resources/acercaDe/libDigPub/CuestionesAstronomia_baja.pdf"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Meridiano de Greenwich (Albocacer, España).jpg",
+      "role": "Señal del meridiano de Greenwich en Albocàsser, Castellón",
+      "license_note": "Wikimedia Commons CC BY 4.0; conservar la atribución y las condiciones indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "format": "invention_science_culture",
+  "hook_pattern": "unanswered_question",
+  "topic_family": "ciencia_y_vida_cotidiana",
+  "duration_target": "25-40s"
+}

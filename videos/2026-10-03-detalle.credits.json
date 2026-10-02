@@ -1,0 +1,95 @@
+[
+  {
+    "commons_title": "File:Puerta de la Justicia, o Bab al-Shari'a (la Alhambra).jpg",
+    "path": "media/2026-10-03-detalle/01.jpg",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/11/Puerta_de_la_Justicia%2C_o_Bab_al-Shari%27a_%28la_Alhambra%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "metadata": {
+      "DateTime": {
+        "value": "2021-04-28 09:32:46",
+        "source": "mediawiki-metadata",
+        "hidden": ""
+      },
+      "ObjectName": {
+        "value": "Puerta de la Justicia, o Bab al-Shari'a (la Alhambra)",
+        "source": "mediawiki-metadata"
+      },
+      "CommonsMetadataExtension": {
+        "value": 1.2,
+        "source": "extension",
+        "hidden": ""
+      },
+      "Categories": {
+        "value": "GFDL|Images with annotations|Puerta de la Justicia, Alhambra|License migration redundant|Self-published work|Files with coordinates missing SDC location of creation|Alhambra in 2017",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "Assessments": {
+        "value": "",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "GPSLatitude": {
+        "value": "37.176080",
+        "source": "commons-desc-page"
+      },
+      "GPSLongitude": {
+        "value": "-3.590180",
+        "source": "commons-desc-page"
+      },
+      "GPSMapDatum": {
+        "value": "WGS-84",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "ImageDescription": {
+        "value": "Una de las dos puertas meridionales del recinto amurallado de la Madina Al-Hamra (la <a href=\"https://es.wikipedia.org/wiki/Alhambra\" class=\"extiw\" title=\"es:Alhambra\">Alhambra</a>).",
+        "source": "commons-desc-page"
+      },
+      "DateTimeOriginal": {
+        "value": "2017-02",
+        "source": "commons-desc-page"
+      },
+      "Credit": {
+        "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "source": "commons-desc-page"
+      },
+      "Artist": {
+        "value": "José Luis Filpo Cabana",
+        "source": "commons-desc-page"
+      },
+      "LicenseShortName": {
+        "value": "CC BY 4.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "UsageTerms": {
+        "value": "Creative Commons Attribution 4.0",
+        "source": "commons-desc-page"
+      },
+      "AttributionRequired": {
+        "value": "true",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "LicenseUrl": {
+        "value": "https://creativecommons.org/licenses/by/4.0",
+        "source": "commons-desc-page"
+      },
+      "Copyrighted": {
+        "value": "True",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Restrictions": {
+        "value": "",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "License": {
+        "value": "cc-by-4.0",
+        "source": "commons-templates",
+        "hidden": ""
+      }
+    }
+  }
+]

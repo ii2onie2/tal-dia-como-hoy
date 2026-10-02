@@ -31,5 +31,38 @@
     "format": "place_with_history",
     "hook_pattern": "consequence_first",
     "duration_target": null
+  },
+  {
+    "date": "2026-10-03",
+    "series": "El detalle que casi nadie ve",
+    "title": "La mano y la llave de la Puerta de la Justicia de la Alhambra",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "patrimonio_nazari",
+    "format": "three_facts",
+    "hook_pattern": "this_happened_here",
+    "duration_target": "20-35s"
+  },
+  {
+    "date": "2026-10-03",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que España adelantó una hora en 1940 y nunca la restableció?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "ciencia_y_vida_cotidiana",
+    "format": "invention_science_culture",
+    "hook_pattern": "unanswered_question",
+    "duration_target": "25-40s"
+  },
+  {
+    "date": "2026-10-03",
+    "series": "Tal Día Como Hoy",
+    "title": "3 de octubre de 1714: Felipe V aprueba oficialmente la Real Academia Española",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "lengua_y_cultura",
+    "format": "chronological_event",
+    "hook_pattern": "surprising_fact",
+    "duration_target": "45-70s"
   }
 ]
