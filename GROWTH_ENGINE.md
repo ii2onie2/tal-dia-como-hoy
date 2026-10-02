@@ -35,11 +35,12 @@ Do not use the same format, hook pattern, main person, period or narrative struc
 
 ## Duration targets
 
-Choose duration from the story:
-- simple curiosity: 25-40 seconds
-- standard historical story: 45-70 seconds
-- complex story: 90-150 seconds
-Never stretch a story merely to reach a target duration.
+Starting with publications dated 2026-10-04:
+- all three daily series target 65-80 seconds
+- absolute rendered-video minimum: 61 seconds
+- narration target: approximately 170-200 Spanish words
+- final validation uses the rendered MP4 duration, not word count alone
+Never stretch a story with filler; add sourced context, consequences, or documented details instead.
 
 ## Hook variation
 
@@ -90,17 +91,17 @@ Historical and political subjects must remain factual and sourced. Do not invent
 ## Video format proposals
 
 ### Tal Día Como Hoy — mini-documentary
-Target: 45-70 seconds.
+Target from 2026-10-04: 65-80 seconds.
 Structure: shock/consequence hook -> immediate historical context -> 2-3 factual turns -> strongest detail -> CTA/question.
 Visual language: archival images, slow pan/zoom, date/location badge, maps or document details when available.
 
 ### ¿Sabías esto de España? — fast curiosity
-Target: 25-40 seconds.
+Target from 2026-10-04: 65-80 seconds.
 Structure: one surprising claim -> explanation -> unexpected detail -> one-line takeaway -> CTA.
 Visual language: faster cuts, one main object/place, text emphasis on the surprising detail.
 
 ### El detalle que casi nadie ve — short visual discovery
-Target: 20-35 seconds.
+Target from 2026-10-04: 65-80 seconds.
 Schedule: 16:00.
 Structure: ultra-direct hook -> show the detail immediately -> explain what/where -> surprising meaning/origin -> CTA/question.
 Visual language: close crop, zoom/highlight, one object or architectural detail, short labels, rapid visual emphasis.
