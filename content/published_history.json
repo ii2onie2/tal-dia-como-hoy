@@ -75,5 +75,16 @@
     "format": "place_with_history",
     "hook_pattern": "surprising_fact",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-04",
+    "series": "Tal Día Como Hoy",
+    "title": "4 de octubre de 1582: el día antes de que España saltara diez fechas del calendario",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "ciencia_y_calendario",
+    "format": "before_after",
+    "hook_pattern": "consequence_first",
+    "duration_target": "65-80s"
   }
 ]
