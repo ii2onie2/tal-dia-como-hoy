@@ -64,5 +64,16 @@
     "format": "chronological_event",
     "hook_pattern": "surprising_fact",
     "duration_target": "45-70s"
+  },
+  {
+    "date": "2026-10-04",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que existe un municipio español completamente rodeado por Francia?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "fronteras_y_geografia",
+    "format": "place_with_history",
+    "hook_pattern": "surprising_fact",
+    "duration_target": "65-80s"
   }
 ]
