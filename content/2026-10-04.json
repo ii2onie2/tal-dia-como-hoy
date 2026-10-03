@@ -1,0 +1,38 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "4 de octubre de 1582: el día antes de que España saltara diez fechas del calendario",
+  "date": "2026-10-04",
+  "slot": "10:00",
+  "hook": "Hoy, 4 de octubre, ocurrió algo que parece imposible: en España, el día siguiente no sería el 5, sino el 15 de octubre de 1582.",
+  "narration": "Hoy, 4 de octubre, ocurrió algo que parece imposible: en España, el día siguiente no sería el 5, sino el 15 de octubre de 1582. La razón fue la reforma del calendario impulsada por Gregorio XIII para corregir el desfase acumulado por el calendario juliano respecto al año solar. Felipe II ordenó aplicar la reforma en sus reinos mediante una pragmática fechada en Lisboa el 29 de septiembre de 1582 y pregonada en Madrid el 3 de octubre. Así, el jueves 4 de octubre fue seguido directamente por el viernes 15. No desaparecieron diez días de la historia: simplemente dejaron de existir como fechas oficiales en esos territorios. El cambio también modificó la regla de los años bisiestos para evitar que el error volviera a acumularse. España estuvo entre los primeros territorios en adoptar el nuevo calendario, que con el tiempo se convirtió en el sistema civil más extendido del mundo. Síguenos y descubre cada día una historia de España que probablemente no conocías. ¿Te imaginas acostarte un día 4 y despertar oficialmente un día 15?",
+  "caption": "El 4 de octubre de 1582 fue seguido en España por el 15 de octubre tras la adopción del calendario gregoriano.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#CalendarioGregoriano",
+    "#FelipeII",
+    "#CuriosidadesHistoricas"
+  ],
+  "sources": [
+    {
+      "name": "Universidad de Salamanca - Pragmática sobre la reforma y cuenta del año (1582)",
+      "url": "https://gredos.usal.es/handle/10366/49061"
+    },
+    {
+      "name": "Armada Española - Cuaderno de bitácora del Hespérides: calendario gregoriano",
+      "url": "https://armada.defensa.gob.es/ArmadaPortal/page/Portal/ArmadaEspannola/conocenosvidaabordo/prefLang-es/deLaFuerza--0497-HESPERIDES--03-Cuardernobitacora-es?_pageNum=10&paramNo="
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Reforma Gregoriana del Calendario Juliano.jpg",
+      "role": "Lunario de 1582 que muestra el salto del 4 al 15 de octubre",
+      "license_note": "Wikimedia Commons; obra histórica en dominio público según la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día una historia de España que probablemente no conocías.",
+  "format": "before_after",
+  "hook_pattern": "consequence_first",
+  "topic_family": "ciencia_y_calendario",
+  "duration_target": "65-80s"
+}
