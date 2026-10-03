@@ -1,0 +1,22 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que existe un municipio español completamente rodeado por Francia?",
+  "date": "2026-10-04",
+  "slot": "19:00",
+  "hook": "¿Sabías que existe un municipio español completamente rodeado por territorio francés?",
+  "narration": "¿Sabías que existe un municipio español completamente rodeado por territorio francés? Se llama Llívia, está en la Cerdanya y pertenece a la provincia de Girona. Su situación actual se explica por los acuerdos que fijaron la frontera entre las monarquías hispánica y francesa en el siglo XVII. El Tratado de los Pirineos de 1659 y el acuerdo complementario firmado en Llívia en 1660 cedieron a Francia varias localidades de la Cerdanya. Pero Llívia quedó vinculada a la Corona española y terminó convertida en un enclave dentro de Francia. Una de las claves históricas es que Carlos V le había concedido en 1528 el título de villa, circunstancia que parece haber favorecido que no fuera incluida entre los pueblos cedidos. Hoy el municipio sigue separado físicamente del resto de España y está rodeado por municipios franceses. En el punto más cercano, apenas unos kilómetros la separan de Puigcerdà. Es una frontera creada hace más de tres siglos que todavía forma parte del mapa europeo. Síguenos y descubre cada día algo de España que probablemente no conocías. ¿Conocías este pequeño enclave español en Francia?",
+  "caption": "Llívia, en Girona, es un municipio español rodeado por territorio francés, consecuencia de los acuerdos fronterizos del siglo XVII.",
+  "hashtags": ["#SabiasEstoDeEspaña", "#Llivia", "#CuriosidadesDeEspaña", "#HistoriaDeEspaña", "#Pirineos"],
+  "sources": [
+    {"name": "Ayuntamiento de Llívia - El enclave de Llívia", "url": "https://llivia.org/es/noticias/el-museo-de-llivia-amplia-la-oferta-del-programa-descubrir-llivia.html"},
+    {"name": "Ajuntament de Llívia - Memòria descriptiva del POUM", "url": "https://llivia.org/files/2022/poum/POUM_LLI_ai_a_Memoria/POUM_LLI_ai_A_Memoria_descriptiva_i_justificativa_Informacio_diligenciat.pdf"}
+  ],
+  "media": [
+    {"commons_title": "File:Llívia et Pyrénées map.png", "role": "Mapa de localización de Llívia dentro del territorio francés en los Pirineos", "license_note": "Wikimedia Commons CC0 1.0 según la página del archivo"}
+  ],
+  "cta": "Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "format": "place_with_history",
+  "hook_pattern": "surprising_fact",
+  "topic_family": "fronteras_y_geografia",
+  "duration_target": "65-80s"
+}
