@@ -86,5 +86,16 @@
     "format": "before_after",
     "hook_pattern": "consequence_first",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-04",
+    "series": "El detalle que casi nadie ve",
+    "title": "La rana sobre una calavera en la Universidad de Salamanca",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "patrimonio_universitario",
+    "format": "mystery",
+    "hook_pattern": "overlooked_detail",
+    "duration_target": "65-80s"
   }
 ]
