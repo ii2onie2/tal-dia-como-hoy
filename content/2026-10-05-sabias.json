@@ -1,0 +1,38 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que en La Gomera se puede conversar silbando?",
+  "date": "2026-10-05",
+  "slot": "19:00",
+  "hook": "¿Sabías que en una isla española existe un lenguaje silbado capaz de transmitir mensajes completos a través de barrancos y grandes distancias?",
+  "narration": "¿Sabías que en una isla española existe un lenguaje silbado capaz de transmitir mensajes completos a través de barrancos y grandes distancias? Es el Silbo Gomero, una forma de comunicación tradicional de La Gomera, en Canarias, que reproduce el español mediante silbidos. No es un código de unas pocas señales. El sistema transforma los sonidos del habla en un conjunto reducido de silbidos diferenciados por su tono y por si son continuos o interrumpidos. Con práctica, permite expresar frases y mantener conversaciones. Su utilidad se entiende al mirar el paisaje de la isla: los profundos barrancos dificultaban la comunicación directa entre puntos cercanos en línea recta pero separados por fuertes desniveles. El silbido podía viajar mucho más lejos que la voz normal. Durante el siglo XX existió el riesgo de que la tradición se debilitara, por lo que se impulsó su enseñanza y desde 1999 forma parte del aprendizaje escolar en La Gomera. En 2009 la UNESCO inscribió el Silbo Gomero en la Lista Representativa del Patrimonio Cultural Inmaterial de la Humanidad. Síguenos y descubre cada día algo de España que probablemente no conocías. ¿Serías capaz de entender una conversación entera hecha solo con silbidos?",
+  "caption": "El Silbo Gomero transforma el español en silbidos y fue reconocido por la UNESCO como Patrimonio Cultural Inmaterial en 2009.",
+  "hashtags": [
+    "#SabiasEstoDeEspaña",
+    "#SilboGomero",
+    "#LaGomera",
+    "#Canarias",
+    "#PatrimonioCultural"
+  ],
+  "sources": [
+    {
+      "name": "UNESCO - El Silbo Gomero",
+      "url": "https://ich.unesco.org/es/RL/el-silbo-gomero-lenguaje-silbado-de-la-isla-de-la-gomera-islas-canarias-00172"
+    },
+    {
+      "name": "Gobierno de Canarias - Patrimonio Cultural",
+      "url": "https://www.gobiernodecanarias.org/cultura/patrimoniocultural/"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Demostración de silbo gomero, La Gomera, España, 2012-12-14, DD 01.jpg",
+      "role": "Demostración de Silbo Gomero en La Gomera",
+      "license_note": "Wikimedia Commons; fotografía de Diego Delso, conservar atribución y condiciones de la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "format": "cultural_fact",
+  "hook_pattern": "surprising_fact",
+  "topic_family": "patrimonio_inmaterial",
+  "duration_target": "65-80s"
+}

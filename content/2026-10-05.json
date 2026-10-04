@@ -1,0 +1,38 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "5 de octubre de 1934: comenzó la insurrección que sacudió Asturias",
+  "date": "2026-10-05",
+  "slot": "10:00",
+  "hook": "Tal día como hoy, 5 de octubre de 1934, una huelga revolucionaria convirtió Asturias en el principal foco de una crisis que sacudió a la Segunda República.",
+  "narration": "Tal día como hoy, 5 de octubre de 1934, comenzó en España una huelga revolucionaria que tuvo en Asturias su episodio más intenso. El conflicto estalló en un clima de fuerte polarización política y social, después de la entrada de ministros de la CEDA en el Gobierno de Alejandro Lerroux. En muchas zonas del país la movilización fue contenida rápidamente, pero en las cuencas mineras asturianas adquirió otra dimensión. Grupos de trabajadores armados ocuparon localidades, atacaron cuarteles y avanzaron hacia Oviedo, mientras se organizaban comités revolucionarios. Durante cerca de dos semanas hubo combates, destrucciones y numerosas víctimas. El Gobierno envió tropas para recuperar el control, entre ellas unidades del Ejército de África, y la insurrección terminó siendo derrotada. La represión posterior dejó miles de detenidos y profundizó aún más la división política de la España de los años treinta. Los acontecimientos de octubre de 1934 se convirtieron en uno de los grandes episodios de tensión previos a la Guerra Civil. Síguenos y descubre cada día un episodio que cambió la historia de España. ¿Conocías la magnitud que alcanzó la revolución de Asturias?",
+  "caption": "El 5 de octubre de 1934 comenzó la insurrección revolucionaria cuyo principal foco estuvo en Asturias.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Asturias",
+    "#SegundaRepublica",
+    "#Octubre1934"
+  ],
+  "sources": [
+    {
+      "name": "Wikimedia Commons - Revolution of 1934 in Asturias",
+      "url": "https://commons.wikimedia.org/wiki/Category:Revolution_of_1934_in_Asturias"
+    },
+    {
+      "name": "Wikipedia - Revolución de Asturias de 1934",
+      "url": "https://es.wikipedia.org/wiki/Revoluci%C3%B3n_de_Asturias_de_1934"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Arrested workers during the Asturian Revolution, 1934.jpg",
+      "role": "Trabajadores detenidos durante la Revolución de Asturias de 1934",
+      "license_note": "Wikimedia Commons; conservar atribución y condiciones indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día un episodio que cambió la historia de España.",
+  "format": "timeline",
+  "hook_pattern": "date_first",
+  "topic_family": "historia_politica_y_social",
+  "duration_target": "65-80s"
+}

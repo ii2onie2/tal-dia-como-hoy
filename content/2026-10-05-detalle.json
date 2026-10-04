@@ -1,0 +1,38 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "El acueducto de Segovia: miles de sillares colocados sin mortero",
+  "date": "2026-10-05",
+  "slot": "16:00",
+  "hook": "El detalle más increíble del acueducto de Segovia no es su altura: sus grandes bloques de granito se mantienen unidos sin mortero.",
+  "narration": "El detalle más increíble del acueducto de Segovia no es su altura: sus grandes bloques de granito se mantienen unidos sin mortero. En el tramo monumental que atraviesa la ciudad, los sillares fueron tallados y colocados de manera que su propio peso y el equilibrio de las cargas mantienen estable la estructura. Los romanos levantaron dos niveles de arcos para salvar el desnivel y conducir el agua hasta la ciudad. No se trata de un simple monumento aislado: formaba parte de un sistema hidráulico mucho más largo que captaba agua fuera del núcleo urbano, la decantaba y la distribuía. La precisión del aparejo resulta especialmente llamativa cuando se observa de cerca la unión entre las piedras. Durante siglos, el acueducto siguió formando parte del paisaje cotidiano de Segovia y se convirtió en su símbolo más reconocible. La ciudad vieja y su acueducto fueron inscritos por la UNESCO como Patrimonio Mundial en 1985. La próxima vez que lo mires, fíjate en las juntas: esa ausencia de mortero explica por qué la geometría y el peso de cada bloque eran esenciales. Síguenos para descubrir más detalles de España que casi nadie ve. ¿Habías reparado alguna vez en cómo se sostienen esas piedras?",
+  "caption": "El acueducto de Segovia conserva grandes sillares de granito colocados sin mortero, sostenidos por su ajuste y por la distribución de cargas.",
+  "hashtags": [
+    "#ElDetalleQueCasiNadieVe",
+    "#Segovia",
+    "#AcueductoDeSegovia",
+    "#HistoriaDeEspaña",
+    "#Patrimonio"
+  ],
+  "sources": [
+    {
+      "name": "UNESCO - Old Town of Segovia and its Aqueduct",
+      "url": "https://whc.unesco.org/en/list/311/"
+    },
+    {
+      "name": "Wikimedia Commons - Acueducto de Segovia",
+      "url": "https://commons.wikimedia.org/wiki/Category:Aqueduct_of_Segovia"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Acueducto de Segovia .jpg",
+      "role": "Vista vertical del acueducto romano de Segovia y de sus sillares de granito",
+      "license_note": "Wikimedia Commons; conservar atribución y condiciones indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "format": "engineering_detail",
+  "hook_pattern": "overlooked_detail",
+  "topic_family": "patrimonio_romano",
+  "duration_target": "65-80s"
+}
