@@ -66,39 +66,6 @@
     "duration_target": "45-70s"
   },
   {
-    "date": "2026-10-05",
-    "series": "El detalle que casi nadie ve",
-    "title": "El acueducto de Segovia: miles de sillares colocados sin mortero",
-    "subject": null,
-    "principal_person": null,
-    "topic_family": "patrimonio_romano",
-    "format": "engineering_detail",
-    "hook_pattern": "overlooked_detail",
-    "duration_target": "65-80s"
-  },
-  {
-    "date": "2026-10-05",
-    "series": "¿Sabías esto de España?",
-    "title": "¿Sabías que en La Gomera se puede conversar silbando?",
-    "subject": null,
-    "principal_person": null,
-    "topic_family": "patrimonio_inmaterial",
-    "format": "cultural_fact",
-    "hook_pattern": "surprising_fact",
-    "duration_target": "65-80s"
-  },
-  {
-    "date": "2026-10-05",
-    "series": "Tal Día Como Hoy",
-    "title": "5 de octubre de 1934: comenzó la insurrección que sacudió Asturias",
-    "subject": null,
-    "principal_person": null,
-    "topic_family": "historia_politica_y_social",
-    "format": "timeline",
-    "hook_pattern": "date_first",
-    "duration_target": "65-80s"
-  },
-  {
     "date": "2026-10-04",
     "series": "El detalle que casi nadie ve",
     "title": "La rana sobre una calavera en la Universidad de Salamanca",
@@ -129,6 +96,39 @@
     "topic_family": "ciencia_y_calendario",
     "format": "before_after",
     "hook_pattern": "consequence_first",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-05",
+    "series": "El detalle que casi nadie ve",
+    "title": "El acueducto de Segovia: miles de sillares colocados sin mortero",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "patrimonio_romano",
+    "format": "engineering_detail",
+    "hook_pattern": "overlooked_detail",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-05",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que en La Gomera se puede conversar silbando?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "patrimonio_inmaterial",
+    "format": "cultural_fact",
+    "hook_pattern": "surprising_fact",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-05",
+    "series": "Tal Día Como Hoy",
+    "title": "5 de octubre de 1934: comenzó la insurrección que sacudió Asturias",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "historia_politica_y_social",
+    "format": "timeline",
+    "hook_pattern": "date_first",
     "duration_target": "65-80s"
   }
 ]
