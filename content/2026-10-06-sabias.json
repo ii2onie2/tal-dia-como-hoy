@@ -1,0 +1,38 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que en Almería está la única zona desértica propiamente dicha de Europa?",
+  "date": "2026-10-06",
+  "slot": "19:00",
+  "hook": "¿Sabías que en la provincia de Almería existe un paisaje que la Junta de Andalucía considera la única zona desértica propiamente dicha de todo el continente europeo?",
+  "narration": "¿Sabías que en la provincia de Almería existe un paisaje que la Junta de Andalucía considera la única zona desértica propiamente dicha de todo el continente europeo? Es el Desierto de Tabernas, situado al norte de la ciudad de Almería, entre las sierras de los Filabres y Alhamilla. Su aspecto árido no es casual. La zona recibe precipitaciones muy escasas, por debajo de unos 250 milímetros anuales, y presenta relieves erosionados, cárcavas y cauces torrenciales que recuerdan a paisajes norteafricanos. Esa combinación ha creado un territorio de gran interés geológico y ecológico, con especies adaptadas a condiciones muy secas. Además, su paisaje se hizo famoso internacionalmente porque fue utilizado como escenario natural para numerosos westerns y otras producciones cinematográficas. Hoy está protegido como paraje natural y ocupa más de once mil hectáreas. Síguenos y descubre cada día algo de España que probablemente no conocías. ¿Imaginabas que uno de los paisajes más desérticos de Europa estaba en Andalucía?",
+  "caption": "El Desierto de Tabernas, en Almería, está considerado por la Junta de Andalucía como la única zona desértica propiamente dicha del continente europeo.",
+  "hashtags": [
+    "#SabiasEstoDeEspaña",
+    "#DesiertoDeTabernas",
+    "#Almeria",
+    "#Andalucia",
+    "#CuriosidadesDeEspaña"
+  ],
+  "sources": [
+    {
+      "name": "Junta de Andalucía - Paraje Natural Desierto de Tabernas",
+      "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos/legislacion-autonomica-nacional/parajes-naturales/paraje-natural-desierto-de-tabernas"
+    },
+    {
+      "name": "Wikimedia Commons - Tabernas Desert",
+      "url": "https://commons.wikimedia.org/wiki/File:Tabernas_Desert.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Tabernas Desert.jpg",
+      "role": "Paisaje del Desierto de Tabernas en Almería",
+      "license_note": "Wikimedia Commons; conservar atribución y condiciones indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "format": "geography_curiosity",
+  "hook_pattern": "surprising_fact",
+  "topic_family": "geografia_extrema",
+  "duration_target": "65-80s"
+}

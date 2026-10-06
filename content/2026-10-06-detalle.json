@@ -1,0 +1,38 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "El Oso y el Madroño de Madrid no empezó como una simple estatua turística",
+  "date": "2026-10-06",
+  "slot": "16:00",
+  "hook": "En la Puerta del Sol hay una escultura que casi todos fotografían, pero su historia empieza mucho antes de que llegara allí en 1967.",
+  "narration": "En la Puerta del Sol de Madrid hay una escultura que millones de personas reconocen al instante: el Oso y el Madroño. Pero el detalle interesante es que no nació como un adorno turístico. La figura representa uno de los símbolos históricos de la ciudad y procede de las armas de la Villa. Durante la Edad Media, Madrid utilizó la imagen de un oso en su emblema. Más tarde, tras disputas sobre el uso de pastos y arboledas, el árbol quedó incorporado al escudo junto al animal. La estatua actual fue realizada por el escultor Antonio Navarro Santafé y se inauguró en enero de 1967. Desde entonces ha cambiado de ubicación dentro de la propia Puerta del Sol y se ha convertido en uno de los puntos de encuentro más conocidos de Madrid. El detalle que suele pasar desapercibido es que esa escena aparentemente sencilla resume siglos de identidad urbana, heráldica y relación con el territorio. Síguenos para descubrir más detalles de España que casi nadie ve. ¿Te habías preguntado alguna vez por qué Madrid tiene un oso junto a un árbol?",
+  "caption": "El Oso y el Madroño de la Puerta del Sol representa un símbolo histórico de Madrid mucho anterior a la estatua inaugurada en 1967.",
+  "hashtags": [
+    "#ElDetalleQueCasiNadieVe",
+    "#Madrid",
+    "#OsoYMadroño",
+    "#HistoriaDeEspaña",
+    "#PuertaDelSol"
+  ],
+  "sources": [
+    {
+      "name": "Ayuntamiento de Madrid - Oso y Madroño",
+      "url": "https://patrimonioypaisaje.madrid.es/portales/monumenta/es/Monumentos-y-Edificios-Singulares/Monumentos/Oso-y-Madrono/"
+    },
+    {
+      "name": "Wikimedia Commons - El oso y el madroño",
+      "url": "https://commons.wikimedia.org/wiki/File:El_oso_y_el_madro%C3%B1o_de_la_Puerta_del_Sol,_Madrid.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:El oso y el madroño de la Puerta del Sol, Madrid.jpg",
+      "role": "Escultura del Oso y el Madroño en la Puerta del Sol de Madrid",
+      "license_note": "Wikimedia Commons; conservar atribución y condiciones indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "format": "symbol_explainer",
+  "hook_pattern": "overlooked_detail",
+  "topic_family": "simbolos_urbanos",
+  "duration_target": "65-80s"
+}

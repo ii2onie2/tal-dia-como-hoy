@@ -1,0 +1,38 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "6 de octubre de 1934: Lluís Companys proclamó el Estado Catalán",
+  "date": "2026-10-06",
+  "slot": "10:00",
+  "hook": "Tal día como hoy, 6 de octubre de 1934, Lluís Companys proclamó desde Barcelona el Estado Catalán dentro de una República Federal Española.",
+  "narration": "Tal día como hoy, 6 de octubre de 1934, el presidente de la Generalitat, Lluís Companys, proclamó desde Barcelona el Estado Catalán dentro de una República Federal Española. El episodio ocurrió en plena crisis política de la Segunda República y un día después del inicio de la huelga revolucionaria de octubre. La decisión de Companys fue presentada como una respuesta política a la entrada de ministros de la CEDA en el Gobierno central, pero el movimiento no consiguió consolidarse. El Ejército, bajo las órdenes del general Domingo Batet en Cataluña, intervino durante la noche y la resistencia terminó en pocas horas. Companys y varios miembros de su gobierno fueron detenidos, y la autonomía catalana quedó suspendida temporalmente. El episodio del 6 de octubre pasó a la historia como uno de los momentos más tensos de la política española de los años treinta y se desarrolló al mismo tiempo que la insurrección de Asturias. Síguenos y descubre cada día un episodio que ayuda a entender la historia de España. ¿Conocías que aquel Estado Catalán duró apenas unas horas?",
+  "caption": "El 6 de octubre de 1934 Lluís Companys proclamó el Estado Catalán dentro de una República Federal Española; la iniciativa fue sofocada esa misma noche.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Cataluña",
+    "#SegundaRepublica",
+    "#LluísCompanys"
+  ],
+  "sources": [
+    {
+      "name": "Wikipedia - Proclamación del Estado Catalán de 1934",
+      "url": "https://es.wikipedia.org/wiki/Proclamaci%C3%B3n_del_Estado_Catal%C3%A1n_de_1934"
+    },
+    {
+      "name": "Wikimedia Commons - Lluís Companys",
+      "url": "https://commons.wikimedia.org/wiki/File:Llu%C3%ADs_Companys.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Lluís Companys.jpg",
+      "role": "Retrato de Lluís Companys, presidente de la Generalitat en 1934",
+      "license_note": "Wikimedia Commons; dominio público según la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día un episodio que ayuda a entender la historia de España.",
+  "format": "chronological_event",
+  "hook_pattern": "date_first",
+  "topic_family": "historia_politica_y_autonomias",
+  "duration_target": "65-80s"
+}
