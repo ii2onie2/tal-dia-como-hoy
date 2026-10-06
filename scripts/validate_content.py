@@ -18,7 +18,7 @@ for name in files:
     if d["series"] not in {"Tal Día Como Hoy","¿Sabías esto de España?","El detalle que casi nadie ve"}:
         fail(f"{name}: unknown series")
     if d["date"] >= ACTIVATION_DATE:
-        min_words=160
+        min_words=180
         target=d.get("duration_target","")
         if target not in {"65-80s","65-75s"}:
             fail(f"{name}: duration_target must be 65-80s or 65-75s from {ACTIVATION_DATE}")

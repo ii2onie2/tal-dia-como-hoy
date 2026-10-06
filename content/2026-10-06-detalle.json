@@ -4,7 +4,7 @@
   "date": "2026-10-06",
   "slot": "16:00",
   "hook": "En la Puerta del Sol hay una escultura que casi todos fotografían, pero su historia empieza mucho antes de que llegara allí en 1967.",
-  "narration": "En la Puerta del Sol de Madrid hay una escultura que millones de personas reconocen al instante: el Oso y el Madroño. Pero el detalle interesante es que no nació como un adorno turístico. La figura representa uno de los símbolos históricos de la ciudad y procede de las armas de la Villa. Durante la Edad Media, Madrid utilizó la imagen de un oso en su emblema. Más tarde, tras disputas sobre el uso de pastos y arboledas, el árbol quedó incorporado al escudo junto al animal. La estatua actual fue realizada por el escultor Antonio Navarro Santafé y se inauguró en enero de 1967. Desde entonces ha cambiado de ubicación dentro de la propia Puerta del Sol y se ha convertido en uno de los puntos de encuentro más conocidos de Madrid. El detalle que suele pasar desapercibido es que esa escena aparentemente sencilla resume siglos de identidad urbana, heráldica y relación con el territorio. Síguenos para descubrir más detalles de España que casi nadie ve. ¿Te habías preguntado alguna vez por qué Madrid tiene un oso junto a un árbol?",
+  "narration": "En la Puerta del Sol de Madrid hay una escultura que millones de personas reconocen al instante: el Oso y el Madroño. Pero el detalle interesante es que no nació como un adorno turístico. La figura representa uno de los símbolos históricos de la ciudad y procede de las armas de la Villa. Durante la Edad Media, Madrid utilizó la imagen de un oso en su emblema. Más tarde, tras disputas sobre el uso de pastos y arboledas, el árbol quedó incorporado al escudo junto al animal. La estatua actual fue realizada por el escultor Antonio Navarro Santafé y se inauguró en enero de 1967. Desde entonces ha cambiado de ubicación dentro de la propia Puerta del Sol y se ha convertido en uno de los puntos de encuentro más conocidos de Madrid. El detalle que suele pasar desapercibido es que esa escena aparentemente sencilla resume siglos de identidad urbana, heráldica y relación con el territorio. Síguenos para descubrir más detalles de España que casi nadie ve. ¿Te habías preguntado alguna vez por qué Madrid tiene un oso junto a un árbol? Además, la elección del oso y del árbol no es un detalle decorativo moderno: forma parte de una tradición heráldica que identifica a la ciudad desde hace siglos. Por eso la escultura funciona como un resumen visual de la historia de Madrid y no solo como un punto popular para hacerse fotografías.",
   "caption": "El Oso y el Madroño de la Puerta del Sol representa un símbolo histórico de Madrid mucho anterior a la estatua inaugurada en 1967.",
   "hashtags": [
     "#ElDetalleQueCasiNadieVe",
@@ -35,5 +35,5 @@
   "hook_pattern": "overlooked_detail",
   "topic_family": "simbolos_urbanos",
   "duration_target": "65-80s",
-  "render_nonce": "2026-10-06-rerender-detalle-v1"
+  "render_nonce": "2026-10-06-rerender-detalle-v2"
 }
