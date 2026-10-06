@@ -1,0 +1,82 @@
+[
+  {
+    "commons_title": "File:Tabernas Desert.jpg",
+    "path": "media/2026-10-06-sabias/01.jpg",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/93/Tabernas_Desert.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "metadata": {
+      "DateTime": {
+        "value": "2015-05-05 17:51:39",
+        "source": "mediawiki-metadata",
+        "hidden": ""
+      },
+      "ObjectName": {
+        "value": "Tabernas Desert",
+        "source": "mediawiki-metadata"
+      },
+      "CommonsMetadataExtension": {
+        "value": 1.2,
+        "source": "extension",
+        "hidden": ""
+      },
+      "Categories": {
+        "value": "Desert of Tabernas|Self-published work|Images from Wiki Loves Earth 2015 in Spain|Images from Wiki Loves Earth 2015|Uploaded via Campaign:wle-es|Images from Wiki Loves Earth 2015 in Spain (5 May)|Images from Wiki Loves Earth 2015 in Spain by Colin C Wheeler|Images of a site of community importance with code ES0000047 from Wiki Loves Earth 2015 in Spain|All media supported by Wikimedia España in 2015|Images of a site of community importance with code ES0000047 from Wiki Loves Earth in Spain|Special Areas of Conservation in Spain with known IDs|Images from Wiki Loves Earth missing SDC depicts|Images from Wiki Loves Earth missing SDC location of creation|Uploaded via Campaign:wle-es in 2015|Evaluation of images from Wiki Loves Earth 2015 in Spain and Portugal - Round 1|Images of a site of community importance in Andalusia from Wiki Loves Earth 2015 in Spain",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "Assessments": {
+        "value": "",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "ImageDescription": {
+        "value": "A typical scene in the Tabernas Desert",
+        "source": "commons-desc-page"
+      },
+      "DateTimeOriginal": {
+        "value": "2015-05-05 11:11:24",
+        "source": "commons-desc-page"
+      },
+      "Credit": {
+        "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "source": "commons-desc-page"
+      },
+      "Artist": {
+        "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Colin_C_Wheeler&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Colin C Wheeler (page does not exist)\">Colin C Wheeler</a>",
+        "source": "commons-desc-page"
+      },
+      "LicenseShortName": {
+        "value": "CC BY-SA 3.0 es",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "UsageTerms": {
+        "value": "Creative Commons Attribution-Share Alike 3.0 es",
+        "source": "commons-desc-page"
+      },
+      "AttributionRequired": {
+        "value": "true",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "LicenseUrl": {
+        "value": "https://creativecommons.org/licenses/by-sa/3.0/es/deed.en",
+        "source": "commons-desc-page"
+      },
+      "Copyrighted": {
+        "value": "True",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Restrictions": {
+        "value": "",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "License": {
+        "value": "cc-by-sa-3.0-es",
+        "source": "commons-templates",
+        "hidden": ""
+      }
+    }
+  }
+]

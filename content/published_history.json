@@ -130,5 +130,16 @@
     "format": "timeline",
     "hook_pattern": "date_first",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-06",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que en Almería está la única zona desértica propiamente dicha de Europa?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "geografia_extrema",
+    "format": "geography_curiosity",
+    "hook_pattern": "surprising_fact",
+    "duration_target": "65-80s"
   }
 ]
