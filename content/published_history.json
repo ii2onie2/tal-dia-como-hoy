@@ -141,5 +141,27 @@
     "format": "geography_curiosity",
     "hook_pattern": "surprising_fact",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-06",
+    "series": "El detalle que casi nadie ve",
+    "title": "El Oso y el Madroño de Madrid no empezó como una simple estatua turística",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "simbolos_urbanos",
+    "format": "symbol_explainer",
+    "hook_pattern": "overlooked_detail",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-06",
+    "series": "Tal Día Como Hoy",
+    "title": "6 de octubre de 1934: Lluís Companys proclamó el Estado Catalán",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "historia_politica_y_autonomias",
+    "format": "chronological_event",
+    "hook_pattern": "date_first",
+    "duration_target": "65-80s"
   }
 ]

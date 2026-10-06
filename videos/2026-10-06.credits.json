@@ -1,0 +1,78 @@
+[
+  {
+    "commons_title": "File:Lluís Companys.jpg",
+    "path": "media/2026-10-06/01.jpg",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/7/77/Llu%C3%ADs_Companys.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "metadata": {
+      "DateTime": {
+        "value": "2024-08-09 18:09:25",
+        "source": "mediawiki-metadata",
+        "hidden": ""
+      },
+      "ObjectName": {
+        "value": "Lluís Companys",
+        "source": "mediawiki-metadata"
+      },
+      "CommonsMetadataExtension": {
+        "value": 1.2,
+        "source": "extension",
+        "hidden": ""
+      },
+      "Categories": {
+        "value": "PD-Poland|Lluís Companys|Images from Narodowe Archiwum Cyfrowe",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "Assessments": {
+        "value": "",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "ImageDescription": {
+        "value": "Lluís Companys i Jover, President of the Government of Catalonia (Generalitat de Catalunya) - portrait photography.",
+        "source": "commons-desc-page"
+      },
+      "DateTimeOriginal": {
+        "value": "between 1933 and 1934<div style=\"display: none;\">date QS:P,+1933-00-00T00:00:00Z/8,P1319,+1933-00-00T00:00:00Z/9,P1326,+1934-00-00T00:00:00Z/9</div>",
+        "source": "commons-desc-page"
+      },
+      "Credit": {
+        "value": "<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://audiovis.nac.gov.pl/obraz/238015/h:513/\">Narodowe Archiwum Cyfrowe (Sygnatura: 1-E-6412)</a> (Polish National Digital Archive)</li>\n<li class=\"mw-empty-elt\"></ul>\n<table>\n<tbody><tr>\n<td style=\"text-align:center\"><span typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Nowe_logo_NAC.svg\" class=\"mw-file-description\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Nowe_logo_NAC.svg/120px-Nowe_logo_NAC.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"60\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Nowe_logo_NAC.svg/250px-Nowe_logo_NAC.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"160\" data-file-height=\"106\"></a></span>\n</td>\n<td>Photographs available at <a rel=\"nofollow\" class=\"external text\" href=\"https://audiovis.nac.gov.pl\">www.audiovis.nac.gov.pl</a> are public domain or the owner of the copyrights is the State Treasury of Poland, represented by the National Digital Archive and which grant free of charge licence for free use of the materials on all known exploitation fields.\n</td></tr></tbody></table>",
+        "source": "commons-desc-page"
+      },
+      "Artist": {
+        "value": "Unknown author",
+        "source": "commons-desc-page"
+      },
+      "LicenseShortName": {
+        "value": "Public domain",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "UsageTerms": {
+        "value": "Public domain",
+        "source": "commons-desc-page"
+      },
+      "AttributionRequired": {
+        "value": "false",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Copyrighted": {
+        "value": "False",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Restrictions": {
+        "value": "",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "License": {
+        "value": "pd",
+        "source": "commons-templates",
+        "hidden": ""
+      }
+    }
+  }
+]
