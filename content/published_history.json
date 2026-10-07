@@ -163,5 +163,38 @@
     "format": "chronological_event",
     "hook_pattern": "date_first",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-07",
+    "series": "El detalle que casi nadie ve",
+    "title": "La Giralda se sube por rampas porque estaba diseñada para permitir el ascenso a caballo",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "ingenieria_historica_y_arquitectura",
+    "format": "historical_object_word_custom",
+    "hook_pattern": "overlooked_detail",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-07",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que en La Gomera sobrevive un bosque parecido a los que cubrían el sur de Europa hace millones de años?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "naturaleza_relicta_y_canarias",
+    "format": "invention_science_culture",
+    "hook_pattern": "surprising_fact",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-07",
+    "series": "Tal Día Como Hoy",
+    "title": "7 de octubre de 1571: la batalla de Lepanto cambió el equilibrio naval del Mediterráneo",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "historia_naval_y_mediterraneo",
+    "format": "battle_or_conflict",
+    "hook_pattern": "date_first",
+    "duration_target": "65-80s"
   }
 ]
