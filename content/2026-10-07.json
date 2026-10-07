@@ -1,0 +1,42 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "7 de octubre de 1571: la batalla de Lepanto cambió el equilibrio naval del Mediterráneo",
+  "date": "2026-10-07",
+  "slot": "10:00",
+  "hook": "Tal día como hoy, 7 de octubre de 1571, la Santa Liga y la armada otomana se enfrentaron en Lepanto, en una de las mayores batallas de galeras de la historia.",
+  "narration": "Tal día como hoy, 7 de octubre de 1571, la flota de la Santa Liga se enfrentó a la armada del Imperio otomano cerca de Lepanto, en el golfo de Patras. La coalición reunía fuerzas de la Monarquía Hispánica, Venecia, los Estados Pontificios, Génova, Saboya y la Orden de Malta, bajo el mando de don Juan de Austria. La Armada española recuerda este combate como la mayor confrontación de galeras de la historia. En el centro de la formación cristiana navegaba La Real, construida en Barcelona y convertida en nave capitana de don Juan. La batalla fue extremadamente violenta y terminó con una victoria de la Santa Liga que frenó el avance naval otomano en el Mediterráneo occidental, aunque no puso fin a la rivalidad entre ambos poderes. Entre los combatientes se encontraba Miguel de Cervantes, entonces joven soldado embarcado en la galera Marquesa. Cervantes resultó herido y conservaría toda su vida el recuerdo de aquella jornada. Lepanto se convirtió después en un símbolo militar, político y cultural del siglo XVI. Más de cuatro siglos después, el Museo Naval español sigue conservando y mostrando piezas relacionadas con la batalla. Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España. ¿Sabías que Cervantes combatió en Lepanto antes de escribir Don Quijote?",
+  "caption": "El 7 de octubre de 1571 la Santa Liga derrotó a la armada otomana en Lepanto, con don Juan de Austria al mando y Miguel de Cervantes entre los combatientes.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Lepanto",
+    "#MiguelDeCervantes",
+    "#HistoriaNaval"
+  ],
+  "sources": [
+    {
+      "name": "Armada Española - Museo Naval: Pendón de la Batalla de Lepanto",
+      "url": "https://armada.defensa.gob.es/ArmadaPortal/page/Portal/ArmadaEspannola/cienciaorgano/prefLang-es/01cienciamuseo--02museo--06prensa-museo-naval--01noticias--2017--09SEPTIEMBRE--PENDONLEPANTO-es"
+    },
+    {
+      "name": "Armada Española - Cervantes, Soldado de Mar",
+      "url": "https://armada.defensa.gob.es/ArmadaPortal/page/Portal/ArmadaEspannola/conocenosnoticias/prefLang-es/00noticias--2016--06--NT-103-EXPO-CERVANTES-es"
+    },
+    {
+      "name": "Wikimedia Commons - Juan Luna, La Batalla de Lepanto",
+      "url": "https://commons.wikimedia.org/wiki/File:Juan_Luna_-_La_Batalla_de_Lepanto.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Juan Luna - La Batalla de Lepanto.jpg",
+      "role": "Pintura de Juan Luna sobre la batalla de Lepanto",
+      "license_note": "Wikimedia Commons; obra en dominio público según la página del archivo"
+    }
+  ],
+  "cta": "Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España.",
+  "format": "battle_or_conflict",
+  "hook_pattern": "date_first",
+  "topic_family": "historia_naval_y_mediterraneo",
+  "duration_target": "65-80s"
+}

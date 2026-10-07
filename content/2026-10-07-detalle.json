@@ -1,0 +1,42 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "La Giralda se sube por rampas porque estaba diseñada para permitir el ascenso a caballo",
+  "date": "2026-10-07",
+  "slot": "16:00",
+  "hook": "La Giralda parece una torre convencional desde fuera, pero su interior guarda un detalle de ingeniería sorprendente: gran parte de la subida se hace por rampas, no por escaleras.",
+  "narration": "La Giralda de Sevilla es uno de los monumentos más reconocibles de España, pero su interior conserva una solución arquitectónica que muchos visitantes no esperan. La torre nació como alminar de la gran mezquita almohade de Sevilla y su estructura está formada por un núcleo central rodeado por los muros exteriores. Entre ambos se desarrolla un sistema continuo de rampas. La propia Catedral de Sevilla explica que estas rampas, por su anchura y pendiente, permitían incluso el acceso a caballo. Ese diseño hacía posible subir con mayor facilidad hasta las zonas altas de una torre excepcionalmente elevada para su época. El cuerpo almohade comenzó a levantarse en el siglo XII y, siglos después, la torre fue transformada en campanario cristiano. En el siglo XVI se añadió el remate renacentista diseñado por Hernán Ruiz y, en lo alto, el Giraldillo, la gran figura de bronce que terminó dando nombre popular al conjunto. Hoy el visitante sigue ascendiendo principalmente por ese sistema de rampas, aunque el tramo final incluye escalones para alcanzar el cuerpo de campanas. El detalle interesante es que una solución funcional medieval sigue marcando la experiencia de quienes suben a la Giralda más de ocho siglos después. Síguenos para descubrir más detalles de España que casi nadie ve. ¿Te imaginabas que la subida de una de las torres más famosas de Sevilla fue pensada para poder hacerse a caballo?",
+  "caption": "La Giralda conserva un sistema interior de rampas diseñado con suficiente anchura y pendiente para permitir el ascenso a caballo.",
+  "hashtags": [
+    "#ElDetalleQueCasiNadieVe",
+    "#Giralda",
+    "#Sevilla",
+    "#HistoriaDeEspaña",
+    "#Arquitectura"
+  ],
+  "sources": [
+    {
+      "name": "Catedral de Sevilla - La Giralda",
+      "url": "https://www.catedraldesevilla.es/la-catedral/edificio/la-giralda/"
+    },
+    {
+      "name": "Catedral de Sevilla - El ingenio que permitía subir la Giralda a caballo",
+      "url": "https://www.catedraldesevilla.es/el-ingenio-de-que-permitia-subir-la-giralda-a-caballo/"
+    },
+    {
+      "name": "Wikimedia Commons - La Giralda (Sevilla)",
+      "url": "https://commons.wikimedia.org/wiki/File:La_Giralda_(Sevilla).JPG"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:La Giralda (Sevilla).JPG",
+      "role": "Vista de la Giralda de Sevilla",
+      "license_note": "Wikimedia Commons; licencia CC BY-SA 3.0 ES según la página del archivo"
+    }
+  ],
+  "cta": "Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "format": "historical_object_word_custom",
+  "hook_pattern": "overlooked_detail",
+  "topic_family": "ingenieria_historica_y_arquitectura",
+  "duration_target": "65-80s"
+}

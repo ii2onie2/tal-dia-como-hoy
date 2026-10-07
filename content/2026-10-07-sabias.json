@@ -1,0 +1,42 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que en La Gomera sobrevive un bosque parecido a los que cubrían el sur de Europa hace millones de años?",
+  "date": "2026-10-07",
+  "slot": "19:00",
+  "hook": "¿Sabías que en La Gomera existe un bosque de niebla considerado un vestigio vivo de las antiguas selvas subtropicales que ocuparon parte de Europa y el norte de África?",
+  "narration": "¿Sabías que en la isla canaria de La Gomera sobrevive uno de los mejores ejemplos de laurisilva del mundo? Se encuentra en el Parque Nacional de Garajonay, un espacio protegido que la UNESCO incluyó en la Lista del Patrimonio Mundial en 1986. La laurisilva es un bosque húmedo de hoja perenne que necesita temperaturas suaves y una elevada humedad. En Garajonay, las nubes y nieblas que llegan desde el Atlántico se enganchan a las cumbres y aportan agua incluso cuando la lluvia es limitada. Esa humedad mantiene un paisaje verde y denso que recuerda a bosques mucho más antiguos. El Ministerio para la Transición Ecológica explica que la laurisilva canaria es un ecosistema relicto del Terciario, desaparecido del continente europeo tras los grandes cambios climáticos del Cuaternario. La UNESCO señala que alrededor del setenta por ciento del parque está cubierto por este tipo de bosque y que allí viven numerosas especies endémicas de flora y fauna. Garajonay no es solo un lugar espectacular para caminar: funciona también como refugio de una historia natural que comenzó millones de años antes de que existieran las ciudades modernas. Síguenos y descubre cada día algo de España que probablemente no conocías. ¿Imaginabas que en Canarias se conserva un bosque que ayuda a visualizar cómo eran antiguos paisajes europeos?",
+  "caption": "Garajonay, en La Gomera, conserva una de las mejores muestras de laurisilva, un bosque relicto que sobrevivió a grandes cambios climáticos.",
+  "hashtags": [
+    "#SabiasEstoDeEspaña",
+    "#Garajonay",
+    "#LaGomera",
+    "#Canarias",
+    "#NaturalezaDeEspaña"
+  ],
+  "sources": [
+    {
+      "name": "UNESCO - Garajonay National Park",
+      "url": "https://whc.unesco.org/en/list/380"
+    },
+    {
+      "name": "MITECO - Parque Nacional de Garajonay",
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/garajonay.html"
+    },
+    {
+      "name": "Wikimedia Commons - Garajonay National Park, La Gomera 05",
+      "url": "https://commons.wikimedia.org/wiki/File:Garajonay_National_Park,_La_Gomera_05.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Garajonay National Park, La Gomera 05.jpg",
+      "role": "Paisaje del Parque Nacional de Garajonay en La Gomera",
+      "license_note": "Wikimedia Commons; licencia CC BY-SA 4.0 según la página del archivo"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "format": "invention_science_culture",
+  "hook_pattern": "surprising_fact",
+  "topic_family": "naturaleza_relicta_y_canarias",
+  "duration_target": "65-80s"
+}
