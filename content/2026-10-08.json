@@ -1,0 +1,42 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "8 de octubre de 1992: Madrid inauguró el Museo Thyssen-Bornemisza",
+  "date": "2026-10-08",
+  "slot": "10:00",
+  "hook": "Tal día como hoy, 8 de octubre de 1992, Madrid abrió un museo que cambió su mapa artístico: el Thyssen-Bornemisza.",
+  "narration": "Tal día como hoy, 8 de octubre de 1992, se inauguró en Madrid el Museo Thyssen-Bornemisza. Su historia había empezado mucho antes, cuando la familia Thyssen reunió durante décadas una importante colección de arte europeo. Muchas pinturas se conservaban en Villa Favorita, en la ciudad suiza de Lugano. En 1988, el barón Hans Heinrich Thyssen-Bornemisza y el Estado español acordaron el préstamo de 775 obras, con la perspectiva de una posible venta. Para recibirlas se eligió el antiguo Palacio de Villahermosa, junto al paseo del Prado, y Rafael Moneo dirigió su remodelación. Las pinturas viajaron a Madrid y se instalaron en salas preparadas para recibir al público. Aquel ocho de octubre, los visitantes pudieron contemplar un recorrido por siglos de arte occidental que completaba aspectos menos representados en otras colecciones nacionales, especialmente escuelas europeas y movimientos de los siglos diecinueve y veinte. Pero había una sorpresa: cuando el museo abrió, el Estado todavía no era propietario definitivo de las obras prestadas. La adquisición llegó en junio de 1993, unos ocho meses después, por un acuerdo de 350 millones de dólares. La nueva institución terminó consolidando, junto con el Prado y el Reina Sofía, uno de los grandes ejes artísticos de Madrid. Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España. ¿Sabías que el Thyssen abrió sus puertas antes de que España comprase la colección?",
+  "caption": "El 8 de octubre de 1992 abrió en Madrid el Museo Thyssen-Bornemisza; el Estado compró la colección en junio de 1993.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#MuseoThyssen",
+    "#Madrid",
+    "#Arte"
+  ],
+  "sources": [
+    {
+      "name": "Museo Thyssen - 25 Aniversario",
+      "url": "https://www.museothyssen.org/acerca-museo/historia/25aniversario"
+    },
+    {
+      "name": "Museo Thyssen - Historia de la Colección II",
+      "url": "https://www.museothyssen.org/coleccion/historia-coleccion-I/II"
+    },
+    {
+      "name": "Wikimedia Commons - Museo Thyssen (Madrid) 10",
+      "url": "https://commons.wikimedia.org/wiki/File:Museo_Thyssen-Bornemisza_(Madrid)_10.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Museo Thyssen-Bornemisza (Madrid) 10.jpg",
+      "role": "Fachada norte del Palacio de Villahermosa en Madrid",
+      "license_note": "Foto de Luis García (Zaqarbal), Wikimedia Commons, CC BY-SA 3.0 ES; conservar atribución y licencia"
+    }
+  ],
+  "cta": "Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España.",
+  "format": "chronological_event",
+  "hook_pattern": "date_first",
+  "topic_family": "museos_y_patrimonio_artistico",
+  "duration_target": "65-80s"
+}

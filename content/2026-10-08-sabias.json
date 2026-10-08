@@ -1,0 +1,42 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que en Huelva hay un río rojo que sirve para investigar la vida en Marte?",
+  "date": "2026-10-08",
+  "slot": "19:00",
+  "hook": "¿Sabías que en Huelva corre un río rojizo y ácido que los científicos utilizan para estudiar la posible vida en Marte?",
+  "narration": "¿Sabías que en Andalucía existe un río que parece salido de otro planeta? Es el río Tinto, que atraviesa la provincia de Huelva y destaca por sus aguas rojizas y su elevada acidez. Su cuenca forma parte de una región geológica rica en sulfuros metálicos, y el hierro desempeña un papel fundamental en el color del agua. Pero la sorpresa no termina ahí. Aunque estas condiciones resultan extremas para muchas formas de vida, en el río se han estudiado microorganismos capaces de prosperar en medios muy ácidos. Algunos participan en el ciclo del hierro y modifican el entorno químico que los rodea. Por eso, investigadores del Consejo Superior de Investigaciones Científicas y de otras instituciones estudian esta cuenca como un laboratorio natural. La Agencia Espacial Europea también ha destacado la utilidad del río Tinto como entorno terrestre comparable, en ciertos aspectos químicos y minerales, con lugares de Marte. Eso no significa que allí se haya encontrado vida marciana, ni que los dos mundos sean iguales. Significa que estudiar organismos que viven en condiciones difíciles puede ayudar a diseñar instrumentos y preguntas para explorar otros planetas. Un paisaje real del suroeste español está aportando conocimientos a la astrobiología, la ciencia que investiga la vida en el universo. Y todo empieza con observar atentamente un río. Síguenos y descubre cada día algo de España que probablemente no conocías. ¿Imaginabas que el río Tinto puede ayudar a investigar la posibilidad de vida más allá de la Tierra?",
+  "caption": "El río Tinto, en Huelva, tiene aguas rojizas y ácidas y es un entorno de estudio para investigaciones relacionadas con Marte.",
+  "hashtags": [
+    "#SabiasEstoDeEspaña",
+    "#RioTinto",
+    "#Huelva",
+    "#Ciencia",
+    "#Marte"
+  ],
+  "sources": [
+    {
+      "name": "CSIC IAA - Río Tinto, un análogo terrestre de Marte",
+      "url": "https://revista.iaa.csic.es/node/169"
+    },
+    {
+      "name": "Agencia Espacial Europea - De Marte a España",
+      "url": "https://www.esa.int/Space_in_Member_States/Spain/De_Marte_a_Espana._Investigadores_espanoles_trabajaran_con_los_datos_de_Mars_Express"
+    },
+    {
+      "name": "Wikimedia Commons - Río Tinto 4",
+      "url": "https://commons.wikimedia.org/wiki/File:R%C3%ADo_Tinto_4.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Río Tinto 4.jpg",
+      "role": "Aguas rojizas del río Tinto en Huelva",
+      "license_note": "Fotografía de Gzzz en Wikimedia Commons, CC BY-SA 4.0; conservar autor, licencia y créditos"
+    }
+  ],
+  "cta": "Síguenos y descubre cada día algo de España que probablemente no conocías.",
+  "format": "invention_science_culture",
+  "hook_pattern": "surprising_fact",
+  "topic_family": "ciencia_y_astrobiologia",
+  "duration_target": "65-80s"
+}

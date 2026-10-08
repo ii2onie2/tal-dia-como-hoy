@@ -1,0 +1,42 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "Las columnas en espiral de la Lonja de la Seda parecen árboles de piedra",
+  "date": "2026-10-08",
+  "slot": "16:00",
+  "hook": "En Valencia hay una sala medieval con columnas que parecen troncos retorcidos y se abren como palmeras sobre el techo.",
+  "narration": "En pleno centro histórico de Valencia, la Lonja de la Seda guarda un detalle arquitectónico que invita a mirar hacia arriba. En su Sala de Contratación hay ocho enormes columnas exentas talladas en espiral y otras dieciséis integradas en los muros. Cuando las columnas alcanzan la parte alta, sus nervaduras se extienden por las bóvedas y recuerdan a las ramas de una palmera. La imagen resulta casi fantástica, pero aquel espacio no era un palacio real ni una iglesia. Era un lugar para hacer negocios. Durante los siglos quince y dieciséis, Valencia fue una ciudad mercantil muy activa en el Mediterráneo, y necesitaba espacios para negociar e intercambiar mercancías. La Lonja empezó a construirse en los años ochenta del siglo quince bajo el impulso de maestros como Pere Compte. El conjunto incluye la Sala de Contratación, una torre, el Consolat del Mar y un patio de naranjos. En el salón también se instaló la Taula de Canvis, relacionada con las operaciones financieras de la ciudad. Sus bóvedas monumentales daban solemnidad a transacciones comerciales que sustentaban la prosperidad valenciana. La UNESCO reconoció la Lonja como Patrimonio Mundial en 1996 por su importancia como obra maestra del gótico civil. El detalle extraordinario es esa mezcla de función y belleza: una arquitectura que recuerda a una catedral, pero creada para el comercio. Síguenos para descubrir más detalles de España que casi nadie ve. ¿Te habías fijado en que estas columnas parecen árboles de piedra?",
+  "caption": "La Sala de Contratación de la Lonja de la Seda de Valencia conserva ocho columnas helicoidales y es Patrimonio Mundial desde 1996.",
+  "hashtags": [
+    "#ElDetalleQueCasiNadieVe",
+    "#LonjaDeLaSeda",
+    "#Valencia",
+    "#ArquitecturaGotica",
+    "#PatrimonioMundial"
+  ],
+  "sources": [
+    {
+      "name": "Ministerio de Cultura - La Lonja de la Seda de Valencia",
+      "url": "https://www.cultura.gob.es/cultura/areas/patrimonio/mc/patrimoniomundial/bienes-declarados/por-ano-de-inscripcion/1996/lonjavalencia.html"
+    },
+    {
+      "name": "UNESCO - Lonja de la seda de Valencia",
+      "url": "https://whc.unesco.org/es/list/782/"
+    },
+    {
+      "name": "Wikimedia Commons - Lonja de la Seda 02",
+      "url": "https://commons.wikimedia.org/wiki/File:Lonja_de_la_Seda_02.jpg"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Lonja de la Seda 02.jpg",
+      "role": "Bóveda del salón de contratación en la Lonja de la Seda",
+      "license_note": "Wikimedia Commons; conservar atribución y licencia indicadas en la página del archivo"
+    }
+  ],
+  "cta": "Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "format": "historical_object_word_custom",
+  "hook_pattern": "overlooked_detail",
+  "topic_family": "arquitectura_gotica_comercial",
+  "duration_target": "65-80s"
+}
