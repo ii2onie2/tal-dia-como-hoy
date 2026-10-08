@@ -196,5 +196,38 @@
     "format": "battle_or_conflict",
     "hook_pattern": "date_first",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-08",
+    "series": "El detalle que casi nadie ve",
+    "title": "Las columnas en espiral de la Lonja de la Seda parecen árboles de piedra",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "arquitectura_gotica_comercial",
+    "format": "historical_object_word_custom",
+    "hook_pattern": "overlooked_detail",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-08",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que en Huelva hay un río rojo que sirve para investigar la vida en Marte?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "ciencia_y_astrobiologia",
+    "format": "invention_science_culture",
+    "hook_pattern": "surprising_fact",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-08",
+    "series": "Tal Día Como Hoy",
+    "title": "8 de octubre de 1992: Madrid inauguró el Museo Thyssen-Bornemisza",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "museos_y_patrimonio_artistico",
+    "format": "chronological_event",
+    "hook_pattern": "date_first",
+    "duration_target": "65-80s"
   }
 ]
