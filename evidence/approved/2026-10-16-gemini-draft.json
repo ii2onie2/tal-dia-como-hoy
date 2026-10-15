@@ -1,0 +1,47 @@
+{
+  "topic": "16 de octubre de 1969: decreto de creación del Parque Nacional de Doñana",
+  "target_date": "2026-10-16",
+  "manual_review_approved": true,
+  "editorial_review_required": true,
+  "media_license_approved": false,
+  "status": "APPROVED_FOR_GEMINI_DRAFT_ONLY",
+  "sources": [
+    {
+      "name": "BOE Decreto 2412/1969 texto original",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-1969-1252",
+      "facts": [
+        "El decreto de creación del Parque Nacional de Doñana se fechó el 16 de octubre de 1969.",
+        "El texto original fue publicado en el BOE el 27 de octubre de 1969.",
+        "El artículo primero declara Parque Nacional de Doñana la superficie delimitada en el anejo."
+      ]
+    },
+    {
+      "name": "BOE entrada en vigor y análisis",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1969-1252&p=19691027&tn=1",
+      "facts": [
+        "La entrada en vigor del decreto fue el 16 de noviembre de 1969.",
+        "El decreto tenía fecha de disposición 16 de octubre de 1969."
+      ]
+    },
+    {
+      "name": "UNESCO World Heritage Centre - Doñana National Park",
+      "url": "https://whc.unesco.org/en/list/685",
+      "organization": "UNESCO",
+      "facts": [
+        "Doñana was classified as a National Park in 1969.",
+        "The first protected area was established in 1964."
+      ]
+    },
+    {
+      "name": "MITECO - Memoria de la Red de Parques Nacionales 2014",
+      "url": "https://www.miteco.gob.es/content/dam/miteco/es/parques-nacionales-oapn/red-parques-nacionales/la-red/memoria-2014_tcm30-378647.pdf",
+      "organization": "MITECO",
+      "facts": [
+        "The ministry lists Decreto 2412/1969 dated 16 October establishing Doñana.",
+        "The ministry cites publication in BOE number 257 on 27 October 1969."
+      ]
+    }
+  ],
+  "publication_approved": false,
+  "review_scope": "Evidence limited to draft generation; all output remains unverified and unpublished"
+}
