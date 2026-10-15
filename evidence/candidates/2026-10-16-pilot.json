@@ -4,7 +4,7 @@
   "manual_review_approved": false,
   "editorial_review_required": true,
   "media_license_approved": false,
-  "status": "CANDIDATE_EVIDENCE_NOT_APPROVED_FOR_GENERATION",
+  "status": "MULTI_ORGANIZATION_SOURCES_REVIEW_PENDING",
   "sources": [
     {
       "name": "BOE Decreto 2412/1969 texto original",
@@ -21,6 +21,24 @@
       "facts": [
         "La entrada en vigor del decreto fue el 16 de noviembre de 1969.",
         "El decreto tenía fecha de disposición 16 de octubre de 1969."
+      ]
+    },
+    {
+      "name": "UNESCO World Heritage Centre - Doñana National Park",
+      "url": "https://whc.unesco.org/en/list/685",
+      "organization": "UNESCO",
+      "facts": [
+        "Doñana was classified as a National Park in 1969.",
+        "The first protected area was established in 1964."
+      ]
+    },
+    {
+      "name": "MITECO - Memoria de la Red de Parques Nacionales 2014",
+      "url": "https://www.miteco.gob.es/content/dam/miteco/es/parques-nacionales-oapn/red-parques-nacionales/la-red/memoria-2014_tcm30-378647.pdf",
+      "organization": "MITECO",
+      "facts": [
+        "The ministry lists Decreto 2412/1969 dated 16 October establishing Doñana.",
+        "The ministry cites publication in BOE number 257 on 27 October 1969."
       ]
     }
   ]
