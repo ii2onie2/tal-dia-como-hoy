@@ -1,0 +1,11 @@
+name: Gemini QA Manual
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m py_compile tools/gemini_draft_static_qa.py
