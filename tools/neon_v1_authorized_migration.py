@@ -14,7 +14,7 @@ def ddl(path):
  start=text.find("\nBEGIN;\n")
  end=text.rfind("\nCOMMIT;")
  if start<0 or end<start or text[end:].strip()!="COMMIT;":raise RuntimeError("SQL_TRANSACTION_WRAPPERS")
- return text[:start]+text[start+len("\nBEGIN;\n"):end]
+ return text[:start]+"\n"+text[start+len("\nBEGIN;\n"):end]
 def state(cur):
  cur.execute("""SELECT to_regnamespace('tiktok_autopilot') IS NOT NULL,
  to_regclass('tiktok_autopilot.publication_reservations') IS NOT NULL,
