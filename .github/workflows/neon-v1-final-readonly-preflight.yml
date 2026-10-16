@@ -1,0 +1,49 @@
+name: Neon V1 Final Readonly Preflight
+on:
+  push:
+    branches: [integration/indiepost-premium-audit-20261015]
+    paths: [.github/workflows/neon-v1-final-readonly-preflight.yml]
+permissions:
+  contents: read
+jobs:
+  final-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install --disable-pip-version-check 'psycopg[binary]>=3.2,<4'
+      - name: Validate immutable SQL files and Neon objects without writes
+        env:
+          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          import hashlib,os,pathlib,psycopg
+          from psycopg.conninfo import conninfo_to_dict
+          names=["sql/neon_reservation_schema_v1.sql","sql/neon_role_grants_v1_proposal.sql"]
+          for name in names:
+              data=pathlib.Path(name).read_bytes()
+              print("SHA256_"+name.split("/")[-1]+"="+hashlib.sha256(data).hexdigest())
+          dsn=os.environ.get("NEON_DATABASE_URL","")
+          assert conninfo_to_dict(dsn).get("sslmode") in ("require","verify-full","verify-ca")
+          with psycopg.connect(dsn,connect_timeout=15,options="-c default_transaction_read_only=on") as db:
+              db.read_only=True
+              with db.cursor() as cur:
+                  cur.execute("""SELECT current_setting('transaction_read_only'),
+                    current_database(),current_user,current_setting('server_version_num'),
+                    to_regnamespace('tiktok_autopilot') IS NOT NULL,
+                    to_regclass('tiktok_autopilot.publication_reservations') IS NOT NULL,
+                    EXISTS(SELECT 1 FROM pg_roles WHERE rolname='tiktok_reservation_rw'),
+                    has_database_privilege(current_user,current_database(),'CREATE')""")
+                  readonly,database,role,version,schema_exists,table_exists,group_exists,create_priv=cur.fetchone()
+                  assert readonly=="on"
+                  print("DATABASE_ROLE_FINGERPRINT="+hashlib.sha256((database+"|"+role).encode()).hexdigest()[:16])
+                  print("POSTGRES_MAJOR="+str(int(version)//10000))
+                  print("SCHEMA_EXISTS="+str(schema_exists).upper())
+                  print("TABLE_EXISTS="+str(table_exists).upper())
+                  print("GROUP_ROLE_EXISTS="+str(group_exists).upper())
+                  print("CURRENT_ROLE_CAN_CREATE_DB_OBJECTS="+str(create_priv).upper())
+                  assert not schema_exists and not table_exists and not group_exists
+          print("READ_ONLY=YES")
+          print("DDL_EXECUTED=NO")
+          print("RESULT=PASS_FINAL_READONLY_PREFLIGHT")
+          PY
