@@ -1,0 +1,22 @@
+name: Neon V1 Authorized Bounded Migration
+on:
+  push:
+    branches: [integration/indiepost-premium-audit-20261015]
+    paths: [.github/workflows/neon-v1-authorized-migration.yml]
+permissions:
+  contents: read
+concurrency:
+  group: neon-v1-database-migration
+  cancel-in-progress: false
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install --disable-pip-version-check 'psycopg[binary]>=3.2,<4'
+      - run: python -m py_compile tools/neon_v1_authorized_migration.py
+      - name: Authorized single-transaction Neon V1 migration
+        env:
+          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
+        run: python tools/neon_v1_authorized_migration.py
