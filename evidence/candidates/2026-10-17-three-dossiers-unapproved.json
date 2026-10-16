@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-17",
+  "dossiers": [
+    {
+      "date": "2026-10-17",
+      "slot": "10:00",
+      "topic": "17 de octubre de 1919: inauguración del Metro de Madrid",
+      "evidence_review_approved": false,
+      "publication_approved": false,
+      "sources": [
+        {
+          "name": "Comunidad de Madrid - Línea 1",
+          "organization": "Comunidad de Madrid",
+          "url": "https://www.comunidad.madrid/infraestructuras/linea-1-metro-madrid",
+          "facts": [
+            "Alfonso XIII inauguró oficialmente la primera línea el 17 de octubre de 1919.",
+            "El servicio al público comenzó el 31 de octubre de 1919."
+          ]
+        },
+        {
+          "name": "Casa Real - Centenario primera línea",
+          "organization": "Casa de S.M. el Rey",
+          "url": "https://www.casareal.es/ES/Actividades/Paginas/actividades_actividades_detalle.aspx?data=13735",
+          "facts": [
+            "Alfonso XIII inauguró el 17 de octubre de 1919 la línea Norte-Sur.",
+            "La línea tenía ocho estaciones."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "slot": "16:00",
+      "topic": "La Alhambra nazarí: palacio, ciudadela y fortaleza",
+      "evidence_review_approved": false,
+      "publication_approved": false,
+      "sources": [
+        {
+          "name": "Patronato de la Alhambra - Historia",
+          "organization": "Patronato de la Alhambra y Generalife",
+          "url": "https://www.alhambra-patronato.es/descubrir/alhambra-y-generalife/historia",
+          "facts": [
+            "El Patronato sitúa en 1238 el comienzo de la reconstrucción impulsada por Al-Ahmar.",
+            "El conjunto ejerció funciones palaciegas, militares y urbanas."
+          ]
+        },
+        {
+          "name": "UNESCO - Alhambra, Generalife and Albayzín",
+          "organization": "UNESCO",
+          "url": "https://whc.unesco.org/en/list/314/",
+          "facts": [
+            "El conjunto fue inscrito en la Lista del Patrimonio Mundial en 1984.",
+            "Los jardines del Generalife se relacionan con los emires nazaríes."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "slot": "19:00",
+      "topic": "Doñana: del parque nacional al Patrimonio Mundial",
+      "evidence_review_approved": false,
+      "publication_approved": false,
+      "sources": [
+        {
+          "name": "BOE - Decreto 2412/1969",
+          "organization": "BOE",
+          "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-1969-1252",
+          "facts": [
+            "El decreto que crea el Parque Nacional de Doñana se fechó el 16 de octubre de 1969.",
+            "El texto se publicó en el BOE el 27 de octubre de 1969."
+          ]
+        },
+        {
+          "name": "UNESCO - Doñana National Park",
+          "organization": "UNESCO",
+          "url": "https://whc.unesco.org/en/list/685/",
+          "facts": [
+            "Doñana entró en la Lista del Patrimonio Mundial en 1994.",
+            "El sitio comprende ecosistemas de marismas, dunas y lagunas."
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "UNAPPROVED_CANDIDATE_BUNDLE",
+  "publication_approved": false
+}
