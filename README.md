@@ -1,37 +1,7 @@
-# Tal Día Como Hoy
+# P3.8 - Tal Dia review-only GitHub Actions pilot
 
-Chaîne de production gratuite pour générer des vidéos verticales destinées au compte TikTok @taldiacomohoy09.
+Target branch ONLY: integration/indiepost-premium-audit-20261015.
 
-## Architecture
+Upload files from this archive preserving `.github/workflows/` and `pilot/` paths to the integration branch only. Do not merge to main. Then manually run workflow `P3.8 Piper review-only (manual)` from Actions, selecting the integration branch. The workflow does not publish or write repository content, but uploading these files creates a staging commit.
 
-ChatGPT / contenu vérifié -> GitHub -> GitHub Actions -> Piper TTS -> FFmpeg -> MP4 1080x1920 -> publication via Metricool.
-
-## Principes
-
-- aucun VPS requis
-- aucun abonnement vidéo payant
-- aucune dépendance à Descript
-- narration en espagnol d'Espagne
-- sous-titres incrustés
-- médias Wikimedia Commons ou domaine public avec crédits conservés
-- sujets historiques sensibles/politiques traités de façon factuelle et sourcée
-
-## Déclenchement
-
-Le rendu démarre automatiquement lorsqu'un fichier `content/YYYY-MM-DD.json` est ajouté ou modifié.
-Un lancement manuel reste également disponible depuis GitHub Actions.
-
-## Voix
-
-Le workflow utilise le modèle Piper `es_ES-sharvard-medium` (espagnol d'Espagne), hébergé dans le dépôt public `rhasspy/piper-voices`.
-
-## Sortie
-
-Le workflow produit :
-- `video.mp4`
-- `subtitles.srt`
-- `caption.txt`
-- `sources.json`
-- `credits.json`
-
-Le paquet est conservé comme artifact GitHub pendant 30 jours.
+This is a prepared package, not an executed workflow. It installs Piper, downloads the voice, runs the 65-80s gate, and uploads any outputs as an artifact. If duration is outside range, workflow fails closed; the WAV may still be uploaded. Subtitles are estimated SRT and are NOT burned into MP4. Visual, factual, licensing and timing review required.
