@@ -22,3 +22,5 @@ jobs:
         run: python tools/neon_v1_authorized_migration.py
 
 # Retry after transaction-internal sequential statement fix.
+
+# Retry after successful rollback-only isolated DDL diagnostic.
