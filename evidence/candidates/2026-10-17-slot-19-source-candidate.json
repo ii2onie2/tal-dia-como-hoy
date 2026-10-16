@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-17",
+  "slot": "19:00",
+  "topic": "Doñana: del parque nacional al Patrimonio Mundial",
+  "topic_type": "evergreen_not_anniversary",
+  "evidence_review_approved": false,
+  "publication_approved": false,
+  "media_license_approved": false,
+  "status": "CANDIDATE_FACT_REVIEW_REQUIRED",
+  "sources": [
+    {
+      "name": "BOE - Decreto 2412/1969",
+      "organization": "BOE",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-1969-1252",
+      "facts": [
+        "El decreto que crea el Parque Nacional de Doñana se fechó el 16 de octubre de 1969.",
+        "El texto se publicó en el BOE el 27 de octubre de 1969."
+      ]
+    },
+    {
+      "name": "UNESCO - Doñana National Park",
+      "organization": "UNESCO",
+      "url": "https://whc.unesco.org/en/list/685/",
+      "facts": [
+        "Doñana entró en la Lista del Patrimonio Mundial en 1994.",
+        "El sitio comprende ecosistemas de marismas, dunas y lagunas."
+      ]
+    }
+  ],
+  "notes": [
+    "No afirmar que el hecho ocurrió el 17 de octubre salvo prueba explícita.",
+    "Validar las afirmaciones, el guion y las licencias audiovisuales antes de publicar."
+  ]
+}
