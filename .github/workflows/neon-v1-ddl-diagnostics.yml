@@ -1,0 +1,39 @@
+name: Neon V1 DDL Failure Diagnostics Rollback Only
+on:
+  push:
+    branches: [integration/indiepost-premium-audit-20261015]
+    paths: [.github/workflows/neon-v1-ddl-diagnostics.yml]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install --disable-pip-version-check 'psycopg[binary]>=3.2,<4'
+      - name: Diagnose bounded SQL stages then rollback
+        env:
+          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          import os,psycopg
+          queries=[("SCHEMA","CREATE SCHEMA IF NOT EXISTS tiktok_autopilot"),("TABLE","CREATE TABLE tiktok_autopilot._probe_temp(id integer PRIMARY KEY)")]
+          connection=psycopg.connect(os.environ["NEON_DATABASE_URL"],autocommit=False)
+          try:
+              with connection.cursor() as cursor:
+                  cursor.execute("SELECT to_regnamespace('tiktok_autopilot') IS NOT NULL")
+                  assert not cursor.fetchone()[0]
+                  for label,query in queries:
+                      print("STAGE="+label,flush=True)
+                      try:
+                          cursor.execute(query)
+                          print("STAGE_RESULT="+label+"_PASS",flush=True)
+                      except psycopg.Error as error:
+                          print("STAGE_RESULT="+label+"_FAIL",flush=True)
+                          print("SQLSTATE="+str(error.sqlstate),flush=True)
+                          raise
+          finally:
+              connection.rollback()
+              connection.close()
+              print("TRANSACTION=ROLLBACK",flush=True)
+          PY
