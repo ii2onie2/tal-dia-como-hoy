@@ -24,3 +24,5 @@ jobs:
 # Retry after transaction-internal sequential statement fix.
 
 # Retry after successful rollback-only isolated DDL diagnostic.
+
+# Retry after verified CREATE SCHEMA extraction correction.
