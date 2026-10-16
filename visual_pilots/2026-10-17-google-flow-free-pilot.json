@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-17",
+  "channel": "history",
+  "topic": "Inauguración oficial del Metro de Madrid en 1919",
+  "status": "VISUAL_PROMPTS_DRAFT_NOT_APPROVED",
+  "visual_generator": "Google Flow free / Nano Banana UI",
+  "media_status": "NOT_GENERATED",
+  "publication_approved": false,
+  "editorial_review_required": true,
+  "historical_reconstruction": true,
+  "aspect_ratio": "9:16",
+  "target_resolution": "1080x1920",
+  "shots": [
+    {
+      "id": "01",
+      "duration_seconds": 7,
+      "prompt": "Vertical 9:16 cinematic historical reconstruction illustration of early 20th century Madrid, circa 1919, above-ground street near Puerta del Sol, authentic period clothing and trams, historically plausible architecture, museum exhibit visual quality, warm atmospheric light, no lettering, no logos, no modern cars, avoid falsely depicting a real archival photograph."
+    },
+    {
+      "id": "02",
+      "duration_seconds": 9,
+      "prompt": "Vertical 9:16 carefully researched artistic reconstruction of an early Madrid Metro underground station in 1919, period tile work, modest railway platform and early electric metro carriage, realistic but clearly illustrative, no writing, no modern signage, no invented historical documents."
+    },
+    {
+      "id": "03",
+      "duration_seconds": 8,
+      "prompt": "Vertical 9:16 elegant editorial illustration of a vintage transit map concept showing a short Madrid underground metro corridor, abstract thin line and station markers but absolutely no readable text or labels, museum infographic aesthetic, warm sepia paper textures, avoid misleading precise geography."
+    }
+  ],
+  "negative_prompt": "No photorealistic portrayal of identifiable historical individuals, no forged archive labels, no gibberish text, no logos, no watermark.",
+  "overlay_disclosure_es": "Recreación visual generada con IA",
+  "facts_gate": "Do not confuse 17 October 1919 ceremonial inauguration with 31 October public opening",
+  "flow_budget": {
+    "credits_before": null,
+    "credits_after": null,
+    "images_accepted": 0,
+    "cost_unverified": true
+  },
+  "ffmpeg_plan": "Static images with slow pan/zoom, voice via Piper, Spanish subtitles, disclosure overlay, no automated publishing."
+}
