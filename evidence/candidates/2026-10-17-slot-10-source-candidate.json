@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-17",
+  "channel": "history",
+  "slot": "10:00",
+  "topic": "17 de octubre de 1919: inauguración del Metro de Madrid",
+  "status": "CANDIDATE_EVIDENCE_NOT_APPROVED",
+  "evidence_review_approved": false,
+  "publication_approved": false,
+  "media_license_approved": false,
+  "editorial_notes": [
+    "Distinguir inauguración oficial 17/10 y apertura al público 31/10.",
+    "No reutilizar imágenes históricas sin revisión de licencia."
+  ],
+  "sources": [
+    {
+      "name": "Comunidad de Madrid - Línea 1",
+      "organization": "Comunidad de Madrid",
+      "url": "https://www.comunidad.madrid/infraestructuras/linea-1-metro-madrid",
+      "facts": [
+        "Alfonso XIII inauguró oficialmente la primera línea el 17 de octubre de 1919.",
+        "El servicio al público comenzó el 31 de octubre de 1919."
+      ]
+    },
+    {
+      "name": "Casa Real - Centenario primera línea",
+      "organization": "Casa de S.M. el Rey",
+      "url": "https://www.casareal.es/ES/Actividades/Paginas/actividades_actividades_detalle.aspx?data=13735",
+      "facts": [
+        "Alfonso XIII inauguró el 17 de octubre de 1919 la línea Norte-Sur.",
+        "La línea tenía ocho estaciones."
+      ]
+    }
+  ]
+}
