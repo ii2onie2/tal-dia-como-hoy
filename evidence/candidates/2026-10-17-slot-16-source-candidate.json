@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-17",
+  "slot": "16:00",
+  "topic": "La Alhambra nazarí: palacio, ciudadela y fortaleza",
+  "topic_type": "evergreen_not_anniversary",
+  "evidence_review_approved": false,
+  "publication_approved": false,
+  "media_license_approved": false,
+  "status": "CANDIDATE_FACT_REVIEW_REQUIRED",
+  "sources": [
+    {
+      "name": "Patronato de la Alhambra - Historia",
+      "organization": "Patronato de la Alhambra y Generalife",
+      "url": "https://www.alhambra-patronato.es/descubrir/alhambra-y-generalife/historia",
+      "facts": [
+        "El Patronato sitúa en 1238 el comienzo de la reconstrucción impulsada por Al-Ahmar.",
+        "El conjunto ejerció funciones palaciegas, militares y urbanas."
+      ]
+    },
+    {
+      "name": "UNESCO - Alhambra, Generalife and Albayzín",
+      "organization": "UNESCO",
+      "url": "https://whc.unesco.org/en/list/314/",
+      "facts": [
+        "El conjunto fue inscrito en la Lista del Patrimonio Mundial en 1984.",
+        "Los jardines del Generalife se relacionan con los emires nazaríes."
+      ]
+    }
+  ],
+  "notes": [
+    "No afirmar que el hecho ocurrió el 17 de octubre salvo prueba explícita.",
+    "Validar las afirmaciones, el guion y las licencias audiovisuales antes de publicar."
+  ]
+}
