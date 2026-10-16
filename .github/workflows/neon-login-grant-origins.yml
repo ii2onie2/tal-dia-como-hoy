@@ -1,0 +1,32 @@
+name: Neon Login Grant Origins Readonly
+on:
+  push:
+    branches: [integration/indiepost-premium-audit-20261015]
+    paths: [.github/workflows/neon-login-grant-origins.yml]
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install 'psycopg[binary]>=3.2,<4'
+      - name: Read only role and grant audit
+        env:
+          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          import os,psycopg
+          with psycopg.connect(os.environ["NEON_DATABASE_URL"],options="-c default_transaction_read_only=on") as db:
+              db.read_only=True
+              with db.cursor() as c:
+                  c.execute("SELECT rolname,rolcreatedb,rolcreaterole,rolreplication,rolbypassrls FROM pg_roles WHERE rolname='tiktok_autopilot_login'")
+                  print("ROLE_FLAGS="+str(c.fetchone()))
+                  c.execute("SELECT r.rolname FROM pg_auth_members m JOIN pg_roles r ON r.oid=m.roleid JOIN pg_roles u ON u.oid=m.member WHERE u.rolname='tiktok_autopilot_login'")
+                  print("MEMBERSHIPS="+str(c.fetchall()))
+                  c.execute("SELECT grantee,privilege_type FROM information_schema.role_table_grants WHERE table_schema='tiktok_autopilot' AND table_name='publication_reservations' ORDER BY grantee,privilege_type")
+                  print("TABLE_GRANTS="+str(c.fetchall()))
+                  c.execute("SELECT has_database_privilege('tiktok_autopilot_login',current_database(),'CREATE'),has_schema_privilege('tiktok_autopilot_login','tiktok_autopilot','CREATE'),has_table_privilege('tiktok_autopilot_login','tiktok_autopilot.publication_reservations','DELETE')")
+                  print("EFFECTIVE="+str(c.fetchone()))
+          print("RESULT=PASS_READONLY_GRANT_ORIGINS")
+          PY
