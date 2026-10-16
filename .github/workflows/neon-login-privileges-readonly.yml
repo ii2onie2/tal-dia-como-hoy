@@ -1,0 +1,48 @@
+name: Neon Login Effective Privileges Readonly
+on:
+  push:
+    branches: [integration/indiepost-premium-audit-20261015]
+    paths: [.github/workflows/neon-login-privileges-readonly.yml]
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install --disable-pip-version-check 'psycopg[binary]>=3.2,<4'
+      - name: Read only PostgreSQL catalog audit of application login
+        env:
+          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          import os,psycopg
+          with psycopg.connect(os.environ["NEON_DATABASE_URL"],options="-c default_transaction_read_only=on",connect_timeout=15) as db:
+              db.read_only=True
+              with db.cursor() as c:
+                  c.execute("""SELECT rolname,rolcanlogin,rolsuper,rolcreatedb,rolcreaterole,rolreplication,rolbypassrls
+                               FROM pg_roles WHERE rolname IN ('tiktok_autopilot_login','tiktok_reservation_rw')
+                               ORDER BY rolname""")
+                  rows=c.fetchall()
+                  assert len(rows)==2, "MISSING_ROLE"
+                  for row in rows:
+                      print("ROLE_FLAGS="+str(row),flush=True)
+                  c.execute("""SELECT pg_has_role('tiktok_autopilot_login','tiktok_reservation_rw','MEMBER'),
+                               has_database_privilege('tiktok_autopilot_login',current_database(),'CREATE'),
+                               has_schema_privilege('tiktok_autopilot_login','tiktok_autopilot','USAGE'),
+                               has_schema_privilege('tiktok_autopilot_login','tiktok_autopilot','CREATE'),
+                               has_table_privilege('tiktok_autopilot_login','tiktok_autopilot.publication_reservations','SELECT'),
+                               has_table_privilege('tiktok_autopilot_login','tiktok_autopilot.publication_reservations','INSERT'),
+                               has_table_privilege('tiktok_autopilot_login','tiktok_autopilot.publication_reservations','UPDATE'),
+                               has_table_privilege('tiktok_autopilot_login','tiktok_autopilot.publication_reservations','DELETE'),
+                               has_table_privilege('tiktok_autopilot_login','tiktok_autopilot.publication_reservations','TRUNCATE')""")
+                  permissions=c.fetchone()
+                  print("LOGIN_EFFECTIVE_PERMISSIONS="+str(permissions),flush=True)
+                  assert rows[0][0]=='tiktok_autopilot_login'
+                  assert rows[0][1] is True and all(v is False for v in rows[0][2:])
+                  assert rows[1][0]=='tiktok_reservation_rw' and rows[1][1] is False
+                  print("RESULT=PASS_LOGIN_ROLE_CATALOG_AUDIT",flush=True)
+          print("READ_ONLY=YES",flush=True)
+          print("GRANT_EXECUTED=NO",flush=True)
+          PY
