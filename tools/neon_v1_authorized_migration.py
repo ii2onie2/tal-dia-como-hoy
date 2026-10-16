@@ -33,10 +33,13 @@ try:
    before=state(cur)
    print("PRE_SCHEMA_TABLE_ROLE="+str(before))
    if before!=(False,False,False):raise RuntimeError("PRECHECK_OBJECTS_NOT_ABSENT")
-   for script in scripts:
-    for statement in script.split(";"):
-     clean="\n".join(line for line in statement.splitlines() if not line.lstrip().startswith("--")).strip()
-     if clean:cur.execute(clean)
+   for script_idx,script in enumerate(scripts):
+    uncommented="\n".join(line for line in script.splitlines() if not line.lstrip().startswith("--"))
+    for index,statement in enumerate(uncommented.split(";")):
+     clean=statement.strip()
+     if clean:
+      print("EXECUTE_SQL_STAGE="+str(script_idx)+"_"+str(index),flush=True)
+      cur.execute(clean)
    if state(cur)!=(True,True,True):raise RuntimeError("IN_TRANSACTION_OBJECTS_MISSING")
    cur.execute("""SELECT rolcanlogin,rolsuper,rolcreatedb,rolcreaterole,
      has_schema_privilege('tiktok_reservation_rw','tiktok_autopilot','USAGE'),
