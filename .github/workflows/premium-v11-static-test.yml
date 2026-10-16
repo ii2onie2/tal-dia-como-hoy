@@ -1,6 +1,14 @@
+
 name: Premium V1 Static Test
+
 on:
   workflow_dispatch:
+    inputs:
+      run_piper_pilot:
+        description: "Run isolated Piper pilot (review only)"
+        required: true
+        type: boolean
+        default: false
   push:
     branches:
       - integration/indiepost-premium-audit-20261015
@@ -27,3 +35,54 @@ jobs:
           echo "RESULT=PASS_STATIC_ONLY"
           echo "MEDIA_RENDER_TESTED=NO"
           echo "PUBLICATION_ENABLED=NO"
+
+  piper-pilot:
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      inputs.run_piper_pilot == true &&
+      github.ref == 'refs/heads/integration/indiepost-premium-audit-20261015'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify pilot inputs
+        run: |
+          set -euo pipefail
+          test -s pilot/01.jpg
+          test -s pilot/02.jpg
+          test -s pilot/03.jpg
+          test -s pilot/narration_es_v2_draft.txt
+          python -m py_compile pilot/build_p36.py
+
+      - name: Install Piper and FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install piper-tts
+
+      - name: Download Spanish voice
+        run: |
+          mkdir -p pilot/voices
+          curl -fL --retry 3 -o pilot/voices/es_ES-sharvard-medium.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
+          curl -fL --retry 3 -o pilot/voices/es_ES-sharvard-medium.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
+
+      - name: Render review-only pilot
+        run: |
+          python pilot/build_p36.py \
+            --voice-model pilot/voices/es_ES-sharvard-medium.onnx \
+            --voice-config pilot/voices/es_ES-sharvard-medium.onnx.json
+
+      - name: Upload review artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p38-tal-dia-review-only
+          path: pilot/p36_output/
+          if-no-files-found: warn
+          retention-days: 7
