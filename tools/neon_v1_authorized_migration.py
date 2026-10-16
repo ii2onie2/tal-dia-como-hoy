@@ -25,6 +25,7 @@ if not url:raise SystemExit("BLOCKED_DSN_MISSING")
 if conninfo_to_dict(url).get("sslmode") not in ("require","verify-ca","verify-full"):raise SystemExit("BLOCKED_SSL")
 try:
  scripts=[ddl(p) for p in expected]
+ if "CREATE SCHEMA IF NOT EXISTS tiktok_autopilot;" not in scripts[0]:raise RuntimeError("CREATE_SCHEMA_MISSING_AFTER_WRAPPER_REMOVAL")
  print("SQL_HASHES=PASS")
  with psycopg.connect(url,connect_timeout=15,autocommit=False) as db:
   with db.cursor() as cur:
