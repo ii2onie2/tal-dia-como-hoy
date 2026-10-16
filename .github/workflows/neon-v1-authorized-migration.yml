@@ -20,3 +20,5 @@ jobs:
         env:
           NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
         run: python tools/neon_v1_authorized_migration.py
+
+# Retry after transaction-internal sequential statement fix.
