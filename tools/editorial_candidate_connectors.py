@@ -1,12 +1,28 @@
 #!/usr/bin/env python3
 """Read-only editorial discovery and draft connectors. No approvals or publication."""
-import argparse, datetime, json, os, pathlib, urllib.parse, urllib.request, urllib.error, xml.etree.ElementTree as ET
+import argparse, datetime, json, os, pathlib, time, urllib.parse, urllib.request, urllib.error, xml.etree.ElementTree as ET
 from zoneinfo import ZoneInfo
 
-def request(url, data=None, headers=None):
+def request(url, data=None, headers=None, timeout=25):
     req=urllib.request.Request(url,data=data,headers={'User-Agent':'VeritasEditorialDiscovery/1.0',**(headers or {})})
-    with urllib.request.urlopen(req,timeout=25) as response:
+    with urllib.request.urlopen(req,timeout=timeout) as response:
         return response.read(500000)
+
+def gemini_json(url, body, key):
+    """Retry only transient Gemini failures; never retry invalid credentials or requests."""
+    payload=json.dumps(body).encode()
+    headers={'x-goog-api-key':key,'Content-Type':'application/json'}
+    for attempt in range(2):
+        try:
+            return json.loads(request(url,payload,headers,timeout=55))
+        except urllib.error.HTTPError as error:
+            if error.code not in (408,429,500,502,503,504) or attempt:
+                raise
+        except (TimeoutError,urllib.error.URLError):
+            if attempt:
+                raise
+        time.sleep(2)
+    raise RuntimeError('GEMINI_RETRY_EXHAUSTED')
 
 def discover(brand, day):
     query=('efemérides historia España '+str(day.day)+'/'+str(day.month)+' -televisión -estreno' if brand=='history' else 'bienestar perros veterinaria educación canina')
@@ -75,7 +91,10 @@ def draft(candidates, provider):
     source_rows=[]
     for source_provider in candidates.get('providers',[]):
         if source_provider.get('status')!='OK':continue
+        # Historical proposals must come from dated event metadata, never heritage/news search hits.
+        if candidates['brand']=='history' and source_provider.get('name') not in ('wikidata','wikipedia_onthisday'):continue
         for item in source_provider.get('items',[]):
+            if candidates['brand']=='history' and str(item.get('date',''))[5:10]!=candidates['date'][5:10]:continue
             url=item.get('url','')
             if not isinstance(url,str):continue
             if url.startswith('http://www.wikidata.org/entity/'):
@@ -89,8 +108,8 @@ def draft(candidates, provider):
                  'Devuelve JSON con ideas: objetos title, source_id, verification_needed=true. '
                  'source_id debe ser exactamente uno de los identificadores proporcionados; '
                  'NO escribas URL ni inventes identificadores. '
-                 + ('Prioriza eventos históricos de España ocurridos el '+candidates['date'][8:10]+'/'+candidates['date'][5:7]+
-                    ' de cualquier año. Selecciona Wikidata o Wikipedia onthisday con fecha del día correcto; '
+                 + ('Selecciona solamente eventos históricos relacionados directamente con España ocurridos el '+candidates['date'][8:10]+'/'+candidates['date'][5:7]+
+                    ' de cualquier año. Si la relación con España no se puede establecer desde el catálogo, devuelve ideas vacías. Utiliza solo eventos fechados de Wikidata o Wikipedia onthisday; '
                     'excluye televisión, estrenos y otras fechas. ' if candidates['brand']=='history' else '') +
                  'Si no hay candidatos adecuados, devuelve ideas vacías. Catálogo: '+
                  json.dumps(source_rows,ensure_ascii=False)[:12000])
@@ -101,7 +120,7 @@ def draft(candidates, provider):
         url='https://generativelanguage.googleapis.com/v1beta/models/'+urllib.parse.quote(model,safe='')+':generateContent'
         body={'contents':[{'parts':[{'text':instruction}]}],'generationConfig':{'responseMimeType':'application/json','temperature':0.2}}
         try:
-            response=json.loads(request(url,json.dumps(body).encode(),{'x-goog-api-key':key,'Content-Type':'application/json'}))
+            response=gemini_json(url,body,key)
         except urllib.error.HTTPError as error:
             if error.code!=404:raise
             # Discover models supported by this key; do not guess an unavailable model.
@@ -112,7 +131,7 @@ def draft(candidates, provider):
             if not alternate:
                 return {'status':'BLOCKED_GEMINI_MODEL_NOT_AVAILABLE','requested_model':model,'supported_models':supported[:30],'ideas':[]}
             url='https://generativelanguage.googleapis.com/v1beta/models/'+urllib.parse.quote(alternate,safe='')+':generateContent'
-            response=json.loads(request(url,json.dumps(body).encode(),{'x-goog-api-key':key,'Content-Type':'application/json'}))
+            response=gemini_json(url,body,key)
         text=''.join(x.get('text','') for x in response.get('candidates',[{}])[0].get('content',{}).get('parts',[]))
     else:
         # GitHub-hosted runners cannot access a local Ollama daemon; only explicitly configured endpoints.
@@ -175,6 +194,7 @@ def main():
         result.update({'brand':args.brand,'date':day.isoformat(),'evidence_review_approved':False,'publication_approved':False})
         (out/(provider+'-ideas.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
         print(provider.upper()+'='+result['status'])
+        if result.get('error_type'):print(provider.upper()+'_ERROR_TYPE='+result['error_type'])
     print('PUBLICATION=NO EVIDENCE_APPROVAL=NO')
     if os.environ.get('REQUIRE_GEMINI')=='1' and json.loads((out/'gemini-ideas.json').read_text())['status']!='UNVERIFIED_MODEL_DRAFT':
         raise SystemExit('BLOCKED_GEMINI_NOT_READY')
