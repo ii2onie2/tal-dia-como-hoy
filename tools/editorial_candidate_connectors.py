@@ -28,6 +28,23 @@ def discover(brand, day):
             providers.append({'name':'wikidata','status':'OK','items':entries})
         except Exception as e:
             providers.append({'name':'wikidata','status':'UNAVAILABLE','error_type':type(e).__name__,'items':[]})
+        # Independent availability fallback: Wikimedia's Spanish on-this-day feed.
+        # Feed dates are discovery metadata only, never editorial verification.
+        feed='https://es.wikipedia.org/api/rest_v1/feed/onthisday/events/'+str(day.month).zfill(2)+'/'+str(day.day).zfill(2)
+        try:
+            raw=json.loads(request(feed,headers={'Accept':'application/json'}))
+            entries=[]
+            for event in raw.get('events',[]):
+                year=event.get('year')
+                for page in event.get('pages',[])[:1]:
+                    link=page.get('content_urls',{}).get('desktop',{}).get('page','')
+                    if isinstance(link,str) and link.startswith('https://') and year is not None:
+                        entries.append({'title':str(event.get('text') or page.get('title') or '')[:240],
+                                        'url':link,'date':str(year)+'-'+str(day.month).zfill(2)+'-'+str(day.day).zfill(2)})
+                if len(entries)>=30:break
+            providers.append({'name':'wikipedia_onthisday','status':'OK','items':entries})
+        except Exception as e:
+            providers.append({'name':'wikipedia_onthisday','status':'UNAVAILABLE','error_type':type(e).__name__,'items':[]})
     return {'date':day.isoformat(),'brand':brand,'status':'UNVERIFIED_CANDIDATES','evidence_review_approved':False,'publication_approved':False,'providers':providers}
 
 def draft(candidates, provider):
@@ -39,7 +56,10 @@ def draft(candidates, provider):
         if source_provider.get('status')!='OK':continue
         for item in source_provider.get('items',[]):
             url=item.get('url','')
-            if not isinstance(url,str) or not url.startswith('https://'):continue
+            if not isinstance(url,str):continue
+            if url.startswith('http://www.wikidata.org/entity/'):
+                url='https://'+url[len('http://'):]
+            if not url.startswith('https://'):continue
             source_id='SRC_'+str(len(source_rows)+1).zfill(3)
             catalog[source_id]=url
             source_rows.append({'source_id':source_id,'title':str(item.get('title') or '')[:240],
@@ -48,8 +68,8 @@ def draft(candidates, provider):
                  'Devuelve JSON con ideas: objetos title, source_id, verification_needed=true. '
                  'source_id debe ser exactamente uno de los identificadores proporcionados; '
                  'NO escribas URL ni inventes identificadores. '
-                 + ('Solo eventos históricos de España ocurridos el '+candidates['date'][8:10]+'/'+candidates['date'][5:7]+
-                    ' de cualquier año. Solo selecciona entradas Wikidata con fecha del día correcto; '
+                 + ('Prioriza eventos históricos de España ocurridos el '+candidates['date'][8:10]+'/'+candidates['date'][5:7]+
+                    ' de cualquier año. Selecciona Wikidata o Wikipedia onthisday con fecha del día correcto; '
                     'excluye televisión, estrenos y otras fechas. ' if candidates['brand']=='history' else '') +
                  'Si no hay candidatos adecuados, devuelve ideas vacías. Catálogo: '+
                  json.dumps(source_rows,ensure_ascii=False)[:12000])
@@ -90,7 +110,7 @@ def draft(candidates, provider):
     if not isinstance(ideas,list):raise ValueError('INVALID_IDEAS')
     eligible=None
     if candidates['brand']=='history':
-        eligible={str(item.get('url','')) for p in candidates['providers'] if p['name']=='wikidata' and p['status']=='OK' for item in p['items'] if str(item.get('date',''))[5:10]==candidates['date'][5:10]}
+        eligible={('https://'+str(item.get('url',''))[len('http://'):] if str(item.get('url','')).startswith('http://www.wikidata.org/entity/') else str(item.get('url',''))) for p in candidates['providers'] if p['name'] in ('wikidata','wikipedia_onthisday') and p['status']=='OK' for item in p['items'] if str(item.get('date',''))[5:10]==candidates['date'][5:10]}
     accepted=[]
     rejected=[]
     for index,item in enumerate(ideas):
@@ -101,7 +121,7 @@ def draft(candidates, provider):
             rejected.append({'index':index,'reason':'UNKNOWN_SOURCE_ID'});continue
         canonical_url=catalog[source_id]
         if eligible is not None and canonical_url not in eligible:
-            rejected.append({'index':index,'reason':'NOT_DATE_VERIFIED_WIKIDATA'});continue
+            rejected.append({'index':index,'reason':'NOT_DATE_MATCHED_SOURCE'});continue
         title=str(item.get('title','')).strip()[:240]
         if not title:
             rejected.append({'index':index,'reason':'EMPTY_TITLE'});continue
