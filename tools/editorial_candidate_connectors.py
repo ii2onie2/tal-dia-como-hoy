@@ -9,7 +9,7 @@ def request(url, data=None, headers=None):
         return response.read(500000)
 
 def discover(brand, day):
-    query='historia de España efemérides' if brand=='history' else 'bienestar perros veterinaria educación canina'
+    query=('efemérides historia España '+str(day.day)+'/'+str(day.month)+' -televisión -estreno' if brand=='history' else 'bienestar perros veterinaria educación canina')
     rss='https://news.google.com/rss/search?'+urllib.parse.urlencode({'q':query,'hl':'es','gl':'ES','ceid':'ES:es'})
     providers=[]
     try:
@@ -33,7 +33,7 @@ def discover(brand, day):
 def draft(candidates, provider):
     # Models only summarize candidate metadata; no unsupported facts become evidence.
     raw=json.dumps(candidates,ensure_ascii=False)
-    instruction='En español, propone hasta tres temas de vídeo basados únicamente en los títulos y enlaces de entrada. No inventes hechos. Devuelve JSON con clave ideas (lista de objetos title, source_url, verification_needed=true). Son propuestas NO VERIFICADAS, no publicables. Entrada: '+raw[:12000]
+    instruction=('En español, propone hasta tres temas de vídeo basados únicamente en los títulos y enlaces de entrada. No inventes hechos. ' + ('Solo eventos históricos de España que ocurrieron el '+candidates['date'][8:10]+'/'+candidates['date'][5:7]+' de cualquier año. Excluye programas de televisión, estrenos y noticias sobre otros días. Si no hay fuentes fechadas elegibles, devuelve ideas vacías. ' if candidates['brand']=='history' else '') + 'Devuelve JSON con clave ideas (lista de objetos title, source_url, verification_needed=true). Son propuestas NO VERIFICADAS, no publicables. Entrada: '+raw[:12000])
     if provider=='gemini':
         key=os.environ.get('GEMINI_API_KEY','')
         if not key:return {'status':'SKIPPED_NO_GEMINI_API_KEY','ideas':[]}
@@ -69,6 +69,10 @@ def draft(candidates, provider):
     parsed=json.loads(text)
     ideas=parsed.get('ideas',[])
     if not isinstance(ideas,list):raise ValueError('INVALID_IDEAS')
+    if candidates['brand']=='history':
+        # Require matching-day Wikidata event URL; titles alone cannot establish an event date.
+        eligible={str(item.get('url','')) for p in candidates['providers'] if p['name']=='wikidata' and p['status']=='OK' for item in p['items'] if str(item.get('date',''))[5:10]==candidates['date'][5:10]}
+        ideas=[item for item in ideas if isinstance(item,dict) and str(item.get('source_url','')) in eligible]
     return {'status':'UNVERIFIED_MODEL_DRAFT','ideas':[{'title':str(i.get('title',''))[:240],'source_url':str(i.get('source_url',''))[:500],'verification_needed':True} for i in ideas[:3] if isinstance(i,dict)]}
 
 def main():
