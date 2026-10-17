@@ -45,6 +45,27 @@ def discover(brand, day):
             providers.append({'name':'wikipedia_onthisday','status':'OK','items':entries})
         except Exception as e:
             providers.append({'name':'wikipedia_onthisday','status':'UNAVAILABLE','error_type':type(e).__name__,'items':[]})
+        # Europeana Search API: heritage candidates, not date-verified events.
+        europeana_key=os.environ.get('EUROPEANA_API_KEY','').strip()
+        if europeana_key:
+            endpoint='https://api.europeana.eu/record/v2/search.json?'+urllib.parse.urlencode({
+                'wskey':europeana_key,'query':'Spain OR España','rows':20,'profile':'minimal'})
+            try:
+                payload=json.loads(request(endpoint,headers={'Accept':'application/json'}))
+                entries=[]
+                for record in payload.get('items',[]):
+                    record_id=str(record.get('id') or '')
+                    if not record_id.startswith('/') or '://' in record_id:continue
+                    titles=record.get('title') or []
+                    title=str(titles[0] if isinstance(titles,list) and titles else titles)[:240]
+                    entries.append({'title':title,'url':'https://www.europeana.eu/es/item'+record_id,
+                                    'record_id':record_id,'date':None,
+                                    'verification_needed':True})
+                providers.append({'name':'europeana','status':'OK','items':entries})
+            except Exception as e:
+                providers.append({'name':'europeana','status':'UNAVAILABLE','error_type':type(e).__name__,'items':[]})
+        else:
+            providers.append({'name':'europeana','status':'SKIPPED_NO_API_KEY','items':[]})
     return {'date':day.isoformat(),'brand':brand,'status':'UNVERIFIED_CANDIDATES','evidence_review_approved':False,'publication_approved':False,'providers':providers}
 
 def draft(candidates, provider):
