@@ -1,5 +1,8 @@
 name: Editorial Daily Input Audit
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 5 * * *'
   push:
     branches: [integration/indiepost-premium-audit-20261015]
     paths:
@@ -21,7 +24,8 @@ jobs:
         run: |
           python - <<'PY'
           import datetime, pathlib, json, subprocess, sys
-          today=datetime.datetime.now(datetime.timezone.utc).astimezone(datetime.timezone(datetime.timedelta(hours=2))).date().isoformat()
+          from zoneinfo import ZoneInfo
+          today=datetime.datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
           evidence=pathlib.Path("evidence/approved")/(today+"-three-dossiers.json")
           if evidence.exists():
               proc=subprocess.run([sys.executable,"tools/daily_editorial_evidence_gate.py","--input",str(evidence),"--brand", "history"],capture_output=True,text=True)
