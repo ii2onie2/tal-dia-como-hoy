@@ -23,12 +23,14 @@ def srt_time(t):
     return f"{h:02}:{m:02}:{s:02},{ms:03}"
 
 def make_srt(text,duration,out):
-    chunks=textwrap.wrap(text,width=42,break_long_words=False,break_on_hyphens=False) or [text]
-    step=max(duration/len(chunks),1.0)
+    words=text.split()
+    lines=textwrap.wrap(" ".join(words),width=27,break_long_words=False,break_on_hyphens=False)
+    chunks=["\\n".join(lines[i:i+2]) for i in range(0,len(lines),2)] or [text]
+    step=duration/len(chunks)
     with open(out,"w",encoding="utf-8") as f:
         for i,c in enumerate(chunks,1):
             start=(i-1)*step; end=min(i*step,duration)
-            f.write(f"{i}\n{srt_time(start)} --> {srt_time(end)}\n{c}\n\n")
+            f.write(f"{i}\n{srt_time(start)} --> {srt_time(end)}\n{c.replace(chr(92)+'n', chr(10))}\n\n")
 
 def ffpath(path):
     return pathlib.Path(path).as_posix().replace("\\","/").replace(":","\\:").replace("'","\\'")
@@ -84,8 +86,8 @@ def main():
     cta_file=out/"cta.txt"
     series_file=out/"series.txt"
     date_file=out/"date.txt"
-    hook_file.write_text(hook+"\n",encoding="utf-8")
-    cta_file.write_text(cta+"\n",encoding="utf-8")
+    hook_file.write_text(textwrap.fill(hook,width=32,break_long_words=False)+"\n",encoding="utf-8")
+    cta_file.write_text(textwrap.fill(cta,width=32,break_long_words=False)+"\n",encoding="utf-8")
     series_file.write_text(series+"\n",encoding="utf-8")
     date_file.write_text(date_label+"\n",encoding="utf-8")
 
@@ -103,8 +105,8 @@ def main():
     video=str(out/"video.mp4")
     subtitle_filter=(
         f"subtitles={ffpath(srt)}:"
-        "force_style='FontName=DejaVu Sans,FontSize=18,Outline=2,Shadow=0,"
-        "Alignment=2,MarginV=120'"
+        "force_style='FontName=DejaVu Sans,FontSize=16,Outline=2,Shadow=0,"
+        "Alignment=2,MarginV=190,MarginL=100,MarginR=100,WrapStyle=2'"
     )
     hook_end=min(4.5,max(2.5,duration*0.12))
     cta_start=max(0.0,duration-5.5)
@@ -121,14 +123,14 @@ def main():
     )
     hook_overlay=(
         f",drawtext=textfile='{ffpath(hook_file)}':font='DejaVu Sans':"
-        "fontsize=44:fontcolor=white:box=1:boxcolor=black@0.68:boxborderw=14:"
+        "fontsize=34:line_spacing=10:fontcolor=white:box=1:boxcolor=black@0.68:boxborderw=14:"
         f"x=(w-text_w)/2:y=155:enable='between(t,0,{hook_end:.2f})'"
         if hook else ""
     )
     cta_overlay=(
         f",drawtext=textfile='{ffpath(cta_file)}':font='DejaVu Sans':"
-        "fontsize=42:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=14:"
-        f"x=(w-text_w)/2:y=h-360:enable='gte(t,{cta_start:.2f})'"
+        "fontsize=32:line_spacing=10:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=14:"
+        f"x=(w-text_w)/2:y=260:enable='gte(t,{cta_start:.2f})'"
     )
 
     if bgs:
