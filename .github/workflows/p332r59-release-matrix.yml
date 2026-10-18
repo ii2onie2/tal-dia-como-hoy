@@ -1,0 +1,22 @@
+name: P3.32R59 Offline Editorial Release Matrix
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/test_release_matrix_r59.py'
+      - '.github/workflows/p332r59-release-matrix.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p332r59-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  offline-release-denial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tools/editorial_review -p 'test_release_matrix_r59.py' -v
