@@ -1,0 +1,20 @@
+name: P3.32R47 Offline Pre-Render Fail-Closed Gate
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/prerender_gate_r47.py'
+      - 'tools/editorial_review/test_prerender_gate_r47.py'
+      - '.github/workflows/p332r47-prerender-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fail-closed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tools/editorial_review -p 'test_prerender_gate_r47.py' -v
