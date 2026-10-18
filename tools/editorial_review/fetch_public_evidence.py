@@ -29,8 +29,7 @@ def fetch(url,resolve=socket.getaddrinfo,opener=None):
     for answer in answers:
         ip=ipaddress.ip_address(answer[4][0])
         if not ip.is_global:raise ValueError("UNSAFE_DNS_IP")
-    client=opener if opener is not None else urllib.request.build_opener(
-        NoRedirect,urllib.request.ProxyHandler({}))
+    # P3.32R15: DNS prechecking cannot pin the subsequent urllib TCP connection.\n    # Until a pinned-IP TLS transport is implemented and tested, refuse live I/O.\n    if opener is None:\n        raise ValueError("LIVE_NETWORK_DISABLED_UNTIL_PINNED_TLS")\n    client=opener
     req=urllib.request.Request(url,headers={"User-Agent":"EditorialEvidenceAudit/1.0","Accept":"text/html,text/plain"})
     with client.open(req,timeout=8) as resp:
         if resp.status!=200:raise ValueError("HTTP_STATUS")
