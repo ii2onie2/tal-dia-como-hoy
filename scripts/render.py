@@ -105,8 +105,8 @@ def main():
     video=str(out/"video.mp4")
     subtitle_filter=(
         f"subtitles={ffpath(srt)}:"
-        "force_style='FontName=DejaVu Sans,FontSize=16,Outline=2,Shadow=0,"
-        "Alignment=2,MarginV=190,MarginL=100,MarginR=100,WrapStyle=2'"
+        "force_style='FontName=DejaVu Sans,FontSize=10,Outline=2,Shadow=0,"
+        "Alignment=2,MarginV=28,MarginL=95,MarginR=95,WrapStyle=2'"
     )
     hook_end=min(4.5,max(2.5,duration*0.12))
     cta_start=max(0.0,duration-5.5)
@@ -122,9 +122,10 @@ def main():
         if date_label else ""
     )
     hook_overlay=(
+        f",drawbox=x=0:y=0:w=iw:h=ih:color=0x121e31@0.96:t=fill:enable='between(t,0,{hook_end:.2f})'"
         f",drawtext=textfile='{ffpath(hook_file)}':font='DejaVu Sans':"
         "fontsize=34:line_spacing=10:fontcolor=white:box=1:boxcolor=black@0.68:boxborderw=14:"
-        f"x=(w-text_w)/2:y=155:enable='between(t,0,{hook_end:.2f})'"
+        f"x=(w-text_w)/2:y=(h-text_h)/2:enable='between(t,0,{hook_end:.2f})'"
         if hook else ""
     )
     cta_overlay=(
