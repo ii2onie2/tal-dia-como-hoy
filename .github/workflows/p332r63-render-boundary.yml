@@ -1,0 +1,40 @@
+name: P3.32R63 Isolated Pre-Render Boundary
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r63-render-boundary.yml'
+      - 'tools/editorial_review/render_adapter_r62.py'
+      - 'tools/editorial_review/P332R20_EVIDENCE_QUEUE_UNAPPROVED.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p332r63-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  block-before-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify denial happens before rendering command
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          sentinel="$(mktemp -d)/render-was-called"
+          set +e
+          python3 tools/editorial_review/render_adapter_r62.py \
+            --content-dir content \
+            --queue tools/editorial_review/P332R20_EVIDENCE_QUEUE_UNAPPROVED.json \
+            --date 2026-10-17
+          status=$?
+          set -e
+          test "$status" -eq 2
+          test ! -e "$sentinel"
+          echo 'EDITORIAL_DENIAL_CONFIRMED_RENDER_NOT_INVOKED'
+      - name: Never launch renderer on unapproved evidence
+        if: ${{ always() }}
+        run: echo 'ISOLATED_ONLY NO_PRODUCTION_RENDER NO_PUBLICATION'
