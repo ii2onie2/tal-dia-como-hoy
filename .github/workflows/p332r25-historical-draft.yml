@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/p332r25-historical-draft.yml'
       - 'tools/editorial_review/p332r25_amnesty_draft_unapproved.json'
+      - 'scripts/render.py'
   workflow_dispatch:
 permissions:
   contents: read
