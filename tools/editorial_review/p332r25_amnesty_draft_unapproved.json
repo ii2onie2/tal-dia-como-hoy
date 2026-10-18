@@ -5,8 +5,8 @@
   "series": "Tal Día Como Hoy",
   "duration_target": "65-80s",
   "hook": "La ley es del día 15, pero entró en vigor el 17. ¿Por qué?",
-  "narration": "El 17 de octubre de 1977, el Boletín Oficial del Estado publicó una ley decisiva de la Transición española: la Ley 46 de 1977, conocida como la Ley de Amnistía. Pero hay un detalle que suele confundirse: la norma lleva fecha del 15 de octubre y se publicó dos días después. El texto original aparece en el número 248 del boletín, en sus páginas 22765 y 22766. El Congreso de los Diputados también conserva el expediente de su tramitación. Según ese registro parlamentario, la propuesta se presentó el 7 de octubre y se debatió en el pleno del 14 de octubre. La ley contemplaba una amnistía para determinadas conductas descritas en sus artículos y establecía procedimientos para que la aplicaran jueces y autoridades competentes. Su artículo doce fijaba una regla muy concreta: la entrada en vigor tendría lugar el mismo día de la publicación oficial. Por eso, al hablar del 17 de octubre de 1977, debemos distinguir entre la fecha de la ley, la fecha del debate parlamentario y la fecha de entrada en vigor. Esta es una explicación histórica del documento original, no una interpretación jurídica de sus efectos actuales. Si te interesa la historia de España contada con fechas y fuentes verificables, sigue esta serie para descubrir más.",
-  "caption": "BORRADOR EDITORIAL. No publicar sin aprobación y verificación de derechos.",
+  "narration": "El 17 de octubre de 1977 se publicó en España la Ley de Amnistía. Pero su nombre completo incluye un dato que suele pasar desapercibido: es la Ley 46 de 1977, de 15 de octubre. Entonces, ¿por qué recordamos el día diecisiete? Porque una cosa es la fecha del texto legal y otra su publicación oficial. El Boletín Oficial del Estado publicó la norma el 17 de octubre de 1977, en su número 248. Su referencia es BOE-A-1977-24937. El artículo doce contiene otro detalle importante: dispone que la ley entraría en vigor el mismo día de su publicación. Por eso, al reconstruir los hechos, es necesario distinguir tres cuestiones: cuándo se firmó la ley, cuándo apareció en el boletín y cuándo comenzó a regir. La documentación oficial permite comprobar esas fechas sin depender de rumores ni de recuerdos. Esta explicación se limita a las fechas y al texto publicado. No pretende resumir todas las consecuencias políticas o jurídicas de la amnistía. Síguenos para conocer la historia de España con documentos, fechas y contexto.",
+  "caption": "BORRADOR / NO PUBLICAR · Ley 46/1977 publicada el 17 de octubre de 1977.",
   "hashtags": [
     "#TalDiaComoHoy",
     "#HistoriaDeEspaña"
@@ -24,10 +24,18 @@
       "locator": "Initiative 122/000014, parliamentary proceedings and BOE references"
     }
   ],
-  "media": [],
+  "media": [
+    {
+      "type": "original_illustration",
+      "path": "rehearsal/r25/visual.png",
+      "creator": "Project-generated timeline diagram",
+      "license": "original_project_work",
+      "rights_review": "PENDING_VISUAL_QA"
+    }
+  ],
   "approved": false,
   "publishable": false,
-  "rights_clearance": "PENDING",
+  "rights_clearance": "PENDING_VISUAL_QA",
   "editorial_review": "PENDING",
   "watermark": "BORRADOR / NO PUBLICAR"
 }
