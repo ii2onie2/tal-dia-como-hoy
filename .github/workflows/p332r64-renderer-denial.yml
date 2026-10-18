@@ -1,0 +1,42 @@
+name: P3.32R64 Isolated Real Renderer Denial
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r64-renderer-denial.yml'
+      - 'tools/editorial_review/render_adapter_r62.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p332r64-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  no-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Enforce gate before actual renderer CLI
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          sentinel="$RUNNER_TEMP/r64-render-invoked"
+          rm -f "$sentinel"
+          # This is the real renderer command location, but the gate must deny
+          # before it is reached. No dependencies, models or media downloaded.
+          set +e
+          python3 tools/editorial_review/render_adapter_r62.py \
+            --content-dir content \
+            --queue tools/editorial_review/P332R20_EVIDENCE_QUEUE_UNAPPROVED.json \
+            --date 2026-10-17 && {
+              touch "$sentinel"
+              python3 scripts/render.py --help
+            }
+          status=$?
+          set -e
+          test "$status" -eq 2
+          test ! -e "$sentinel"
+          echo 'R64_GATE_BLOCKED_BEFORE_REAL_RENDERER_CLI'
