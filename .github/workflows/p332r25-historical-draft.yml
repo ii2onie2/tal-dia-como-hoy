@@ -35,7 +35,7 @@ jobs:
           source=Path('tools/editorial_review/p332r25_amnesty_draft_unapproved.json')
           d=json.loads(source.read_text(encoding='utf-8'))
           assert d.get('approved') is False and d.get('publishable') is False
-          assert d.get('editorial_review')=='PENDING' and d.get('rights_clearance')=='PENDING'
+          assert d.get('editorial_review')=='PENDING' and d.get('rights_clearance')=='PENDING_VISUAL_QA'
           assert len(d.get('media',[]))==1
           assert d['media'][0]['license']=='original_project_work'
           from PIL import Image, ImageDraw, ImageFont
