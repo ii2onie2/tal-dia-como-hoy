@@ -1,0 +1,69 @@
+name: P3.32R24 Isolated MP4 Rendering Rehearsal
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r24-render-rehearsal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install renderer dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install piper-tts
+      - name: Download Spanish voice model
+        run: |
+          mkdir -p voices
+          curl -fsSL --max-time 90 --retry 2 -o voices/es_ES-sharvard-medium.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
+          curl -fsSL --max-time 90 --retry 2 -o voices/es_ES-sharvard-medium.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
+      - name: Build clearly synthetic and unapproved fixture
+        run: |
+          mkdir -p rehearsal
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload={'series':'Tal Día Como Hoy','date':'2026-10-18','title':'Ensayo técnico sin historia',
+            'hook':'Ensayo técnico, no es contenido histórico.',
+            'narration':('Esto es solamente una prueba técnica de generación de vídeo. No contiene afirmaciones históricas ni constituye una publicación. ' * 8).strip(),
+            'cta':'Síguenos para más contenido verificado.', 'caption':'PRUEBA TÉCNICA NO PUBLICAR',
+            'hashtags':['#PruebaTecnica'],'sources':[],'media':[]}
+          Path('rehearsal/synthetic.json').write_text(json.dumps(payload,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Run existing Python renderer only
+        env:
+          PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
+          PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
+        run: |
+          python scripts/render.py --content rehearsal/synthetic.json --out rehearsal/out
+      - name: Validate MP4 and sidecar files
+        run: |
+          test -s rehearsal/out/video.mp4
+          test -s rehearsal/out/subtitles.srt
+          test -s rehearsal/out/caption.txt
+          test -s rehearsal/out/sources.json
+          ffprobe -v error -show_entries stream=codec_type,width,height -of json rehearsal/out/video.mp4 > rehearsal/out/probe.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('rehearsal/out/probe.json').read_text())
+          assert any(s.get('codec_type')=='video' and s.get('width')==1080 and s.get('height')==1920 for s in p['streams'])
+          assert Path('rehearsal/out/sources.json').read_text().strip()=='[]'
+          print('MP4_REHEARSAL_PASS; EDITORIAL_APPROVAL=NO; TIKTOK_PUBLICATION=NO')
+          PY
+      - name: Upload isolated sample (not for publication)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p332r24-synthetic-not-for-publication
+          path: rehearsal/out/
+          if-no-files-found: warn
+          retention-days: 3
