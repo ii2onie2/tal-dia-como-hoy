@@ -54,8 +54,8 @@ jobs:
           draw.text((250,916),'Ley fechada',fill=(215,215,230),font=font(38))
           draw.text((250,1192),'17 OCT',fill=(255,255,255),font=font(70))
           draw.text((250,1288),'Publicacion BOE',fill=(215,215,230),font=font(38))
-          draw.text((110,1595),'BOE-A-1977-24937',fill=(240,222,170),font=font(45))
-          draw.text((110,1695),'BORRADOR / NO PUBLICAR',fill=(255,190,185),font=font(40))
+          draw.text((110,1410),'BOE-A-1977-24937',fill=(240,222,170),font=font(45))
+          draw.text((110,1500),'BORRADOR / NO PUBLICAR',fill=(255,190,185),font=font(40))
           im.save('rehearsal/r25/visual.png')
           d['media']=[{'path':'rehearsal/r25/visual.png','license':'original_project_work'}]
           assert d.get('date')=='2026-10-17'
