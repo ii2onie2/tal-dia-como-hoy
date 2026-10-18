@@ -8,6 +8,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: p332r25-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
 jobs:
   unapproved-draft:
     runs-on: ubuntu-latest
