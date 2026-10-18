@@ -1,0 +1,50 @@
+name: P3.32R12 Daily Evidence Audit (nonpublishing)
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/**'
+      - '.github/workflows/p332r12-daily-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: All editorial offline tests
+        run: python3 -m unittest discover -s tools/editorial_review -p 'test_*.py' -v
+      - name: Generate blocked-by-default report for UTC date
+        id: report
+        continue-on-error: true
+        shell: bash
+        run: |
+          DAY="$(date -u +%F)"
+          python3 tools/editorial_review/daily_audit.py --date "$DAY" --output-dir audit-output
+      - name: Upload audit evidence (unapproved only)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p332r12-unapproved-audit
+          path: audit-output/*.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Confirm fail-closed (no data is approved)
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import glob,json
+          paths=glob.glob('audit-output/*.json')
+          assert len(paths)==1, 'one report required'
+          d=json.load(open(paths[0],encoding='utf-8'))
+          assert d['status']=='BLOCKED'
+          assert d['approved'] is False and d['publishable'] is False
+          assert d['tiktok_publication'] is False
+          print('FAIL_CLOSED=PASS / APPROVAL=NO / PUBLISH=NO')
+          PY
+# Deliberately NO schedule trigger: GitHub schedules run only on default branch.
+# A separately reviewed default-branch integration is required before scheduling.
