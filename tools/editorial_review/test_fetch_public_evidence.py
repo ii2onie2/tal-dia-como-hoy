@@ -1,7 +1,7 @@
 import io
 import unittest
 from email.message import Message
-from fetch_public_evidence import fetch,validate_url
+from fetch_public_evidence import fetch,validate_url,PinnedHTTPSConnection,LiveClient
 class FakeResponse:
     status=200
     def __init__(self,data=b"<html>Test</html>",kind="text/html"):
@@ -15,9 +15,13 @@ class FakeOpen:
 def dns(host,port,type):
     return [(2,1,6,"",("8.8.8.8",443))]
 class Tests(unittest.TestCase):
-    def test_live_transport_fail_closed(self):
-        with self.assertRaisesRegex(ValueError,"LIVE_NETWORK_DISABLED_UNTIL_PINNED_TLS"):
-            fetch("https://www.boe.es/a",dns)
+    def test_tls_hostname_and_ip_are_separate(self):
+        c=PinnedHTTPSConnection("www.boe.es","8.8.8.8",timeout=1)
+        self.assertEqual(c.host,"www.boe.es")
+        self.assertEqual(c.pinned_ip,"8.8.8.8")
+    def test_redirect_rejected(self):
+        r=FakeResponse();r.status=302
+        with self.assertRaises(ValueError):fetch("https://www.boe.es/a",dns,FakeOpen(r))
     def test_valid(self):
         m,data=fetch("https://www.boe.es/a",dns,FakeOpen(FakeResponse()))
         self.assertFalse(m["approved"]);self.assertEqual(len(m["sha256"]),64)
