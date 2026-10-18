@@ -1,0 +1,79 @@
+name: P3.32R25 Isolated Historical Draft MP4
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r25-historical-draft.yml'
+      - 'tools/editorial_review/p332r25_amnesty_draft_unapproved.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unapproved-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install technical rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install piper-tts
+      - name: Download the voice
+        run: |
+          mkdir -p voices
+          curl -fsSL --max-time 90 --retry 2 -o voices/es_ES-sharvard-medium.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
+          curl -fsSL --max-time 90 --retry 2 -o voices/es_ES-sharvard-medium.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
+      - name: Gate unapproved draft and create visible draft overlays
+        run: |
+          mkdir -p rehearsal/r25
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source=Path('tools/editorial_review/p332r25_amnesty_draft_unapproved.json')
+          d=json.loads(source.read_text(encoding='utf-8'))
+          assert d.get('approved') is False and d.get('publishable') is False
+          assert d.get('editorial_review')=='PENDING' and d.get('rights_clearance')=='PENDING'
+          assert d.get('media')==[]
+          assert d.get('date')=='2026-10-17'
+          assert len(d['sources'])>=2
+          # Strong title and caption mark this preview as a NON-PUBLISHABLE draft.
+          d['series']='BORRADOR / NO PUBLICAR'
+          d['hook']='BORRADOR / NO PUBLICAR. '+d['hook']
+          d['cta']='BORRADOR / NO PUBLICAR'
+          d['caption']='BORRADOR / NO PUBLICAR'
+          d['hashtags']=[]
+          Path('rehearsal/r25/draft.json').write_text(json.dumps(d,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Render unapproved historical draft (black background, no third-party images)
+        env:
+          PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
+          PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
+        run: |
+          python scripts/render.py --content rehearsal/r25/draft.json --out rehearsal/r25/out
+      - name: Verify draft video and publication prohibition
+        run: |
+          test -s rehearsal/r25/out/video.mp4
+          test -s rehearsal/r25/out/subtitles.srt
+          test -s rehearsal/r25/out/caption.txt
+          test -s rehearsal/r25/out/sources.json
+          ffprobe -v error -show_entries format=duration:stream=codec_type,width,height -of json rehearsal/r25/out/video.mp4 > rehearsal/r25/out/probe.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          o=Path('rehearsal/r25/out')
+          probe=json.loads((o/'probe.json').read_text())
+          assert any(s.get('codec_type')=='video' and s.get('width')==1080 and s.get('height')==1920 for s in probe['streams'])
+          assert float(probe['format']['duration'])>30.0
+          assert (o/'caption.txt').read_text().startswith('BORRADOR / NO PUBLICAR')
+          print('HISTORICAL_DRAFT_RENDER=PASS; APPROVED=NO; PUBLISHABLE=NO; TIKTOK_POSTED=NO')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p332r25-historical-draft-do-not-publish
+          path: rehearsal/r25/out/
+          if-no-files-found: warn
+          retention-days: 3
