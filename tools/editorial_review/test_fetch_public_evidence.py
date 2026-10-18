@@ -15,6 +15,9 @@ class FakeOpen:
 def dns(host,port,type):
     return [(2,1,6,"",("8.8.8.8",443))]
 class Tests(unittest.TestCase):
+    def test_live_transport_fail_closed(self):
+        with self.assertRaisesRegex(ValueError,"LIVE_NETWORK_DISABLED_UNTIL_PINNED_TLS"):
+            fetch("https://www.boe.es/a",dns)
     def test_valid(self):
         m,data=fetch("https://www.boe.es/a",dns,FakeOpen(FakeResponse()))
         self.assertFalse(m["approved"]);self.assertEqual(len(m["sha256"]),64)
