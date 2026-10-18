@@ -1,0 +1,21 @@
+name: P3.32R38 Local Contract Validation (No Secrets)
+on:
+  pull_request:
+    paths:
+      - 'tools/p332r38_signed_staging.mjs'
+      - 'tools/p332r38_signed_staging.test.mjs'
+      - '.github/workflows/p332r38-local-contract-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify signed staging client without network and secrets
+        run: node tools/p332r38_signed_staging.test.mjs
