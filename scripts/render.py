@@ -108,6 +108,7 @@ def main():
         "force_style='FontName=DejaVu Sans,FontSize=10,Outline=2,Shadow=0,"
         "Alignment=2,MarginV=28,MarginL=95,MarginR=95,WrapStyle=2'"
     )
+    subtitle_background=",drawbox=x=0:y=1545:w=iw:h=350:color=black@0.92:t=fill"
     hook_end=min(4.5,max(2.5,duration*0.12))
     cta_start=max(0.0,duration-5.5)
     branding=(
@@ -168,7 +169,7 @@ def main():
             )
         parts.append("".join(labels)+f"concat=n={len(beat_bgs)}:v=1:a=0[base]")
         parts.append(
-            f"[base]{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}[vout]"
+            f"[base]{subtitle_background}{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}[vout]"
         )
         cmd += [
             "-filter_complex",";".join(parts),
@@ -180,7 +181,7 @@ def main():
         ]
         run(cmd)
     else:
-        vf=f"{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}"
+        vf=f"{subtitle_background}{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}"
         run([
             "ffmpeg","-y",
             "-f","lavfi","-i",f"color=c=0x111111:s={W}x{H}:r={FPS}",
