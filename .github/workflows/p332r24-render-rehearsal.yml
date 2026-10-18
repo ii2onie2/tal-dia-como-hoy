@@ -6,6 +6,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: p332r24-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
 jobs:
   synthetic-render:
     runs-on: ubuntu-latest
