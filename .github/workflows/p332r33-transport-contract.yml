@@ -1,0 +1,26 @@
+name: P3.32R33 GitHub-to-Worker Transport Contract (OFFLINE)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r33-transport-contract.yml'
+      - 'tools/p332r33_transport_contract.py'
+permissions:
+  contents: read
+jobs:
+  offline-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate fail-closed GitHub-to-Worker transport envelope
+        run: python tools/p332r33_transport_contract.py
+      - name: Enforce no deployment or posting
+        run: |
+          echo "R33_MODE=OFFLINE_SIMULATION"
+          echo "CLOUDFLARE_REQUESTS=0"
+          echo "TIKTOK_REQUESTS=0"
+          echo "SECRETS_USED=0"
