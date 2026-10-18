@@ -1,0 +1,27 @@
+name: P3.32R50 Consolidated Offline Security Gates
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/**'
+      - '.github/workflows/p332r50-security-consolidation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  editorial-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline unit suites for R46 to R49
+        run: |
+          set -e
+          python3 -m unittest discover -s tools/editorial_review -p 'test_r46_release_separation.py' -v
+          python3 -m unittest discover -s tools/editorial_review -p 'test_prerender_gate_r47.py' -v
+          python3 -m unittest discover -s tools/editorial_review -p 'test_approval_contract_r48.py' -v
+          python3 -m unittest discover -s tools/editorial_review -p 'test_approval_replay_r49.py' -v
+      - name: Keep publishing disabled
+        run: echo 'R50_OFFLINE_TESTS_ONLY RELEASE=NO TIKTOK=NO'
