@@ -29,7 +29,7 @@ jobs:
           python3 tools/editorial_review/render_adapter_r62.py \
             --content-dir content \
             --queue tools/editorial_review/P332R20_EVIDENCE_QUEUE_UNAPPROVED.json \
-            --date 2026-10-17
+            --date 2026-10-17 && touch "$sentinel"
           status=$?
           set -e
           test "$status" -eq 2
