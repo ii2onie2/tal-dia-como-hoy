@@ -1,10 +1,10 @@
-name: P3.32R38 Signed Staging Request - Manual Only
+name: P3.32R38 Signed Staging Request - Offline Only Until Approval
 on:
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  staging-signed-request:
+  staging-contract-offline-only:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -12,9 +12,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Local security tests
+      - name: Verify signed transport contract locally
         run: node tools/p332r38_signed_staging.test.mjs
-      - name: Send signed staging-only dry-run request
-        env:
-          R34_HMAC_SECRET: ${{ secrets.R34_HMAC_SECRET }}
-        run: node tools/p332r38_signed_staging.mjs
+      - name: Hold staging transfer until approval and infrastructure verification
+        run: |
+          echo 'STAGING_TRANSPORT=NOT_AUTHORIZED'
+          echo 'REASON=No verified staging deployment, real content evidence, or editorial approval.'
+          echo 'NETWORK_REQUESTS=0; SECRET_ACCESS=0; PUBLICATION=NO'
