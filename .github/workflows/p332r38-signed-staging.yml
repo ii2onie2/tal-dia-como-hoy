@@ -1,0 +1,20 @@
+name: P3.32R38 Signed Staging Request - Manual Only
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  staging-signed-request:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Local security tests
+        run: node tools/p332r38_signed_staging.test.mjs
+      - name: Send signed staging-only dry-run request
+        env:
+          R34_HMAC_SECRET: ${{ secrets.R34_HMAC_SECRET }}
+        run: node tools/p332r38_signed_staging.mjs
