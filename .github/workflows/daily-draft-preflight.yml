@@ -18,6 +18,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Consolidated prelaunch tests
+        run: |
+          python3 -m unittest discover -s tools -p 'test_prelaunch_pipeline.py' -v
+          python3 -m unittest discover -s tools -p 'test_pre_tiktok_readiness.py' -v
       - name: Prepare only existing date-specific drafts
         shell: bash
         run: |
@@ -29,6 +33,13 @@ jobs:
             echo "DRAFT_PREPARATION=BLOCKED_MISSING_REVIEWED_INPUT"
           fi
           python3 tools/pre_tiktok_readiness.py --root staging_content --date "$DATE" --out pre_tiktok_readiness.json
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          report=json.loads(Path('pre_tiktok_readiness.json').read_text())
+          summary=Path(os.environ['GITHUB_STEP_SUMMARY'])
+          summary.write_text('## Daily preparation status\\n\\n**Status:** '+report['status']+'\\n\\n**Blockers:** '+', '.join(report['blockers'])+'\\n\\n**Publication:** NOT AUTHORIZED\\n')
+          PY
       - name: Upload diagnostic for review
         uses: actions/upload-artifact@v4
         with:
