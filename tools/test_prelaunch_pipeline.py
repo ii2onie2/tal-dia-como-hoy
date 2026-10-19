@@ -13,7 +13,7 @@ class PreLaunchTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    root=Path(d);source=root/"review";source.mkdir()
    for suffix in ("","-detalle","-sabias"):
-    (source/f"2026-10-19{suffix}.json").write_text(json.dumps({"date":"2026-10-19","narration":"sample","sources":["a","b"],"approved":True}))
+    (source/f"2026-10-19{suffix}.json").write_text(json.dumps({"date":"2026-10-19","narration":"sample","sources":[{"url":"https://archive.example.org/a"},{"url":"https://museum.example.net/b"}],"media":[{"license":"CC0","attribution":"synthetic test","rights_review":"VERIFIED"}],"approved":True}))
    r=prepare(source,root/"output","2026-10-19")
    self.assertEqual(len(r["created"]),3)
    self.assertFalse(json.loads((root/"output"/"2026-10-19.json").read_text())["editorial_approved"])
