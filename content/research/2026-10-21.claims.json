@@ -2,7 +2,7 @@
   "date": "2026-10-21",
   "topic": "Batalla de Trafalgar",
   "editorial_approval": "NOT_GRANTED",
-  "review_warning": "No checkboxes are pre-checked. C06 and C08 lack two directly supporting excerpts and MUST NOT be used until replaced.",
+  "source_note": "Hérodote excerpts supplied by independent reviewer; assistant could not fetch Hérodote page to independently verify. No claims approved until owner checks.",
   "claims": [
     {
       "id": "C01",
@@ -10,16 +10,17 @@
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-38915",
-          "excerpt": "OCT 21 1805",
-          "accessed_at": "2026-10-19"
-        },
-        {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
           "excerpt": "October 21, 1805",
           "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "Le 21 octobre 1805",
+          "accessed_at": "2026-10-19",
+          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
         }
       ],
       "review_checked": false,
@@ -31,16 +32,17 @@
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
-          "excerpt": "combined Fleet of France and Spain",
-          "accessed_at": "2026-10-19"
-        },
-        {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
           "excerpt": "combined French-Spanish fleet",
           "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "les navires espagnols ont rallié Cadix",
+          "accessed_at": "2026-10-19",
+          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
         }
       ],
       "review_checked": false,
@@ -52,16 +54,17 @@
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
-          "excerpt": "making 33 to our 27",
-          "accessed_at": "2026-10-19"
-        },
-        {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
           "excerpt": "27 ships ... 33 ships",
           "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "27 navires anglais contre 33 franco-espagnols",
+          "accessed_at": "2026-10-19",
+          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
         }
       ],
       "review_checked": false,
@@ -69,20 +72,21 @@
     },
     {
       "id": "C04",
-      "text": "La escuadra franco-española estaba dirigida por Pierre-Charles de Villeneuve.",
+      "text": "Pierre-Charles de Villeneuve mandaba el contingente francés de la flota combinada.",
       "status": "PENDING_USER_REVIEW",
       "sources": [
-        {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
-          "excerpt": "Villeneauve Commander in chief",
-          "accessed_at": "2026-10-19"
-        },
         {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
           "excerpt": "led by French Vice-Admiral Pierre-Charles de Villeneuve",
           "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "Villeneuve commande la flotte française",
+          "accessed_at": "2026-10-19",
+          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
         }
       ],
       "review_checked": false,
@@ -94,32 +98,70 @@
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
-          "excerpt": "Gained by the British Fleet under LD NELSON",
-          "accessed_at": "2026-10-19"
-        },
-        {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
           "excerpt": "commanded by Admiral Horatio Nelson",
           "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "Nelson",
+          "accessed_at": "2026-10-19",
+          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
         }
       ],
       "review_checked": false,
       "notes": ""
     },
     {
-      "id": "C06",
-      "text": "Nelson organizó el ataque británico en dos columnas.",
+      "id": "C07",
+      "text": "Nelson fue herido de muerte durante la batalla.",
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
-          "excerpt": "battle plan of Trafalgar",
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "he died three hours later",
           "accessed_at": "2026-10-19"
         },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "Nelson blessé sur le pont, mort avant de savourer son triomphe",
+          "accessed_at": "2026-10-19",
+          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+        }
+      ],
+      "review_checked": false,
+      "notes": ""
+    },
+    {
+      "id": "C09",
+      "text": "El combate tuvo lugar frente a la costa española, cerca de Cádiz.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "off the southwest coast of Spain",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "au large du cap Trafalgar, non loin de Cadix",
+          "accessed_at": "2026-10-19",
+          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+        }
+      ],
+      "review_checked": false
+    },
+    {
+      "id": "C06",
+      "text": "Nelson organizó el ataque británico en dos columnas.",
+      "status": "REMOVED",
+      "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
@@ -128,40 +170,14 @@
         }
       ],
       "review_checked": false,
-      "notes": "RMG metadata shows a battle plan but does not substantiate two columns; needs a better independent RMG passage."
-    },
-    {
-      "id": "C07",
-      "text": "Nelson recibió una herida mortal y falleció durante la batalla.",
-      "status": "PENDING_USER_REVIEW",
-      "sources": [
-        {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
-          "excerpt": "the intrepid Nelson fell",
-          "accessed_at": "2026-10-19"
-        },
-        {
-          "publisher": "HISTORY / A&E Television Networks",
-          "url": "https://www.history.com/articles/battle-of-trafalgar",
-          "excerpt": "he died three hours later",
-          "accessed_at": "2026-10-19"
-        }
-      ],
-      "review_checked": false,
-      "notes": ""
+      "notes": "RMG metadata shows a battle plan but does not substantiate two columns; needs a better independent RMG passage.",
+      "reason": "SECOND_EDITORIAL_SOURCE_MISSING"
     },
     {
       "id": "C08",
       "text": "Tras el combate, una tormenta hundió buena parte de los barcos enemigos capturados.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "REMOVED",
       "sources": [
-        {
-          "publisher": "Royal Museums Greenwich",
-          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
-          "excerpt": "19 Ships of the Line struck",
-          "accessed_at": "2026-10-19"
-        },
         {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
@@ -170,7 +186,36 @@
         }
       ],
       "review_checked": false,
-      "notes": "RMG metadata is not evidence of the later storm; needs an independent source."
+      "notes": "RMG metadata is not evidence of the later storm; needs an independent source.",
+      "reason": "SECOND_EDITORIAL_SOURCE_MISSING"
+    },
+    {
+      "id": "C10",
+      "text": "Federico Gravina estaba al mando de la escuadra española.",
+      "status": "PENDING_SECOND_SOURCE",
+      "sources": [
+        {
+          "publisher": "Armada Española / Museo Naval",
+          "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
+          "excerpt": "se hizo cargo de la escuadra de Cádiz en febrero de 1805",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false
+    },
+    {
+      "id": "C11",
+      "text": "Cosme Damián de Churruca murió en Trafalgar.",
+      "status": "PENDING_SECOND_SOURCE",
+      "sources": [
+        {
+          "publisher": "Armada Española / Museo Naval",
+          "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
+          "excerpt": "murió en el combate de Trafalgar en 21 de octubre de 1805",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false
     }
   ]
 }
