@@ -22,6 +22,7 @@ jobs:
         shell: bash
         run: |
           DATE=$(TZ=Europe/Madrid date +%F)
+          python3 tools/daily_research_queue.py --date "$DATE" --out research_queue.json
           if python3 tools/prepare_daily_drafts.py --source review_ready --out staging_content --date "$DATE"; then
             echo "DRAFT_PREPARATION=COMPLETE"
           else
@@ -35,4 +36,5 @@ jobs:
           path: |
             staging_content/
             pre_tiktok_readiness.json
+            research_queue.json
           retention-days: 14
