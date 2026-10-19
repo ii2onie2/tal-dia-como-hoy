@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-21",
+  "subject": "Batalla de Trafalgar",
+  "editorial_approved": false,
+  "images_approved": false,
+  "consulted_at": "2026-10-19",
+  "claims": [
+    {
+      "claim": "La batalla de Trafalgar ocurrió el 21 de octubre de 1805.",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "On the morning of 21 October the British found the Franco-Spanish Allied fleet"
+        },
+        {
+          "publisher": "National Museum of the Royal Navy",
+          "url": "https://www.royalnavymuseums.org.uk/news/trafalgar-day-battle-trafalgar",
+          "excerpt": "the battle began on the morning of the 21st October 1805"
+        }
+      ]
+    },
+    {
+      "claim": "La flota británica estaba dividida en dos columnas lideradas por Nelson y Collingwood.",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "The British fleet was in two parallel lines"
+        },
+        {
+          "publisher": "National Museum of the Royal Navy",
+          "url": "https://www.royalnavymuseums.org.uk/news/trafalgar-day-battle-trafalgar",
+          "excerpt": "The British fleet was split into two columns"
+        }
+      ]
+    },
+    {
+      "claim": "Nelson murió tras resultar herido durante el combate.",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12039",
+          "excerpt": "Nelson was struck by a musket ball fired from the French Redoutable"
+        },
+        {
+          "publisher": "National Museum of the Royal Navy",
+          "url": "https://www.royalnavymuseums.org.uk/news/trafalgar-day-battle-trafalgar",
+          "excerpt": "he died three hours later"
+        }
+      ]
+    },
+    {
+      "claim": "Se enfrentaron 27 navíos británicos a 33 de la flota combinada franco-española.",
+      "sources": [
+        {
+          "publisher": "National Museum of the Royal Navy",
+          "url": "https://www.royalnavymuseums.org.uk/news/trafalgar-day-battle-trafalgar",
+          "excerpt": "his fleet of 27 ships defeated a French and Spanish force of 33"
+        },
+        {
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/event/Battle-of-Trafalgar",
+          "excerpt": null,
+          "verification": "NOT_YET_VERIFIED"
+        }
+      ],
+      "status": "PENDING_SECOND_PUBLISHER"
+    }
+  ],
+  "excluded_pending_verification": [
+    "Churruca",
+    "Alcalá Galiano",
+    "Santísima Trinidad",
+    "tormenta posterior",
+    "ubicación administrativa exacta",
+    "Gravina"
+  ]
+}
