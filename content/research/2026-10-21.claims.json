@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-21",
+  "topic": "Batalla de Trafalgar",
+  "consulted_at": "2026-10-19",
+  "editorial_approved": false,
+  "verified_claim_count": 9,
+  "claims": [
+    {
+      "id": "T01",
+      "text": "La batalla de Trafalgar tuvo lugar el 21 de octubre de 1805.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "On the morning of 21 October the British found the Franco-Spanish Allied fleet",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "off the southwest coast of Spain on October 21, 1805",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "text": "El combate enfrentó a una flota británica con una fuerza combinada francesa y española.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "Franco-Spanish Allied fleet",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "a combined French-Spanish fleet",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "text": "Participaron 27 navíos británicos y 33 franco-españoles.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "making 33 to our 27",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "27 ships ... 33 ships",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "text": "Horatio Nelson comandó la flota británica.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "the ... column being led by Nelson in the 'Victory'",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "commanded by Admiral Horatio Nelson",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "text": "Pierre-Charles de Villeneuve dirigía la flota franco-española.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "Vice-Admiral Villeneuve was ordered to sail from Cadiz",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "led by French Vice-Admiral Pierre-Charles de Villeneuve",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "text": "Nelson dividió su ataque en dos columnas.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "The British fleet was in two parallel lines",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "split his force into two columns",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "text": "Nelson recibió una herida mortal y murió durante la batalla.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12039",
+          "excerpt": "Mortally wounded, he was rapidly carried below",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "He was taken below decks, where he died three hours later",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "text": "Ningún navío británico se perdió en el combate.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "Although no British ship was lost",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/this-day-in-history/October-21/battle-of-trafalgar",
+          "excerpt": "No British ships were lost",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "text": "Una tormenta posterior causó la pérdida de numerosos barcos capturados.",
+      "status": "VERIFIED",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12046",
+          "excerpt": "The storm raged until 27 October",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "most of which sank in a storm the following day",
+          "accessed_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "text": "Cosme Damián Churruca murió durante la batalla.",
+      "status": "REMOVED",
+      "sources": [
+        {
+          "publisher": "Armada Española",
+          "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
+          "excerpt": "Churruca ... murió en el combate de Trafalgar",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "reason": "SECOND_INDEPENDENT_PUBLISHER_NOT_CHECKED"
+    },
+    {
+      "id": "T11",
+      "text": "Dionisio Alcalá Galiano murió durante la batalla.",
+      "status": "REMOVED",
+      "sources": [
+        {
+          "publisher": "Armada Española",
+          "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
+          "excerpt": "Alcalá Galiano y Churruca perecieron en ella",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "reason": "SECOND_INDEPENDENT_PUBLISHER_NOT_CHECKED"
+    },
+    {
+      "id": "T12",
+      "text": "El Santísima Trinidad se hundió después de la batalla.",
+      "status": "REMOVED",
+      "sources": [
+        {
+          "publisher": "Armada Española",
+          "url": "https://armada.defensa.gob.es/archivo/rgm/2006/200601.pdf",
+          "excerpt": "buques hundidos, entre ellos el Santísima Trinidad",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "reason": "SECOND_INDEPENDENT_PUBLISHER_NOT_CHECKED"
+    },
+    {
+      "id": "T13",
+      "text": "El número exacto de buques franco-españoles perdidos fue 19.",
+      "status": "CONFLICT",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040",
+          "excerpt": "17 Allied ships had struck and one blown up",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "The British captured 18 enemy ships",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "reason": "DIFFERENT_COUNTS_AND_DEFINITIONS"
+    },
+    {
+      "id": "T14",
+      "text": "La batalla ocurrió junto al cabo de Trafalgar, en la provincia de Cádiz.",
+      "status": "REMOVED",
+      "sources": [
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "off the southwest coast of Spain",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "reason": "ADMINISTRATIVE_LOCATION_UNCONFIRMED"
+    }
+  ]
+}
