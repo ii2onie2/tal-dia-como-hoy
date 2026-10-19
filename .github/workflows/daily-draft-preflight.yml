@@ -7,6 +7,9 @@ on:
     paths:
       - 'tools/prepare_daily_drafts.py'
       - 'tools/pre_tiktok_readiness.py'
+      - 'tools/daily_research_queue.py'
+      - 'tools/tiktok_handoff_dry_run.py'
+      - 'tools/test_prelaunch_pipeline.py'
       - '.github/workflows/daily-draft-preflight.yml'
 permissions:
   contents: read
@@ -38,7 +41,7 @@ jobs:
           from pathlib import Path
           report=json.loads(Path('pre_tiktok_readiness.json').read_text())
           summary=Path(os.environ['GITHUB_STEP_SUMMARY'])
-          summary.write_text('## Daily preparation status\\n\\n**Status:** '+report['status']+'\\n\\n**Blockers:** '+', '.join(report['blockers'])+'\\n\\n**Publication:** NOT AUTHORIZED\\n')
+          summary.write_text('## One-video daily preparation\\n\\n**Status:** '+report['status']+'\\n\\n**Primary video:** '+str(report['slots'][0]['present'])+'\\n\\n**Blockers:** '+', '.join(report['blockers'])+'\\n\\n**Publication:** NOT AUTHORIZED\\n')
           PY
       - name: Upload diagnostic for review
         uses: actions/upload-artifact@v4
