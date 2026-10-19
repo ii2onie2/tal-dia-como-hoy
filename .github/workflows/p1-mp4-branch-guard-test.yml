@@ -21,8 +21,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Verify MP4 archival guard without publishing
-        shell: python
+        shell: bash
         run: |
+          python - <<'PY'
           from pathlib import Path
           p = Path(".github/workflows/render.yml").read_text(encoding="utf-8")
           assert "if: steps.content.outputs.files != '' && github.ref == 'refs/heads/main'" in p
@@ -33,5 +34,6 @@ jobs:
           print("P1_GUARD_STATIC=PASS")
           print("PRODUCTION_WRITE=NO")
           print("TIKTOK_REQUEST=NO")
+          PY
       - name: Run synthetic Git conflict regression
         run: python tools/test_p1_git_branch_regression.py
