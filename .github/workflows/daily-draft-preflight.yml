@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '15 5 * * 3,4,5,6,0'
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/prepare_daily_drafts.py'
+      - 'tools/pre_tiktok_readiness.py'
+      - '.github/workflows/daily-draft-preflight.yml'
 permissions:
   contents: read
 jobs:
@@ -17,7 +22,11 @@ jobs:
         shell: bash
         run: |
           DATE=$(TZ=Europe/Madrid date +%F)
-          python3 tools/prepare_daily_drafts.py --source review_ready --out staging_content --date "$DATE" || echo "DRAFT_INPUT_BLOCKED=YES"
+          if python3 tools/prepare_daily_drafts.py --source review_ready --out staging_content --date "$DATE"; then
+            echo "DRAFT_PREPARATION=COMPLETE"
+          else
+            echo "DRAFT_PREPARATION=BLOCKED_MISSING_REVIEWED_INPUT"
+          fi
           python3 tools/pre_tiktok_readiness.py --root staging_content --date "$DATE" --out pre_tiktok_readiness.json
       - name: Upload diagnostic for review
         uses: actions/upload-artifact@v4
