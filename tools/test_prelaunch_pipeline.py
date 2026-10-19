@@ -17,6 +17,15 @@ class PreLaunchTests(unittest.TestCase):
    r=prepare(source,root/"output","2026-10-19")
    self.assertEqual(len(r["created"]),3)
    self.assertFalse(json.loads((root/"output"/"2026-10-19.json").read_text())["editorial_approved"])
+ def test_one_missing_slot_produces_no_partial_package(self):
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d);source=root/"review";source.mkdir()
+   for suffix in ("","-detalle"):
+    (source/f"2026-10-19{suffix}.json").write_text(json.dumps({"date":"2026-10-19","narration":"sample","sources":[{"url":"https://archive.example.org/a"},{"url":"https://museum.example.net/b"}],"media":[{"license":"CC0","attribution":"synthetic test","rights_review":"VERIFIED"}]}))
+   result=prepare(source,root/"out","2026-10-19")
+   self.assertTrue(result["blocked"])
+   self.assertFalse((root/"out").exists())
+   self.assertEqual(result["created"],[])
  def test_missing_video_blocks(self):
   with tempfile.TemporaryDirectory() as d:
    self.assertEqual(simulate(Path(d)/"video.mp4",Path(d)/"manifest.json")["reason"],"VIDEO_MISSING")
