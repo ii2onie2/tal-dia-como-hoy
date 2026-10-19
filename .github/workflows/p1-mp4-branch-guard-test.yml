@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/render.yml"
       - ".github/workflows/p1-mp4-branch-guard-test.yml"
+      - "tools/test_p1_git_branch_regression.py"
   workflow_dispatch:
 
 permissions:
@@ -32,3 +33,5 @@ jobs:
           print("P1_GUARD_STATIC=PASS")
           print("PRODUCTION_WRITE=NO")
           print("TIKTOK_REQUEST=NO")
+      - name: Run synthetic Git conflict regression
+        run: python tools/test_p1_git_branch_regression.py
