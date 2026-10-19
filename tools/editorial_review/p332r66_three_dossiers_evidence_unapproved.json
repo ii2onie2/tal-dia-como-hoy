@@ -1,0 +1,112 @@
+{
+  "schema": "p332r66_evidence_v1",
+  "brand": "history",
+  "content_date": "2026-10-17",
+  "checked_on": "2026-10-19",
+  "status": "UNAPPROVED",
+  "approved": false,
+  "publishable": false,
+  "media_rights_verified": false,
+  "human_signoff": false,
+  "dossiers": [
+    {
+      "id": "AMNISTY",
+      "event_date": "1977-10-17",
+      "status": "UNAPPROVED",
+      "approved": false,
+      "publishable": false,
+      "media_rights_verified": false,
+      "claim": {
+        "id": "A1",
+        "text": "La Ley 46/1977 fue fechada el 15 de octubre de 1977, publicada y vigente desde el 17 de octubre de 1977.",
+        "review_status": "PENDING_HUMAN_REVIEW",
+        "sources": [
+          {
+            "publisher": "BOE",
+            "lineage": "BOE_1977_24937",
+            "scope": "DIRECT",
+            "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1977-24937&p=19771017&tn=1",
+            "locator": "Encabezado y entrada en vigor"
+          },
+          {
+            "publisher": "Noticias Jurídicas",
+            "lineage": "BOE_1977_24937",
+            "scope": "REPRINT",
+            "url": "https://noticias.juridicas.com/base_datos/Penal/l46-1977.html",
+            "locator": "Ficha de ley, publicación y vigencia"
+          }
+        ]
+      },
+      "blockers": [
+        "Secondary source reprints BOE; independent evidence pending",
+        "Human review and media rights pending"
+      ]
+    },
+    {
+      "id": "IRENE",
+      "event_date": "1991-10-17",
+      "status": "UNAPPROVED",
+      "approved": false,
+      "publishable": false,
+      "media_rights_verified": false,
+      "claim": {
+        "id": "I1",
+        "text": "El 17 de octubre de 1991 Irene Villa y su madre sufrieron un atentado en Madrid.",
+        "review_status": "PENDING_HUMAN_REVIEW",
+        "sources": [
+          {
+            "publisher": "El País",
+            "lineage": "ELPAIS_1991_REPORT",
+            "scope": "DIRECT",
+            "url": "https://elpais.com/diario/1991/12/02/espana/691628409_850215.html",
+            "locator": "Crónica del 2 de diciembre 1991"
+          },
+          {
+            "publisher": "laSexta",
+            "lineage": "LASEXTA_2021_INTERVIEW",
+            "scope": "DIRECT",
+            "url": "https://www.lasexta.com/programas/el-objetivo/noticias/emocion-irene-villa-volver-ver-reencuentro-madre-atentado-eta_202110136167556ef9341900019c8a96.html",
+            "locator": "Entrevista y referencia de fecha, 13 octubre 2021"
+          }
+        ]
+      },
+      "blockers": [
+        "Sources differ on age; omit age",
+        "Human review and media rights pending"
+      ]
+    },
+    {
+      "id": "NAVARRA",
+      "event_date": "1952-10-17",
+      "status": "UNAPPROVED",
+      "approved": false,
+      "publishable": false,
+      "media_rights_verified": false,
+      "claim": {
+        "id": "N1",
+        "text": "La inauguración académica fue el 17 de octubre de 1952, tras gestiones de abril de 1952.",
+        "review_status": "PENDING_HUMAN_REVIEW",
+        "sources": [
+          {
+            "publisher": "Universidad de Navarra",
+            "lineage": "UNAV_INSTITUTIONAL_HISTORY",
+            "scope": "DIRECT",
+            "url": "https://www.unav.edu/noticias-y-eventos/reportajes/70-anos-historia",
+            "locator": "Historia de 1952, gestiones de abril y acto del 17 octubre"
+          },
+          {
+            "publisher": "Diario de Navarra",
+            "lineage": "DIARIO_NAVARRA_2023_REPORT",
+            "scope": "PARTIAL",
+            "url": "https://www.diariodenavarra.es/noticias/navarra/2023/01/17/31-000-alumnos-navarros-han-graduado-universidad-navarra-fundacion-1952-554949-300.html",
+            "locator": "Aniversario fundación de octubre de 1952"
+          }
+        ]
+      },
+      "blockers": [
+        "Independent source does not verify exact day or April origins",
+        "Human review and media rights pending"
+      ]
+    }
+  ]
+}
