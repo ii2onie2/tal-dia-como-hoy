@@ -10,6 +10,7 @@ SLOTS=("", "-detalle", "-sabias")
 def prepare(source_dir,out_dir,date):
     source_dir=Path(source_dir);out_dir=Path(out_dir)
     result={"date":date,"created":[],"blocked":[],"publish_authorized":False}
+    staged=[]
     for suffix in SLOTS:
         name=f"{date}{suffix}.json"
         src=source_dir/name
@@ -46,9 +47,13 @@ def prepare(source_dir,out_dir,date):
             or not m.get("license") or not m.get("attribution") for m in media):
             result["blocked"].append(f"MEDIA_RIGHTS_REVIEW_REQUIRED:{name}")
             continue
-        # Source of truth stays in review directory; create a draft only.
-        out_dir.mkdir(parents=True,exist_ok=True)
-        dst.write_text(json.dumps({**obj,"editorial_approved":False,"publishable":False},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+        staged.append((name,dst,{**obj,"editorial_approved":False,"publishable":False}))
+    # Never create a partial three-video daily package.
+    if result["blocked"]:
+        return result
+    out_dir.mkdir(parents=True,exist_ok=True)
+    for name,dst,obj in staged:
+        dst.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
         result["created"].append(name)
     return result
 
