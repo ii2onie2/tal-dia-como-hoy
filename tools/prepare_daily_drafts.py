@@ -25,6 +25,27 @@ def prepare(source_dir,out_dir,date):
         if not isinstance(obj,dict) or obj.get("date")!=date or not obj.get("narration") or not obj.get("sources"):
             result["blocked"].append(f"INCOMPLETE_DRAFT:{name}")
             continue
+        sources=obj.get("sources")
+        from urllib.parse import urlsplit
+        hosts=set()
+        if not isinstance(sources,list):
+            result["blocked"].append(f"UNVERIFIED_SOURCES:{name}")
+            continue
+        for s in sources:
+            if not isinstance(s,dict) or not isinstance(s.get("url"),str):
+                continue
+            u=urlsplit(s["url"])
+            if u.scheme=="https" and u.hostname and "." in u.hostname and not u.username and not u.password:
+                hosts.add(u.hostname.lower())
+        if len(hosts)<2:
+            result["blocked"].append(f"INDEPENDENT_SOURCES_REQUIRED:{name}")
+            continue
+        media=obj.get("media")
+        if not isinstance(media,list) or not media or any(
+            not isinstance(m,dict) or m.get("rights_review")!="VERIFIED"
+            or not m.get("license") or not m.get("attribution") for m in media):
+            result["blocked"].append(f"MEDIA_RIGHTS_REVIEW_REQUIRED:{name}")
+            continue
         # Source of truth stays in review directory; create a draft only.
         out_dir.mkdir(parents=True,exist_ok=True)
         dst.write_text(json.dumps({**obj,"editorial_approved":False,"publishable":False},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
