@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-21",
+  "topic": "Batalla de Trafalgar",
+  "editorial_approval": "NOT_GRANTED",
+  "review_warning": "No checkboxes are pre-checked. C06 and C08 lack two directly supporting excerpts and MUST NOT be used until replaced.",
+  "claims": [
+    {
+      "id": "C01",
+      "text": "El 21 de octubre de 1805 se libró la batalla de Trafalgar.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-38915",
+          "excerpt": "OCT 21 1805",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "October 21, 1805",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": ""
+    },
+    {
+      "id": "C02",
+      "text": "Se enfrentaron la flota británica y una escuadra combinada francesa y española.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "combined Fleet of France and Spain",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "combined French-Spanish fleet",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": ""
+    },
+    {
+      "id": "C03",
+      "text": "Los británicos contaban con veintisiete navíos; la escuadra combinada, con treinta y tres.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "making 33 to our 27",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "27 ships ... 33 ships",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": ""
+    },
+    {
+      "id": "C04",
+      "text": "La escuadra franco-española estaba dirigida por Pierre-Charles de Villeneuve.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "Villeneauve Commander in chief",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "led by French Vice-Admiral Pierre-Charles de Villeneuve",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": ""
+    },
+    {
+      "id": "C05",
+      "text": "Horatio Nelson estaba al mando de la flota británica.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "Gained by the British Fleet under LD NELSON",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "commanded by Admiral Horatio Nelson",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": ""
+    },
+    {
+      "id": "C06",
+      "text": "Nelson organizó el ataque británico en dos columnas.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "battle plan of Trafalgar",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "split his force into two columns",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": "RMG metadata shows a battle plan but does not substantiate two columns; needs a better independent RMG passage."
+    },
+    {
+      "id": "C07",
+      "text": "Nelson recibió una herida mortal y falleció durante la batalla.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "the intrepid Nelson fell",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "he died three hours later",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": ""
+    },
+    {
+      "id": "C08",
+      "text": "Tras el combate, una tormenta hundió buena parte de los barcos enemigos capturados.",
+      "status": "PENDING_USER_REVIEW",
+      "sources": [
+        {
+          "publisher": "Royal Museums Greenwich",
+          "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-4547",
+          "excerpt": "19 Ships of the Line struck",
+          "accessed_at": "2026-10-19"
+        },
+        {
+          "publisher": "HISTORY / A&E Television Networks",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "most of which sank in a storm the following day",
+          "accessed_at": "2026-10-19"
+        }
+      ],
+      "review_checked": false,
+      "notes": "RMG metadata is not evidence of the later storm; needs an independent source."
+    }
+  ]
+}
