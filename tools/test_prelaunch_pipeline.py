@@ -36,4 +36,24 @@ class PreLaunchTests(unittest.TestCase):
    import hashlib
    digest=hashlib.sha256(b"synthetic").hexdigest()
    self.assertEqual(simulate(root/"video.mp4",root/"manifest.json",{digest})["reason"],"DUPLICATE_VIDEO")
+ def test_offline_transfer_error_matrix(self):
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d);video=root/"video.mp4";video.write_bytes(b"synthetic")
+   manifest=root/"manifest.json";manifest.write_text("{}")
+   expected={"ok":("OFFLINE_FLOW_COMPLETED",1),
+             "oauth_expired":("OAUTH_REAUTH_REQUIRED",1),
+             "rate_limited":("RATE_LIMIT_RETRY_EXHAUSTED",3),
+             "server_error":("SERVER_RETRY_EXHAUSTED",3),
+             "timeout":("TIMEOUT_RETRY_EXHAUSTED",3),
+             "permanent_rejection":("NON_RETRYABLE_REJECTION",1)}
+   for scenario,(outcome,attempts) in expected.items():
+    with self.subTest(scenario=scenario):
+     result=simulate(video,manifest,scenario=scenario)
+     self.assertEqual(result["simulated_outcome"],outcome)
+     self.assertEqual(result["attempts"],attempts)
+     self.assertFalse(result["sent"])
+     self.assertFalse(result["published"])
+   self.assertEqual(simulate(video,manifest,scenario="unknown")["status"],"BLOCKED")
+   manifest.write_text('{"video_sha256":"wrong"}')
+   self.assertEqual(simulate(video,manifest)["reason"],"VIDEO_HASH_MISMATCH")
 if __name__=="__main__":unittest.main()
