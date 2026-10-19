@@ -1,0 +1,34 @@
+name: P1 MP4 branch guard test
+
+on:
+  push:
+    branches:
+      - fix/p1-mp4-branch-guard-20261019
+    paths:
+      - ".github/workflows/render.yml"
+      - ".github/workflows/p1-mp4-branch-guard-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify MP4 archival guard without publishing
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path(".github/workflows/render.yml").read_text(encoding="utf-8")
+          assert "if: steps.content.outputs.files != '' && github.ref == 'refs/heads/main'" in p
+          assert 'git pull --rebase origin "$GITHUB_REF_NAME"' in p
+          assert 'git push origin "HEAD:$GITHUB_REF_NAME"' in p
+          assert "git pull --rebase origin main" not in p
+          assert "uses: actions/upload-artifact@v4" in p
+          print("P1_GUARD_STATIC=PASS")
+          print("PRODUCTION_WRITE=NO")
+          print("TIKTOK_REQUEST=NO")
