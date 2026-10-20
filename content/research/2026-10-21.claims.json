@@ -2,7 +2,7 @@
   "date": "2026-10-21",
   "topic": "Batalla de Trafalgar",
   "editorial_approval": "NOT_GRANTED",
-  "source_note": "Exact quotations provided by user from independent reviewer, not independently fetched by assistant. C10 has two source citations pending user check; C11 awaits independent second source. No editorial approval granted.",
+  "source_note": "Quotations supplied by user after independent reviewer opened pages; owner approval still pending. C11 excluded pending RAH.",
   "claims": [
     {
       "id": "C01",
@@ -20,7 +20,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "Le 21 octobre 1805",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
+          "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
       "review_checked": false,
@@ -42,7 +42,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "…il se réfugie dans le port de Cadix où des navires espagnols alliés le rejoignent.",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
+          "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
       "review_checked": false,
@@ -64,7 +64,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "Nelson engage la bataille avec 27 navires anglais contre 33 pour les Fanco-Espagnols.",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
+          "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
       "review_checked": false,
@@ -86,7 +86,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "L'amiral de Villeneuve, qui commande la flotte française",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
+          "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
       "review_checked": false,
@@ -108,7 +108,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "Nelson, à la tête de l'escadre de la Méditerranée,",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
+          "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
       "review_checked": false,
@@ -128,9 +128,9 @@
         {
           "publisher": "Hérodote",
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
-          "excerpt": "L'amiral anglais est blessé sur le pont de son navire, le bien-nommé Victory, par une balle tirée de la hune du Redoutable.",
+          "excerpt": "L'amiral anglais est blessé sur le pont de son navire, le bien-nommé Victory, par une balle tirée de la hune du Redoutable. | Le héros meurt avant de pouvoir savourer son triomphe...",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified",
+          "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer",
           "additional_excerpt": "Le héros meurt avant de pouvoir savourer son triomphe..."
         }
       ],
@@ -153,7 +153,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "au large du cap Trafalgar, non loin de Cadix",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
+          "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
       "review_checked": false
@@ -196,18 +196,14 @@
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
-          "publisher": "Armada Española / BIP extraordinario diciembre 2005",
+          "publisher": "Armada Española BIP 2005",
           "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
-          "excerpt": "En la escuadra de Gravina que se batió en Trafalgar…",
-          "additional_excerpt": "…la herida que recibió a bordo del navío Príncipe de Asturias",
-          "evidence_origin": "verbatim_quote_supplied_by_user"
+          "excerpt": "En la escuadra de Gravina que se batió en Trafalgar… | …la herida que recibió a bordo del navío Príncipe de Asturias"
         },
         {
           "publisher": "Fondation Napoléon",
           "url": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/gravina-ferdinando-carlos",
-          "excerpt": "commanded the observation squadron",
-          "additional_excerpt": "was mortally wounded, dying of gangrene on 9th March 1806",
-          "evidence_origin": "verbatim_quote_supplied_by_user"
+          "excerpt": "commanded the observation squadron | was mortally wounded, dying of gangrene on 9th March 1806"
         }
       ],
       "review_checked": false,
@@ -219,10 +215,9 @@
       "status": "PENDING_SECOND_SOURCE",
       "sources": [
         {
-          "publisher": "Armada Española / BIP extraordinario diciembre 2005",
+          "publisher": "Armada Española BIP 2005",
           "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
-          "excerpt": "…Churruca moría desangrado en la enfermería de su navío San Juan Nepomuceno",
-          "evidence_origin": "verbatim_quote_supplied_by_user"
+          "excerpt": "…Churruca moría desangrado en la enfermería de su navío San Juan Nepomuceno"
         }
       ],
       "review_checked": false,
