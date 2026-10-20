@@ -1,46 +1,29 @@
-# REVIEW_SOURCES — Trafalgar, 21/10/2026
+# REVIEW_SOURCES — Trafalgar 21/10
 
-**PR #6 — RELECTURE REQUISE.** Citations fournies par l'utilisateur après consultation d'un relecteur indépendant ; non revérifiées directement par l'assistant. Cases non cochées. C11 exclu du script. Aucun rendu ou publication autorisé par cette relecture seule.
+Citations communiquées par le relecteur indépendant ; cases à valider par le propriétaire. C11 exclu tant que RAH n'est pas vérifié.
 
-| Claim | Citation Hérodote mot pour mot (fournie) | Contrôle |
-|---|---|---|
-| C01 | « Le 21 octobre 1805 » | [ ] |
-| C02 | « …il se réfugie dans le port de Cadix où des navires espagnols alliés le rejoignent. » | [ ] |
-| C03 | « Nelson engage la bataille avec 27 navires anglais contre 33 pour les Fanco-Espagnols. » (orthographe originale conservée) | [ ] |
-| C04 | « L'amiral de Villeneuve, qui commande la flotte française » | [ ] |
-| C05 | « Nelson, à la tête de l'escadre de la Méditerranée, » ; autre source HISTORY : « commanded by Admiral Horatio Nelson » | [ ] |
-| C07 | « L'amiral anglais est blessé sur le pont de son navire, le bien-nommé Victory, par une balle tirée de la hune du Redoutable. » ; « Le héros meurt avant de pouvoir savourer son triomphe... » | [ ] |
-| C09 | « au large du cap Trafalgar, non loin de Cadix » | [ ] |
+| Claim | Source et citation transmise | Statut | Relecture |
+|---|---|---|---|
+| C01 | [HISTORY / A&E Television Networks](https://www.history.com/articles/battle-of-trafalgar) : « October 21, 1805 » ; [Hérodote](https://www.herodote.net/21_octobre_1805-evenement-18051021.php) : « Le 21 octobre 1805 » | PENDING_USER_REVIEW | [ ] |
+| C02 | [HISTORY / A&E Television Networks](https://www.history.com/articles/battle-of-trafalgar) : « combined French-Spanish fleet » ; [Hérodote](https://www.herodote.net/21_octobre_1805-evenement-18051021.php) : « …il se réfugie dans le port de Cadix où des navires espagnols alliés le rejoignent. » | PENDING_USER_REVIEW | [ ] |
+| C03 | [HISTORY / A&E Television Networks](https://www.history.com/articles/battle-of-trafalgar) : « 27 ships ... 33 ships » ; [Hérodote](https://www.herodote.net/21_octobre_1805-evenement-18051021.php) : « Nelson engage la bataille avec 27 navires anglais contre 33 pour les Fanco-Espagnols. » | PENDING_USER_REVIEW | [ ] |
+| C04 | [HISTORY / A&E Television Networks](https://www.history.com/articles/battle-of-trafalgar) : « led by French Vice-Admiral Pierre-Charles de Villeneuve » ; [Hérodote](https://www.herodote.net/21_octobre_1805-evenement-18051021.php) : « L'amiral de Villeneuve, qui commande la flotte française » | PENDING_USER_REVIEW | [ ] |
+| C05 | [HISTORY / A&E Television Networks](https://www.history.com/articles/battle-of-trafalgar) : « commanded by Admiral Horatio Nelson » ; [Hérodote](https://www.herodote.net/21_octobre_1805-evenement-18051021.php) : « Nelson, à la tête de l'escadre de la Méditerranée, » | PENDING_USER_REVIEW | [ ] |
+| C07 | [HISTORY / A&E Television Networks](https://www.history.com/articles/battle-of-trafalgar) : « he died three hours later » ; [Hérodote](https://www.herodote.net/21_octobre_1805-evenement-18051021.php) : « L'amiral anglais est blessé sur le pont de son navire, le bien-nommé Victory, par une balle tirée de la hune du Redoutable.  /  Le héros meurt avant de pouvoir savourer son triomphe... » | PENDING_USER_REVIEW | [ ] |
+| C09 | [HISTORY / A&E Television Networks](https://www.history.com/articles/battle-of-trafalgar) : « off the southwest coast of Spain » ; [Hérodote](https://www.herodote.net/21_octobre_1805-evenement-18051021.php) : « au large du cap Trafalgar, non loin de Cadix » | PENDING_USER_REVIEW | [ ] |
+| C10 | [Armada Española BIP 2005](https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf) : « En la escuadra de Gravina que se batió en Trafalgar…  /  …la herida que recibió a bordo del navío Príncipe de Asturias » ; [Fondation Napoléon](https://www.napoleon.org/en/history-of-the-two-empires/biographies/gravina-ferdinando-carlos) : « commanded the observation squadron  /  was mortally wounded, dying of gangrene on 9th March 1806 » | PENDING_USER_REVIEW | [ ] |
+| C11 | [Armada Española BIP 2005](https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf) : « …Churruca moría desangrado en la enfermería de su navío San Juan Nepomuceno » | PENDING_SECOND_SOURCE | [ ] |
 
-Hérodote : https://www.herodote.net/21_octobre_1805-evenement-18051021.php
+C06 et C08 restent REMOVED. C11 : [RAH Churruca](https://dbe.rah.es/biografias/12143/cosme-damian-churruca-y-elorza) en attente de vérification.
 
-## Sources espagnoles
+## Script espagnol pour relecture — NON APPROUVÉ
 
-- [ ] **C10a** : « Federico Gravina mandaba la escuadra española. » Armada Española, *BIP* extraordinaire décembre 2005, p. 8 environ : « En la escuadra de Gravina que se batió en Trafalgar… » ; Fondation Napoléon : « commanded the observation squadron ». Formulation à confirmer à la relecture : le terme « observation squadron » n'est pas exactement « toute l'escadre espagnole ».
-- [ ] **C10b** : « Gravina fue herido a bordo del Príncipe de Asturias y murió meses después, en 1806. » Armada, p. 23 : « …la herida que recibió a bordo del navío Príncipe de Asturias » ; Fondation Napoléon : « was mortally wounded, dying of gangrene on 9th March 1806 ».
-- [ ] **C11 — PENDING_SECOND_SOURCE**, exclu : « Cosme Damián Churruca murió en el combate, a bordo del San Juan Nepomuceno. » Armada, p. 13 : « …Churruca moría desangrado en la enfermería de su navío San Juan Nepomuceno ». RAH à vérifier par le propriétaire.
+El veintiuno de octubre de mil ochocientos cinco, Federico Gravina mandaba la escuadra española en la batalla de Trafalgar, frente al cabo Trafalgar, cerca de Cádiz. La flota británica, bajo el mando de Horatio Nelson, combatió contra la flota combinada de Francia y España. La escuadra francesa estaba bajo el mando del almirante Villeneuve. Nelson entró en combate con veintisiete navíos británicos frente a treinta y tres navíos franceses y españoles. Gravina fue herido a bordo del Príncipe de Asturias y murió meses después, en mil ochocientos seis. Durante la batalla, Nelson recibió un disparo mientras estaba en la cubierta del Victory. La bala procedía de la cofa del Redoutable. Nelson murió antes de conocer plenamente su victoria. El combate tuvo lugar frente a la costa española, cerca de Cádiz. ¿Conocías el papel de Federico Gravina en Trafalgar? Cuéntanoslo en los comentarios.
 
-Armada : https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf
-Fondation Napoléon : https://www.napoleon.org/en/history-of-the-two-empires/biographies/gravina-ferdinando-carlos
-RAH Gravina : https://dbe.rah.es/biografias/11283/federico-carlos-gravina-y-napoli
-RAH Churruca : https://dbe.rah.es/biografias/12143/cosme-damian-churruca-y-elorza
+**142 mots. Durée Piper réelle NON MESURÉE.** Aucun remplissage autorisé si moins de 61 secondes.
 
-C06 et C08 : REMOVED, non utilisables.
+## Suite après relecture
 
-## Script espagnol — texte intégral soumis à relecture (122 mots)
+Images Commons licence vérifiée dans REVIEW_IMAGES.md, sinon fond uni → Piper es_ES-sharvard-medium → content/2026-10-21.json en PR → fusion utilisateur → workflow_dispatch manuel → ffprobe ≥61 s, 1080×1920, audio, 3 captures → publication manuelle le 21/10.
 
-El veintiuno de octubre de mil ochocientos cinco, Federico Gravina mandaba la escuadra española que combatió en Trafalgar, frente a la costa de Cádiz.
-
-La flota británica, al mando de Horatio Nelson, se enfrentó a una fuerza combinada francesa y española. Pierre-Charles de Villeneuve mandaba la flota francesa.
-
-Nelson entró en batalla con veintisiete navíos británicos frente a treinta y tres franceses y españoles.
-
-Durante el combate, Nelson recibió un disparo mientras estaba en la cubierta del Victory. La bala procedía de la cofa del Redoutable. Nelson murió antes de poder celebrar la victoria.
-
-También resultó herido Federico Gravina, a bordo del Príncipe de Asturias. Murió meses después, en marzo de mil ochocientos seis.
-
-¿Qué sabías de la participación española en Trafalgar?
-
-**Durée Piper : NON MESURÉE.** Le script est un candidat de relecture, pas un script approuvé. Ne pas créer `content/2026-10-21.json` avant validation. Si le rendu audio est inférieur à 61 s, ajouter uniquement des faits sourcés et revalidés.
-
-**Ordre restant :** relecture et cases → content JSON sur cette branche → fusion par propriétaire → rendu manuel workflow_dispatch → ffprobe (>=61 s, 1080x1920, audio) + 3 captures → publication manuelle le 21/10.
+PR #2 gelée ; pas de nouvelles phases R.
