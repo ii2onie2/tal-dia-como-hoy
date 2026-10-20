@@ -72,7 +72,7 @@
     },
     {
       "id": "C04",
-      "text": "Pierre-Charles de Villeneuve mandaba el contingente francés de la flota combinada.",
+      "text": "Al frente de la flota combinada estaba el almirante francés Pierre-Charles de Villeneuve; Federico Gravina mandaba los navíos españoles.",
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
@@ -116,13 +116,13 @@
     },
     {
       "id": "C07",
-      "text": "Nelson fue herido de muerte durante la batalla.",
+      "text": "Nelson fue herido de muerte durante la batalla. Nelson murió horas después, sabiendo ya que su flota había vencido.",
       "status": "PENDING_USER_REVIEW",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
           "url": "https://www.history.com/articles/battle-of-trafalgar",
-          "excerpt": "he died three hours later",
+          "excerpt": "he died three hours later, with the knowledge that his fleet had been victorious",
           "accessed_at": "2026-10-19"
         },
         {
@@ -222,6 +222,72 @@
       ],
       "review_checked": false,
       "notes": "RAH biography awaiting user verification; exclude from script until second source confirmed."
+    },
+    {
+      "id": "C12",
+      "text": "La batalla terminó con una victoria británica.",
+      "status": "PENDING_USER_REVIEW",
+      "review_checked": false,
+      "sources": [
+        {
+          "publisher": "HISTORY",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "Admiral Nelson Is Killed, But British Prevail"
+        },
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "Le héros meurt avant de pouvoir savourer son triomphe...",
+          "evidence_origin": "user_supplied_verbatim"
+        }
+      ],
+      "notes": "Hérodote quotation indicates Nelson's triumph, user should confirm battle result wording."
+    },
+    {
+      "id": "C13",
+      "text": "Antes de la batalla, Villeneuve se refugió en Cádiz, donde se reunió con navíos españoles aliados.",
+      "status": "PENDING_USER_REVIEW",
+      "review_checked": false,
+      "sources": [
+        {
+          "publisher": "Hérodote",
+          "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
+          "excerpt": "…il se réfugie dans le port de Cadix où des navires espagnols alliés le rejoignent.",
+          "evidence_origin": "user_supplied_verbatim"
+        },
+        {
+          "publisher": "HISTORY",
+          "url": "https://www.history.com/articles/battle-of-trafalgar",
+          "excerpt": "he rushed back across the Atlantic to avoid a confrontation. When Villeneuve got back to the Spanish coast",
+          "notes": "HISTORY also says Villeneuve found himself bottled up in Cadiz; sequence of Spanish vessels joining not independently supported."
+        }
+      ],
+      "notes": "HISTORY confirms Cadiz refuge, but not exact joining sequence; script must only assert common supported portion."
+    },
+    {
+      "id": "C14",
+      "text": "Los restos de Federico Gravina descansan en el Panteón de Marinos Ilustres de San Fernando, Cádiz.",
+      "status": "PENDING_USER_REVIEW",
+      "review_checked": false,
+      "sources": [
+        {
+          "publisher": "Armada Española Revista de Historia Naval 1994",
+          "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/rhn/1994/1994n47.pdf",
+          "excerpt": "El sepulcro de Gravina en el Panteón de Marinos Ilustres"
+        },
+        {
+          "publisher": "Armada Española Revista General de Marina 2008",
+          "url": "https://armada.defensa.gob.es/archivo/rgm/2008/200811.pdf",
+          "excerpt": "La solemne ceremonia del traslado de los restos mortales del almirante Federico Gravina y Nápoli al Panteón de Marinos Ilustres se llevó a cabo el 29 de abril de 1883",
+          "notes": "Both sources Armada; independent publisher second source Fondation Napoléon supplied by user."
+        },
+        {
+          "publisher": "Fondation Napoléon",
+          "url": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/gravina-ferdinando-carlos",
+          "excerpt": "buried in the Panteon de Marinos lllustres, San Fernando, Cadiz",
+          "evidence_origin": "user_supplied_verbatim"
+        }
+      ]
     }
   ]
 }
