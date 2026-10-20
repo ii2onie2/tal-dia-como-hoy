@@ -229,5 +229,16 @@
     "format": "chronological_event",
     "hook_pattern": "date_first",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-21",
+    "series": "Tal Día Como Hoy",
+    "title": "21 de octubre de 1805: la batalla de Trafalgar",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "historia_naval",
+    "format": "chronological_event",
+    "hook_pattern": "date_first",
+    "duration_target": "65-80s"
   }
 ]
