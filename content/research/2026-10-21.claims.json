@@ -2,7 +2,7 @@
   "date": "2026-10-21",
   "topic": "Batalla de Trafalgar",
   "editorial_approval": "NOT_GRANTED",
-  "source_note": "Hérodote excerpts supplied by independent reviewer; assistant could not fetch Hérodote page to independently verify. No claims approved until owner checks.",
+  "source_note": "Exact quotations provided by user from independent reviewer, not independently fetched by assistant. C10 has two source citations pending user check; C11 awaits independent second source. No editorial approval granted.",
   "claims": [
     {
       "id": "C01",
@@ -20,7 +20,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "Le 21 octobre 1805",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
         }
       ],
       "review_checked": false,
@@ -40,9 +40,9 @@
         {
           "publisher": "Hérodote",
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
-          "excerpt": "les navires espagnols ont rallié Cadix",
+          "excerpt": "…il se réfugie dans le port de Cadix où des navires espagnols alliés le rejoignent.",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
         }
       ],
       "review_checked": false,
@@ -62,9 +62,9 @@
         {
           "publisher": "Hérodote",
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
-          "excerpt": "27 navires anglais contre 33 franco-espagnols",
+          "excerpt": "Nelson engage la bataille avec 27 navires anglais contre 33 pour les Fanco-Espagnols.",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
         }
       ],
       "review_checked": false,
@@ -84,9 +84,9 @@
         {
           "publisher": "Hérodote",
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
-          "excerpt": "Villeneuve commande la flotte française",
+          "excerpt": "L'amiral de Villeneuve, qui commande la flotte française",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
         }
       ],
       "review_checked": false,
@@ -106,9 +106,9 @@
         {
           "publisher": "Hérodote",
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
-          "excerpt": "Nelson",
+          "excerpt": "Nelson, à la tête de l'escadre de la Méditerranée,",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
         }
       ],
       "review_checked": false,
@@ -128,9 +128,10 @@
         {
           "publisher": "Hérodote",
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
-          "excerpt": "Nelson blessé sur le pont, mort avant de savourer son triomphe",
+          "excerpt": "L'amiral anglais est blessé sur le pont de son navire, le bien-nommé Victory, par une balle tirée de la hune du Redoutable.",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified",
+          "additional_excerpt": "Le héros meurt avant de pouvoir savourer son triomphe..."
         }
       ],
       "review_checked": false,
@@ -152,7 +153,7 @@
           "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php",
           "excerpt": "au large du cap Trafalgar, non loin de Cadix",
           "accessed_at": "2026-10-19",
-          "evidence_origin": "independent_reviewer_report; assistant page retrieval failed"
+          "evidence_origin": "verbatim_quote_supplied_by_user_from_independent_reviewer; assistant_not_independently_verified"
         }
       ],
       "review_checked": false
@@ -191,31 +192,41 @@
     },
     {
       "id": "C10",
-      "text": "Federico Gravina estaba al mando de la escuadra española.",
-      "status": "PENDING_SECOND_SOURCE",
+      "text": "Federico Gravina mandaba la escuadra española. Gravina fue herido a bordo del Príncipe de Asturias y murió meses después, en 1806.",
+      "status": "PENDING_USER_REVIEW",
       "sources": [
         {
-          "publisher": "Armada Española / Museo Naval",
+          "publisher": "Armada Española / BIP extraordinario diciembre 2005",
           "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
-          "excerpt": "se hizo cargo de la escuadra de Cádiz en febrero de 1805",
-          "accessed_at": "2026-10-19"
+          "excerpt": "En la escuadra de Gravina que se batió en Trafalgar…",
+          "additional_excerpt": "…la herida que recibió a bordo del navío Príncipe de Asturias",
+          "evidence_origin": "verbatim_quote_supplied_by_user"
+        },
+        {
+          "publisher": "Fondation Napoléon",
+          "url": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/gravina-ferdinando-carlos",
+          "excerpt": "commanded the observation squadron",
+          "additional_excerpt": "was mortally wounded, dying of gangrene on 9th March 1806",
+          "evidence_origin": "verbatim_quote_supplied_by_user"
         }
       ],
-      "review_checked": false
+      "review_checked": false,
+      "notes": "Two editorial sources supplied; user review not yet checked."
     },
     {
       "id": "C11",
-      "text": "Cosme Damián de Churruca murió en Trafalgar.",
+      "text": "Cosme Damián Churruca murió en el combate, a bordo del San Juan Nepomuceno.",
       "status": "PENDING_SECOND_SOURCE",
       "sources": [
         {
-          "publisher": "Armada Española / Museo Naval",
+          "publisher": "Armada Española / BIP extraordinario diciembre 2005",
           "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
-          "excerpt": "murió en el combate de Trafalgar en 21 de octubre de 1805",
-          "accessed_at": "2026-10-19"
+          "excerpt": "…Churruca moría desangrado en la enfermería de su navío San Juan Nepomuceno",
+          "evidence_origin": "verbatim_quote_supplied_by_user"
         }
       ],
-      "review_checked": false
+      "review_checked": false,
+      "notes": "RAH biography awaiting user verification; exclude from script until second source confirmed."
     }
   ]
 }
