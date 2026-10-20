@@ -31,7 +31,13 @@
       "url": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/gravina-ferdinando-carlos"
     }
   ],
-  "media": [],
+  "media": [
+    {
+      "commons_title": "File:Turner, The Battle of Trafalgar (1822).jpg",
+      "role": "La batalla de Trafalgar, pintura de J. M. W. Turner (1822-1824)",
+      "license_note": "J. M. W. Turner, The Battle of Trafalgar (1822-1824), dominio público, Wikimedia Commons"
+    }
+  ],
   "cta": "Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España.",
   "format": "chronological_event",
   "hook_pattern": "date_first",
