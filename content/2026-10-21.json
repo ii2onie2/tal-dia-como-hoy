@@ -1,0 +1,46 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "21 de octubre de 1805: la batalla de Trafalgar",
+  "date": "2026-10-21",
+  "slot": "10:00",
+  "hook": "Tal día como hoy, 21 de octubre de 1805, frente al cabo Trafalgar, se libró la batalla de Trafalgar.",
+  "narration": "Tal día como hoy, el 21 de octubre de 1805, frente al cabo Trafalgar, muy cerca de Cádiz, se libró la batalla de Trafalgar. De un lado, la flota británica, al mando del almirante Horatio Nelson. Del otro, una flota combinada de Francia y España, dirigida por el almirante francés Pierre-Charles de Villeneuve. Los navíos españoles estaban bajo el mando de Federico Gravina. Sobre el papel, los números favorecían a los aliados: treinta y tres navíos franceses y españoles frente a veintisiete británicos. Pero el número de barcos no decidió el combate. En plena batalla, Nelson fue herido de muerte. Murió horas después, sabiendo ya que su flota había vencido. Trafalgar terminó con una victoria británica. En el lado español, Federico Gravina también resultó herido, a bordo del navío Príncipe de Asturias. No se recuperó: murió meses después, en 1806, a consecuencia de aquella herida. Para España, Trafalgar no fue solo la batalla de Nelson. También fue la de sus propios marinos y de sus jefes. ¿Sabías que el jefe de la escuadra española murió por las heridas recibidas en Trafalgar? Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España.",
+  "caption": "21 de octubre de 1805: Trafalgar. Gravina mandaba los navíos españoles; Nelson murió sabiendo que había vencido. Fuentes: HISTORY, Hérodote, Armada Española, Fondation Napoléon.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Trafalgar",
+    "#Cádiz",
+    "#HistoriaNaval"
+  ],
+  "sources": [
+    {
+      "name": "HISTORY",
+      "url": "https://www.history.com/articles/battle-of-trafalgar"
+    },
+    {
+      "name": "Hérodote",
+      "url": "https://www.herodote.net/21_octobre_1805-evenement-18051021.php"
+    },
+    {
+      "name": "Armada Española BIP 2005",
+      "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf"
+    },
+    {
+      "name": "Fondation Napoléon",
+      "url": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/gravina-ferdinando-carlos"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Turner, The Battle of Trafalgar (1822).jpg",
+      "role": "La batalla de Trafalgar, pintura de J. M. W. Turner (1822-1824)",
+      "license_note": "J. M. W. Turner, The Battle of Trafalgar (1822-1824), dominio público, Wikimedia Commons"
+    }
+  ],
+  "cta": "Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España.",
+  "format": "chronological_event",
+  "hook_pattern": "date_first",
+  "topic_family": "historia_naval",
+  "duration_target": "65-80s"
+}
