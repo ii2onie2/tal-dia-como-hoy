@@ -7,8 +7,6 @@ on:
         description: JSON content file to render
         required: true
         default: content/example.json
-  schedule:
-    - cron: "45 6 * * *"
 
 permissions:
   contents: write
