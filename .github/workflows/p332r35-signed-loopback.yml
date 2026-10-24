@@ -1,0 +1,21 @@
+name: P3.32R35 Signed HTTP Loopback Rehearsal
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/p332r35_signed_loopback.test.mjs'
+      - '.github/workflows/p332r35-signed-loopback.yml'
+      - 'tools/p332r34_worker_dry_run.mjs'
+permissions:
+  contents: read
+jobs:
+  signed-loopback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Send signed requests to localhost-only simulated Worker
+        run: node tools/p332r35_signed_loopback.test.mjs

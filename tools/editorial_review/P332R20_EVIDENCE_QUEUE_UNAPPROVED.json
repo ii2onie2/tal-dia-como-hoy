@@ -1,0 +1,77 @@
+{
+  "schema": "p332r20_evidence_queue_v1",
+  "date": "2026-10-17",
+  "approved": false,
+  "publishable": false,
+  "dossiers": [
+    {
+      "id": "AMNISTY",
+      "status": "UNAPPROVED",
+      "claims": [
+        {
+          "id": "A1",
+          "text": "Ley 46/1977 was dated 15 October 1977 and published 17 October",
+          "review": "PENDING",
+          "sources": [
+            {
+              "publisher": "BOE",
+              "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1977-24937&p=19771017&tn=1",
+              "locator": "Document heading and BOE metadata",
+              "independent_verified": false
+            }
+          ],
+          "blockers": [
+            "Independent secondary corroboration not yet attached",
+            "No human sign-off"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IRENE",
+      "status": "UNAPPROVED",
+      "claims": [
+        {
+          "id": "I1",
+          "text": "ETA attack injured Irene Villa and her mother on 17 October 1991",
+          "review": "PENDING",
+          "sources": [
+            {
+              "publisher": "RTVE",
+              "url": "https://www.rtve.es/play/noticias/20230322/irene-villa-atentado-piernas-ejemplo-superacion/2432355.shtml",
+              "locator": "Body paragraph on 17 October 1991 and María Jesús González",
+              "independent_verified": false
+            }
+          ],
+          "blockers": [
+            "Additional independent primary verification required",
+            "Human editorial review required"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NAVARRA",
+      "status": "UNAPPROVED",
+      "claims": [
+        {
+          "id": "N1",
+          "text": "First academic inauguration on October 17, not original founding in April 1952",
+          "review": "PENDING",
+          "sources": [
+            {
+              "publisher": "Universidad de Navarra",
+              "url": "https://www.unav.edu/conoce-la-universidad/nuestra-historia",
+              "locator": "Chronology 1952",
+              "independent_verified": false
+            }
+          ],
+          "blockers": [
+            "Independent publisher not validated",
+            "Chronology must be reviewed against passage"
+          ]
+        }
+      ]
+    }
+  ]
+}

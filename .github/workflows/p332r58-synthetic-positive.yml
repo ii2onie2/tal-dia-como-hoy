@@ -1,0 +1,23 @@
+name: P3.32R58 Synthetic Positive Contract Offline
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/synthetic_positive_r58.py'
+      - 'tools/editorial_review/test_synthetic_positive_r58.py'
+      - '.github/workflows/p332r58-synthetic-positive.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p332r58-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tools/editorial_review -p 'test_synthetic_positive_r58.py' -v

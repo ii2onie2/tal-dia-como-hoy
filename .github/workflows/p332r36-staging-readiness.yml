@@ -1,0 +1,23 @@
+name: P3.32R36 Staging Readiness (No Deployment)
+on:
+  pull_request:
+    paths:
+      - 'tools/p332r36_staging_readiness.py'
+      - 'tools/p332r34_worker_dry_run.mjs'
+      - '.github/workflows/p332r36-staging-readiness.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify isolated staging source and production boundaries
+        run: python tools/p332r36_staging_readiness.py
+      - name: Recheck signed HTTP transport locally
+        run: node tools/p332r35_signed_loopback.test.mjs

@@ -1,0 +1,20 @@
+name: P3.32R49 Offline Approval Replay Guard
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/approval_replay_r49.py'
+      - 'tools/editorial_review/test_approval_replay_r49.py'
+      - '.github/workflows/p332r49-approval-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tools/editorial_review -p 'test_approval_replay_r49.py' -v

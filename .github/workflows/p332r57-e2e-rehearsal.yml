@@ -1,0 +1,23 @@
+name: P3.32R57 Offline End-to-End Editorial Denial
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/e2e_rehearsal_r57.py'
+      - 'tools/editorial_review/test_e2e_rehearsal_r57.py'
+      - '.github/workflows/p332r57-e2e-rehearsal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p332r57-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  offline-denial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tools/editorial_review -p 'test_e2e_rehearsal_r57.py' -v

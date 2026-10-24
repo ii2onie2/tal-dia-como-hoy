@@ -1,0 +1,46 @@
+name: Daily Draft Status Alert
+on:
+  schedule:
+    - cron: '45 5 * * 0,3,4,5,6'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check daily files
+        id: check
+        shell: bash
+        run: |
+          DATE=$(TZ=Europe/Madrid date +%F)
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+          python3 tools/pre_tiktok_readiness.py --root content --date "$DATE" --out readiness.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('readiness.json').read_text())
+          missing=[x['file'] for x in r['slots'] if not x['present']]
+          Path('missing.txt').write_text('\n'.join(missing),encoding='utf-8')
+          with open(__import__('os').environ['GITHUB_OUTPUT'],'a') as f:
+           f.write('missing=' + ('true' if missing else 'false') + '\n')
+          PY
+      - name: Open or update missing content issue
+        if: steps.check.outputs.missing == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATE: ${{ steps.check.outputs.date }}
+        shell: bash
+        run: |
+          title="Daily content missing: $DATE"
+          if gh issue list --state open --search "in:title $title" --json title --jq '.[].title' | grep -Fxq "$title"; then
+            echo "Alert already exists"
+          else
+            { echo "The daily content files are missing. No TikTok publication is authorized."; echo; cat missing.txt; } > issue_body.txt
+            gh issue create --title "$title" --body-file issue_body.txt
+          fi

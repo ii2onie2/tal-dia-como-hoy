@@ -1,0 +1,21 @@
+name: P3.32R39 Offline Staging Safety Guard
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r38-signed-staging.yml'
+      - 'tools/p332r38_signed_staging.mjs'
+      - 'tools/p332r39_offline_workflow_safety.test.mjs'
+      - '.github/workflows/p332r39-offline-staging-safety.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tools/p332r39_offline_workflow_safety.test.mjs

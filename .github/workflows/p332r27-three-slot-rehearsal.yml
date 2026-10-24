@@ -1,0 +1,76 @@
+name: P3.32R27 Controlled Three-Slot Daily Rehearsal
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r27-three-slot-rehearsal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p332r27-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  day-dry-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install piper-tts
+      - name: Download test voice
+        run: |
+          mkdir -p voices
+          curl -fsSL --max-time 90 --retry 2 -o voices/es_ES-sharvard-medium.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
+          curl -fsSL --max-time 90 --retry 2 -o voices/es_ES-sharvard-medium.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
+      - name: Create three separately marked synthetic slots
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path('rehearsal/three_slots')
+          base.mkdir(parents=True,exist_ok=True)
+          slots=['principal','detalle','sabias']
+          for n,slot in enumerate(slots):
+              d={'series':'BORRADOR / NO PUBLICAR','date':'2026-10-18',
+                 'title':'Three-slot technical pipeline rehearsal '+slot,
+                 'hook':'BORRADOR / NO PUBLICAR '+slot,
+                 'narration':(('Esta es la prueba tecnica del bloque '+slot+'. No se trata de historia real y no debe publicarse. ')*7).strip(),
+                 'caption':'BORRADOR / NO PUBLICAR','cta':'BORRADOR / NO PUBLICAR',
+                 'hashtags':[],'sources':[],'media':[],'approved':False,'publishable':False}
+              (base/(slot+'.json')).write_text(json.dumps(d,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Render and verify every daily slot
+        env:
+          PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
+          PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
+        run: |
+          for slot in principal detalle sabias; do
+            python scripts/render.py --content "rehearsal/three_slots/$slot.json" --out "rehearsal/three_slots/out/$slot"
+            test -s "rehearsal/three_slots/out/$slot/video.mp4"
+            test -s "rehearsal/three_slots/out/$slot/subtitles.srt"
+            test -s "rehearsal/three_slots/out/$slot/caption.txt"
+            ffprobe -v error -show_entries stream=width,height -of json "rehearsal/three_slots/out/$slot/video.mp4" > "rehearsal/three_slots/out/$slot/probe.json"
+          done
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for slot in ('principal','detalle','sabias'):
+              p=Path('rehearsal/three_slots/out')/slot
+              stream=json.loads((p/'probe.json').read_text())['streams'][0]
+              assert stream['width']==1080 and stream['height']==1920
+              assert (p/'caption.txt').read_text().startswith('BORRADOR / NO PUBLICAR')
+          print('THREE_SLOT_DRY_RUN=PASS; HISTORICAL_APPROVAL=NO; TIKTOK_PUBLISH=NO')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p332r27-three-slot-synthetic-not-for-publishing
+          path: rehearsal/three_slots/out/
+          if-no-files-found: warn
+          retention-days: 3

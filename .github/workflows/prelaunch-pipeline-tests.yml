@@ -1,0 +1,21 @@
+name: Prelaunch Daily Draft and TikTok Dry-Run Tests
+on:
+  pull_request:
+    paths:
+      - 'tools/prepare_daily_drafts.py'
+      - 'tools/tiktok_handoff_dry_run.py'
+      - 'tools/test_prelaunch_pipeline.py'
+      - '.github/workflows/prelaunch-pipeline-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tools -p 'test_prelaunch_pipeline.py' -v

@@ -1,0 +1,23 @@
+name: P3.32R62 Isolated Render Adapter
+on:
+  pull_request:
+    paths:
+      - 'tools/editorial_review/render_adapter_r62.py'
+      - 'tools/editorial_review/test_render_adapter_r62.py'
+      - '.github/workflows/p332r62-render-adapter.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p332r62-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tools/editorial_review -p 'test_render_adapter_r62.py' -v

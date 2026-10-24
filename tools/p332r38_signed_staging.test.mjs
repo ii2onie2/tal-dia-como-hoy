@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import {sendStaging} from "./p332r38_signed_staging.mjs";
+const secret="SYNTHETIC-R38-TEST-ONLY-DO-NOT-USE-PRODUCTION";
+let called=0;
+const fake=async (url,options)=>{called++;assert.match(url,/taldiacomohoy-staging/);assert.equal(options.method,"POST");
+ assert.equal(JSON.parse(options.body).account,"taldiacomohoy09");
+ assert.equal(JSON.parse(options.body).dry_run,true);
+ assert.match(options.headers["X-R34-Signature"],/^sha256=[a-f0-9]{64}$/);
+ return {status:200,text:async()=>JSON.stringify({status:"SIMULATED_ONLY",account:"taldiacomohoy09",publish:false,uploaded:false,forwarded:false})};};
+const ok=await sendStaging({secret,request:fake,now:1770000000000});assert.equal(ok.http,200);assert.equal(called,1);
+await assert.rejects(sendStaging({secret,url:"https://tiktok-auto-publisher.ii2onie.workers.dev/publish",request:fake}),/allowlist/);
+await assert.rejects(sendStaging({secret:"short",request:fake}),/short/);
+await assert.rejects(sendStaging({secret,request:async()=>({status:401,text:async()=>JSON.stringify({error:"unauthorized"})})}),/denied/);
+console.log("R38_LOCAL_TESTS=PASS; LIVE_REQUESTS=0; PROD_REQUESTS=0; PUBLISH=NO");

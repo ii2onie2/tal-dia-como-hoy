@@ -1,0 +1,41 @@
+{
+  "title": "17 de octubre de 1977: publicación de la Ley de Amnistía",
+  "date": "2026-10-17",
+  "historical_date": "1977-10-17",
+  "series": "Tal Día Como Hoy",
+  "duration_target": "65-80s",
+  "hook": "La ley es del día 15, pero entró en vigor el 17. ¿Por qué?",
+  "narration": "El 17 de octubre de 1977 se publicó en España la Ley de Amnistía. Pero su nombre completo incluye un dato que suele pasar desapercibido: es la Ley 46 de 1977, de 15 de octubre. Entonces, ¿por qué recordamos el día diecisiete? Porque una cosa es la fecha del texto legal y otra su publicación oficial. El Boletín Oficial del Estado publicó la norma el 17 de octubre de 1977, en su número 248. Su referencia es BOE-A-1977-24937. El artículo doce contiene otro detalle importante: dispone que la ley entraría en vigor el mismo día de su publicación. Por eso, al reconstruir los hechos, es necesario distinguir tres cuestiones: cuándo se firmó la ley, cuándo apareció en el boletín y cuándo comenzó a regir. La documentación oficial permite comprobar esas fechas sin depender de rumores ni de recuerdos. Esta explicación se limita a las fechas y al texto publicado. No pretende resumir todas las consecuencias políticas o jurídicas de la amnistía. Síguenos para conocer la historia de España con documentos, fechas y contexto.",
+  "caption": "BORRADOR / NO PUBLICAR · Ley 46/1977 publicada el 17 de octubre de 1977.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña"
+  ],
+  "cta": "Síguenos para más historia documentada.",
+  "sources": [
+    {
+      "organization": "BOE",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-1977-24937",
+      "locator": "Header, original text and Article 12"
+    },
+    {
+      "organization": "Congreso de los Diputados",
+      "url": "https://www.congreso.es/es/iniciativas-grupo?_iniciativas_id=122%2F000014&_iniciativas_legislatura=C&_iniciativas_mode=mostrarDetalle&p_p_id=iniciativas&p_p_lifecycle=0&p_p_mode=view&p_p_state=normal",
+      "locator": "Initiative 122/000014, parliamentary proceedings and BOE references"
+    }
+  ],
+  "media": [
+    {
+      "type": "original_illustration",
+      "path": "rehearsal/r25/visual.png",
+      "creator": "Project-generated timeline diagram",
+      "license": "original_project_work",
+      "rights_review": "PENDING_VISUAL_QA"
+    }
+  ],
+  "approved": false,
+  "publishable": false,
+  "rights_clearance": "PENDING_VISUAL_QA",
+  "editorial_review": "PENDING",
+  "watermark": "BORRADOR / NO PUBLICAR"
+}

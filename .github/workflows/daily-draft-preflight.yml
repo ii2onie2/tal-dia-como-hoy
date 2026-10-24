@@ -1,0 +1,54 @@
+name: Daily Draft Preparation and Monitoring
+on:
+  schedule:
+    - cron: '15 5 * * 3,4,5,6,0'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/prepare_daily_drafts.py'
+      - 'tools/pre_tiktok_readiness.py'
+      - 'tools/daily_research_queue.py'
+      - 'tools/tiktok_handoff_dry_run.py'
+      - 'tools/test_prelaunch_pipeline.py'
+      - '.github/workflows/daily-draft-preflight.yml'
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Consolidated prelaunch tests
+        run: |
+          python3 -m unittest discover -s tools -p 'test_prelaunch_pipeline.py' -v
+          python3 -m unittest discover -s tools -p 'test_pre_tiktok_readiness.py' -v
+      - name: Prepare only existing date-specific drafts
+        shell: bash
+        run: |
+          DATE=$(TZ=Europe/Madrid date +%F)
+          python3 tools/daily_research_queue.py --date "$DATE" --out research_queue.json
+          if python3 tools/prepare_daily_drafts.py --source review_ready --out staging_content --date "$DATE"; then
+            echo "DRAFT_PREPARATION=COMPLETE"
+          else
+            echo "DRAFT_PREPARATION=BLOCKED_MISSING_REVIEWED_INPUT"
+          fi
+          python3 tools/pre_tiktok_readiness.py --root staging_content --date "$DATE" --out pre_tiktok_readiness.json
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          report=json.loads(Path('pre_tiktok_readiness.json').read_text())
+          summary=Path(os.environ['GITHUB_STEP_SUMMARY'])
+          summary.write_text('## One-video daily preparation\\n\\n**Status:** '+report['status']+'\\n\\n**Primary video:** '+str(report['slots'][0]['present'])+'\\n\\n**Blockers:** '+', '.join(report['blockers'])+'\\n\\n**Publication:** NOT AUTHORIZED\\n')
+          PY
+      - name: Upload diagnostic for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-draft-diagnostic-${{ github.run_id }}
+          path: |
+            staging_content/
+            pre_tiktok_readiness.json
+            research_queue.json
+          retention-days: 14

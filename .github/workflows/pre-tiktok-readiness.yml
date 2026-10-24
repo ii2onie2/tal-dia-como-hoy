@@ -1,0 +1,35 @@
+name: Pre-TikTok Daily Readiness (no publishing)
+on:
+  pull_request:
+    paths:
+      - 'tools/pre_tiktok_readiness.py'
+      - 'tools/test_pre_tiktok_readiness.py'
+      - '.github/workflows/pre-tiktok-readiness.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pre-tiktok-readiness-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests
+        run: python3 -m unittest discover -s tools -p test_pre_tiktok_readiness.py -v
+      - name: Daily snapshot without network or publication
+        shell: bash
+        run: |
+          DAY=$(TZ=Europe/Madrid date +%F)
+          python3 tools/pre_tiktok_readiness.py --root content --date "$DAY" --out pre_tiktok_readiness.json
+          python3 -m json.tool pre_tiktok_readiness.json >/dev/null
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pre-tiktok-readiness-${{ github.run_id }}
+          path: pre_tiktok_readiness.json
+          retention-days: 14

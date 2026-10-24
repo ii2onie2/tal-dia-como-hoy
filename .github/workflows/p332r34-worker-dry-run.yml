@@ -1,0 +1,26 @@
+name: P3.32R34 Isolated Worker Dry-Run Endpoint
+on:
+  pull_request:
+    paths:
+      - 'tools/p332r34_worker_dry_run.mjs'
+      - 'tools/p332r34_worker_dry_run.test.mjs'
+      - '.github/workflows/p332r34-worker-dry-run.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test endpoint without network or external secrets
+        run: node tools/p332r34_worker_dry_run.test.mjs
+      - name: Explicit no-deploy boundary
+        run: |
+          echo 'DEPLOYMENT=NO'
+          echo 'PRODUCTION_WORKER_CHANGED=NO'
+          echo 'TIKTOK_PUBLISH=NO'

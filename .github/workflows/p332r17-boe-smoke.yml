@@ -1,0 +1,48 @@
+name: P3.32R17 Bounded BOE HTTPS Smoke (nonpublishing)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/p332r17-boe-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  boe-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: One allowlisted public BOE HTTPS request
+        id: smoke
+        shell: bash
+        run: |
+          mkdir -p smoke-output
+          python3 - <<'PY'
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,'tools/editorial_review')
+          from fetch_public_evidence import fetch
+          result={'schema':'p332r17_smoke_v1','approved':False,'publishable':False,'source':'https://www.boe.es/boe/dias/1977/10/17/','status':'BLOCKED'}
+          try:
+              metadata,data=fetch(result['source'])
+              result.update(status='FETCHED_NOT_APPROVED',sha256=metadata['sha256'],byte_count=len(data),content_type=metadata['content_type'])
+              Path('smoke-output/source.raw').write_bytes(data)
+          except Exception as e:
+              result['error_type']=type(e).__name__
+              result['error_message']=str(e)[:200]
+          Path('smoke-output/result.json').write_text(json.dumps(result,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({k:v for k,v in result.items() if k not in ('error_message',)},sort_keys=True))
+          if result['status']!='FETCHED_NOT_APPROVED':
+              raise SystemExit(2)
+          PY
+      - name: Upload isolated report and bounded response bytes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p332r17-boe-smoke-unapproved
+          path: smoke-output/
+          if-no-files-found: error
+          retention-days: 7

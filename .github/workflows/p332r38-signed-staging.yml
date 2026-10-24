@@ -1,0 +1,21 @@
+name: P3.32R38 Signed Staging Request - Offline Only Until Approval
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  staging-contract-offline-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify signed transport contract locally
+        run: node tools/p332r38_signed_staging.test.mjs
+      - name: Hold staging transfer until approval and infrastructure verification
+        run: |
+          echo 'STAGING_TRANSPORT=NOT_AUTHORIZED'
+          echo 'REASON=No verified staging deployment, real content evidence, or editorial approval.'
+          echo 'NETWORK_REQUESTS=0; SECRET_ACCESS=0; PUBLICATION=NO'
