@@ -1,0 +1,71 @@
+name: Buffer draft payload offline review
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_date:
+        description: Existing rendered video date (YYYY-MM-DD)
+        required: true
+        default: '2026-10-08'
+
+permissions:
+  contents: read
+
+jobs:
+  draft-payload-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construct draft-only GraphQL payload without sending
+        env:
+          VIDEO_DATE: ${{ inputs.video_date }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import datetime, json, os, pathlib, sys
+          day = os.environ["VIDEO_DATE"]
+          try:
+              if datetime.date.fromisoformat(day).isoformat() != day:
+                  raise ValueError
+          except ValueError:
+              sys.exit("FAIL: invalid date")
+          base = pathlib.Path("videos") / day
+          video = pathlib.Path(str(base)+".mp4")
+          caption = pathlib.Path(str(base)+".caption.txt")
+          sources = pathlib.Path(str(base)+".sources.json")
+          if any(not p.is_file() or p.stat().st_size == 0 for p in (video, caption, sources)):
+              sys.exit("FAIL: missing video package")
+          text = caption.read_text(encoding="utf-8").strip()
+          if not text:
+              sys.exit("FAIL: empty caption")
+          json.loads(sources.read_text(encoding="utf-8"))
+          url = "https://raw.githubusercontent.com/ii2onie2/tal-dia-como-hoy/main/videos/"+day+".mp4"
+          query = """mutation CreateDraftVideo($text: String!, $url: String!) {
+            createPost(input: {
+              text: $text
+              channelId: "6ae070412f1f5ed648e8137f"
+              schedulingType: automatic
+              mode: addToQueue
+              saveToDraft: true
+              assets: [{video: {url: $url}}]
+            }) {
+              ... on PostActionSuccess { post { id text } }
+              ... on MutationError { message }
+            }
+          }"""
+          payload = {"query": query, "variables": {"text": text, "url": url}}
+          assert "saveToDraft: true" in query
+          assert "shareNow" not in query and "dueAt:" not in query
+          print("GRAPHQL_PAYLOAD_VALID_JSON="+str(bool(json.dumps(payload))).upper())
+          print("VIDEO_DATE="+day)
+          print("TARGET_CHANNEL=taldiacomohoy09")
+          print("DRAFT_ONLY=TRUE")
+          print("VIDEO_ASSET_PRESENT=TRUE")
+          print("CAPTION_PRESENT=TRUE")
+          print("BUFFER_API_REQUESTS=0")
+          print("BUFFER_POSTS_CREATED=0")
+          print("TIKTOK_PUBLICATIONS=0")
+          print("OFFLINE_DRAFT_PAYLOAD=PASS")
+          PY
