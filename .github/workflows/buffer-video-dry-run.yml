@@ -1,0 +1,55 @@
+name: Buffer TikTok video dry-run
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_date:
+        description: Existing rendered video date (YYYY-MM-DD)
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate three video packages without contacting Buffer
+        shell: bash
+        env:
+          VIDEO_DATE: ${{ inputs.video_date }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import datetime, json, os, pathlib, subprocess, sys
+          day = os.environ["VIDEO_DATE"]
+          try:
+              if datetime.date.fromisoformat(day).isoformat() != day:
+                  raise ValueError("invalid date")
+          except ValueError:
+              sys.exit("FAIL: expected YYYY-MM-DD")
+          channel_id = "6ae070412f1f5ed648e8137f"
+          for stem in (day, day+"-detalle", day+"-sabias"):
+              base = pathlib.Path("videos") / stem
+              mp4 = pathlib.Path(str(base)+".mp4")
+              caption = pathlib.Path(str(base)+".caption.txt")
+              sources = pathlib.Path(str(base)+".sources.json")
+              for file in (mp4, caption, sources):
+                  if not file.is_file() or file.stat().st_size == 0:
+                      sys.exit("FAIL: missing/empty "+str(file))
+              if not caption.read_text(encoding="utf-8").strip():
+                  sys.exit("FAIL: empty caption "+str(caption))
+              json.loads(sources.read_text(encoding="utf-8"))
+              with mp4.open("rb") as f:
+                  if b"ftyp" not in f.read(32):
+                      sys.exit("FAIL: not an MP4 "+str(mp4))
+              print("PACKAGE_VALID="+stem)
+              print("BUFFER_DESTINATION_CHANNEL="+channel_id)
+              print("SIMULATED_VIDEO_URL=https://raw.githubusercontent.com/ii2onie2/tal-dia-como-hoy/main/videos/"+stem+".mp4")
+          print("BUFFER_API_REQUESTS=0")
+          print("BUFFER_POSTS_CREATED=0")
+          print("TIKTOK_PUBLICATIONS=0")
+          print("DRY_RUN=PASS")
+          PY
