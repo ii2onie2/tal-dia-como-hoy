@@ -1,83 +1,46 @@
-name: Buffer single TikTok draft (guarded)
+name: Buffer draft readiness (read-only)
 
 on:
   workflow_dispatch:
-    inputs:
-      confirm:
-        description: Type CREATE_ONE_BUFFER_DRAFT to authorize one Buffer draft (no publishing)
-        required: true
-        type: string
 
 permissions:
   contents: read
 
 concurrency:
-  group: buffer-tal-dia-2026-10-08-draft
+  group: buffer-tal-dia-2026-10-08-readiness
   cancel-in-progress: false
 
 jobs:
-  create-draft:
-    if: ${{ inputs.confirm == 'CREATE_ONE_BUFFER_DRAFT' }}
+  verify:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Create one draft only after read-only preflight
-        env:
-          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      - name: Verify local package and remote MP4 without Buffer mutations
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json, os, pathlib, sys, urllib.request, urllib.error
-          token=os.environ.get("BUFFER_API_KEY")
-          if not token: sys.exit("FAIL: missing Buffer token")
+          import json, pathlib, urllib.request
           day="2026-10-08"
           base=pathlib.Path("videos")/day
-          video=pathlib.Path(str(base)+".mp4")
-          caption=pathlib.Path(str(base)+".caption.txt")
-          sources=pathlib.Path(str(base)+".sources.json")
-          if any(not p.is_file() or p.stat().st_size==0 for p in (video,caption,sources)):
-              sys.exit("FAIL: missing video package")
-          text=caption.read_text(encoding="utf-8").strip()
-          if not text: sys.exit("FAIL: empty caption")
-          json.loads(sources.read_text(encoding="utf-8"))
+          paths=[pathlib.Path(str(base)+suffix) for suffix in (".mp4",".caption.txt",".sources.json")]
+          for path in paths:
+              if not path.is_file() or path.stat().st_size==0:
+                  raise SystemExit("FAIL_MISSING_OR_EMPTY="+str(path))
+          text=paths[1].read_text(encoding="utf-8").strip()
+          if not text:
+              raise SystemExit("FAIL_EMPTY_CAPTION")
+          json.loads(paths[2].read_text(encoding="utf-8"))
           url="https://raw.githubusercontent.com/ii2onie2/tal-dia-como-hoy/main/videos/"+day+".mp4"
-          req=urllib.request.Request(url,headers={"Range":"bytes=0-31","User-Agent":"BufferDraftGuard/1.0"})
+          req=urllib.request.Request(url,headers={"Range":"bytes=0-31","User-Agent":"BufferDraftReadiness/1.0"})
           with urllib.request.urlopen(req,timeout=25) as resp:
               if resp.status not in (200,206) or b"ftyp" not in resp.read(32):
-                  sys.exit("FAIL: remote video inaccessible")
-          # This mutation is deliberately single-shot. A failed/ambiguous response
-          # MUST NOT be retried without manually checking Buffer for a draft.
-          mutation="""mutation CreateOneDraft($input: CreatePostInput!) {
-            createPost(input: $input) {
-              __typename
-            }
-          }"""
-          payload={"query":mutation,"variables":{"input":{
-            "channelId":"6ae070412f1f5ed648e8137f",
-            "text":text,
-            "mode":"addToQueue",
-            "schedulingType":"automatic",
-            "saveToDraft":True,
-            "assets":[{"video":{"url":url}}]
-          }}}
-          print("TARGET=taldiacomohoy09")
-          print("SAVE_TO_DRAFT=TRUE")
-          print("NO_DUE_AT=TRUE")
-          print("WARNING=ONE_SHOT_WRITE_NO_AUTOMATIC_RETRY")
-          request=urllib.request.Request("https://api.buffer.com",data=json.dumps(payload).encode(),headers={"Authorization":"Bearer "+token,"Content-Type":"application/json"},method="POST")
-          try:
-              with urllib.request.urlopen(request,timeout=30) as response:
-                  result=json.load(response)
-          except Exception as exc:
-              sys.exit("RESULT=UNKNOWN_CHECK_BUFFER_MANUALLY_BEFORE_RETRY; "+type(exc).__name__)
-          if result.get("errors"):
-              print("GRAPHQL_ERRORS="+json.dumps([x.get("message","unknown") for x in result["errors"]]))
-              sys.exit("RESULT=UNKNOWN_CHECK_BUFFER_MANUALLY_BEFORE_RETRY")
-          node=(result.get("data") or {}).get("createPost")
-          if not node:
-              sys.exit("RESULT=UNKNOWN_CHECK_BUFFER_MANUALLY_BEFORE_RETRY")
-          print("CREATE_POST_RESPONSE_TYPENAME="+str(node.get("__typename")))
-          print("RESULT=CHECK_BUFFER_DRAFTS_BEFORE_ANY_RETRY")
+                  raise SystemExit("FAIL_REMOTE_MP4")
+          print("VIDEO_PACKAGE=PASS")
+          print("PUBLIC_VIDEO_URL=PASS")
+          print("BUFFER_API_REQUESTS=0")
+          print("BUFFER_MUTATIONS=0")
+          print("TIKTOK_PUBLICATIONS=0")
+          print("NEXT=AUTHORIZE_SEPARATE_MUTATION_WORKFLOW_ONLY_AFTER_DUPLICATE_AND_RESPONSE_VALIDATION")
           PY
