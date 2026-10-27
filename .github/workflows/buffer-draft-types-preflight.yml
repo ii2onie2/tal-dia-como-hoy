@@ -1,0 +1,57 @@
+name: Buffer draft nested types preflight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect nested draft input types without mutations
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,sys,urllib.request
+          token=os.environ.get("BUFFER_API_KEY")
+          if not token: sys.exit("FAIL: missing token")
+          query='''query {
+            createPost: __type(name:"CreatePostInput") { inputFields { name type { kind name ofType { kind name ofType { kind name } } } } }
+          }'''
+          def graphql(q):
+              req=urllib.request.Request("https://api.buffer.com",data=json.dumps({"query":q}).encode(),headers={"Authorization":"Bearer "+token,"Content-Type":"application/json"},method="POST")
+              with urllib.request.urlopen(req,timeout=25) as response: result=json.load(response)
+              if result.get("errors"): sys.exit("FAIL: GraphQL errors "+json.dumps([x.get("message") for x in result["errors"]]))
+              return result.get("data") or {}
+          d=graphql(query)
+          fields=(d.get("createPost") or {}).get("inputFields") or []
+          wanted={"assets","mode","schedulingType","saveToDraft","channelId","text"}
+          for f in fields:
+              if f.get("name") in wanted:
+                  print("CREATE_POST_FIELD="+json.dumps(f,sort_keys=True))
+          def named(t):
+              while t and not t.get("name"): t=t.get("ofType")
+              return t.get("name") if t else None
+          types=sorted({named(f.get("type")) for f in fields if f.get("name") in wanted} - {None})
+          for name in types:
+              if name in {"String","Boolean","Int","Float","ID"}: continue
+              # Names originate from the schema, not user input.
+              t=graphql('query { target: __type(name:'+json.dumps(name)+') { name kind enumValues { name } inputFields { name type { kind name ofType { kind name ofType { kind name } } } } } }').get("target")
+              print("NESTED_TYPE="+json.dumps(t,sort_keys=True))
+              if name.lower().endswith("assetinput") or name.lower().endswith("assetsinput"):
+                  for sub in (t or {}).get("inputFields") or []:
+                      child=named(sub.get("type"))
+                      if child and child not in {"String","Boolean","Int","Float","ID"}:
+                          nested=graphql('query { target: __type(name:'+json.dumps(child)+') { name kind enumValues { name } inputFields { name type { kind name ofType { kind name } } } } }').get("target")
+                          print("ASSET_CHILD_TYPE="+json.dumps(nested,sort_keys=True))
+          print("MODE=READ_ONLY")
+          print("BUFFER_DRAFT_MUTATIONS=0")
+          print("TIKTOK_PUBLICATIONS=0")
+          print("TYPE_PREFLIGHT=PASS")
+          PY
