@@ -1,0 +1,63 @@
+name: Buffer video asset schema verification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect full video asset input schema without writing
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,sys,urllib.request
+          token=os.environ.get("BUFFER_API_KEY")
+          if not token: sys.exit("FAIL: missing Buffer token")
+          def gql(query):
+              req=urllib.request.Request("https://api.buffer.com",data=json.dumps({"query":query}).encode(),headers={"Authorization":"Bearer "+token,"Content-Type":"application/json"},method="POST")
+              with urllib.request.urlopen(req,timeout=25) as resp: obj=json.load(resp)
+              if obj.get("errors"): sys.exit("FAIL: GraphQL errors: "+json.dumps([x.get("message") for x in obj["errors"]]))
+              return obj.get("data") or {}
+          def name(t):
+              while t and not t.get("name"): t=t.get("ofType")
+              return t.get("name") if t else None
+          def gettype(n):
+              q='query { t: __type(name:'+json.dumps(n)+') { name kind inputFields { name type { kind name ofType { kind name ofType { kind name ofType { kind name } } } } } enumValues { name } } }'
+              return gql(q).get("t")
+          root=gettype("CreatePostInput")
+          fields=root.get("inputFields") if root else []
+          assets=next((x for x in fields if x["name"]=="assets"),None)
+          if not assets: sys.exit("FAIL: assets field missing")
+          # Unwrap list and non-null wrappers, including nested LIST/ NON_NULL.
+          t=assets["type"]
+          while t and not t.get("name"): t=t.get("ofType")
+          asset_type=t.get("name") if t else None
+          if not asset_type: sys.exit("FAIL: asset type unresolved")
+          asset=gettype(asset_type)
+          print("ASSET_TYPE="+asset_type)
+          print("ASSET_SCHEMA="+json.dumps(asset,sort_keys=True))
+          if not asset or asset.get("kind")!="INPUT_OBJECT": sys.exit("FAIL: asset input not object")
+          video_field=next((f for f in asset.get("inputFields") or [] if f["name"]=="video"),None)
+          if not video_field: sys.exit("FAIL: video field not found")
+          video_type=name(video_field["type"])
+          print("VIDEO_FIELD="+json.dumps(video_field,sort_keys=True))
+          print("VIDEO_TYPE="+str(video_type))
+          video=gettype(video_type) if video_type else None
+          print("VIDEO_SCHEMA="+json.dumps(video,sort_keys=True))
+          if not video or video.get("kind")!="INPUT_OBJECT": sys.exit("FAIL: video type unavailable")
+          url=next((f for f in video.get("inputFields") or [] if f["name"]=="url"),None)
+          print("VIDEO_URL_FIELD="+json.dumps(url,sort_keys=True))
+          if not url: sys.exit("FAIL: video URL field unavailable")
+          print("BUFFER_API_REQUESTS_READ_ONLY=TRUE")
+          print("BUFFER_MUTATIONS=0")
+          print("TIKTOK_PUBLICATIONS=0")
+          print("VIDEO_ASSET_SCHEMA=PASS")
+          PY
