@@ -1,0 +1,62 @@
+name: Buffer GraphQL draft schema preflight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify draft mutation schema read-only
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, sys, urllib.request
+          token = os.environ.get("BUFFER_API_KEY", "")
+          if not token:
+              sys.exit("FAIL: BUFFER_API_KEY missing")
+          query = """query DraftSchemaPreflight {
+            mutation: __type(name: "Mutation") { fields { name args { name type { kind name ofType { kind name } } } } }
+            postInput: __type(name: "CreatePostInput") { kind inputFields { name type { kind name ofType { kind name } } } }
+          }"""
+          body = json.dumps({"query":query}).encode()
+          req = urllib.request.Request("https://api.buffer.com",data=body,headers={
+              "Authorization":"Bearer "+token,
+              "Content-Type":"application/json",
+              "User-Agent":"BufferDraftSchemaPreflight/1.0"
+          },method="POST")
+          try:
+              with urllib.request.urlopen(req,timeout=25) as response:
+                  data=json.load(response)
+          except Exception as exc:
+              sys.exit("FAIL: introspection request "+type(exc).__name__)
+          if data.get("errors"):
+              print("GRAPHQL_INTROSPECTION_ERRORS="+json.dumps([e.get("message","unknown") for e in data["errors"]]))
+              sys.exit(1)
+          d=data.get("data") or {}
+          mutation=d.get("mutation") or {}
+          fields=mutation.get("fields") or []
+          matches=[f for f in fields if f.get("name")=="createPost"]
+          print("CREATE_POST_MUTATION_FOUND="+str(bool(matches)).upper())
+          if matches:
+              print("CREATE_POST_ARGUMENTS="+json.dumps(matches[0].get("args",[]),sort_keys=True))
+          inputType=d.get("postInput")
+          print("CREATE_POST_INPUT_TYPE_FOUND="+str(bool(inputType)).upper())
+          if inputType:
+              names=[f.get("name") for f in inputType.get("inputFields") or []]
+              print("CREATE_POST_INPUT_FIELDS="+json.dumps(names))
+              print("SAVE_TO_DRAFT_FIELD_FOUND="+str("saveToDraft" in names).upper())
+          print("MODE=READ_ONLY_INTROSPECTION")
+          print("BUFFER_DRAFT_MUTATIONS=0")
+          print("TIKTOK_PUBLICATIONS=0")
+          if not matches:
+              sys.exit("FAIL: createPost unavailable; inspect schema before writing")
+          print("SCHEMA_PREFLIGHT=PASS")
+          PY
