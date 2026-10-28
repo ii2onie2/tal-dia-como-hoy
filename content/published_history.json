@@ -240,5 +240,16 @@
     "format": "chronological_event",
     "hook_pattern": "date_first",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-28",
+    "series": "Tal Día Como Hoy",
+    "title": "28 de octubre de 1982: unas elecciones cambiaron la política española",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "elecciones_generales_1982",
+    "format": "historical_educational",
+    "hook_pattern": "curiosity",
+    "duration_target": "65-80s"
   }
 ]
