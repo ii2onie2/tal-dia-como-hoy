@@ -1,0 +1,31 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "28 de octubre: cómo el acueducto romano cambió Segovia",
+  "date": "2026-10-28",
+  "slot": "10:00",
+  "hook": "Hoy viajamos a Segovia para descubrir una obra romana que sigue definiendo el paisaje de la ciudad.",
+  "narration": "En Segovia, una obra de ingeniería romana se convirtió en uno de los símbolos más reconocibles de España. Es el acueducto, construido para llevar agua a la ciudad desde su entorno natural. Su imagen más famosa presenta dos niveles de arcos de piedra que atraviesan el espacio urbano. Lo extraordinario no es solamente su altura: también es la precisión con la que los constructores colocaron grandes bloques de granito. Las piedras se sostienen mediante su propio ajuste, sin necesidad de una masa de mortero entre ellas. El agua circulaba por un canal superior y después podía distribuirse a distintos puntos de la ciudad. La construcción recuerda que una ciudad romana necesitaba algo más que caminos y edificios monumentales: necesitaba abastecimiento, mantenimiento y conocimientos técnicos. Con los siglos, Segovia creció alrededor de esta infraestructura y el acueducto pasó a formar parte de su identidad. La UNESCO reconoce el valor excepcional de la ciudad vieja y de su acueducto como conjunto histórico. Aunque la fecha exacta de construcción se debate, su conservación permite observar de cerca una solución de ingeniería de hace muchos siglos. Una infraestructura destinada a una necesidad cotidiana terminó convirtiéndose en patrimonio cultural. Síguenos para descubrir más episodios de la historia de España. ¿Te imaginabas que una obra para transportar agua llegaría a ser el emblema de una ciudad?",
+  "caption": "28 de octubre: cómo el acueducto romano cambió Segovia",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#Patrimonio",
+    "#TalDiaComoHoy"
+  ],
+  "sources": [
+    {
+      "name": "Fuente patrimonial institucional",
+      "url": "https://whc.unesco.org/es/list/311/"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Aqueduct of Segovia.jpg",
+      "role": "Referencia visual por verificar antes de renderizar",
+      "license_note": "PENDIENTE_VERIFICACION_DE_ARCHIVO_Y_LICENCIA"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "duration_target": "65-80s"
+}
