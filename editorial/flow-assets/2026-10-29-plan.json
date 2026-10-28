@@ -1,0 +1,18 @@
+{
+  "channel": "taldiacomohoy09",
+  "editorial_date": "2026-10-29",
+  "slots": [
+    "10:00",
+    "16:00",
+    "19:00"
+  ],
+  "source_tool": "Google Flow / Nano Banana 2.1",
+  "mode": "MANUAL_FLOW_FREE_CREDITS",
+  "daily_shared_budget_credits": 50,
+  "assets_generated": 0,
+  "editorial_fact_check": "REQUIRED",
+  "visual_labeling": "AI-generated historical reconstructions must not be represented as authentic photographs",
+  "credit_cost": "UNVERIFIED",
+  "next_gate": "Choose and source-check three historical subjects dated 29 October before prompting or generating visuals",
+  "publication": "NOT_AUTHORIZED_BY_THIS_MANIFEST"
+}
