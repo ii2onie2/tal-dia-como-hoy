@@ -1,11 +1,11 @@
 {
   "series": "Tal Día Como Hoy",
-  "title": "28 de octubre: cómo el acueducto romano cambió Segovia",
+  "title": "28 de octubre de 1982: unas elecciones cambiaron la política española",
   "date": "2026-10-28",
   "slot": "10:00",
-  "hook": "Hoy viajamos a Segovia para descubrir una obra romana que sigue definiendo el paisaje de la ciudad.",
-  "narration": "En Segovia, una obra de ingeniería romana se convirtió en uno de los símbolos más reconocibles de España. Es el acueducto, construido para llevar agua a la ciudad desde su entorno natural. Su imagen más famosa presenta dos niveles de arcos de piedra que atraviesan el espacio urbano. Lo extraordinario no es solamente su altura: también es la precisión con la que los constructores colocaron grandes bloques de granito. Las piedras se sostienen mediante su propio ajuste, sin necesidad de una masa de mortero entre ellas. El agua circulaba por un canal superior y después podía distribuirse a distintos puntos de la ciudad. La construcción recuerda que una ciudad romana necesitaba algo más que caminos y edificios monumentales: necesitaba abastecimiento, mantenimiento y conocimientos técnicos. Con los siglos, Segovia creció alrededor de esta infraestructura y el acueducto pasó a formar parte de su identidad. La UNESCO reconoce el valor excepcional de la ciudad vieja y de su acueducto como conjunto histórico. Aunque la fecha exacta de construcción se debate, su conservación permite observar de cerca una solución de ingeniería de hace muchos siglos. Una infraestructura destinada a una necesidad cotidiana terminó convirtiéndose en patrimonio cultural. Síguenos para descubrir más episodios de la historia de España. ¿Te imaginabas que una obra para transportar agua llegaría a ser el emblema de una ciudad?",
-  "caption": "28 de octubre: cómo el acueducto romano cambió Segovia",
+  "hook": "El 28 de octubre de 1982, España votó en unas elecciones generales que marcaron un cambio político decisivo.",
+  "narration": "El 28 de octubre de 1982 se celebraron elecciones generales en España. El país llevaba pocos años viviendo bajo la Constitución de 1978 y todavía estaba consolidando sus instituciones democráticas. La jornada tuvo un resultado histórico: el Partido Socialista Obrero Español, encabezado por Felipe González, obtuvo una amplia mayoría absoluta en el Congreso de los Diputados. La Unión de Centro Democrático, que había liderado el Gobierno durante buena parte de la Transición, sufrió una fuerte caída electoral. Alianza Popular pasó a convertirse en la principal fuerza de la oposición parlamentaria. Aquellas elecciones no fueron simplemente un cambio de partido. Representaron una alternancia pacífica de gobierno dentro del nuevo sistema constitucional, después de décadas de dictadura y de un periodo de transición complejo. El resultado abrió una etapa política que influiría en la modernización administrativa, las políticas sociales y la integración europea de España. Conviene distinguir la fecha de la votación de la toma de posesión del nuevo presidente: Felipe González no asumió el cargo ese mismo día. La relevancia del veintiocho de octubre está en la decisión de los votantes y en el mensaje de continuidad institucional que transmitió. La democracia española mostró que podía cambiar de mayoría y de rumbo mediante las urnas. Síguenos para descubrir los acontecimientos que marcaron la historia de España. ¿Conocías la importancia de aquellas elecciones de 1982?",
+  "caption": "28 de octubre de 1982: unas elecciones cambiaron la política española",
   "hashtags": [
     "#HistoriaDeEspaña",
     "#Patrimonio",
@@ -13,19 +13,24 @@
   ],
   "sources": [
     {
-      "name": "Fuente patrimonial institucional",
-      "url": "https://whc.unesco.org/es/list/311/"
+      "name": "Congreso de los Diputados — Elecciones generales de 1982",
+      "url": "https://www.congreso.es/"
+    },
+    {
+      "name": "Ministerio del Interior — Resultados electorales históricos",
+      "url": "https://infoelectoral.interior.gob.es/"
     }
   ],
   "media": [
     {
-      "commons_title": "File:Aqueduct of Segovia.jpg",
-      "role": "Referencia visual por verificar antes de renderizar",
-      "license_note": "PENDIENTE_VERIFICACION_DE_ARCHIVO_Y_LICENCIA"
+      "role": "AI reconstruction planned; asset not yet imported",
+      "license_note": "PENDING_FLOW_ASSET_AND_RIGHTS_VERIFICATION",
+      "asset_status": "NOT_READY"
     }
   ],
   "cta": "Síguenos para descubrir más historias de España.",
   "format": "historical_educational",
   "hook_pattern": "curiosity",
-  "duration_target": "65-80s"
+  "duration_target": "65-80s",
+  "topic_family": "elecciones_generales_1982"
 }
