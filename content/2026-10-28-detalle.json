@@ -1,11 +1,11 @@
 {
   "series": "El detalle que casi nadie ve",
-  "title": "El secreto de las piedras del acueducto de Segovia",
+  "title": "El detalle de las campanas de la Catedral de Santiago",
   "date": "2026-10-28",
   "slot": "16:00",
-  "hook": "Mira los arcos del acueducto de Segovia: hay un detalle técnico que sorprende incluso hoy.",
-  "narration": "Si observas de cerca el acueducto de Segovia, descubrirás un detalle que explica parte de su fama: los grandes bloques de granito encajan sin una capa de mortero que los una. No significa que las piedras estén colocadas al azar. Al contrario, su estabilidad depende del diseño, del peso de las piezas y de la transmisión de las fuerzas a través de los arcos y pilares. En la parte más visible de la ciudad, los arcos se superponen formando una estructura monumental. Sin embargo, la función original era mucho más práctica que decorativa. El acueducto llevaba agua hasta la población mediante un recorrido diseñado para aprovechar la pendiente. Los ingenieros romanos necesitaban controlar la dirección y la altura del canal, además de resolver el paso por zonas de distinta topografía. Hoy admiramos los arcos, pero el sistema incluía otras partes menos espectaculares y esenciales para su funcionamiento. La UNESCO destaca la conservación excepcional de este monumento y su relación inseparable con el paisaje urbano de Segovia. El detalle de las piedras nos invita a mirar el patrimonio con otros ojos: no solo como una postal, sino como una solución técnica desarrollada hace siglos. Síguenos para conocer detalles históricos que suelen pasar desapercibidos. ¿Qué te impresiona más: la altura de los arcos o el encaje de sus piedras?",
-  "caption": "El secreto de las piedras del acueducto de Segovia",
+  "hook": "En la Catedral de Santiago de Compostela, las campanas cuentan una historia de arquitectura y sonido.",
+  "narration": "Cuando alguien visita la Catedral de Santiago de Compostela, suele mirar primero la gran fachada del Obradoiro. Pero hay un detalle que merece atención: sus torres y sus campanas forman parte de la identidad sonora de la ciudad. Los edificios religiosos históricos no se diseñaban únicamente para ser contemplados. También organizaban la vida cotidiana a través de señales acústicas que podían escucharse desde distintos puntos del entorno urbano. Las campanas marcaban celebraciones, convocatorias y momentos importantes para la comunidad. La Catedral de Santiago reúne elementos construidos y transformados a lo largo de varios siglos, de modo que su aspecto actual es el resultado de numerosas intervenciones. La fachada barroca del Obradoiro, asociada al arquitecto Fernando de Casas Novoa, es una de las imágenes más conocidas del conjunto. Sin embargo, la experiencia del monumento también incluye su relación con las plazas, las calles y los sonidos de Compostela. Fijarse en las campanas permite comprender una función del patrimonio que a menudo desaparece en las fotografías. Una torre puede ser una obra artística, un punto de referencia en el paisaje y, al mismo tiempo, una herramienta de comunicación para la población. El detalle interesante no es un secreto oculto, sino una manera diferente de observar la arquitectura histórica. Síguenos para descubrir detalles de España que suelen pasar desapercibidos. ¿Te has detenido alguna vez a escuchar las campanas de una catedral antigua?",
+  "caption": "El detalle de las campanas de la Catedral de Santiago",
   "hashtags": [
     "#HistoriaDeEspaña",
     "#Patrimonio",
@@ -13,19 +13,24 @@
   ],
   "sources": [
     {
-      "name": "Fuente patrimonial institucional",
-      "url": "https://turismodesegovia.com/en/arquitectura-civil/obras-de-ingenieria/aqueduct"
+      "name": "UNESCO — Caminos de Santiago de Compostela",
+      "url": "https://whc.unesco.org/es/list/669/"
+    },
+    {
+      "name": "Catedral de Santiago — Sitio institucional",
+      "url": "https://catedraldesantiago.es/"
     }
   ],
   "media": [
     {
-      "commons_title": "File:Aqueduct of Segovia.jpg",
-      "role": "Referencia visual por verificar antes de renderizar",
-      "license_note": "PENDIENTE_VERIFICACION_DE_ARCHIVO_Y_LICENCIA"
+      "role": "AI reconstruction planned; asset not yet imported",
+      "license_note": "PENDING_FLOW_ASSET_AND_RIGHTS_VERIFICATION",
+      "asset_status": "NOT_READY"
     }
   ],
   "cta": "Síguenos para descubrir más historias de España.",
   "format": "historical_educational",
   "hook_pattern": "curiosity",
-  "duration_target": "65-80s"
+  "duration_target": "65-80s",
+  "topic_family": "patrimonio_sonoro_compostela"
 }
