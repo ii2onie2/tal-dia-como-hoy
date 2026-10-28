@@ -1,0 +1,31 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que el Generalife tenía huertas productivas?",
+  "date": "2026-10-28",
+  "slot": "19:00",
+  "hook": "¿Sabías que los jardines del Generalife no eran solamente un espacio bonito para pasear?",
+  "narration": "Cuando pensamos en la Alhambra de Granada, solemos imaginar palacios, fuentes y patios decorados. Pero hay otra historia menos conocida: el Generalife también estuvo relacionado con el trabajo de la tierra y la producción agrícola. La UNESCO describe sus jardines y huertas como uno de los pocos ejemplos conservados de espacios medievales vinculados a la productividad agrícola. El Generalife fue una residencia rural de los gobernantes nazaríes, situada al este de la Alhambra. Su paisaje no puede entenderse sin el agua. Los sistemas de riego permitían sostener jardines, cultivos y espacios habitados en una zona donde gestionar el agua era fundamental. Por eso, la arquitectura y el entorno natural formaban parte de un mismo proyecto. La Alhambra, el Generalife y el Albaicín muestran distintas facetas de la Granada medieval: la ciudad palatina, los jardines y el tejido urbano residencial. El conjunto fue reconocido como patrimonio mundial por su extraordinario valor histórico y artístico. Esta historia nos recuerda que los grandes monumentos no eran escenarios aislados. Eran lugares donde convivían necesidades prácticas, decisiones políticas, conocimientos técnicos y expresiones de belleza. La próxima vez que veas una imagen del Generalife, piensa también en sus huertas y en las personas que cuidaban los canales y los cultivos. Síguenos para descubrir curiosidades históricas de España. ¿Conocías esta faceta agrícola de los jardines de Granada?",
+  "caption": "¿Sabías que el Generalife tenía huertas productivas?",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#Patrimonio",
+    "#TalDiaComoHoy"
+  ],
+  "sources": [
+    {
+      "name": "Fuente patrimonial institucional",
+      "url": "https://whc.unesco.org/es/list/314/"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Generalife Granada.jpg",
+      "role": "Referencia visual por verificar antes de renderizar",
+      "license_note": "PENDIENTE_VERIFICACION_DE_ARCHIVO_Y_LICENCIA"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "duration_target": "65-80s"
+}
