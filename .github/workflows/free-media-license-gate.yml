@@ -1,0 +1,23 @@
+name: Free media license metadata gate
+on:
+  workflow_dispatch:
+    inputs:
+      credits_path:
+        description: Repository-relative credits JSON from Wikimedia fetch
+        required: true
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check declared Commons licenses offline
+        env:
+          CREDITS_PATH: ${{ inputs.credits_path }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$CREDITS_PATH" =~ ^media/[a-zA-Z0-9_./-]+/credits\.json$ ]] || exit 1
+          test -s "$CREDITS_PATH"
+          python3 scripts/audit_commons_licenses.py "$CREDITS_PATH"
