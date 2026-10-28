@@ -262,5 +262,16 @@
     "format": "historical_educational",
     "hook_pattern": "curiosity",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-28",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que el Generalife tenía huertas productivas?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": null,
+    "format": "historical_educational",
+    "hook_pattern": "curiosity",
+    "duration_target": "65-80s"
   }
 ]
