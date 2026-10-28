@@ -251,5 +251,16 @@
     "format": "historical_educational",
     "hook_pattern": "curiosity",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-28",
+    "series": "El detalle que casi nadie ve",
+    "title": "El detalle de las campanas de la Catedral de Santiago",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "patrimonio_sonoro_compostela",
+    "format": "historical_educational",
+    "hook_pattern": "curiosity",
+    "duration_target": "65-80s"
   }
 ]
