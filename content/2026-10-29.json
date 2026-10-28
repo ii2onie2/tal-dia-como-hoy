@@ -1,0 +1,39 @@
+{
+  "series": "Tal Día Como Hoy",
+  "slot": "10:00",
+  "title": "29 de octubre de 1901: se inauguró el funicular del Tibidabo",
+  "hook": "¿Sabías que la primera gran atracción del Tibidabo fue un transporte que parecía un ascensor de montaña?",
+  "narration": "Tal día como hoy, el 29 de octubre de 1901, se inauguró oficialmente el funicular del Tibidabo, en Barcelona. Hoy puede parecer un transporte habitual, pero entonces era una auténtica novedad: fue el primer funicular que funcionó en España. El proyecto nació del impulso del empresario y farmacéutico Salvador Andreu, interesado en facilitar el acceso a la montaña y transformar aquel espacio en un lugar de paseo. Según la historia que conserva el propio parque, la idea tomó fuerza cuando el doctor Andreu conoció un folleto sobre un funicular suizo. El ingeniero Bonaventura Roig i Queralt estudió el proyecto y las obras comenzaron en junio de 1900. El vehículo realizó una primera ascensión en julio de 1901, meses antes del estreno oficial de octubre. Esa diferencia importa: probar una máquina no significa que ya esté inaugurada para el público. El nuevo transporte permitió acercar la cumbre a los visitantes y se convirtió en una de las piezas decisivas del desarrollo del Tibidabo. Con el paso del tiempo cambió el material, se modernizaron las instalaciones y la montaña se consolidó como un símbolo de Barcelona. Una innovación ferroviaria también puede contar la historia de cómo crece una ciudad. La fotografía que acompaña esta historia es moderna, no una imagen de 1901. ¿Conocías este origen del Tibidabo? Síguenos para descubrir cada día un episodio de la historia de España.",
+  "caption": "El 29 de octubre de 1901 se inauguró el primer funicular de España, en el Tibidabo de Barcelona. Imagen de referencia moderna, no fotografía de época. Fuentes: Parc d'Atraccions Tibidabo y La Vanguardia.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Tibidabo",
+    "#Barcelona",
+    "#1901"
+  ],
+  "sources": [
+    {
+      "name": "Parc d'Atraccions Tibidabo - Història del funicular",
+      "url": "https://tibidabo.cat/ca/funicular/historia"
+    },
+    {
+      "name": "La Vanguardia - El funicular fue clave en el éxito del Tibidabo",
+      "url": "https://www.lavanguardia.com/local/barcelona/20230510/8957817/funicular-claveen-exito-tibidabo.html"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Funicular de Tibidabo.jpg",
+      "role": "Fotografía moderna de un funicular del Tibidabo, no imagen de la inauguración de 1901",
+      "license_note": "Marco Almbauer; Wikimedia Commons; CC0 1.0 (fotografía moderna de 2016). Sustituir por visual Nano Banana si hay activo generado y autorizado."
+    }
+  ],
+  "cta": "Síguenos para descubrir cada día un episodio de la historia de España.",
+  "format": "chronological_event",
+  "hook_pattern": "date_first",
+  "topic_family": "transportes_e_historia_urbana",
+  "date": "2026-10-29",
+  "duration_target": "65-80s",
+  "editorial_status": "SOURCES_VERIFIED_VISUAL_FLOW_PENDING"
+}
