@@ -1,0 +1,31 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "El secreto de las piedras del acueducto de Segovia",
+  "date": "2026-10-28",
+  "slot": "16:00",
+  "hook": "Mira los arcos del acueducto de Segovia: hay un detalle técnico que sorprende incluso hoy.",
+  "narration": "Si observas de cerca el acueducto de Segovia, descubrirás un detalle que explica parte de su fama: los grandes bloques de granito encajan sin una capa de mortero que los una. No significa que las piedras estén colocadas al azar. Al contrario, su estabilidad depende del diseño, del peso de las piezas y de la transmisión de las fuerzas a través de los arcos y pilares. En la parte más visible de la ciudad, los arcos se superponen formando una estructura monumental. Sin embargo, la función original era mucho más práctica que decorativa. El acueducto llevaba agua hasta la población mediante un recorrido diseñado para aprovechar la pendiente. Los ingenieros romanos necesitaban controlar la dirección y la altura del canal, además de resolver el paso por zonas de distinta topografía. Hoy admiramos los arcos, pero el sistema incluía otras partes menos espectaculares y esenciales para su funcionamiento. La UNESCO destaca la conservación excepcional de este monumento y su relación inseparable con el paisaje urbano de Segovia. El detalle de las piedras nos invita a mirar el patrimonio con otros ojos: no solo como una postal, sino como una solución técnica desarrollada hace siglos. Síguenos para conocer detalles históricos que suelen pasar desapercibidos. ¿Qué te impresiona más: la altura de los arcos o el encaje de sus piedras?",
+  "caption": "El secreto de las piedras del acueducto de Segovia",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#Patrimonio",
+    "#TalDiaComoHoy"
+  ],
+  "sources": [
+    {
+      "name": "Fuente patrimonial institucional",
+      "url": "https://turismodesegovia.com/en/arquitectura-civil/obras-de-ingenieria/aqueduct"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Aqueduct of Segovia.jpg",
+      "role": "Referencia visual por verificar antes de renderizar",
+      "license_note": "PENDIENTE_VERIFICACION_DE_ARCHIVO_Y_LICENCIA"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "duration_target": "65-80s"
+}
