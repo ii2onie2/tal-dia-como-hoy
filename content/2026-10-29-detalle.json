@@ -1,0 +1,39 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "slot": "16:00",
+  "title": "El secreto del acueducto de Segovia: piedras sin mortero",
+  "hook": "¿Cómo puede sostenerse un monumento romano de tantos arcos sin cemento entre sus bloques?",
+  "narration": "En Segovia hay un detalle que a primera vista parece imposible: los grandes bloques de granito de su acueducto monumental están colocados sin argamasa de unión. No significa que las piedras floten ni que los constructores conocieran algún truco misterioso. La clave está en la geometría de los arcos y en la manera en que las fuerzas se transmiten entre las piezas. Los romanos tallaron y ajustaron los sillares para que trabajaran juntos. Cada arco reparte su peso hacia los apoyos, mientras las piedras superiores quedan trabadas por su propia disposición. Turismo de Segovia explica que el acueducto conserva ciento sesenta y siete arcos y alcanza algo más de veintiocho metros de altura en su punto máximo. Su misión original no era decorar la ciudad: conducía agua para abastecerla. El agua viajaba por una canalización elevada y después continuaba hacia depósitos y fuentes. Por eso esta obra es, ante todo, una infraestructura hidráulica. La UNESCO considera el acueducto uno de los grandes monumentos que definen el paisaje histórico de Segovia. Y su supervivencia no significa que haya pasado intacto y sin cuidados: protegerlo, estudiarlo y mantenerlo sigue siendo fundamental. Cuando mires sus arcos, fíjate en las juntas de piedra y piensa en el cálculo que encierra cada una. ¿Imaginabas que una construcción tan monumental podía mantenerse sin mortero entre sus sillares? Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "caption": "Los sillares del acueducto de Segovia se ensamblaron sin argamasa. El equilibrio de fuerzas sostiene sus arcos. Fuentes: Turismo de Segovia y UNESCO. Foto: BadgerDemon, CC BY 4.0.",
+  "hashtags": [
+    "#ElDetalleQueCasiNadieVe",
+    "#Segovia",
+    "#AcueductoDeSegovia",
+    "#IngenieriaRomana",
+    "#HistoriaDeEspaña"
+  ],
+  "sources": [
+    {
+      "name": "Turismo de Segovia - Acueducto",
+      "url": "https://www.turismodesegovia.com/es/acueducto/arquitectura-civil/obras-de-ingenieria/acueducto"
+    },
+    {
+      "name": "UNESCO - Old Town of Segovia and its Aqueduct",
+      "url": "https://whc.unesco.org/en/list/311"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:Aqueduct-of-segovia.jpg",
+      "role": "Vista moderna del acueducto de Segovia",
+      "license_note": "BadgerDemon, Wikimedia Commons, CC BY 4.0; atribución obligatoria. Imagen de referencia moderna; sustituir por Nano Banana al incorporar activos generados verificados."
+    }
+  ],
+  "cta": "Síguenos para descubrir más detalles de España que casi nadie ve.",
+  "format": "historical_object_word_custom",
+  "hook_pattern": "overlooked_detail",
+  "topic_family": "ingenieria_romana",
+  "date": "2026-10-29",
+  "duration_target": "65-80s",
+  "editorial_status": "SOURCES_VERIFIED_VISUAL_FLOW_PENDING"
+}
