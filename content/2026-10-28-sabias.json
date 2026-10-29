@@ -4,7 +4,7 @@
   "date": "2026-10-28",
   "slot": "19:00",
   "hook": "¿Sabías que los jardines del Generalife no eran solamente un espacio bonito para pasear?",
-  "narration": "Cuando pensamos en la Alhambra de Granada, solemos imaginar palacios, fuentes y patios decorados. Pero hay otra historia menos conocida: el Generalife también estuvo relacionado con el trabajo de la tierra y la producción agrícola. La UNESCO describe sus jardines y huertas como uno de los pocos ejemplos conservados de espacios medievales vinculados a la productividad agrícola. El Generalife fue una residencia rural de los gobernantes nazaríes, situada al este de la Alhambra. Su paisaje no puede entenderse sin el agua. Los sistemas de riego permitían sostener jardines, cultivos y espacios habitados en una zona donde gestionar el agua era fundamental. Por eso, la arquitectura y el entorno natural formaban parte de un mismo proyecto. La Alhambra, el Generalife y el Albaicín muestran distintas facetas de la Granada medieval: la ciudad palatina, los jardines y el tejido urbano residencial. El conjunto fue reconocido como patrimonio mundial por su extraordinario valor histórico y artístico. Esta historia nos recuerda que los grandes monumentos no eran escenarios aislados. Eran lugares donde convivían necesidades prácticas, decisiones políticas, conocimientos técnicos y expresiones de belleza. La próxima vez que veas una imagen del Generalife, piensa también en sus huertas y en las personas que cuidaban los canales y los cultivos. Síguenos para descubrir curiosidades históricas de España. ¿Conocías esta faceta agrícola de los jardines de Granada?",
+  "narration": "Cuando pensamos en la Alhambra de Granada, solemos imaginar palacios, fuentes y patios decorados. Pero hay otra historia menos conocida: el Generalife también estuvo relacionado con el trabajo de la tierra y la producción agrícola. El Patronato de la Alhambra y Generalife documenta las huertas históricas y su función agrícola durante la época nazarí. El Generalife fue una residencia rural de los gobernantes nazaríes, situada al este de la Alhambra. Su paisaje no puede entenderse sin el agua. Los sistemas de riego permitían sostener jardines, cultivos y espacios habitados en una zona donde gestionar el agua era fundamental. Por eso, la arquitectura y el entorno natural formaban parte de un mismo proyecto. La Alhambra, el Generalife y el Albaicín muestran distintas facetas de la Granada medieval: la ciudad palatina, los jardines y el tejido urbano residencial. El conjunto fue reconocido como patrimonio mundial por su extraordinario valor histórico y artístico. Esta historia nos recuerda que los grandes monumentos no eran escenarios aislados. Eran lugares donde convivían necesidades prácticas, decisiones políticas, conocimientos técnicos y expresiones de belleza. La próxima vez que veas una imagen del Generalife, piensa también en sus huertas y en las personas que cuidaban los canales y los cultivos. Síguenos para descubrir curiosidades históricas de España. ¿Conocías esta faceta agrícola de los jardines de Granada?",
   "caption": "¿Sabías que el Generalife tenía huertas productivas? | Recreación visual generada con IA.",
   "hashtags": [
     "#HistoriaDeEspaña",
@@ -13,7 +13,11 @@
   ],
   "sources": [
     {
-      "name": "Fuente patrimonial institucional",
+      "name": "Patronato de la Alhambra y Generalife — Cultivos andalusíes en las huertas del Generalife",
+      "url": "https://www.alhambra-patronato.es/notas-prensa/sabias-que-la-alhambra-recupera-cultivos-andalusies-en-las-huertas-del-generalife"
+    },
+    {
+      "name": "UNESCO — Alhambra, Generalife y Albaicín (contexto de Patrimonio Mundial)",
       "url": "https://whc.unesco.org/es/list/314/"
     }
   ],
@@ -21,7 +25,7 @@
     {
       "path": "media/2026-10-28-sabias/generalife.png",
       "role": "Recreación visual generada con IA (Nano Banana); no es fotografía histórica",
-      "asset_status": "LOCAL_ASSET_PENDING_COMMIT",
+      "asset_status": "ASSET_PRESENT_RIGHTS_PENDING_REVIEW",
       "provenance": "Imagen proporcionada por el usuario; derechos de uso sujetos a las condiciones del servicio generador"
     }
   ],
