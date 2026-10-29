@@ -84,9 +84,13 @@ def main():
                 url = info.get("url", "")
                 parsed = urlsplit(url)
                 if (parsed.scheme != "https" or parsed.hostname != "upload.wikimedia.org"
-                        or parsed.username or parsed.password or parsed.query or parsed.fragment
-                        or not parsed.path.startswith("/wikipedia/commons/")):
+                        or parsed.username or parsed.password or parsed.port is not None
+                        or parsed.fragment or not parsed.path.startswith("/wikipedia/commons/")):
                     raise RuntimeError("Rejected non-Commons media source URL")
+                # Wikimedia API sometimes appends opaque query parameters. Always
+                # download the original canonical file path from the allowlisted
+                # upload host, without forwarding those parameters.
+                url = parsed._replace(query="", fragment="").geturl()
                 ext = Path(parsed.path).suffix.lower()
                 if ext not in ALLOWED_EXTENSIONS:
                     raise RuntimeError(f"Unsupported Commons media extension: {ext!r}")
