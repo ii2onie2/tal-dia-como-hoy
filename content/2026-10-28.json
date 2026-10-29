@@ -13,11 +13,15 @@
   ],
   "sources": [
     {
-      "name": "Congreso de los Diputados — Elecciones generales de 1982",
-      "url": "https://www.congreso.es/"
+      "name": "Congreso de los Diputados — Investiduras (II Legislatura, elecciones del 28-10-1982)",
+      "url": "https://www.congreso.es/en/cem/sesiones-de-investidura"
     },
     {
-      "name": "Ministerio del Interior — Resultados electorales históricos",
+      "name": "Historia Electoral — Resultados de las elecciones generales de 1982",
+      "url": "https://www.historiaelectoral.com/resum.html"
+    },
+    {
+      "name": "Ministerio del Interior — Archivo de resultados electorales (portal general; referencia auxiliar)",
       "url": "https://infoelectoral.interior.gob.es/"
     }
   ],
