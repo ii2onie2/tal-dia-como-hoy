@@ -13,12 +13,16 @@
   ],
   "sources": [
     {
-      "name": "UNESCO — Caminos de Santiago de Compostela",
-      "url": "https://whc.unesco.org/es/list/669/"
+      "name": "Fundación Jacobea — Fachada del Obradoiro, torres de las Campanas y Carraca",
+      "url": "https://www.fundacionjacobea.org/santiago-de-compostela/catedral-e-iglesias/santiago-la-fachada-del-obradoiro-de-la-catedral/"
     },
     {
-      "name": "Catedral de Santiago — Sitio institucional",
+      "name": "Catedral de Santiago — sitio institucional (referencia auxiliar)",
       "url": "https://catedraldesantiago.es/"
+    },
+    {
+      "name": "UNESCO — Caminos de Santiago de Compostela (contexto patrimonial general)",
+      "url": "https://whc.unesco.org/es/list/669/"
     }
   ],
   "media": [
