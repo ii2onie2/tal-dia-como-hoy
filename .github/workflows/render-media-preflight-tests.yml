@@ -1,0 +1,21 @@
+name: Render media fail-closed offline tests
+on:
+  pull_request:
+    paths:
+      - "scripts/render_media_preflight.py"
+      - "tests/test_render_media_preflight.py"
+      - ".github/workflows/render.yml"
+      - ".github/workflows/render-media-preflight-tests.yml"
+permissions:
+  contents: read
+jobs:
+  preflight-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail-closed media unit tests and workflow order
+        run: python -m unittest discover -s tests -p 'test_render_media_preflight.py' -v
