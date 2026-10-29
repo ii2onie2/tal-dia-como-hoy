@@ -1,0 +1,36 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que España conserva tribunales tradicionales para el agua?",
+  "date": "2026-10-29",
+  "slot": "19:00",
+  "hook": "En Valencia y Murcia existen tribunales tradicionales que resuelven conflictos por el agua mediante procedimientos orales.",
+  "narration": "¿Sabías que en el Mediterráneo español existen instituciones tradicionales dedicadas a resolver conflictos sobre el agua de riego? No hablamos de una curiosidad inventada para turistas. El Tribunal de las Aguas de la Huerta de Valencia y el Consejo de Hombres Buenos de la Huerta de Murcia son instituciones históricas reconocidas por la legislación española. Según la UNESCO, sus orígenes se remontan a la etapa de Al Ándalus, entre los siglos noveno y decimotercero. Su función está vinculada a un recurso esencial para las comunidades agrícolas: organizar la gestión del agua y resolver las disputas que pueden surgir entre quienes la utilizan. La tradición se distingue por procedimientos orales, rapidez y una forma de autoridad apoyada en el conocimiento de la comunidad. Sus miembros son elegidos democráticamente. Estos tribunales no representan solamente una solución práctica a desacuerdos cotidianos. También conservan vocabulario especializado, memoria local y formas de cooperación transmitidas durante generaciones. En dos mil nueve, la UNESCO inscribió ambos tribunales en la Lista Representativa del Patrimonio Cultural Inmaterial de la Humanidad. El patrimonio, por tanto, no son solo castillos y monumentos: también son instituciones vivas. ¿Conocías esta tradición del agua en Valencia y Murcia?",
+  "caption": "Los tribunales históricos de regantes de Valencia y Murcia forman parte del patrimonio cultural inmaterial.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Patrimonio"
+  ],
+  "sources": [
+    {
+      "name": "UNESCO Patrimonio Cultural Inmaterial — Tribunales de regantes del Mediterráneo español",
+      "url": "https://ich.unesco.org/es/RL/tribunales-de-regantes-del-mediterraneo-espanol-el-consejo-de-hombres-buenos-de-la-huerta-de-murcia-y-el-tribunal-de-las-aguas-de-la-huerta-de-valencia-00171"
+    }
+  ],
+  "media": [
+    {
+      "role": "Asset visual todavía no seleccionado; no reutilizar sin derechos verificados",
+      "asset_status": "NOT_SELECTED",
+      "license_note": "RIGHTS_UNVERIFIED_NO_RENDER"
+    }
+  ],
+  "cta": "Síguenos para conocer más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "topic_family": "tribunales_historicos_de_riego_mediterraneo",
+  "duration_target": "65-80s",
+  "editorial_status": "RESEARCH_DRAFT_UNAPPROVED",
+  "media_rights_status": "NOT_VERIFIED",
+  "fact_reference_status": "DIRECT_OFFICIAL_SOURCES_REVIEWED",
+  "publishing_status": "FORBIDDEN_UNTIL_RIGHTS_AND_EDITORIAL_GATES"
+}
