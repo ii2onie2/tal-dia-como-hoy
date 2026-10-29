@@ -1,0 +1,40 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "El detalle de Altamira: los pigmentos que sobrevivieron milenios",
+  "date": "2026-10-29",
+  "slot": "16:00",
+  "hook": "En las cuevas del norte de España, los materiales de las pinturas cuentan casi tanto como sus figuras.",
+  "narration": "Cuando vemos una reproducción de los bisontes de Altamira, solemos fijarnos en los animales y en la fuerza de sus formas. Pero hay otro detalle que ayuda a comprender estas obras: la elección de materiales y técnicas. La UNESCO explica que el arte paleolítico de las cuevas del norte de España incluía pintura, grabado y diferentes recursos de expresión. En varias de estas cavidades se han encontrado restos de materiales empleados por sus autores, entre ellos óxidos de hierro y manganeso, útiles para obtener pigmentos. No eran imágenes creadas con materiales industriales, sino con elementos disponibles en el entorno y con conocimientos transmitidos durante generaciones. El descubrimiento de las pinturas de Altamira, documentado en mil ochocientos setenta y nueve, cambió la manera de comprender las capacidades artísticas de las sociedades prehistóricas. Más tarde, otras diecisiete cuevas decoradas se incorporaron a la inscripción patrimonial que originalmente reconocía Altamira. La profundidad de algunas galerías y sus condiciones ambientales favorecieron la conservación de estas obras extraordinarias. Mirar una pintura rupestre también significa preguntarse cómo se preparó, qué superficie se eligió y cómo pudo perdurar tanto tiempo. ¿Qué detalle de estas pinturas te impresiona más?",
+  "caption": "Altamira y las cuevas paleolíticas: técnicas, pigmentos y conservación a través de milenios.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Patrimonio"
+  ],
+  "sources": [
+    {
+      "name": "UNESCO — Cueva de Altamira y arte rupestre paleolítico del norte de España",
+      "url": "https://whc.unesco.org/en/list/310/"
+    },
+    {
+      "name": "UNESCO — Decisión 32 COM 8B.39 sobre la ampliación a diecisiete cuevas",
+      "url": "https://whc.unesco.org/en/decisions/1500/"
+    }
+  ],
+  "media": [
+    {
+      "role": "Asset visual todavía no seleccionado; no reutilizar sin derechos verificados",
+      "asset_status": "NOT_SELECTED",
+      "license_note": "RIGHTS_UNVERIFIED_NO_RENDER"
+    }
+  ],
+  "cta": "Síguenos para conocer más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "topic_family": "arte_rupestre_pigmentos_altamira",
+  "duration_target": "65-80s",
+  "editorial_status": "RESEARCH_DRAFT_UNAPPROVED",
+  "media_rights_status": "NOT_VERIFIED",
+  "fact_reference_status": "DIRECT_OFFICIAL_SOURCES_REVIEWED",
+  "publishing_status": "FORBIDDEN_UNTIL_RIGHTS_AND_EDITORIAL_GATES"
+}
