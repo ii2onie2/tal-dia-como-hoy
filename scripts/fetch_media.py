@@ -112,10 +112,20 @@ def main():
                     raise RuntimeError(f"Commons image rejected: {reason} ({title})")
                 pending.append((item, staged_file, out / f"{index:02d}{ext}", credit))
 
+        # Preserve existing valid files; never silently replace a conflicting asset.
+        for _, _, final_file, credit in pending:
+            if final_file.exists():
+                if not final_file.is_file():
+                    raise RuntimeError("Existing Commons destination is not a file")
+                existing_sha = hashlib.sha256(final_file.read_bytes()).hexdigest()
+                if existing_sha != credit["sha256"]:
+                    raise RuntimeError(f"Existing Commons media collision: {final_file}")
+
         # Only commit downloaded media after every Commons item passes.
         credits = []
         for item, staged_file, final_file, credit in pending:
-            os.replace(staged_file, final_file)
+            if not final_file.exists():
+                os.replace(staged_file, final_file)
             final_relative = media_path(final_file, root)
             item["path"] = final_relative
             credit["path"] = final_relative
