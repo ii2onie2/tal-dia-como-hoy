@@ -82,7 +82,12 @@ def main():
                     raise RuntimeError(f"Commons title mismatch: {title!r}")
                 info = page["imageinfo"][0]
                 url = info.get("url", "")
-                ext = Path(urlsplit(url).path).suffix.lower()
+                parsed = urlsplit(url)
+                if (parsed.scheme != "https" or parsed.hostname != "upload.wikimedia.org"
+                        or parsed.username or parsed.password or parsed.query or parsed.fragment
+                        or not parsed.path.startswith("/wikipedia/commons/")):
+                    raise RuntimeError("Rejected non-Commons media source URL")
+                ext = Path(parsed.path).suffix.lower()
                 if ext not in ALLOWED_EXTENSIONS:
                     raise RuntimeError(f"Unsupported Commons media extension: {ext!r}")
                 downloaded = session.get(url, timeout=60)
