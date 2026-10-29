@@ -97,6 +97,22 @@ class CommonsFetchTests(unittest.TestCase):
             self.fetch(FakeSession(final_url="https://example.com/image.jpg"))
         self.assertFalse(Path("media/episode/credits.json").exists())
 
+    def test_existing_media_conflict_fails_without_overwriting(self):
+        directory = Path("media/episode")
+        directory.mkdir()
+        previous = directory / "01.jpg"
+        previous.write_bytes(b"original bytes")
+        with self.assertRaisesRegex(RuntimeError, "media collision"):
+            self.fetch(FakeSession())
+        self.assertEqual(previous.read_bytes(), b"original bytes")
+        self.assertEqual(json.loads(self.content_path.read_text()), self.original)
+        self.assertFalse((directory / "credits.json").exists())
+
+    def test_off_domain_source_rejected_before_download(self):
+        with self.assertRaisesRegex(RuntimeError, "non-Commons"):
+            self.fetch(FakeSession(download_url="https://example.com/Example.jpg"))
+        self.assertFalse(Path("media/episode/credits.json").exists())
+
     def test_non_commons_destination_rejected(self):
         with mock.patch.object(sys, "argv", [
             "fetch_media.py", "--content", str(self.content_path), "--out", "out"
