@@ -5,6 +5,8 @@ on:
     paths:
       - 'docs/research/2026-10-29-commons-media-candidates.md'
       - '.github/workflows/commons-candidate-probe.yml'
+      - 'scripts/fetch_media.py'
+      - 'scripts/audit_commons_licenses.py'
   workflow_dispatch:
 
 permissions:
