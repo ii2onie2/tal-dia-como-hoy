@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4\n        with:\n          persist-credentials: false
       - name: Probe original Commons files without publishing
         run: python3 scripts/probe_commons_media_20261030.py
       - name: Upload verification report even on failure
