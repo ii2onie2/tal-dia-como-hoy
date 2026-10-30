@@ -12,6 +12,7 @@ on:
     paths:
       - 'scripts/probe_commons_media_20261030.py'
       - '.github/workflows/commons-original-media-probe.yml'
+      - 'tests/test_commons_media_probe.py'
 permissions:
   contents: read
 jobs:
@@ -32,6 +33,8 @@ jobs:
           path: research-source
       - name: Check Python syntax
         run: python3 -m py_compile scripts/probe_commons_media_20261030.py
+      - name: Run offline probe tests
+        run: python3 -m unittest discover -s tests -p test_commons_media_probe.py -v
       - name: Probe original Commons files without publishing
         if: github.event_name == 'workflow_dispatch'
         env:
