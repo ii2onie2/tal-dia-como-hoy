@@ -76,8 +76,7 @@ def main():
     OUT.write_text(json.dumps({"status": "PASS_HASH_ONLY" if not failures else "BLOCKED",
                                 "rights_approved": False, "render_authorized": False,
                                 "publication_authorized": False, "results": results},
-                               ensure_ascii=False, indent=2) + "
-", encoding="utf-8")
+                               ensure_ascii=False, indent=2) + chr(10), encoding="utf-8")
     print(f"REPORT={OUT} RESULT={'PASS_HASH_ONLY' if not failures else 'BLOCKED'}")
     return 1 if failures else 0
 
