@@ -1,0 +1,38 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "El secreto del Palmeral de Elche no está solo en las palmeras",
+  "date": "2026-10-30",
+  "slot": "16:00",
+  "hook": "En Elche hay un patrimonio que también se entiende siguiendo el recorrido del agua.",
+  "narration": "Cuando alguien contempla el Palmeral de Elche, lo primero que ve son miles de palmeras. Sin embargo, un detalle menos visible ayuda a explicar por qué este paisaje existe: la manera de repartir el agua. La UNESCO describe el Palmeral como un paisaje agrario organizado alrededor de la ciudad histórica de Elche, en Alicante. Su configuración se desarrolló especialmente durante la época andalusí, cuando un sistema de acequias permitió cultivar en un entorno donde el agua debía administrarse con cuidado. Entre sus elementos fundamentales figura la Acequia Mayor. No se trataba solo de llevar agua de un lugar a otro. Las parcelas se distribuían en huertos, delimitados por hileras de palmeras, y el riego estaba regulado por turnos. Esa combinación de canales, parcelas y árboles creó un paisaje productivo que también formaba parte de la vida urbana. Las palmeras aportaban dátiles y ofrecían un marco para otros cultivos. Por eso, reducir el Palmeral a una imagen bonita sería dejar fuera una parte esencial de su historia. La UNESCO lo inscribió en la Lista del Patrimonio Mundial en el año 2000 por ese valor cultural excepcional. Cuando vuelvas a ver una fotografía de Elche, mira más allá de las copas de los árboles: imagina el trabajo necesario para distribuir el agua y mantener los huertos. ¿Conocías este detalle hidráulico? Síguenos para descubrir la ingeniería escondida en el patrimonio de España.",
+  "caption": "El secreto del Palmeral de Elche no está solo en las palmeras — investigación editorial sin aprobación ni derechos visuales verificados.",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#TalDiaComoHoy",
+    "#Patrimonio"
+  ],
+  "sources": [
+    {
+      "name": "UNESCO World Heritage Centre — Palmeral of Elche",
+      "url": "https://whc.unesco.org/en/list/930"
+    }
+  ],
+  "media": [
+    {
+      "role": "Visual por seleccionar y revisar; no usar material sin permiso",
+      "asset_status": "NOT_SELECTED",
+      "license_note": "RIGHTS_UNVERIFIED_NO_RENDER"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias documentadas de España.",
+  "format": "heritage_detail",
+  "hook_pattern": "historical_curiosity",
+  "topic_family": "palmeral_elche_ingenieria_riego_acequia_mayor",
+  "duration_target": "65-80s",
+  "editorial_status": "RESEARCH_DRAFT_UNAPPROVED",
+  "fact_reference_status": "SOURCE_LINKS_CHECKED_EDITORIAL_REVIEW_PENDING",
+  "media_rights_status": "NOT_VERIFIED",
+  "publishing_status": "FORBIDDEN_UNTIL_RIGHTS_AND_EDITORIAL_GATES",
+  "ai_assistance_used": true,
+  "ai_disclosure_status": "PENDING_PLATFORM_CLASSIFICATION_REVIEW"
+}

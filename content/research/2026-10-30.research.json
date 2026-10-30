@@ -1,0 +1,42 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "30 de octubre de 1910: nace Miguel Hernández en Orihuela",
+  "date": "2026-10-30",
+  "slot": "10:00",
+  "hook": "Un poeta nacido el 30 de octubre dejó una huella inmensa en la literatura española.",
+  "narration": "Tal día como hoy, el 30 de octubre de 1910, nació en Orihuela, en la provincia de Alicante, Miguel Hernández. Su historia demuestra que una formación académica interrumpida no siempre impide una trayectoria literaria extraordinaria. Procedía de una familia humilde y dejó pronto los estudios para trabajar, pero continuó leyendo y aprendiendo por su cuenta. En Orihuela conoció a Ramón Sijé, un amigo que desempeñó un papel importante en su vida. Durante los años treinta empezó a publicar sus poemas y viajó a Madrid, donde entró en contacto con escritores de su tiempo. Entre sus libros figuran Perito en lunas y El rayo que no cesa. Su poesía aborda el amor, la pérdida y también las experiencias sociales y políticas de una España que atravesó la Guerra Civil. La vida de Hernández terminó muy pronto: murió en la prisión de Alicante el 28 de marzo de 1942, con treinta y un años. Décadas después, su obra sigue leyéndose, estudiándose y recordándose en bibliotecas y homenajes. La Biblioteca Nacional de España documenta incluso los actos preparados para el centenario de su nacimiento. Hoy no recordamos solamente una fecha del calendario: recordamos a un autor cuya voz literaria sigue dialogando con nuevas generaciones. ¿Conocías la relación entre Orihuela y Miguel Hernández? Síguenos para descubrir más historias documentadas de España.",
+  "caption": "30 de octubre de 1910: nace Miguel Hernández en Orihuela — investigación editorial sin aprobación ni derechos visuales verificados.",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#TalDiaComoHoy",
+    "#Patrimonio"
+  ],
+  "sources": [
+    {
+      "name": "Biblioteca Virtual Miguel de Cervantes — Miguel Hernández, cronología",
+      "url": "https://www.cervantesvirtual.com/portales/miguel_hernandez/cronologia/"
+    },
+    {
+      "name": "Biblioteca Nacional de España — Miguel Hernández, 1910-2010",
+      "url": "https://datos.bne.es/edicion/a5238631.html"
+    }
+  ],
+  "media": [
+    {
+      "role": "Visual por seleccionar y revisar; no usar material sin permiso",
+      "asset_status": "NOT_SELECTED",
+      "license_note": "RIGHTS_UNVERIFIED_NO_RENDER"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias documentadas de España.",
+  "format": "chronological_event",
+  "hook_pattern": "historical_curiosity",
+  "topic_family": "miguel_hernandez_nacimiento_y_obra_1910",
+  "duration_target": "65-80s",
+  "editorial_status": "RESEARCH_DRAFT_UNAPPROVED",
+  "fact_reference_status": "SOURCE_LINKS_CHECKED_EDITORIAL_REVIEW_PENDING",
+  "media_rights_status": "NOT_VERIFIED",
+  "publishing_status": "FORBIDDEN_UNTIL_RIGHTS_AND_EDITORIAL_GATES",
+  "ai_assistance_used": true,
+  "ai_disclosure_status": "PENDING_PLATFORM_CLASSIFICATION_REVIEW"
+}
