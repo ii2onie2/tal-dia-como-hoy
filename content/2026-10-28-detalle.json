@@ -1,0 +1,40 @@
+{
+  "series": "El detalle que casi nadie ve",
+  "title": "El detalle de las campanas de la Catedral de Santiago",
+  "date": "2026-10-28",
+  "slot": "16:00",
+  "hook": "En la Catedral de Santiago de Compostela, las campanas cuentan una historia de arquitectura y sonido.",
+  "narration": "Cuando alguien visita la Catedral de Santiago de Compostela, suele mirar primero la gran fachada del Obradoiro. Pero hay un detalle que merece atención: sus torres y sus campanas forman parte de la identidad sonora de la ciudad. Los edificios religiosos históricos no se diseñaban únicamente para ser contemplados. También organizaban la vida cotidiana a través de señales acústicas que podían escucharse desde distintos puntos del entorno urbano. Las campanas marcaban celebraciones, convocatorias y momentos importantes para la comunidad. La Catedral de Santiago reúne elementos construidos y transformados a lo largo de varios siglos, de modo que su aspecto actual es el resultado de numerosas intervenciones. La fachada barroca del Obradoiro, asociada al arquitecto Fernando de Casas Novoa, es una de las imágenes más conocidas del conjunto. Sin embargo, la experiencia del monumento también incluye su relación con las plazas, las calles y los sonidos de Compostela. Fijarse en las campanas permite comprender una función del patrimonio que a menudo desaparece en las fotografías. Una torre puede ser una obra artística, un punto de referencia en el paisaje y, al mismo tiempo, una herramienta de comunicación para la población. El detalle interesante no es un secreto oculto, sino una manera diferente de observar la arquitectura histórica. Síguenos para descubrir detalles de España que suelen pasar desapercibidos. ¿Te has detenido alguna vez a escuchar las campanas de una catedral antigua?",
+  "caption": "El detalle de las campanas de la Catedral de Santiago",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#Patrimonio",
+    "#TalDiaComoHoy"
+  ],
+  "sources": [
+    {
+      "name": "Fundación Jacobea — Fachada del Obradoiro, torres de las Campanas y Carraca",
+      "url": "https://www.fundacionjacobea.org/santiago-de-compostela/catedral-e-iglesias/santiago-la-fachada-del-obradoiro-de-la-catedral/"
+    },
+    {
+      "name": "Catedral de Santiago — sitio institucional (referencia auxiliar)",
+      "url": "https://catedraldesantiago.es/"
+    },
+    {
+      "name": "UNESCO — Caminos de Santiago de Compostela (contexto patrimonial general)",
+      "url": "https://whc.unesco.org/es/list/669/"
+    }
+  ],
+  "media": [
+    {
+      "role": "AI reconstruction planned; asset not yet imported",
+      "license_note": "PENDING_FLOW_ASSET_AND_RIGHTS_VERIFICATION",
+      "asset_status": "NOT_READY"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "duration_target": "65-80s",
+  "topic_family": "patrimonio_sonoro_compostela"
+}

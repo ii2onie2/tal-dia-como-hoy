@@ -1,0 +1,40 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "28 de octubre de 1982: unas elecciones cambiaron la política española",
+  "date": "2026-10-28",
+  "slot": "10:00",
+  "hook": "El 28 de octubre de 1982, España votó en unas elecciones generales que marcaron un cambio político decisivo.",
+  "narration": "El 28 de octubre de 1982 se celebraron elecciones generales en España. El país llevaba pocos años viviendo bajo la Constitución de 1978 y todavía estaba consolidando sus instituciones democráticas. La jornada tuvo un resultado histórico: el Partido Socialista Obrero Español, encabezado por Felipe González, obtuvo una amplia mayoría absoluta en el Congreso de los Diputados. La Unión de Centro Democrático, que había liderado el Gobierno durante buena parte de la Transición, sufrió una fuerte caída electoral. Alianza Popular pasó a convertirse en la principal fuerza de la oposición parlamentaria. Aquellas elecciones no fueron simplemente un cambio de partido. Representaron una alternancia pacífica de gobierno dentro del nuevo sistema constitucional, después de décadas de dictadura y de un periodo de transición complejo. El resultado abrió una etapa política que influiría en la modernización administrativa, las políticas sociales y la integración europea de España. Conviene distinguir la fecha de la votación de la toma de posesión del nuevo presidente: Felipe González no asumió el cargo ese mismo día. La relevancia del veintiocho de octubre está en la decisión de los votantes y en el mensaje de continuidad institucional que transmitió. La democracia española mostró que podía cambiar de mayoría y de rumbo mediante las urnas. Síguenos para descubrir los acontecimientos que marcaron la historia de España. ¿Conocías la importancia de aquellas elecciones de 1982?",
+  "caption": "28 de octubre de 1982: unas elecciones cambiaron la política española",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#Patrimonio",
+    "#TalDiaComoHoy"
+  ],
+  "sources": [
+    {
+      "name": "Congreso de los Diputados — Investiduras (II Legislatura, elecciones del 28-10-1982)",
+      "url": "https://www.congreso.es/en/cem/sesiones-de-investidura"
+    },
+    {
+      "name": "Historia Electoral — Resultados de las elecciones generales de 1982",
+      "url": "https://www.historiaelectoral.com/resum.html"
+    },
+    {
+      "name": "Ministerio del Interior — Archivo de resultados electorales (portal general; referencia auxiliar)",
+      "url": "https://infoelectoral.interior.gob.es/"
+    }
+  ],
+  "media": [
+    {
+      "role": "AI reconstruction planned; asset not yet imported",
+      "license_note": "PENDING_FLOW_ASSET_AND_RIGHTS_VERIFICATION",
+      "asset_status": "NOT_READY"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "duration_target": "65-80s",
+  "topic_family": "elecciones_generales_1982"
+}

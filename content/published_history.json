@@ -240,5 +240,38 @@
     "format": "chronological_event",
     "hook_pattern": "date_first",
     "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-28",
+    "series": "Tal Día Como Hoy",
+    "title": "28 de octubre de 1982: unas elecciones cambiaron la política española",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "elecciones_generales_1982",
+    "format": "historical_educational",
+    "hook_pattern": "curiosity",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-28",
+    "series": "El detalle que casi nadie ve",
+    "title": "El detalle de las campanas de la Catedral de Santiago",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": "patrimonio_sonoro_compostela",
+    "format": "historical_educational",
+    "hook_pattern": "curiosity",
+    "duration_target": "65-80s"
+  },
+  {
+    "date": "2026-10-28",
+    "series": "¿Sabías esto de España?",
+    "title": "¿Sabías que el Generalife tenía huertas productivas?",
+    "subject": null,
+    "principal_person": null,
+    "topic_family": null,
+    "format": "historical_educational",
+    "hook_pattern": "curiosity",
+    "duration_target": "65-80s"
   }
 ]
