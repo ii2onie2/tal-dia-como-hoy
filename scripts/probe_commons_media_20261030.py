@@ -11,6 +11,12 @@ INVENTORY = pathlib.Path("content/research/2026-10-30.media-rights-inventory.jso
 OUT = pathlib.Path("commons-media-probe-report.json")
 MAX_BYTES = 40 * 1024 * 1024
 
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise ValueError("HTTP redirect forbidden")
+
+OPENER = urllib.request.build_opener(NoRedirect)
+
 def request(url):
     return urllib.request.Request(url, headers={"User-Agent": "TalDiaEditorialPreflight/1.0 (GitHub Actions; noncommercial verification)"})
 
@@ -29,7 +35,7 @@ def main():
                 "action": "query", "format": "json", "prop": "imageinfo",
                 "iiprop": "url|size|mime|sha1|extmetadata", "titles": title,
             })
-            with urllib.request.urlopen(request(api), timeout=25) as response:
+            with OPENER.open(request(api), timeout=25) as response:
                 payload = json.load(response)
             if not isinstance(payload, dict) or "query" not in payload:
                 raise ValueError("unexpected Commons API response")
@@ -45,7 +51,7 @@ def main():
                 raise ValueError("original size outside bounded limits")
             digest = hashlib.sha256()
             actual = 0
-            with urllib.request.urlopen(request(original), timeout=60) as response:
+            with OPENER.open(request(original), timeout=60) as response:
                 resolved = urllib.parse.urlparse(response.geturl())
                 if resolved.scheme != 'https' or resolved.hostname not in {'upload.wikimedia.org', 'commons.wikimedia.org'}:
                     raise ValueError('untrusted download redirect')
