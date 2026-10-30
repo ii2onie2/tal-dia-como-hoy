@@ -2,12 +2,13 @@
 """Read-only Commons original media probe. No rights approval or publishing."""
 import hashlib
 import json
+import os
 import pathlib
 import sys
 import urllib.parse
 import urllib.request
 
-INVENTORY = pathlib.Path("content/research/2026-10-30.media-rights-inventory.json")
+INVENTORY = pathlib.Path(os.environ.get("MEDIA_INVENTORY_PATH", "content/research/2026-10-30.media-rights-inventory.json"))
 OUT = pathlib.Path("commons-media-probe-report.json")
 MAX_BYTES = 40 * 1024 * 1024
 
