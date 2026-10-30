@@ -1,0 +1,38 @@
+{
+  "series": "¿Sabías esto de España?",
+  "title": "¿Sabías que Atapuerca guarda pistas de vidas humanas antiquísimas?",
+  "date": "2026-10-30",
+  "slot": "19:00",
+  "hook": "Cerca de Burgos, unas cuevas ayudan a reconstruir capítulos muy antiguos de nuestra historia.",
+  "narration": "¿Sabías que en la provincia de Burgos existe un conjunto de yacimientos donde los investigadores estudian rastros de seres humanos de hace muchísimo tiempo? Se trata de la Sierra de Atapuerca, declarada Patrimonio Mundial por la UNESCO en el año 2000. Sus cuevas y depósitos conservan fósiles y materiales arqueológicos de diferentes periodos. Algunos testimonios se remontan a cerca de un millón de años, según la información publicada por la UNESCO. Lo más interesante no es una sola pieza famosa, sino la cantidad de capas de información que permite comparar épocas distintas. Los investigadores pueden estudiar restos humanos y animales, así como huellas de actividades antiguas, para formular preguntas sobre la evolución y las formas de vida del pasado. La UNESCO menciona lugares como la Gran Dolina, la Sima del Elefante y la Sima de los Huesos. Cada uno forma parte de un paisaje de investigación más amplio. Atapuerca no es una máquina que ofrezca todas las respuestas de una vez. Nuevos descubrimientos y nuevas técnicas pueden modificar las interpretaciones científicas con el tiempo. Precisamente por eso el lugar es tan valioso: conserva evidencias que pueden volver a examinarse. Detrás de una excavación hay paciencia, registro riguroso y colaboración entre especialistas. ¿Sabías que este patrimonio científico se encuentra en Castilla y León? Síguenos para conocer otras historias sorprendentes, siempre distinguiendo los datos comprobados de las hipótesis.",
+  "caption": "¿Sabías que Atapuerca guarda pistas de vidas humanas antiquísimas? — investigación editorial sin aprobación ni derechos visuales verificados.",
+  "hashtags": [
+    "#HistoriaDeEspaña",
+    "#TalDiaComoHoy",
+    "#Patrimonio"
+  ],
+  "sources": [
+    {
+      "name": "UNESCO World Heritage Centre — Archaeological Site of Atapuerca",
+      "url": "https://whc.unesco.org/en/list/989"
+    }
+  ],
+  "media": [
+    {
+      "role": "Visual por seleccionar y revisar; no usar material sin permiso",
+      "asset_status": "NOT_SELECTED",
+      "license_note": "RIGHTS_UNVERIFIED_NO_RENDER"
+    }
+  ],
+  "cta": "Síguenos para descubrir más historias documentadas de España.",
+  "format": "historical_science",
+  "hook_pattern": "historical_curiosity",
+  "topic_family": "atapuerca_archivo_fosil_evolucion_humana",
+  "duration_target": "65-80s",
+  "editorial_status": "RESEARCH_DRAFT_UNAPPROVED",
+  "fact_reference_status": "SOURCE_LINKS_CHECKED_EDITORIAL_REVIEW_PENDING",
+  "media_rights_status": "NOT_VERIFIED",
+  "publishing_status": "FORBIDDEN_UNTIL_RIGHTS_AND_EDITORIAL_GATES",
+  "ai_assistance_used": true,
+  "ai_disclosure_status": "PENDING_PLATFORM_CLASSIFICATION_REVIEW"
+}
