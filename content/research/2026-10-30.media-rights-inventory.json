@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-30",
+  "status": "MEDIA_DISCOVERY_PENDING",
+  "rights_approval": "NOT_GRANTED",
+  "render_authorized": false,
+  "publication_authorized": false,
+  "policy": "No media URL is approved by thematic relevance alone. Each exact Commons file must be independently checked for authorship, license version, attribution, derivative conditions and availability. No Wikimedia search results are presumed cleared.",
+  "slots": [
+    {
+      "slot": "Tal Día Como Hoy",
+      "topic": "Miguel Hernández",
+      "candidate_search": "Wikimedia Commons Miguel Hernández portrait Orihuela",
+      "preferred_media": "Historical portrait only if public-domain evidence or compatible license is verified",
+      "exact_file_url": null,
+      "license": null,
+      "author": null,
+      "source_verified": false,
+      "rights_status": "BLOCKED_UNVERIFIED"
+    },
+    {
+      "slot": "El detalle que casi nadie ve",
+      "topic": "Batalla del Salado",
+      "candidate_search": "Wikimedia Commons Batalla del Salado Tarifa map",
+      "preferred_media": "Historical map or modern photograph with compatible verified license",
+      "exact_file_url": null,
+      "license": null,
+      "author": null,
+      "source_verified": false,
+      "rights_status": "BLOCKED_UNVERIFIED"
+    },
+    {
+      "slot": "¿Sabías esto de España?",
+      "topic": "Pío Baroja",
+      "candidate_search": "Wikimedia Commons Pío Baroja portrait Madrid",
+      "preferred_media": "Portrait with independently verified public-domain or compatible license",
+      "exact_file_url": null,
+      "license": null,
+      "author": null,
+      "source_verified": false,
+      "rights_status": "BLOCKED_UNVERIFIED"
+    }
+  ],
+  "required_evidence": [
+    "Exact Commons File: page and file URL",
+    "Author and attribution text",
+    "License name, version, URL, commercial-use and derivative rights",
+    "Evidence that depicted work and photo rights are both cleared",
+    "Asset access and integrity check",
+    "Editorial approval before render"
+  ]
+}
