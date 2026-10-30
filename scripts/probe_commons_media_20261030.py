@@ -31,7 +31,7 @@ def main():
             })
             with urllib.request.urlopen(request(api), timeout=25) as response:
                 payload = json.load(response)
-            pages = payload["query"]["pages"]
+            if not isinstance(payload, dict) or "query" not in payload:\n                raise ValueError("unexpected Commons API response")\n            pages = payload["query"]["pages"]
             page = next(iter(pages.values()))
             info = page["imageinfo"][0]
             original = info["url"]
