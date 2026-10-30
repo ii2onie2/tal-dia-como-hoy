@@ -31,7 +31,9 @@ def main():
             })
             with urllib.request.urlopen(request(api), timeout=25) as response:
                 payload = json.load(response)
-            if not isinstance(payload, dict) or "query" not in payload:\n                raise ValueError("unexpected Commons API response")\n            pages = payload["query"]["pages"]
+            if not isinstance(payload, dict) or "query" not in payload:
+                raise ValueError("unexpected Commons API response")
+            pages = payload["query"]["pages"]
             page = next(iter(pages.values()))
             info = page["imageinfo"][0]
             original = info["url"]
@@ -44,6 +46,13 @@ def main():
             digest = hashlib.sha256()
             actual = 0
             with urllib.request.urlopen(request(original), timeout=60) as response:
+                resolved = urllib.parse.urlparse(response.geturl())
+                if resolved.scheme != 'https' or resolved.hostname not in {'upload.wikimedia.org', 'commons.wikimedia.org'}:
+                    raise ValueError('untrusted download redirect')
+                if info.get('mime') not in {'image/jpeg', 'image/png'}:
+                    raise ValueError('unexpected media MIME')
+                if response.headers.get_content_type() not in {'image/jpeg', 'image/png', 'application/octet-stream'}:
+                    raise ValueError('unexpected download content type')
                 while True:
                     chunk = response.read(1024 * 1024)
                     if not chunk:
@@ -67,7 +76,8 @@ def main():
     OUT.write_text(json.dumps({"status": "PASS_HASH_ONLY" if not failures else "BLOCKED",
                                 "rights_approved": False, "render_authorized": False,
                                 "publication_authorized": False, "results": results},
-                               ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                               ensure_ascii=False, indent=2) + "
+", encoding="utf-8")
     print(f"REPORT={OUT} RESULT={'PASS_HASH_ONLY' if not failures else 'BLOCKED'}")
     return 1 if failures else 0
 
