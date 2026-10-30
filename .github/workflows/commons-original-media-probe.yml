@@ -1,0 +1,21 @@
+name: Commons original media SHA256 probe (read-only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe original Commons files without publishing
+        run: python3 scripts/probe_commons_media_20261030.py
+      - name: Upload verification report even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: commons-media-probe-report
+          path: commons-media-probe-report.json
+          if-no-files-found: warn
+          retention-days: 14

@@ -32,6 +32,14 @@ for name in files:
     if not d["hashtags"]: fail(f"{name}: no hashtags")
     if not d["sources"]: fail(f"{name}: no sources")
     if not d["media"]: fail(f"{name}: no media declared")
+    if d["date"] >= "2026-10-30":
+        if d.get("editorial_approval") != "APPROVED":
+            fail(f"{name}: editorial approval not granted")
+        if d.get("media_rights_approval") != "APPROVED":
+            fail(f"{name}: media rights approval not granted")
+        for item in d["media"]:
+            if not isinstance(item, dict) or not item.get("source_url") or not item.get("license") or not item.get("attribution"):
+                fail(f"{name}: incomplete media provenance or license")
     cta=d.get("cta","").strip()
     if not cta:
         fail(f"{name}: missing CTA")
