@@ -1,6 +1,13 @@
 name: Commons original media SHA256 probe (read-only)
 on:
   workflow_dispatch:
+    inputs:
+      inventory_ref:
+        description: 'Approved research branch containing the inventory'
+        required: true
+        type: choice
+        options:
+          - work/20261030-three-source-candidates
   pull_request:
     paths:
       - 'scripts/probe_commons_media_20261030.py'
@@ -15,6 +22,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.inventory_ref || github.sha }}
       - name: Check Python syntax
         run: python3 -m py_compile scripts/probe_commons_media_20261030.py
       - name: Probe original Commons files without publishing
