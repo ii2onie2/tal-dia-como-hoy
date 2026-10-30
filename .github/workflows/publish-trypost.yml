@@ -1,13 +1,56 @@
-name: Schedule TikTok via TryPost (manual only)
+name: Historical publishing entrypoint - Buffer guarded readiness
 
 on:
   workflow_dispatch:
+    inputs:
+      video_date:
+        description: Date of existing approved videos (YYYY-MM-DD)
+        required: true
 
 permissions:
   contents: read
 
 jobs:
-  disabled:
+  buffer-readiness:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - run: echo "Automatic TryPost publishing is disabled. Metricool reduced-quota mode is active."
+      - uses: actions/checkout@v4
+      - name: Verify all three packages, rights and credits without posting
+        env:
+          VIDEO_DATE: ${{ inputs.video_date }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import datetime, json, os, pathlib, sys
+          day = os.environ["VIDEO_DATE"]
+          try:
+              assert datetime.date.fromisoformat(day).isoformat() == day
+          except (AssertionError, ValueError):
+              sys.exit("BLOCKED: invalid date")
+          for stem in (day, day+"-detalle", day+"-sabias"):
+              base = pathlib.Path("videos") / stem
+              files = {ext: pathlib.Path(str(base)+ext) for ext in
+                       (".mp4", ".caption.txt", ".sources.json", ".credits.json")}
+              for ext, path in files.items():
+                  if not path.is_file() or path.stat().st_size == 0:
+                      sys.exit("BLOCKED: missing or empty "+str(path))
+              with files[".mp4"].open("rb") as stream:
+                  if b"ftyp" not in stream.read(32):
+                      sys.exit("BLOCKED: invalid MP4 "+stem)
+              if not files[".caption.txt"].read_text(encoding="utf-8").strip():
+                  sys.exit("BLOCKED: empty caption "+stem)
+              sources = json.loads(files[".sources.json"].read_text(encoding="utf-8"))
+              credits = json.loads(files[".credits.json"].read_text(encoding="utf-8"))
+              if not isinstance(sources, list) or not sources:
+                  sys.exit("BLOCKED: sources missing "+stem)
+              if not isinstance(credits, list) or not credits:
+                  sys.exit("BLOCKED: media rights/attribution missing "+stem)
+              print("BUFFER_PACKAGE_READINESS=PASS "+stem)
+          print("BUFFER_READINESS=PASS")
+          print("BUFFER_API_REQUESTS=0")
+          print("BUFFER_POSTS_CREATED=0")
+          print("TIKTOK_PUBLICATIONS=0")
+          print("PUBLICATION_AUTHORIZED=NO")
+          PY
