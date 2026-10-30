@@ -36,6 +36,7 @@ jobs:
               "video": pathlib.Path("videos") / (stem + ".mp4"),
               "caption": pathlib.Path("videos") / (stem + ".caption.txt"),
               "sources": pathlib.Path("videos") / (stem + ".sources.json"),
+              "credits": pathlib.Path("videos") / (stem + ".credits.json"),
           }
           for name, file in files.items():
               if not file.is_file() or file.stat().st_size == 0:
@@ -43,7 +44,12 @@ jobs:
           caption = files["caption"].read_text(encoding="utf-8").strip()
           if not caption:
               sys.exit("FAIL: empty caption")
-          json.loads(files["sources"].read_text(encoding="utf-8"))
+          sources = json.loads(files["sources"].read_text(encoding="utf-8"))
+          credits = json.loads(files["credits"].read_text(encoding="utf-8"))
+          if not isinstance(sources, list) or not sources:
+              sys.exit("FAIL: missing sources")
+          if not isinstance(credits, list) or not credits:
+              sys.exit("FAIL: missing media rights/credits")
           url = "https://raw.githubusercontent.com/ii2onie2/tal-dia-como-hoy/main/videos/" + stem + ".mp4"
           req = urllib.request.Request(url, headers={"Range": "bytes=0-31", "User-Agent": "Buffer-Media-Preflight/1.0"})
           try:
@@ -62,6 +68,7 @@ jobs:
           print("VIDEO_URL_ACCESSIBLE=PASS")
           print("CAPTION_PRESENT=PASS")
           print("SOURCES_JSON_VALID=PASS")
+          print("CREDITS_PRESENT=PASS")
           print("TARGET_CHANNEL_ID=6ae070412f1f5ed648e8137f")
           print("DRAFT_INTENT=TRUE")
           print("REQUEST_PREPARED_NOT_SENT=TRUE")
