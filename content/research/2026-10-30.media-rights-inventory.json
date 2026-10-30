@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "status": "MEDIA_DISCOVERY_PENDING",
+  "status": "THREE_EXACT_CANDIDATES_FOUND_RIGHTS_NOT_APPROVED",
   "rights_approval": "NOT_GRANTED",
   "render_authorized": false,
   "publication_authorized": false,
@@ -11,33 +11,42 @@
       "topic": "Miguel Hernández",
       "candidate_search": "Wikimedia Commons Miguel Hernández portrait Orihuela",
       "preferred_media": "Historical portrait only if public-domain evidence or compatible license is verified",
-      "exact_file_url": null,
-      "license": null,
-      "author": null,
-      "source_verified": false,
-      "rights_status": "BLOCKED_UNVERIFIED"
+      "exact_file_url": "https://commons.wikimedia.org/wiki/File:Miguel_hernandez.jpg",
+      "license": "CC BY 2.0 (also public-domain assertions on Commons)",
+      "author": "UNED Universidad Nacional de Educación a Distancia / photographer unknown",
+      "source_verified": true,
+      "rights_status": "CANDIDATE_LICENSE_REVIEW_REQUIRED",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "UNED / Flickr, Miguel Hernández, CC BY 2.0; link source and indicate adaptation",
+      "caution": "Verify original Flickr rights grant and competing public-domain claims before production"
     },
     {
       "slot": "El detalle que casi nadie ve",
       "topic": "Batalla del Salado",
       "candidate_search": "Wikimedia Commons Batalla del Salado Tarifa map",
       "preferred_media": "Historical map or modern photograph with compatible verified license",
-      "exact_file_url": null,
-      "license": null,
-      "author": null,
-      "source_verified": false,
-      "rights_status": "BLOCKED_UNVERIFIED"
+      "exact_file_url": "https://commons.wikimedia.org/wiki/File:Batalha_do_Salado_(Roque_Gameiro,_Quadros_da_Hist%C3%B3ria_de_Portugal,_1917).png",
+      "license": "Public domain (PD-Art, published 1917; creator died 1935)",
+      "author": "Alfredo Roque Gameiro (1864-1935)",
+      "source_verified": true,
+      "rights_status": "CANDIDATE_LICENSE_REVIEW_REQUIRED",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution": "Alfredo Roque Gameiro, Batalha do Salado, 1917, Wikimedia Commons, public domain; identify modern montage",
+      "caution": "Depiction made in 1917, not a contemporary image of the 1340 battle"
     },
     {
       "slot": "¿Sabías esto de España?",
       "topic": "Pío Baroja",
       "candidate_search": "Wikimedia Commons Pío Baroja portrait Madrid",
       "preferred_media": "Portrait with independently verified public-domain or compatible license",
-      "exact_file_url": null,
-      "license": null,
-      "author": null,
-      "source_verified": false,
-      "rights_status": "BLOCKED_UNVERIFIED"
+      "exact_file_url": "https://commons.wikimedia.org/wiki/File:Retrato_de_P%C3%ADo_Baroja.png",
+      "license": "CC BY 4.0",
+      "author": "Unknown photographer; Biblioteca Nacional de España (collection)",
+      "source_verified": true,
+      "rights_status": "CANDIDATE_LICENSE_REVIEW_REQUIRED",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Biblioteca Nacional de España, Retrato de Pío Baroja, c.1910, CC BY 4.0; adapted crop/contrast",
+      "caution": "Verify BNE source usage terms and derivative attribution"
     }
   ],
   "required_evidence": [
@@ -47,5 +56,6 @@
     "Evidence that depicted work and photo rights are both cleared",
     "Asset access and integrity check",
     "Editorial approval before render"
-  ]
+  ],
+  "last_review_date": "2026-10-30"
 }
