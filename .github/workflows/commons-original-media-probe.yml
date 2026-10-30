@@ -1,6 +1,10 @@
 name: Commons original media SHA256 probe (read-only)
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/probe_commons_media_20261030.py'
+      - '.github/workflows/commons-original-media-probe.yml'
 permissions:
   contents: read
 jobs:
@@ -11,7 +15,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Check Python syntax
+        run: python3 -m py_compile scripts/probe_commons_media_20261030.py
       - name: Probe original Commons files without publishing
+        if: github.event_name == 'workflow_dispatch'
         run: python3 scripts/probe_commons_media_20261030.py
       - name: Upload verification report even on failure
         if: always()
