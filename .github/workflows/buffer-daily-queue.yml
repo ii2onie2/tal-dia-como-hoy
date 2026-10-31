@@ -31,6 +31,34 @@ jobs:
           for suffix in .mp4 .caption.txt .sources.json; do
             test -s "videos/$DAY$suffix" || { echo "SKIP=missing new package videos/$DAY$suffix"; exit 0; }
           done
+          # Publishing requires current-day editorial approvals and complete visual evidence.
+          # A rendered MP4 alone is not a publication authorization.
+          python3 - "$DAY" <<'PY'
+          import json, pathlib, sys
+          day = sys.argv[1]
+          content = pathlib.Path("content") / (day + ".json")
+          if not content.is_file():
+              raise SystemExit("BLOCKED: missing dated editorial content")
+          data = json.loads(content.read_text(encoding="utf-8"))
+          for field, expected in (
+              ("editorial_status", "APPROVED"),
+              ("media_rights_status", "VERIFIED"),
+              ("publishing_status", "READY"),
+          ):
+              if data.get(field) != expected:
+                  raise SystemExit("BLOCKED: missing approval " + field)
+          media = data.get("media")
+          if not isinstance(media, list) or not media:
+              raise SystemExit("BLOCKED: no reviewed visual media")
+          for item in media:
+              if not isinstance(item, dict) or not (
+                  item.get("commons_title") or
+                  (item.get("path") and item.get("rights_review") == "PASS" and
+                   item.get("visual_review") == "PASS" and item.get("sha256"))
+              ):
+                  raise SystemExit("BLOCKED: unreviewed media declaration")
+          print("BUFFER_EDITORIAL_GATE=PASS_INPUT_ONLY")
+          PY
           python3 scripts/buffer_duplicate_guard.py --date "$DAY"
           mkdir -p .buffer-queue-reservations
           if test -e ".buffer-queue-reservations/$DAY"; then
