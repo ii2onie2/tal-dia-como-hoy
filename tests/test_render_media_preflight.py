@@ -16,7 +16,7 @@ class RenderMediaPreflightTests(unittest.TestCase):
         (self.root / "content").mkdir()
         (self.root / "media").mkdir()
         self.path = self.root / "content" / "2026-10-29.json"
-        self.doc = {"media": [{"commons_title": "File:Example_licensed_image.jpg"}]}
+        self.doc = {"editorial_status": "APPROVED", "media_rights_status": "VERIFIED", "publishing_status": "READY", "media": [{"commons_title": "File:Example_licensed_image.jpg"}]}
 
     def run_check(self):
         self.path.write_text(json.dumps(self.doc), encoding="utf-8")
@@ -31,15 +31,15 @@ class RenderMediaPreflightTests(unittest.TestCase):
 
     def test_research_draft_cannot_render(self):
         self.doc["editorial_status"] = "RESEARCH_DRAFT_UNAPPROVED"
-        self.assert_blocked("unresolved editorial_status")
+        self.assert_blocked("approval not proven editorial_status")
 
     def test_global_rights_unverified_cannot_render(self):
         self.doc["media_rights_status"] = "NOT_VERIFIED"
-        self.assert_blocked("unresolved media_rights_status")
+        self.assert_blocked("approval not proven media_rights_status")
 
     def test_forbidden_publication_status_cannot_render(self):
         self.doc["publishing_status"] = "FORBIDDEN_UNTIL_RIGHTS_AND_EDITORIAL_GATES"
-        self.assert_blocked("unresolved publishing_status")
+        self.assert_blocked("approval not proven publishing_status")
 
     def test_undetermined_media_cannot_render(self):
         self.doc["media"] = [{"asset_status": "NOT_SELECTED", "license_note": "RIGHTS_UNVERIFIED_NO_RENDER"}]
