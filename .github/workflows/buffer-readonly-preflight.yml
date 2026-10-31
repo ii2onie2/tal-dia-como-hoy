@@ -52,8 +52,11 @@ jobs:
                   print("TIKTOK_CHANNEL=" + json.dumps({"name": name, "id": channel.get("id")}, ensure_ascii=False))
                   found.add(name.lower().lstrip("@"))
           print("TIKTOK_CHANNEL_COUNT=" + str(len(found)))
-          if not found:
-              sys.exit("FAIL: No TikTok channels visible")
+          required = {"taldiacomohoy09", "tuperrofeliz"}
+          missing = required - found
+          if missing:
+              sys.exit("FAIL: Required TikTok channel(s) not visible: " + ",".join(sorted(missing)))
+          print("REQUIRED_TIKTOK_CHANNELS=PASS")
           print("MODE=READ_ONLY")
           print("POSTS_CREATED=0")
           PY
