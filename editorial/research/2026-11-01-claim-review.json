@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-01",
+  "slot": "principal",
+  "review_status": "CORE_CLAIMS_VERIFIED_REMAINING_CLAIMS_PENDING",
+  "source": "Instituto Geografico Nacional (IGN)",
+  "sources": [
+    "https://www.ign.es/web/terremotos-mas-importantes-espana?id=1755",
+    "https://www.ign.es/web/preguntas-frecuentes",
+    "https://www.ign.es/web/sismotectonica-por-zonas/golfocadiz"
+  ],
+  "claims": [
+    {
+      "claim": "El terremoto ocurrio el 1 de noviembre de 1755",
+      "result": "VERIFIED",
+      "source_index": 0
+    },
+    {
+      "claim": "Fue sentido en la peninsula iberica y tambien afecto a Espana",
+      "result": "VERIFIED",
+      "source_index": 0
+    },
+    {
+      "claim": "El tsunami afecto al golfo de Cadiz y las costas de Huelva y Cadiz",
+      "result": "VERIFIED",
+      "source_index": 1
+    },
+    {
+      "claim": "Se conoce como terremoto de Lisboa",
+      "result": "VERIFIED",
+      "source_index": 0
+    },
+    {
+      "claim": "Cifras exactas de danos y victimas varian segun las fuentes",
+      "result": "REQUIRES_SCRIPT_LEVEL_REVIEW"
+    }
+  ],
+  "media_rights": "NOT_VERIFIED",
+  "editorial_approved": false,
+  "render_authorized": false,
+  "buffer_authorized": false,
+  "notes": "Verificacion de afirmaciones centrales solamente. No se ha auditado frase por frase ni se han adquirido archivos visuales."
+}
