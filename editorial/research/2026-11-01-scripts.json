@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-01",
+  "status": "SCRIPT_DRAFT_NOT_FACT_CHECKED",
+  "fact_check": "NOT_COMPLETED",
+  "media_rights": "NOT_VERIFIED",
+  "render_authorized": false,
+  "buffer_authorized": false,
+  "scripts": [
+    {
+      "slot": "principal",
+      "title": "El terremoto que sacudió España en 1755",
+      "narration": "El primero de noviembre de mil setecientos cincuenta y cinco, mientras muchas personas celebraban el Día de Todos los Santos, un terremoto extraordinariamente fuerte sacudió el suroeste de la península ibérica. Hoy suele recordarse como el terremoto de Lisboa, pero su impacto no se limitó a Portugal. También se sintió en numerosas localidades españolas y dejó una huella importante en la memoria de las comunidades del litoral atlántico. El movimiento del suelo fue solo una parte de la tragedia. El mar respondió con un tsunami que alcanzó zonas costeras del golfo de Cádiz. La combinación del temblor y las olas hizo que aquel día resultara especialmente peligroso para poblaciones cercanas a la costa. En una época sin sistemas modernos de alerta, la gente no disponía de los avisos ni de los conocimientos de prevención que hoy se intentan difundir. Las crónicas históricas permiten reconstruir parte de lo sucedido, aunque las cifras concretas de víctimas y daños pueden variar entre fuentes y localidades. Por eso conviene distinguir los hechos documentados de las estimaciones posteriores. Este episodio recuerda que España también tiene una historia de grandes terremotos y tsunamis. Conocerla no significa vivir con miedo: significa entender mejor los riesgos naturales y la importancia de prepararse. ¿Habías oído hablar de los efectos de aquel terremoto en España? Sigue la cuenta para descubrir más episodios de nuestra historia.",
+      "word_count": 225
+    },
+    {
+      "slot": "detalle",
+      "title": "La costa de Cádiz frente al tsunami de 1755",
+      "narration": "Cuando se habla del terremoto de mil setecientos cincuenta y cinco, casi todas las miradas se dirigen a Lisboa. Sin embargo, existe un detalle fundamental para comprender lo que pasó en España: el tsunami también afectó al golfo de Cádiz. Un terremoto submarino puede desplazar grandes volúmenes de agua y generar olas capaces de viajar lejos de su origen. En la costa, esas olas no siempre se parecen a las que vemos en una playa durante un temporal. Pueden manifestarse como una subida rápida del nivel del mar, una corriente muy intensa o una inundación repentina. Los testimonios históricos de aquel episodio describen efectos en diferentes puntos del litoral atlántico. Pero no debemos suponer que todas las localidades recibieron olas de la misma altura o sufrieron daños idénticos. La forma de la costa, la profundidad del agua y la ubicación concreta cambian mucho el resultado. Precisamente por eso los especialistas estudian los registros históricos junto con la geología y los modelos de propagación. El episodio de mil setecientos cincuenta y cinco no es solo una curiosidad del pasado. Ayuda a explicar por qué hoy se investigan los tsunamis en el Atlántico y se promueve la preparación de las poblaciones costeras. Si estás cerca del mar y notas un terremoto fuerte o prolongado, las recomendaciones oficiales de protección civil son más importantes que cualquier vídeo. ¿Conocías esta conexión entre el terremoto de Lisboa y la costa de Cádiz? Sigue la cuenta para conocer más detalles históricos.",
+      "word_count": 245
+    },
+    {
+      "slot": "sabias",
+      "title": "¿Por qué se recuerda como el terremoto de Lisboa?",
+      "narration": "¿Sabías que uno de los terremotos más famosos de Europa se recuerda con el nombre de una ciudad, aunque sus efectos cruzaron fronteras? El primero de noviembre de mil setecientos cincuenta y cinco, un gran terremoto golpeó el suroeste de la península ibérica. Lisboa sufrió una catástrofe enorme y por eso su nombre quedó unido al acontecimiento. Pero reducir toda la historia a una sola ciudad deja fuera otras experiencias. En España se registraron sacudidas y efectos del tsunami en el litoral atlántico. El suceso tuvo además consecuencias para la forma en que las personas intentaban explicar los desastres naturales. Durante el siglo dieciocho, las observaciones y los relatos del terremoto alimentaron debates sobre la naturaleza, la ciencia y la organización de la respuesta a las emergencias. No todo lo que aparece en los relatos antiguos puede tratarse como una medición exacta. Algunas descripciones son testimonios directos; otras se copiaron o interpretaron años después. Por eso los investigadores comparan documentos, fechas, lugares y evidencias geológicas antes de formular conclusiones. Lo interesante es que un mismo fenómeno puede tener muchas historias locales y distintas formas de ser recordado. La próxima vez que escuches la expresión terremoto de Lisboa, piensa también en las costas de España y en las comunidades que vivieron aquel día. ¿Te gustaría conocer más historias españolas que suelen quedar fuera de los grandes titulares? Sigue la cuenta y comparte esta curiosidad con alguien que disfrute de la historia.",
+      "word_count": 240
+    }
+  ]
+}
