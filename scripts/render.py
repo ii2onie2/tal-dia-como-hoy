@@ -177,16 +177,7 @@ def main():
         ]
         run(cmd)
     else:
-        vf=f"{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}"
-        run([
-            "ffmpeg","-y",
-            "-f","lavfi","-i",f"color=c=0x111111:s={W}x{H}:r={FPS}",
-            "-i",wav,"-t",f"{duration:.3f}",
-            "-vf",vf,
-            "-c:v","libx264","-preset","medium","-crf","21",
-            "-c:a","aac","-b:a","192k","-pix_fmt","yuv420p",
-            "-movflags","+faststart",video
-        ])
+        raise SystemExit("RENDER_BLOCKED_NO_MEDIA: no verified visual asset available")
 
     pathlib.Path(out/"caption.txt").write_text(
         (data.get("caption","")+"\n\n"+" ".join(data.get("hashtags",[]))).strip()+"\n",
