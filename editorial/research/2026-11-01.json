@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-01",
+  "profile": "tal-dia",
+  "status": "RESEARCH_ONLY_NOT_APPROVED",
+  "theme": "Terremoto y tsunami del 1 de noviembre de 1755",
+  "slots": [
+    {
+      "slot": "principal",
+      "title": "El terremoto de 1755 también sacudió España",
+      "angle": "El 1 de noviembre de 1755 un gran terremoto al suroeste del cabo de San Vicente se sintió en la península y causó víctimas en España.",
+      "sources": [
+        "https://www.ign.es/web/en/terremotos-mas-importantes-espana"
+      ]
+    },
+    {
+      "slot": "detalle",
+      "title": "El tsunami de 1755 golpeó el golfo de Cádiz",
+      "angle": "El evento generó un tsunami que afectó a las costas del golfo de Cádiz; evitar atribuir alturas a un punto concreto sin pruebas locales.",
+      "sources": [
+        "https://www.ign.es/web/sismotectonica-por-zonas/golfocadiz"
+      ]
+    },
+    {
+      "slot": "sabias",
+      "title": "El terremoto llamado de Lisboa tuvo efectos muy lejos",
+      "angle": "El catálogo histórico del IGN registra observaciones del tsunami en costas atlánticas muy distantes.",
+      "sources": [
+        "https://www.ign.es/web/en/sis-tsunamis"
+      ]
+    }
+  ],
+  "fact_check": "REQUIRES_CLAIM_LEVEL_REVIEW",
+  "media_rights": "NOT_VERIFIED",
+  "media": [],
+  "narrations": [],
+  "approved": false,
+  "render_authorized": false,
+  "buffer_authorized": false,
+  "notes": "Research dossier only. Not an editorial/candidates or editorial/verified input. Do not create fake evidence quotes or media licenses."
+}
