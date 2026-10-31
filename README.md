@@ -4,7 +4,7 @@ Chaîne de production gratuite pour générer des vidéos verticales destinées 
 
 ## Architecture
 
-ChatGPT / contenu vérifié -> GitHub -> GitHub Actions -> Piper TTS -> FFmpeg -> MP4 1080x1920 -> publication via Metricool.
+ChatGPT / contenu vérifié -> GitHub -> GitHub Actions -> Piper TTS -> FFmpeg -> MP4 1080x1920 -> programmation et publication via Buffer après contrôles obligatoires.
 
 ## Principes
 
@@ -35,3 +35,12 @@ Le workflow produit :
 - `credits.json`
 
 Le paquet est conservé comme artifact GitHub pendant 30 jours.
+
+## Buffer — canal de programmation et publication
+
+- Buffer est la seule destination cible de programmation et de publication TikTok pour ce projet.
+- La connexion des deux chaînes et l'autorisation de programmation/publication ont été confirmées par le propriétaire.
+- La mise en production dépend toujours de contrôles réussis : contenu exact, provenance et droits des médias, crédits, mentions IA, qualité du MP4, détection de doublons et confirmation de l'état distant.
+- Ne pas créer de brouillon, programmer ou publier un contenu qui échoue à un contrôle; ne jamais présenter un rendu local comme une publication distante.
+- Préserver l'idempotence, tracer les identifiants distants et permettre une reprise sans double publication.
+- Aucun secret ou identifiant n'est consigné dans ce dépôt.
