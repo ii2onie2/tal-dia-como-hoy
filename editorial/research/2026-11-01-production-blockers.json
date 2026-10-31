@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-01",
+  "topic": "Terremoto 1755",
+  "review_type": "PRODUCTION_BLOCKER_REMEDIATION",
+  "script_assessment": "Main narration has 225 words; duration 65-80s requires timing measurement, not just word count.",
+  "media_assessment": "Need binary Commons file, SHA256, source-specific credit, and full editorial review.",
+  "editorial_caution": "Do not present Lisbon engraving as a photograph of Cadiz.",
+  "completed": [
+    "Core claims reviewed against official reference list",
+    "License candidates identified",
+    "Production gates preserved"
+  ],
+  "pending": [
+    "Full three-script sentence-level source audit",
+    "Download final media and record SHA256",
+    "Check attribution and commercial/derivative compatibility",
+    "Narrated 1080x1920 MP4 render and QA",
+    "Buffer remote scheduling receipt"
+  ],
+  "production_authorized": false,
+  "publishing_authorized": false
+}
