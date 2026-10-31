@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-01",
+  "asset": "File:1755 Lisbon earthquake.jpg",
+  "file_page": "https://commons.wikimedia.org/wiki/File:1755_Lisbon_earthquake.jpg",
+  "author": "Unknown (1755 copper engraving)",
+  "source": "The Earthquake Engineering Online Archive - Jan Kozak Collection KZ128; Museu da Cidade Lisbon",
+  "license": "Public Domain Mark 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "source_page_review": "PASS_PUBLIC_DOMAIN_MARK_DECLARED",
+  "asset_downloaded": false,
+  "asset_hash_verified": false,
+  "video_usage_verified": false,
+  "credit_suggestion": "Gravure du tremblement de terre de Lisbonne (1755), auteur inconnu, domaine public, Wikimedia Commons",
+  "release_gate": "BLOCKED_PENDING_ASSET_BINARY_AND_RENDER_QA",
+  "notes": "Gravure represente Lisbonne et non Cadix; ne pas la presenter comme une image documentaire de Cadix."
+}
