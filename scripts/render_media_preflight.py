@@ -26,11 +26,11 @@ def check(filename, root=None):
     data = json.loads((root / path).read_text(encoding="utf-8"))
     if not isinstance(data, dict):
         reject("content is not a JSON object")
-    for key in ("editorial_status", "media_rights_status", "publishing_status"):
+    required_approvals = {"editorial_status": "APPROVED", "media_rights_status": "VERIFIED", "publishing_status": "READY"}
+    for key, expected in required_approvals.items():
         value = data.get(key)
-        if isinstance(value, str) and (value.upper() in BLOCKED_STATUS or
-                                       any(token in value.upper() for token in BAD_NOTES)):
-            reject(f"unresolved {key}={value}")
+        if not isinstance(value, str) or value.strip().upper() != expected:
+            reject(f"approval not proven {key}: expected {expected}")
     media = data.get("media")
     if not isinstance(media, list) or not media:
         reject("no declared visual asset")
