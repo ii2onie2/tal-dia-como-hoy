@@ -1,6 +1,8 @@
 name: Render TikTok videos
 
 on:
+  schedule:
+    - cron: '45 6 * * *'
   workflow_dispatch:
     inputs:
       content_file:
