@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import json, pathlib, sys
-HISTORY=pathlib.Path("content/published_history.json")
+HISTORY=pathlib.Path("content/rendered_history.json")
 def main():
     files=sys.argv[1:]
     history=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else []
