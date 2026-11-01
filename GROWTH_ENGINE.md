@@ -65,7 +65,7 @@ Do not use engagement bait that misrepresents facts.
 
 ## Weekly measurement
 
-When Metricool analytics are available, review:
+When Buffer analytics are available and authorized, review:
 - views
 - average watch time / retention
 - completion rate
