@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-30",
+  "review_type": "INDEPENDENT_FACT_CHECK",
+  "overall": "CORE_DATES_VERIFIED_ONLY",
+  "editorial_approval": "NOT_GRANTED",
+  "media_rights_approval": "NOT_GRANTED",
+  "render_authorized": false,
+  "publication_authorized": false,
+  "items": [
+    {
+      "slot": "Tal Día Como Hoy",
+      "claim": "Miguel Hernández nació en Orihuela el 30 de octubre de 1910",
+      "status": "VERIFIED_CORE_CLAIM",
+      "evidence": [
+        {
+          "publisher": "Instituto Cervantes",
+          "url": "https://www.cervantes.es/bibliotecas_documentacion_espanol/biografias/manila_miguel_hernandez.htm"
+        },
+        {
+          "publisher": "Universidad Miguel Hernández",
+          "url": "https://catedramiguelhernandez.umh.es/cronologia/"
+        }
+      ]
+    },
+    {
+      "slot": "El detalle que casi nadie ve",
+      "claim": "La batalla del Salado se desarrolló el 30 de octubre de 1340 en el entorno de Tarifa",
+      "status": "VERIFIED_CORE_CLAIM_WITH_HISTORIOGRAPHICAL_CAUTION",
+      "evidence": [
+        {
+          "publisher": "Museo del Ejército",
+          "url": "https://ejercito.defensa.gob.es/museo/HECHOS_HISTORICOS/HECHOS_HISTORICOS/10.30_LA_BATALLA_DEL_SALADO.html"
+        },
+        {
+          "publisher": "Wenceslao Segura González, Al Qantir",
+          "url": "https://dialnet.unirioja.es/descarga/articulo/4696047.pdf"
+        }
+      ],
+      "caution": "Medieval documentary sources can be imprecise; do not assert unverified tactical details."
+    },
+    {
+      "slot": "¿Sabías esto de España?",
+      "claim": "Pío Baroja murió en Madrid el 30 de octubre de 1956",
+      "status": "VERIFIED_CORE_CLAIM",
+      "evidence": [
+        {
+          "publisher": "PARES, Archivos Españoles",
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/108923"
+        },
+        {
+          "publisher": "Bibliothèque nationale de France",
+          "url": "https://catalogue.bnf.fr/ark:/12148/cb11885704v"
+        }
+      ]
+    }
+  ],
+  "pending": [
+    "Sentence-level editorial review of three narrations",
+    "Identify original or appropriately licensed visual media for each video",
+    "Verify license terms, attribution and derivative permissions",
+    "Record explicit editorial and media-rights approvals",
+    "Run CI before any merge or render"
+  ]
+}
