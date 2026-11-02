@@ -35,22 +35,26 @@
     {
       "commons_title": "File:HMS Victory, Heck.jpg",
       "role": "HMS Victory, photographie contemporaine",
-      "license_note": "Chattus — CC BY-SA 4.0 — Wikimedia Commons"
+      "license_note": "Chattus — CC BY-SA 4.0 — Wikimedia Commons",
+      "path": "media/01.jpg"
     },
     {
       "commons_title": "File:Prow of HMS Victory.jpg",
       "role": "Proue du HMS Victory, photographie contemporaine",
-      "license_note": "Bongo50 - CC BY-SA 4.0 - Wikimedia Commons"
+      "license_note": "Bongo50 - CC BY-SA 4.0 - Wikimedia Commons",
+      "path": "media/02.jpg"
     },
     {
       "commons_title": "File:CaboDeTrafalgarFaro.jpg",
       "role": "Cap Trafalgar, photographie contemporaine",
-      "license_note": "Mussklprozz — CC BY-SA 3.0 — Wikimedia Commons"
+      "license_note": "Mussklprozz — CC BY-SA 3.0 — Wikimedia Commons",
+      "path": "media/03.jpg"
     },
     {
       "commons_title": "File:London, Trafalgar Square, Nelson's Column -- 2016 -- 4853.jpg",
       "role": "Colonne de Nelson, monument commémoratif",
-      "license_note": "Dietmar Rabich — CC BY-SA 4.0 — Wikimedia Commons"
+      "license_note": "Dietmar Rabich — CC BY-SA 4.0 — Wikimedia Commons",
+      "path": "media/04.jpg"
     }
   ],
   "cta": "Síguenos: historia de España cada día",
