@@ -1,0 +1,53 @@
+name: Ubuntu renderer smoke test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install piper-tts
+
+      - name: Download voice model
+        run: |
+          mkdir -p voices
+          curl --fail --location --retry 3 -o voices/es_ES-sharvard-medium.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
+          curl --fail --location --retry 3 -o voices/es_ES-sharvard-medium.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
+
+      - name: Generate synthetic inputs
+        run: |
+          mkdir -p smoke
+          ffmpeg -nostdin -y -f lavfi -i color=c=blue:s=1080x1920 -frames:v 1 smoke/background.png
+          python -c 'import json; from pathlib import Path; Path("smoke/content.json").write_text(json.dumps({"date":"2026-11-02","series":"Renderer Test","hook":"Ubuntu smoke test","narration":"Esta es una prueba tecnica del sistema de video.","media":[{"path":"smoke/background.png"}],"cta":"Prueba completada."}),encoding="utf-8")'
+
+      - name: Render and verify
+        env:
+          PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
+          PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
+        run: |
+          python scripts/render.py --content smoke/content.json --out smoke/output
+          test -s smoke/output/video.mp4
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height,sample_aspect_ratio -of csv=p=0 smoke/output/video.mp4 | grep -Fx "1080,1920,1:1"
+
+      - name: Upload technical artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ubuntu-render-smoke
+          path: smoke/output/video.mp4
+          retention-days: 7
+          if-no-files-found: error
