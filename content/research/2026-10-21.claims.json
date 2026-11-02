@@ -7,7 +7,7 @@
     {
       "id": "C01",
       "text": "El 21 de octubre de 1805 se libró la batalla de Trafalgar.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
@@ -23,13 +23,13 @@
           "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
-      "review_checked": false,
+      "review_checked": true,
       "notes": ""
     },
     {
       "id": "C02",
       "text": "Se enfrentaron la flota británica y una escuadra combinada francesa y española.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
@@ -45,13 +45,13 @@
           "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
-      "review_checked": false,
+      "review_checked": true,
       "notes": ""
     },
     {
       "id": "C03",
       "text": "Los británicos contaban con veintisiete navíos; la escuadra combinada, con treinta y tres.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
@@ -67,13 +67,13 @@
           "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
-      "review_checked": false,
+      "review_checked": true,
       "notes": ""
     },
     {
       "id": "C04",
       "text": "Al frente de la flota combinada estaba el almirante francés Pierre-Charles de Villeneuve; Federico Gravina mandaba los navíos españoles.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
@@ -89,13 +89,13 @@
           "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
-      "review_checked": false,
+      "review_checked": true,
       "notes": ""
     },
     {
       "id": "C05",
       "text": "Horatio Nelson estaba al mando de la flota británica.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
@@ -111,13 +111,13 @@
           "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
-      "review_checked": false,
+      "review_checked": true,
       "notes": ""
     },
     {
       "id": "C07",
-      "text": "Nelson fue herido de muerte durante la batalla. Nelson murió horas después, sabiendo ya que su flota había vencido.",
-      "status": "PENDING_USER_REVIEW",
+      "text": "Nelson fue herido de muerte durante la batalla y falleció horas después.",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
@@ -134,13 +134,13 @@
           "additional_excerpt": "Le héros meurt avant de pouvoir savourer son triomphe..."
         }
       ],
-      "review_checked": false,
+      "review_checked": true,
       "notes": ""
     },
     {
       "id": "C09",
       "text": "El combate tuvo lugar frente a la costa española, cerca de Cádiz.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "HISTORY / A&E Television Networks",
@@ -156,7 +156,7 @@
           "evidence_origin": "verbatim_supplied_by_user_from_independent_reviewer"
         }
       ],
-      "review_checked": false
+      "review_checked": true
     },
     {
       "id": "C06",
@@ -193,7 +193,7 @@
     {
       "id": "C10",
       "text": "Federico Gravina mandaba la escuadra española. Gravina fue herido a bordo del Príncipe de Asturias y murió meses después, en 1806.",
-      "status": "PENDING_USER_REVIEW",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "Armada Española BIP 2005",
@@ -206,28 +206,33 @@
           "excerpt": "commanded the observation squadron | was mortally wounded, dying of gangrene on 9th March 1806"
         }
       ],
-      "review_checked": false,
-      "notes": "Two editorial sources supplied; user review not yet checked."
+      "review_checked": true,
+      "notes": "Two editorial sources supplied; review checked."
     },
     {
       "id": "C11",
       "text": "Cosme Damián Churruca murió en el combate, a bordo del San Juan Nepomuceno.",
-      "status": "PENDING_SECOND_SOURCE",
+      "status": "APPROVED",
       "sources": [
         {
           "publisher": "Armada Española BIP 2005",
           "url": "https://armada.defensa.gob.es/archivo/mardigitalrevistas/bip/2005/200505.pdf",
           "excerpt": "…Churruca moría desangrado en la enfermería de su navío San Juan Nepomuceno"
+        },
+        {
+          "publisher": "Todo a Babor",
+          "url": "https://www.todoababor.es/historia/parte-de-campana-del-navio-san-juan-nepomuceno-en-la-batalla-de-trafalgar/",
+          "notes": "Reproducción de un parte de campaña del 14 de noviembre de 1805."
         }
       ],
-      "review_checked": false,
-      "notes": "RAH biography awaiting user verification; exclude from script until second source confirmed."
+      "review_checked": true,
+      "notes": "Segunda fuente histórica corroborante examinada; validación editorial concedida por el usuario."
     },
     {
       "id": "C12",
       "text": "La batalla terminó con una victoria británica.",
-      "status": "PENDING_USER_REVIEW",
-      "review_checked": false,
+      "status": "APPROVED",
+      "review_checked": true,
       "sources": [
         {
           "publisher": "HISTORY",
@@ -245,9 +250,9 @@
     },
     {
       "id": "C13",
-      "text": "Antes de la batalla, Villeneuve se refugió en Cádiz, donde se reunió con navíos españoles aliados.",
-      "status": "PENDING_USER_REVIEW",
-      "review_checked": false,
+      "text": "Antes de la batalla, Villeneuve se refugió en Cádiz.",
+      "status": "APPROVED",
+      "review_checked": true,
       "sources": [
         {
           "publisher": "Hérodote",
@@ -267,8 +272,8 @@
     {
       "id": "C14",
       "text": "Los restos de Federico Gravina descansan en el Panteón de Marinos Ilustres de San Fernando, Cádiz.",
-      "status": "PENDING_USER_REVIEW",
-      "review_checked": false,
+      "status": "APPROVED",
+      "review_checked": true,
       "sources": [
         {
           "publisher": "Armada Española Revista de Historia Naval 1994",
