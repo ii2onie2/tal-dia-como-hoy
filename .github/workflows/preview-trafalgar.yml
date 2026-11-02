@@ -1,0 +1,52 @@
+name: Preview Trafalgar - manual only
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate editorial content
+        run: |
+          python3 scripts/validate_content.py content/2026-10-21.json
+
+      - name: Enforce private preview approvals
+        run: |
+          python3 scripts/preview_media_preflight.py content/2026-10-21.json
+
+      - name: Install rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python3 -m pip install -r requirements.txt
+          python3 -m pip install piper-tts
+
+      - name: Download Spanish voice
+        run: |
+          mkdir -p voices
+          curl -L --fail -o voices/es_ES-sharvard-medium.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx
+          curl -L --fail -o voices/es_ES-sharvard-medium.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json
+
+      - name: Render isolated preview
+        env:
+          PIPER_VOICE_MODEL: voices/es_ES-sharvard-medium.onnx
+          PIPER_VOICE_CONFIG: voices/es_ES-sharvard-medium.onnx.json
+        run: |
+          python3 scripts/render.py --content content/2026-10-21.json --out preview/trafalgar
+          test -s preview/trafalgar/video.mp4
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trafalgar-preview
+          path: preview/trafalgar/
+          retention-days: 7
+          if-no-files-found: error
