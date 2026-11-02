@@ -108,25 +108,27 @@ def main():
     )
     hook_end=min(4.5,max(2.5,duration*0.12))
     cta_start=max(0.0,duration-5.5)
+    font_path = os.environ.get("RENDER_FONT_PATH", "").strip()
+    font_option = f"fontfile='{ffpath(font_path)}'" if font_path else "font='DejaVu Sans'"
     branding=(
-        f",drawtext=textfile='{ffpath(series_file)}':font='DejaVu Sans':"
+        f",drawtext=textfile='{ffpath(series_file)}':{font_option}:"
         "fontsize=42:fontcolor=white:box=1:boxcolor=black@0.45:boxborderw=12:"
         "x=(w-text_w)/2:y=70"
     )
     date_overlay=(
-        f",drawtext=textfile='{ffpath(date_file)}':font='DejaVu Sans':"
+        f",drawtext=textfile='{ffpath(date_file)}':{font_option}:"
         "fontsize=34:fontcolor=white:box=1:boxcolor=black@0.58:boxborderw=10:"
         "x=50:y=130"
         if date_label else ""
     )
     hook_overlay=(
-        f",drawtext=textfile='{ffpath(hook_file)}':font='DejaVu Sans':"
+        f",drawtext=textfile='{ffpath(hook_file)}':{font_option}:"
         "fontsize=44:fontcolor=white:box=1:boxcolor=black@0.68:boxborderw=14:"
         f"x=(w-text_w)/2:y=155:enable='between(t,0,{hook_end:.2f})'"
         if hook else ""
     )
     cta_overlay=(
-        f",drawtext=textfile='{ffpath(cta_file)}':font='DejaVu Sans':"
+        f",drawtext=textfile='{ffpath(cta_file)}':{font_option}:"
         "fontsize=42:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=14:"
         f"x=(w-text_w)/2:y=h-360:enable='gte(t,{cta_start:.2f})'"
     )
@@ -161,7 +163,7 @@ def main():
                 f"zoompan=z='{zexpr}':"
                 f"x='{xexpr}':y='ih/2-(ih/zoom/2)':"
                 f"d=1:s={W}x{H}:fps={FPS},"
-                f"trim=duration={seg:.3f},setpts=PTS-STARTPTS[{label}]"
+                f"trim=duration={seg:.3f},setsar=1,setpts=PTS-STARTPTS[{label}]"
             )
         parts.append("".join(labels)+f"concat=n={len(beat_bgs)}:v=1:a=0[base]")
         parts.append(
