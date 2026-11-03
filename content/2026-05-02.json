@@ -1,0 +1,42 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "2 de mayo de 1808: el levantamiento de Madrid",
+  "date": "2026-05-02",
+  "slot": "10:00",
+  "hook": "2 de mayo de 1808: Madrid se levanta",
+  "narration": "Tal día como hoy, el 2 de mayo de 1808, Madrid se levantó contra las tropas francesas de Napoleón. La protesta estalló cuando una multitud intentó impedir la salida de miembros de la familia real del Palacio Real. La revuelta se extendió por las calles. Los madrileños se enfrentaron a soldados franceses, incluidos los mamelucos de la Guardia Imperial. Francisco de Goya representó aquellos combates en su pintura El dos de mayo de 1808 en Madrid. La represión fue dura y al día siguiente se produjeron fusilamientos que Goya también inmortalizó. Estos acontecimientos se convirtieron en un símbolo de la resistencia española y marcaron el inicio de la Guerra de la Independencia. ¿Conocías la historia detrás de este cuadro? Síguenos para descubrir más episodios de la historia de España.",
+  "caption": "2 de mayo de 1808: el levantamiento de Madrid contra las tropas napoleónicas. Pintura de Francisco de Goya, dominio público, Wikimedia Commons.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#DosDeMayo",
+    "#Goya",
+    "#Madrid"
+  ],
+  "sources": [
+    {
+      "name": "Museo del Prado",
+      "url": "https://www.museodelprado.es/"
+    },
+    {
+      "name": "Wikidata — El dos de mayo de 1808 en Madrid",
+      "url": "https://www.wikidata.org/wiki/Q2983399"
+    }
+  ],
+  "media": [
+    {
+      "commons_title": "File:El dos de mayo de 1808 en Madrid.jpg",
+      "role": "El levantamiento del 2 de mayo de 1808, pintura de Goya",
+      "license_note": "Francisco de Goya — Public domain — Wikimedia Commons",
+      "path": "media/dos-mayo.jpg"
+    }
+  ],
+  "cta": "Síguenos: historia de España cada día",
+  "format": "chronological_event",
+  "hook_pattern": "date_first",
+  "topic_family": "guerra_independencia",
+  "duration_target": "40-50s",
+  "media_license_status": "PUBLIC_DOMAIN",
+  "media_attribution_status": "COMPLETE",
+  "media_replacement_status": "PASS"
+}
