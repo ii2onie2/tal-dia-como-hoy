@@ -5,7 +5,7 @@
   "slot": "10:00",
   "hook": "21 de octubre de 1805: Trafalgar",
   "narration": "Tal día como hoy, el 21 de octubre de 1805, frente al cabo Trafalgar, muy cerca de Cádiz, se libró la batalla de Trafalgar. De un lado, la flota británica, al mando del almirante Horatio Nelson. Del otro, una flota combinada de Francia y España, dirigida por el almirante francés Pierre-Charles de Villeneuve. Los navíos españoles estaban bajo el mando de Federico Gravina. Sobre el papel, los números favorecían a los aliados: treinta y tres navíos franceses y españoles frente a veintisiete británicos. Pero el número de barcos no decidió el combate. En plena batalla, Nelson fue herido de muerte y falleció horas después. Trafalgar terminó con una victoria británica. En el lado español, Federico Gravina también resultó herido, a bordo del navío Príncipe de Asturias. No se recuperó: murió meses después, en 1806, a consecuencia de aquella herida. Para España, Trafalgar no fue solo la batalla de Nelson. También fue la de sus propios marinos y de sus jefes. ¿Sabías que el jefe de la escuadra española murió por las heridas recibidas en Trafalgar? Síguenos para descubrir cada día un episodio que ayuda a entender la historia de España.",
-  "caption": "21 de octubre de 1805: Trafalgar. Gravina mandaba los navíos españoles; Nelson murió horas después de ser herido en combate. Fuentes: HISTORY, Hérodote, Armada Española, Fondation Napoléon. Imágenes: Chattus (CC BY-SA 4.0), Bongo50 (CC BY-SA 4.0), Mussklprozz (CC BY-SA 3.0), Dietmar Rabich (CC BY-SA 4.0). Wikimedia Commons.",
+  "caption": "21 de octubre de 1805: Trafalgar. Gravina mandaba los navíos españoles; Nelson murió horas después de ser herido en combate. Fuentes: HISTORY, Hérodote, Armada Española, Fondation Napoléon. Pinturas históricas en dominio público: Nicholas Pocock, J. M. W. Turner, Benjamin West y autor desconocido. Wikimedia Commons.",
   "hashtags": [
     "#TalDiaComoHoy",
     "#HistoriaDeEspaña",
@@ -33,27 +33,27 @@
   ],
   "media": [
     {
-      "commons_title": "File:HMS Victory, Heck.jpg",
-      "role": "HMS Victory, photographie contemporaine",
-      "license_note": "Chattus — CC BY-SA 4.0 — Wikimedia Commons",
+      "commons_title": "File:Trafalgar1.jpg",
+      "role": "La batalla de Trafalgar",
+      "license_note": "Nicholas Pocock — Public domain — Wikimedia Commons",
       "path": "media/01.jpg"
     },
     {
-      "commons_title": "File:Prow of HMS Victory.jpg",
-      "role": "Proue du HMS Victory, photographie contemporaine",
-      "license_note": "Bongo50 - CC BY-SA 4.0 - Wikimedia Commons",
+      "commons_title": "File:Turner, The Battle of Trafalgar (1806).jpg",
+      "role": "La batalla de Trafalgar, pintura de 1806",
+      "license_note": "J. M. W. Turner — Public domain — Wikimedia Commons",
       "path": "media/02.jpg"
     },
     {
-      "commons_title": "File:CaboDeTrafalgarFaro.jpg",
-      "role": "Cap Trafalgar, photographie contemporaine",
-      "license_note": "Mussklprozz — CC BY-SA 3.0 — Wikimedia Commons",
+      "commons_title": "File:Death of Nelson.jpg",
+      "role": "La muerte de Nelson",
+      "license_note": "Benjamin West — Public domain — Wikimedia Commons",
       "path": "media/03.jpg"
     },
     {
-      "commons_title": "File:London, Trafalgar Square, Nelson's Column -- 2016 -- 4853.jpg",
-      "role": "Colonne de Nelson, monument commémoratif",
-      "license_note": "Dietmar Rabich — CC BY-SA 4.0 — Wikimedia Commons",
+      "commons_title": "File:Federico Gravina.jpg",
+      "role": "Retrato de Federico Gravina",
+      "license_note": "Artista desconocido — Public domain — Wikimedia Commons",
       "path": "media/04.jpg"
     }
   ],
@@ -61,5 +61,8 @@
   "format": "chronological_event",
   "hook_pattern": "date_first",
   "topic_family": "historia_naval",
-  "duration_target": "65-80s"
+  "duration_target": "65-80s",
+  "media_license_status": "PUBLIC_DOMAIN",
+  "media_attribution_status": "COMPLETE",
+  "media_replacement_status": "PASS"
 }

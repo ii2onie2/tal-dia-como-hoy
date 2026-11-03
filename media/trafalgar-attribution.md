@@ -1,47 +1,38 @@
-# Trafalgar — Créditos de imágenes
+# Trafalgar — Créditos de pinturas
 
-Fotografías utilizadas en una producción audiovisual sobre Trafalgar.
-Las imágenes se presentan con recortes, movimientos de cámara y zoom.
-La autorización jurídica definitiva de publicación sigue pendiente.
+Cuatro pinturas históricas en dominio público, procedentes de Wikimedia Commons.
+Modificaciones aplicadas: recorte, zoom y animación.
 
-## Imagen 1
+## Trafalgar1.jpg
+- Autor: Nicholas Pocock
+- Estado: dominio público
+- Fuente: https://commons.wikimedia.org/wiki/File:Trafalgar1.jpg
+- Archivo: `media/01.jpg`
+- Modificaciones: recorte, zoom y animación.
 
-- Obra: File:HMS Victory, Heck.jpg
-- Autor: Chattus
-- Licencia: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
-- Fuente: https://commons.wikimedia.org/wiki/File:HMS_Victory,_Heck.jpg
-- Archivo local: `media/01.jpg`
-- Transformaciones previstas: recorte, zoom y animación.
+## Turner, The Battle of Trafalgar (1806).jpg
+- Autor: J. M. W. Turner
+- Estado: dominio público
+- Fuente: https://commons.wikimedia.org/wiki/File:Turner,_The_Battle_of_Trafalgar_(1806).jpg
+- Archivo: `media/02.jpg`
+- Modificaciones: recorte, zoom y animación.
 
-## Imagen 2
+## Death of Nelson.jpg
+- Autor: Benjamin West
+- Estado: dominio público
+- Fuente: https://commons.wikimedia.org/wiki/File:Death_of_Nelson.jpg
+- Archivo: `media/03.jpg`
+- Modificaciones: recorte, zoom y animación.
 
-- Obra: File:Prow of HMS Victory.jpg
-- Autor: Bongo50
-- Licencia: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
-- Fuente: https://commons.wikimedia.org/wiki/File:Prow_of_HMS_Victory.jpg
-- Archivo local: `media/02.jpg`
-- Transformaciones previstas: recorte, zoom y animación.
-
-## Imagen 3
-
-- Obra: File:CaboDeTrafalgarFaro.jpg
-- Autor: Mussklprozz
-- Licencia: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- Fuente: https://commons.wikimedia.org/wiki/File:CaboDeTrafalgarFaro.jpg
-- Archivo local: `media/03.jpg`
-- Transformaciones previstas: recorte, zoom y animación.
-
-## Imagen 4
-
-- Obra: File:London, Trafalgar Square, Nelson's Column -- 2016 -- 4853.jpg
-- Autor: Dietmar Rabich
-- Licencia: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
-- Fuente: https://commons.wikimedia.org/wiki/File:London,_Trafalgar_Square,_Nelson's_Column_--_2016_--_4853.jpg
-- Archivo local: `media/04.jpg`
-- Transformaciones previstas: recorte, zoom y animación.
+## Federico Gravina.jpg
+- Autor: Artista desconocido
+- Estado: dominio público
+- Fuente: https://commons.wikimedia.org/wiki/File:Federico_Gravina.jpg
+- Archivo: `media/04.jpg`
+- Modificaciones: recorte, zoom y animación.
 
 ## Estado
 
-- Verificación técnica de metadatos e integridad: PASS.
-- Revisión jurídica final: PENDIENTE.
-- Publicación: NO AUTORIZADA.
+- MEDIA_LICENSE=PUBLIC_DOMAIN
+- MEDIA_ATTRIBUTION=COMPLETE
+- MEDIA_REPLACEMENT=PASS
