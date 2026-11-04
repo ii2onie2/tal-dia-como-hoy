@@ -2,9 +2,9 @@ name: Daily History Video (Tal Día)
 
 on:
   schedule:
-    - cron: '0 7 * * *'
-    - cron: '0 14 * * *'
-    - cron: '0 18 * * *'
+    - cron: '0 7 * * *'   # 7h UTC -> Vidéo 1 (Tal Día Como Hoy)
+    - cron: '0 14 * * *'  # 14h UTC -> Vidéo 2 (¿Sabías que...?)
+    - cron: '0 18 * * *'  # 18h UTC -> Vidéo 3 (El detalle...)
   workflow_dispatch:
 
 jobs:
@@ -59,10 +59,10 @@ jobs:
           ollama pull llama3.2:3b
 
       - name: Set Content File Name
-        run: echo "CONTENT_FILE=content/episode_$(date +%Y%m%d).json" >> $GITHUB_ENV
+        run: echo "CONTENT_FILE=content/episode_$(date +%Y%m%d_%H%M%S).json" >> $GITHUB_ENV
 
       - name: Generate Content
-        run: python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
+        run: python generer_script.py "$CONTENT_FILE"
 
       - name: Fetch Image
         run: python fetch_image.py "$CONTENT_FILE"
