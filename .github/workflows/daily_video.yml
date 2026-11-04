@@ -45,12 +45,19 @@ jobs:
           ollama pull jobautomation/OpenEuroLLM-Spanish
 
       - name: Generate Content
-        run: python generer_script.py "La Guerre d'Indépendance Espagnole" content/episode_$(date +%Y%m%d).json
+        env:
+          CONTENT_FILE: "content/episode_$(date +%Y%m%d).json"
+        run: |
+          python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
+          echo "Vérification du fichier généré :"
+          ls -la content/
+          test -f "$CONTENT_FILE" && echo "FICHIER OK" || echo "FICHIER ABSENT"
 
       - name: Render Video
         env:
           PIPER_VOICE_MODEL: "voices/es_ES-sharvard-medium.onnx"
-        run: python scripts/render.py --content content/episode_$(date +%Y%m%d).json --out final_video
+          CONTENT_FILE: "content/episode_$(date +%Y%m%d).json"
+        run: python scripts/render.py --content "$CONTENT_FILE" --out final_video
 
       - name: Create Release
         env:
