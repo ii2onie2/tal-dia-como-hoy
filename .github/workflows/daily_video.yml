@@ -47,6 +47,18 @@ jobs:
       - name: Generate Content
         run: python generer_script.py "La Guerre d'Indépendance Espagnole" content/episode_$(date +%Y%m%d).json
 
+      - name: Upload JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-json
+          path: content/episode_*.json
+
+      - name: Download JSON
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-json
+          path: content/
+
       - name: Render Video
         env:
           PIPER_VOICE_MODEL: "voices/es_ES-sharvard-medium.onnx"
