@@ -1,91 +1,70 @@
 import sys
 import json
+import urllib.request
+import urllib.parse
 import pathlib
-import os
-import base64
-import requests
 
-# Nom exact du modèle selon la documentation Google
-MODEL_NAME = "gemini-2.5-flash-image" 
+# URL directe vers une peinture historique connue sur Wikimedia (Domaine Public)
+# C'est un lien direct vers l'image, pas une page web, donc pas de 404.
+FALLBACK_URL = "https://upload.wikimedia.org/wikipedia/commons/8/8d/El_dos_de_mayo_de_1808_en_Madrid.jpg"
 
-FALLBACK_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/La_rendici%C3%B3n_de_Bail%C3%A9n.jpg/1280px-La_rendici%C3%B3n_de_Bail%C3%A9n.jpg"
-
-def generate_with_gemini(prompt, output_path):
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        print("⚠️ Pas de clé GEMINI_API_KEY.")
-        return False
+def get_image_url(query):
+    search_url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
+        "action": "query", "format": "json", "generator": "search",
+        "gsrsearch": query + " filetype:bitmap", "gsrnamespace": "6", "gsrlimit": "10",
+        "prop": "imageinfo", "iiprop": "url|extmetadata"
+    })
     
-    # CORRECTION ICI : on utilise /v1/ au lieu de /v1beta/
-    url = f"https://generativelanguage.googleapis.com/v1/models/{MODEL_NAME}:generateContent?key={api_key}"
-    
-    payload = {
-        "contents": [{"parts": [{"text": f"Genera una ilustración histórica vertical (formato 9:16) sobre: {prompt}. Estilo pintura clásica, sin texto."}]}],
-        "generationConfig": {"responseModalities": ["IMAGE"]}
-    }
-    
-    print(f"Appel à l'API Gemini ({MODEL_NAME}) via /v1/...")
+    req = urllib.request.Request(search_url, headers={'User-Agent': 'TalDiaBot/1.0'})
     try:
-        response = requests.post(url, json=payload, headers={"Content-Type": "application/json"})
-        
-        # Si le statut n'est pas 200, on affiche l'erreur complète pour comprendre
-        if response.status_code != 200:
-            print(f"❌ Code HTTP {response.status_code} : {response.text}")
-            return False
+        with urllib.request.urlopen(req) as response:
+            data = json.load(response)
             
-        data = response.json()
-        
-        # On parcourt la réponse pour trouver l'image
-        candidates = data.get("candidates", [])
-        if not candidates:
-            print("❌ Aucun candidat dans la réponse.")
-            return False
+        pages = data.get("query", {}).get("pages", {})
+        for page in pages.values():
+            info = page.get("imageinfo", [{}])[0]
+            ext = info.get("extmetadata", {})
+            license_short = ext.get("LicenseShortName", {}).get("value", "")
             
-        parts = candidates[0].get("content", {}).get("parts", [])
-        for part in parts:
-            if "inlineData" in part:
-                img_data = base64.b64decode(part["inlineData"]["data"])
-                with open(output_path, "wb") as f:
-                    f.write(img_data)
-                print("✅ Image générée par Gemini Nano Banana.")
-                return True
-                
-        print("❌ Gemini n'a pas renvoyé d'image dans la réponse (pas de inlineData).")
-        return False
+            if "Public domain" in license_short or "CC0" in license_short:
+                return info.get("url")
     except Exception as e:
-        print(f"❌ Erreur API Gemini : {e}")
-        return False
+        print(f"Erreur recherche Wikimedia: {e}")
+    return None
 
-def download_fallback(image_url, output_path):
-    print(f"Téléchargement de l'image de secours : {image_url}")
-    import urllib.request
-    req = urllib.request.Request(image_url, headers={'User-Agent': 'TalDiaBot/1.0'})
-    with urllib.request.urlopen(req) as response, open(output_path, 'wb') as out_file:
-        out_file.write(response.read())
-    return True
-
-def update_json(json_path, image_path):
+def download_and_update(json_path, image_url):
     path = pathlib.Path(json_path)
     data = json.loads(path.read_text(encoding="utf-8"))
-    data["media"] = [{"path": str(image_path)}]
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    media_dir = pathlib.Path("media")
+    media_dir.mkdir(exist_ok=True)
+    image_path = media_dir / "image_01.jpg"
+    
+    print(f"Téléchargement : {image_url}")
+    req = urllib.request.Request(image_url, headers={'User-Agent': 'TalDiaBot/1.0'})
+    try:
+        with urllib.request.urlopen(req) as response, open(image_path, 'wb') as out_file:
+            out_file.write(response.read())
+        data["media"] = [{"path": str(image_path)}]
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print("✅ JSON mis à jour avec le chemin de l'image.")
+        return True
+    except Exception as e:
+        print(f"❌ Erreur de téléchargement : {e}")
+        return False
 
 if __name__ == "__main__":
     json_file = sys.argv[1]
     with open(json_file, "r", encoding="utf-8") as f:
         data = json.load(f)
     
-    prompt = data.get("media_prompt", "historia de España")
+    prompt = data.get("media_prompt", "history painting")
+    print(f"Recherche d'image pour : {prompt}")
     
-    media_dir = pathlib.Path("media")
-    media_dir.mkdir(exist_ok=True)
-    image_path = media_dir / "image_01.jpg"
+    image_url = get_image_url(prompt)
     
-    success = generate_with_gemini(prompt, image_path)
-    
-    if not success:
-        print("Bascule sur l'image de secours (Wikimedia).")
-        download_fallback(FALLBACK_URL, image_path)
-    
-    update_json(json_file, image_path)
-    print("✅ JSON mis à jour avec le chemin de l'image.")
+    if not image_url:
+        print("⚠️ Aucune image trouvée, utilisation de l'image de secours.")
+        image_url = FALLBACK_URL
+        
+    if not download_and_update(json_file, image_url):
+        sys.exit(1)
