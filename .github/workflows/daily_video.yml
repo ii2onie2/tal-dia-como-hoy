@@ -39,6 +39,7 @@ jobs:
           tar -xzf piper_linux_x86_64.tar.gz
           sudo cp piper/piper /usr/local/bin/
           sudo cp piper/libpiper_phonemize.so* /usr/lib/ 2>/dev/null || true
+          sudo cp piper/libonnxruntime.so* /usr/lib/ 2>/dev/null || true
           sudo ldconfig
 
       - name: Download Voice Model
