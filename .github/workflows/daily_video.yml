@@ -48,8 +48,14 @@ jobs:
             fi
             sleep 2
           done
-          # On utilise un modèle plus léger pour GitHub Actions
           ollama pull llama3.2:3b
+
+      # NOUVEAU : On teste si Ollama répond correctement
+      - name: Test Ollama
+        run: |
+          echo "Test de connexion à Ollama..."
+          curl -X POST http://localhost:11434/api/generate -d '{"model": "llama3.2:3b", "prompt": "Di hola", "stream": false}'
+          echo ""
 
       - name: Set Content File Name
         run: echo "CONTENT_FILE=content/episode_$(date +%Y%m%d).json" >> $GITHUB_ENV
