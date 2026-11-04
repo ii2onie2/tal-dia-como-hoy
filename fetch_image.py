@@ -16,22 +16,33 @@ def generate_with_gemini(prompt, output_path):
         print("⚠️ Pas de clé GEMINI_API_KEY.")
         return False
     
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL_NAME}:generateContent?key={api_key}"
+    # CORRECTION ICI : on utilise /v1/ au lieu de /v1beta/
+    url = f"https://generativelanguage.googleapis.com/v1/models/{MODEL_NAME}:generateContent?key={api_key}"
     
-    # On demande explicitement une image dans la réponse
     payload = {
         "contents": [{"parts": [{"text": f"Genera una ilustración histórica vertical (formato 9:16) sobre: {prompt}. Estilo pintura clásica, sin texto."}]}],
         "generationConfig": {"responseModalities": ["IMAGE"]}
     }
     
-    print(f"Appel à l'API Gemini ({MODEL_NAME})...")
+    print(f"Appel à l'API Gemini ({MODEL_NAME}) via /v1/...")
     try:
         response = requests.post(url, json=payload, headers={"Content-Type": "application/json"})
-        response.raise_for_status()
+        
+        # Si le statut n'est pas 200, on affiche l'erreur complète pour comprendre
+        if response.status_code != 200:
+            print(f"❌ Code HTTP {response.status_code} : {response.text}")
+            return False
+            
         data = response.json()
         
-        # On cherche l'image dans la réponse (inlineData)
-        for part in data["candidates"][0]["content"]["parts"]:
+        # On parcourt la réponse pour trouver l'image
+        candidates = data.get("candidates", [])
+        if not candidates:
+            print("❌ Aucun candidat dans la réponse.")
+            return False
+            
+        parts = candidates[0].get("content", {}).get("parts", [])
+        for part in parts:
             if "inlineData" in part:
                 img_data = base64.b64decode(part["inlineData"]["data"])
                 with open(output_path, "wb") as f:
@@ -39,7 +50,7 @@ def generate_with_gemini(prompt, output_path):
                 print("✅ Image générée par Gemini Nano Banana.")
                 return True
                 
-        print("❌ Gemini n'a pas renvoyé d'image dans la réponse.")
+        print("❌ Gemini n'a pas renvoyé d'image dans la réponse (pas de inlineData).")
         return False
     except Exception as e:
         print(f"❌ Erreur API Gemini : {e}")
