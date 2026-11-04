@@ -20,21 +20,26 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-dejavu-core wget espeak-ng
+          sudo apt-get install -y ffmpeg fonts-dejavu-core wget git build-essential autoconf automake libtool pkg-config
           pip install -r requirements.txt
+
+      - name: Install espeak-ng from source (with Piper support)
+        run: |
+          git clone --depth 1 https://github.com/rhasspy/espeak-ng.git
+          cd espeak-ng
+          ./autogen.sh
+          ./configure --prefix=/usr
+          make -j$(nproc)
+          sudo make install
+          sudo ldconfig
 
       - name: Install Piper TTS
         run: |
           wget https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_linux_x86_64.tar.gz
           tar -xzf piper_linux_x86_64.tar.gz
-          # Copier le binaire
           sudo cp piper/piper /usr/local/bin/
-          # Copier TOUTES les bibliothèques de Piper dans /usr/lib
-          sudo cp piper/*.so* /usr/lib/ 2>/dev/null || true
-          # Créer le lien symbolique manquant pour libpiper_phonemize
-          sudo ln -sf /usr/lib/libpiper_phonemize.so /usr/lib/libpiper_phonemize.so.1 2>/dev/null || true
-          # Vérifier que les bibliothèques sont là
-          ls -la /usr/lib/libpiper* /usr/lib/libespeak* 2>/dev/null || echo "Libs check: certaines bibliothèques manquent"
+          sudo cp piper/libpiper_phonemize.so* /usr/lib/ 2>/dev/null || true
+          sudo ldconfig
 
       - name: Download Voice Model
         run: |
@@ -63,13 +68,8 @@ jobs:
       - name: Generate Content
         run: |
           python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
-          echo "Vérification du fichier généré :"
           ls -la content/
-          if [ ! -f "$CONTENT_FILE" ]; then
-            echo "ERREUR: Le fichier $CONTENT_FILE n'a pas été créé. Arrêt."
-            exit 1
-          fi
-          echo "FICHIER OK"
+          test -f "$CONTENT_FILE" && echo "FICHIER OK" || (echo "FICHIER ABSENT"; exit 1)
 
       - name: Render Video
         env:
