@@ -48,7 +48,8 @@ jobs:
             fi
             sleep 2
           done
-          ollama pull jobautomation/OpenEuroLLM-Spanish
+          # On utilise un modèle plus léger pour GitHub Actions
+          ollama pull llama3.2:3b
 
       - name: Set Content File Name
         run: echo "CONTENT_FILE=content/episode_$(date +%Y%m%d).json" >> $GITHUB_ENV
