@@ -32,7 +32,7 @@ REGLAS:
 
     try:
         response = ollama.chat(
-            model='jobautomation/OpenEuroLLM-Spanish',
+            model='llama3.2:3b',
             messages=[
                 {'role': 'system', 'content': prompt_system},
                 {'role': 'user', 'content': f'Génère le script pour le sujet suivant : {sujet}'}
