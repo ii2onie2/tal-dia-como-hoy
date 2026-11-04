@@ -23,15 +23,11 @@ jobs:
           sudo apt-get install -y ffmpeg fonts-dejavu-core wget git build-essential autoconf automake libtool pkg-config
           pip install -r requirements.txt
 
-      - name: Install espeak-ng from source (with Piper support)
+      - name: Install espeak-ng from source
         run: |
           git clone --depth 1 https://github.com/rhasspy/espeak-ng.git
           cd espeak-ng
-          ./autogen.sh
-          ./configure --prefix=/usr
-          make -j$(nproc)
-          sudo make install
-          sudo ldconfig
+          ./autogen.sh && ./configure --prefix=/usr && make -j$(nproc) && sudo make install && sudo ldconfig
 
       - name: Install Piper TTS
         run: |
@@ -51,14 +47,11 @@ jobs:
       - name: Install Ollama
         run: curl -fsSL https://ollama.com/install.sh | sh
 
-      - name: Start Ollama and wait
+      - name: Start Ollama
         run: |
           ollama serve &
           for i in $(seq 1 30); do
-            if curl -s http://localhost:11434/api/tags > /dev/null; then
-              echo "Ollama ready after $i attempts"
-              break
-            fi
+            if curl -s http://localhost:11434/api/tags > /dev/null; then break; fi
             sleep 2
           done
           ollama pull llama3.2:3b
@@ -67,10 +60,22 @@ jobs:
         run: echo "CONTENT_FILE=content/episode_$(date +%Y%m%d).json" >> $GITHUB_ENV
 
       - name: Generate Content
+        run: python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
+
+      # NOUVEAU : On voit exactement ce que fait le script d'image
+      - name: Fetch Image
         run: |
-          python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
-          ls -la content/
-          test -f "$CONTENT_FILE" && echo "FICHIER OK" || (echo "FICHIER ABSENT"; exit 1)
+          python fetch_image.py "$CONTENT_FILE"
+          echo "=== CONTENU DU JSON APRÈS FETCH_IMAGE ==="
+          cat "$CONTENT_FILE"
+          echo "=== CONTENU DU DOSSIER MEDIA ==="
+          ls -la media/ || echo "Dossier media inexistant"
+
+      # NOUVEAU : On vérifie le JSON juste avant le rendu
+      - name: Verify JSON before render
+        run: |
+          echo "=== VÉRIFICATION FINALE DU JSON ==="
+          cat "$CONTENT_FILE"
 
       - name: Render Video
         env:
