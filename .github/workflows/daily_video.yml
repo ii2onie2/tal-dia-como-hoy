@@ -44,9 +44,10 @@ jobs:
           sleep 5
           ollama pull jobautomation/OpenEuroLLM-Spanish
 
+      - name: Set Content File Name
+        run: echo "CONTENT_FILE=content/episode_$(date +%Y%m%d).json" >> $GITHUB_ENV
+
       - name: Generate Content
-        env:
-          CONTENT_FILE: "content/episode_$(date +%Y%m%d).json"
         run: |
           python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
           echo "Vérification du fichier généré :"
@@ -56,7 +57,6 @@ jobs:
       - name: Render Video
         env:
           PIPER_VOICE_MODEL: "voices/es_ES-sharvard-medium.onnx"
-          CONTENT_FILE: "content/episode_$(date +%Y%m%d).json"
         run: python scripts/render.py --content "$CONTENT_FILE" --out final_video
 
       - name: Create Release
