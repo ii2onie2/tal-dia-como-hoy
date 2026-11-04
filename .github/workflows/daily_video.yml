@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-dejavu-core wget
+          sudo apt-get install -y ffmpeg fonts-dejavu-core wget espeak-ng
           pip install -r requirements.txt
 
       - name: Install Piper TTS
@@ -50,7 +50,6 @@ jobs:
           done
           ollama pull llama3.2:3b
 
-      # NOUVEAU : On teste si Ollama répond correctement
       - name: Test Ollama
         run: |
           echo "Test de connexion à Ollama..."
