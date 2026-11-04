@@ -1,46 +1,45 @@
 import sys
 import json
-import urllib.request
-import urllib.parse
 import pathlib
 import os
 import base64
 import requests
 
-# URL de secours au cas où Gemini échoue
+# Nom exact du modèle selon la documentation Google
+MODEL_NAME = "gemini-2.5-flash-image" 
+
 FALLBACK_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/La_rendici%C3%B3n_de_Bail%C3%A9n.jpg/1280px-La_rendici%C3%B3n_de_Bail%C3%A9n.jpg"
 
 def generate_with_gemini(prompt, output_path):
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("⚠️ Pas de clé GEMINI_API_KEY trouvée.")
+        print("⚠️ Pas de clé GEMINI_API_KEY.")
         return False
     
-    # On utilise le modèle Nano Banana (Gemini 2.5 Flash Image)
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL_NAME}:generateContent?key={api_key}"
     
+    # On demande explicitement une image dans la réponse
     payload = {
-        "contents": [{
-            "parts": [{"text": f"Genera una ilustración histórica vertical (formato 9:16) sobre: {prompt}. Estilo pintura clásica, sin texto."}]
-        }]
+        "contents": [{"parts": [{"text": f"Genera una ilustración histórica vertical (formato 9:16) sobre: {prompt}. Estilo pintura clásica, sin texto."}]}],
+        "generationConfig": {"responseModalities": ["IMAGE"]}
     }
     
-    print("Appel à l'API Gemini pour générer l'image...")
+    print(f"Appel à l'API Gemini ({MODEL_NAME})...")
     try:
         response = requests.post(url, json=payload, headers={"Content-Type": "application/json"})
         response.raise_for_status()
         data = response.json()
         
-        # On cherche l'image dans la réponse
+        # On cherche l'image dans la réponse (inlineData)
         for part in data["candidates"][0]["content"]["parts"]:
             if "inlineData" in part:
                 img_data = base64.b64decode(part["inlineData"]["data"])
                 with open(output_path, "wb") as f:
                     f.write(img_data)
-                print(f"✅ Image générée par Gemini et sauvegardée dans {output_path}")
+                print("✅ Image générée par Gemini Nano Banana.")
                 return True
                 
-        print("❌ Gemini n'a pas renvoyé d'image.")
+        print("❌ Gemini n'a pas renvoyé d'image dans la réponse.")
         return False
     except Exception as e:
         print(f"❌ Erreur API Gemini : {e}")
@@ -48,6 +47,7 @@ def generate_with_gemini(prompt, output_path):
 
 def download_fallback(image_url, output_path):
     print(f"Téléchargement de l'image de secours : {image_url}")
+    import urllib.request
     req = urllib.request.Request(image_url, headers={'User-Agent': 'TalDiaBot/1.0'})
     with urllib.request.urlopen(req) as response, open(output_path, 'wb') as out_file:
         out_file.write(response.read())
@@ -70,10 +70,8 @@ if __name__ == "__main__":
     media_dir.mkdir(exist_ok=True)
     image_path = media_dir / "image_01.jpg"
     
-    # 1. On essaie Gemini
     success = generate_with_gemini(prompt, image_path)
     
-    # 2. Si Gemini échoue, on prend l'image de secours
     if not success:
         print("Bascule sur l'image de secours (Wikimedia).")
         download_fallback(FALLBACK_URL, image_path)
