@@ -47,7 +47,7 @@ jobs:
       - name: Install Ollama
         run: curl -fsSL https://ollama.com/install.sh | sh
 
-      - name: Start Ollama
+      - name: Start Ollama and pull model
         run: |
           ollama serve &
           for i in $(seq 1 30); do
@@ -62,20 +62,8 @@ jobs:
       - name: Generate Content
         run: python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
 
-      # NOUVEAU : On voit exactement ce que fait le script d'image
       - name: Fetch Image
-        run: |
-          python fetch_image.py "$CONTENT_FILE"
-          echo "=== CONTENU DU JSON APRÈS FETCH_IMAGE ==="
-          cat "$CONTENT_FILE"
-          echo "=== CONTENU DU DOSSIER MEDIA ==="
-          ls -la media/ || echo "Dossier media inexistant"
-
-      # NOUVEAU : On vérifie le JSON juste avant le rendu
-      - name: Verify JSON before render
-        run: |
-          echo "=== VÉRIFICATION FINALE DU JSON ==="
-          cat "$CONTENT_FILE"
+        run: python fetch_image.py "$CONTENT_FILE"
 
       - name: Render Video
         env:
@@ -94,4 +82,4 @@ jobs:
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: |
-          python publier.py tal "Découvrez l'histoire du jour. #HistoriaDeEspaña" "$VIDEO_URL"
+          python publier.py tal "$CONTENT_FILE" "$VIDEO_URL"
