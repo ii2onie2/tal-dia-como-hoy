@@ -38,10 +38,16 @@ jobs:
       - name: Install Ollama
         run: curl -fsSL https://ollama.com/install.sh | sh
 
-      - name: Start Ollama
+      - name: Start Ollama and wait
         run: |
           ollama serve &
-          sleep 5
+          for i in $(seq 1 30); do
+            if curl -s http://localhost:11434/api/tags > /dev/null; then
+              echo "Ollama ready after $i attempts"
+              break
+            fi
+            sleep 2
+          done
           ollama pull jobautomation/OpenEuroLLM-Spanish
 
       - name: Set Content File Name
@@ -52,7 +58,11 @@ jobs:
           python generer_script.py "La Guerre d'Indépendance Espagnole" "$CONTENT_FILE"
           echo "Vérification du fichier généré :"
           ls -la content/
-          test -f "$CONTENT_FILE" && echo "FICHIER OK" || echo "FICHIER ABSENT"
+          if [ ! -f "$CONTENT_FILE" ]; then
+            echo "ERREUR: Le fichier $CONTENT_FILE n'a pas été créé. Arrêt."
+            exit 1
+          fi
+          echo "FICHIER OK"
 
       - name: Render Video
         env:
