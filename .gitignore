@@ -1,0 +1,7 @@
+preview_*
+scripts/__pycache__/
+scripts/*.bak
+voices/
+editorial_backups/
+final_*
+content/2026-02-20.json
