@@ -24,7 +24,8 @@ def get_best_image(narration, hook):
         "pintura": "painting", "retrato": "portrait", "soldado": "soldier",
         "guerra": "war", "corona": "crown", "inquisicion": "inquisition",
         "teatro": "theater", "palacio": "palace", "biblioteca": "library",
-        "mosaico": "mosaic", "olimpiadas": "olympics", "dios": "god"
+        "mosaico": "mosaic", "olimpiadas": "olympics", "dios": "god",
+        "caballo": "horse", "flor": "flower", "arbol": "tree", "agua": "water"
     }
     
     search_terms = []
