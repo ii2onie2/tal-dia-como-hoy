@@ -132,6 +132,10 @@ def main():
     )
 
     if bgs:
+       # --- SÉCURITÉ DURÉE MINIMALE (75 SECONDES) ---
+        if duration < 75.0:
+            print(f"⚠️ Durée de {duration:.2f}s trop courte. On étire à 75s.")
+            duration = 75.0
         target_seg=4.5 if duration <= 60 else 5.5
         beat_count=max(len(bgs), min(12, int(math.ceil(duration/target_seg))))
         seg=duration/beat_count

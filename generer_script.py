@@ -18,40 +18,59 @@ schema = {
 }
 
 def generer_contenu(format_type):
-    print(f"Génération du script pour le format : {format_type}...")
+    print(f"Génération du script ({format_type})...")
     
     if format_type == "date":
-        prompt_system = "Eres un historiador experto para el canal de TikTok 'Tal Día Como Hoy'. Inventa un evento histórico real que ocurrió en una fecha de hoy en España. Tu guion debe empezar OBLIGATORIAMENTE por 'Tal día como hoy...'. El tono debe ser narrativo y cautivador."
+        today = datetime.datetime.now()
+        mois_espagnol = {
+            1: "enero", 2: "febrero", 3: "marzo", 4: "abril",
+            5: "mayo", 6: "junio", 7: "julio", 8: "agosto",
+            9: "septiembre", 10: "octubre", 11: "noviembre", 12: "diciembre"
+        }
+        date_espagnole = f"{today.day} de {mois_espagnol[today.month]}"
+        
+        prompt_system = f"""Eres un historiador experto para el canal de TikTok "Tal Día Como Hoy".
+        Hoy es {date_espagnole}. 
+        Encuentra un evento histórico REAL que ocurrió EXACTAMENTE un {date_espagnole} en España.
+        Si no encuentras un evento para esa fecha exacta, elige el más cercano posible en la misma semana.
+        El guion debe empezar OBLIGATORIAMENTE por "Tal día como hoy, {date_espagnole}...".
+        La narración debe tener entre 200 y 230 palabras (obligatorio, para superar 1 minuto 15 segundos).
+        NO inventes eventos."""
     elif format_type == "sabias":
-        prompt_system = "Eres un creador de contenido viral para el canal 'Tal Día Como Hoy'. Inventa una curiosidad o anécdota histórica real y sorprendente sobre España. Tu guion debe empezar OBLIGATORIAMENTE por '¿Sabías que...?'. El tono debe ser rápido y sorprendente."
+        prompt_system = """Eres un creador de contenido viral para "Tal Día Como Hoy".
+        Crea un guion sobre una curiosidad histórica real y sorprendente sobre España.
+        Empieza OBLIGATORIAMENTE por "¿Sabías que...?".
+        La narración debe tener entre 200 y 230 palabras (obligatorio, para superar 1 minuto 15 segundos)."""
     else: 
-        prompt_system = "Eres un creador de contenido de misterio histórico para el canal 'Tal Día Como Hoy'. Inventa un detalle histórico real, poco conocido y fascinante sobre la historia de España. Tu guion debe empezar OBLIGATORIAMENTE por 'El detalle que casi nadie ve...'. El tono debe ser misterioso y revelador."
+        prompt_system = """Eres un creador de contenido de misterio histórico para "Tal Día Como Hoy".
+        Crea un guion sobre un detalle histórico real, poco conocido y fascinante sobre España.
+        Empieza OBLIGATORIAMENTE por "El detalle que casi nadie ve...".
+        La narración debe tener entre 200 y 230 palabras (obligatorio, para superar 1 minuto 15 segundos)."""
 
     prompt_system += """
-    REGLAS ESTRICTAS:
-    - La narración debe tener entre 160 y 180 palabras. ES OBLIGATORIO. Si no llegas a 160 palabras, la aplicación fallará.
+    REGLAS ADICIONALES:
     - El gancho (hook) debe ser una frase corta e impactante.
-    - Para media_prompt, encuentra palabras clave en INGLÉS para buscar una pintura o fresque histórica.
+    - Para media_prompt, encuentra palabras clave en INGLÉS para buscar una pintura histórica.
     - Devuelve el JSON exacto."""
 
     try:
         response = ollama.chat(
-            model='llama3.2:3b',
+            model='qwen2.5vl:3b',  # ou 'llama3.2:3b' si qwen ne fonctionne pas
             messages=[
                 {'role': 'system', 'content': prompt_system},
                 {'role': 'user', 'content': 'Génère le script pour cette vidéo.'}
             ],
             format=schema,
-            options={'temperature': 0.8}
+            options={'temperature': 0.7}
         )
         data = json.loads(response['message']['content'])
         
-        # Vérification de sécurité : on compte les mots
+        # Vérification de la longueur
         mots = len(data['narration'].split())
         print(f"Longueur de la narration : {mots} mots.")
-        if mots < 150:
-            print("⚠️ Texte trop court, on ajoute une phrase de conclusion pour rallonger.")
-            data['narration'] += " Si quieres descubrir más historias fascinantes como esta, no olvides seguirnos y compartir este video con tus amigos. ¡Nos vemos en el próximo episodio!"
+        if mots < 190:
+            print("⚠️ Texte trop court, on ajoute une conclusion pour rallonger.")
+            data['narration'] += " Si te ha gustado esta historia, no olvides seguirnos para descubrir cada día un nuevo episodio de la historia de España. ¡Nos vemos en el próximo vídeo!"
             
         return data
     except Exception as e:
@@ -68,7 +87,7 @@ def sauvegarder_json(data, nom_fichier):
         "hashtags": data["hashtags"],
         "media": [],
         "format": "chronological_event",
-        "duration_target": "65-80s"
+        "duration_target": "75-90s"
     }
     chemin = Path(nom_fichier)
     chemin.parent.mkdir(parents=True, exist_ok=True)
