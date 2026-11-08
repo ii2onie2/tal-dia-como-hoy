@@ -55,7 +55,7 @@ def generer_contenu(format_type):
 
     try:
         response = ollama.chat(
-            model='qwen2.5vl:3b',  # ou 'llama3.2:3b' si qwen ne fonctionne pas
+            model='llama3.2:3b',  # ou 'llama3.2:3b' si qwen ne fonctionne pas
             messages=[
                 {'role': 'system', 'content': prompt_system},
                 {'role': 'user', 'content': 'Génère le script pour cette vidéo.'}
