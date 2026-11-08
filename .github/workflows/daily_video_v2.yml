@@ -65,7 +65,7 @@ jobs:
         run: python generer_script.py "$CONTENT_FILE"
 
       - name: Fetch Image
-      env:
+        env:
           EUROPEANA_API_KEY: ${{ secrets.EUROPEANA_API_KEY }}
         run: python fetch_image.py "$CONTENT_FILE"
 
