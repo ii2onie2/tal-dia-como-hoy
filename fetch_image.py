@@ -24,7 +24,14 @@ TRANSLATIONS = {
     "trafalgar": "trafalgar", "goya": "goya", "alhambra": "alhambra",
     "segovia": "segovia", "acueducto": "aqueduct", "catedral": "cathedral",
     "giralda": "giralda", "sevilla": "sevilla", "salamanca": "salamanca",
-    "granada": "granada", "madrid": "madrid", "toledo": "toledo"
+    "granada": "granada", "madrid": "madrid", "toledo": "toledo",
+    "acueducto": "aqueduct", "catedral": "cathedral", "alcazar": "alcazar",
+    "mezquita": "mosque", "sinagoga": "synagogue", "muralla": "wall",
+    "puerta": "gate", "plaza": "square", "fuente": "fountain",
+    "jardin": "garden", "patio": "courtyard", "torre": "tower",
+    "palacio_real": "royal_palace", "escorial": "escorial", "prado": "prado",
+    "velazquez": "velazquez", "el_greco": "el_greco", "murillo": "murillo",
+    "zurbaran": "zurbaran", "picasso": "picasso", "dalí": "dali"
 }
 
 def search_by_filename(text_to_search):

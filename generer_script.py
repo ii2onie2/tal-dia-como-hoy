@@ -12,7 +12,7 @@ schema = {
         "narration": {"type": "string"},
         "caption": {"type": "string"},
         "hashtags": {"type": "array", "items": {"type": "string"}},
-        "media_prompt": {"type": "string"}
+        "media_prompt": {"type": "string"}, "series_name": {"type": "string", "description": "Nom de la série (ex: Los Secretos de Goya, Un Día en la Historia)"}
     },
     "required": ["date", "hook", "narration", "caption", "hashtags", "media_prompt"]
 }
@@ -33,18 +33,18 @@ def generer_contenu(format_type):
         Hoy es {date_espagnole}. 
         Encuentra un evento histórico REAL que ocurrió EXACTAMENTE un {date_espagnole} en España.
         Si no encuentras un evento para esa fecha exacta, elige el más cercano posible en la misma semana.
-        El guion debe empezar OBLIGATORIAMENTE por "Tal día como hoy, {date_espagnole}...". El hook debe incluir un dato sorprendente o un enjeu historique (ex: "...un secreto que cambió la historia"). El hook debe ser una pregunta o afirmación choc que obligue a ver el video.
+        El guion debe empezar OBLIGATORIAMENTE por "Tal día como hoy, {date_espagnole}...". El hook debe ser una frase que muestre el resultado o el enjeu antes de la explicación (Outcome-first) o incluya un chiffre preciso (Specific number). Ejemplos: "Tal día como hoy, un secreto de la Inquisición cambió la historia de España" o "Tal día como hoy, 14 frescos y 6 meses de trabajo ocultaban un misterio". El hook debe ser una pregunta o afirmación choc que obligue a ver el video.
         La narración debe tener entre 240 y 270 palabras (obligatorio, para superar 1 minuto 12 segundos).
         NO inventes eventos."""
     elif format_type == "sabias":
         prompt_system = """Eres un creador de contenido viral para "Tal Día Como Hoy".
         Crea un guion sobre una curiosidad histórica real y sorprendente sobre España.
-        Empieza OBLIGATORIAMENTE por "¿Sabías que...?". El hook debe incluir un chiffre, une date ou un fait surprenant (ex: "...Goya pintó 14 frescos en 6 mois"). El hook debe ser una curiosidad sorprendente.
+        Empieza OBLIGATORIAMENTE por "¿Sabías que...?". El hook debe incluir un chiffre preciso o un fait surprenant (Specific number). Ejemplo: "¿Sabías que Goya pintó 14 frescos en 6 meses?" o "¿Sabías que 3 palabras cambiaron la historia de España?". El hook debe ser una curiosidad sorprendente.
         La narración debe tener entre 240 y 270 palabras (obligatorio, para superar 1 minuto 12 segundos)."""
     else: 
         prompt_system = """Eres un creador de contenido de misterio histórico para "Tal Día Como Hoy".
         Crea un guion sobre un detalle histórico real, poco conocido y fascinante sobre España.
-        Empieza OBLIGATORIAMENTE por "El detalle que casi nadie ve...". El hook debe plantear un mystère avec un enjeu (ex: "...podría cambiar lo que sabemos del arte nazarí"). El hook debe ser un misterio intrigante.
+        Empieza OBLIGATORIAMENTE por "El detalle que casi nadie ve...". El hook debe plantear un mystère avec un enjeu clair (Outcome-first). Ejemplo: "El detalle que casi nadie ve en la Alhambra podría cambiar lo que sabemos del arte nazarí" o "El detalle que casi nadie ve en este cuadro esconde una historia de traición". El hook debe ser un misterio intrigante.
         La narración debe tener entre 240 y 270 palabras (obligatorio, para superar 1 minuto 12 segundos)."""
 
     prompt_system += """
@@ -80,7 +80,7 @@ def generer_contenu(format_type):
 def sauvegarder_json(data, nom_fichier):
     json_final = {
         "date": data["date"],
-        "series": "Tal Día Como Hoy",
+        "series": data.get("series_name", "Tal Día Como Hoy"),
         "hook": data["hook"],
         "narration": data["narration"],
         "caption": data["caption"],
