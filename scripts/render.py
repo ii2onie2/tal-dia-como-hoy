@@ -133,7 +133,7 @@ def main():
     )
 
     if bgs:
-       # --- SÉCURITÉ DURÉE MINIMALE (75 SECONDES) ---
+       # --- SÉCURITÉ DURÉE MINIMALE (72 SECONDES) ---
         if duration < 72.0:
             print(f"⚠️ Durée de {duration:.2f}s trop courte. On étire à 72s.")
             duration = 72.0
@@ -170,7 +170,7 @@ def main():
             )
         parts.append("".join(labels)+f"concat=n={len(beat_bgs)}:v=1:a=0[base]")
         parts.append(
-            f"[base]{subtitle_filter}{branding}{date_overlay}{hook_overlay}{cta_overlay}[vout]"
+            f"[base]{subtitle_filter}{video_filters}{branding}{date_overlay}{hook_overlay}{cta_overlay}[vout]"
         )
         cmd += [
             "-filter_complex",";".join(parts),
