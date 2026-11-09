@@ -72,9 +72,9 @@ def main():
             date_label=f"{dd}/{mm}/{yyyy}"
         except ValueError:
             pass
-    if series == "¿Sabías esto de España?":
+    if series == "¿Sabías que...?" or series == "¿Sabías esto de España?":
         default_cta="Síguenos y descubre cada día algo de España que probablemente no conocías."
-    elif series == "El detalle que casi nadie ve":
+    elif series == "El Detalle que Casi Nadie Ve" or series == "El detalle que casi nadie ve":
         default_cta="Síguenos para descubrir más detalles de España que casi nadie ve."
     else:
         default_cta="Síguenos y descubre cada día una historia de España que probablemente no conocías."
