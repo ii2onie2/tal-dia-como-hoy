@@ -34,18 +34,18 @@ def generer_contenu(format_type):
         Encuentra un evento histórico REAL que ocurrió EXACTAMENTE un {date_espagnole} en España.
         Si no encuentras un evento para esa fecha exacta, elige el más cercano posible en la misma semana.
         El guion debe empezar OBLIGATORIAMENTE por "Tal día como hoy, {date_espagnole}...". El hook debe ser una pregunta o afirmación choc que obligue a ver el video.
-        La narración debe tener entre 200 y 230 palabras (obligatorio, para superar 1 minuto 15 segundos).
+        La narración debe tener entre 240 y 270 palabras (obligatorio, para superar 1 minuto 12 segundos).
         NO inventes eventos."""
     elif format_type == "sabias":
         prompt_system = """Eres un creador de contenido viral para "Tal Día Como Hoy".
         Crea un guion sobre una curiosidad histórica real y sorprendente sobre España.
         Empieza OBLIGATORIAMENTE por "¿Sabías que...?". El hook debe ser una curiosidad sorprendente.
-        La narración debe tener entre 200 y 230 palabras (obligatorio, para superar 1 minuto 15 segundos)."""
+        La narración debe tener entre 240 y 270 palabras (obligatorio, para superar 1 minuto 12 segundos)."""
     else: 
         prompt_system = """Eres un creador de contenido de misterio histórico para "Tal Día Como Hoy".
         Crea un guion sobre un detalle histórico real, poco conocido y fascinante sobre España.
         Empieza OBLIGATORIAMENTE por "El detalle que casi nadie ve...". El hook debe ser un misterio intrigante.
-        La narración debe tener entre 200 y 230 palabras (obligatorio, para superar 1 minuto 15 segundos)."""
+        La narración debe tener entre 240 y 270 palabras (obligatorio, para superar 1 minuto 12 segundos)."""
 
     prompt_system += """
     REGLAS ADICIONALES:
@@ -68,7 +68,7 @@ def generer_contenu(format_type):
         # Vérification de la longueur
         mots = len(data['narration'].split())
         print(f"Longueur de la narration : {mots} mots.")
-        if mots < 190:
+        if mots < 230:
             print("⚠️ Texte trop court, on ajoute une conclusion pour rallonger.")
             data['narration'] += " Si te ha gustado esta historia, no olvides seguirnos para descubrir cada día un nuevo episodio de la historia de España. ¡Nos vemos en el próximo vídeo!"
             
