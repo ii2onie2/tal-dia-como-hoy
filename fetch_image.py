@@ -8,12 +8,56 @@ import requests
 
 EUROPEANA_KEY = os.environ.get("EUROPEANA_API_KEY")
 
+# Dictionnaire de traduction (Espagnol -> Anglais) pour matcher les noms de fichiers
+TRANSLATIONS = {
+    "espada": "sword", "rey": "king", "reina": "queen",
+    "batalla": "battle", "castillo": "castle", "iglesia": "church",
+    "barco": "ship", "muerte": "death", "oro": "gold", "libro": "book",
+    "pintura": "painting", "retrato": "portrait", "soldado": "soldier",
+    "guerra": "war", "corona": "crown", "inquisicion": "inquisition",
+    "teatro": "theater", "palacio": "palace", "biblioteca": "library",
+    "mosaico": "mosaic", "olimpiadas": "olympic", "caballo": "horse",
+    "flor": "flower", "arbol": "tree", "agua": "water",
+    "arquitectura": "architecture", "escultura": "sculpture",
+    "puente": "bridge", "torre": "tower", "muralla": "wall",
+    "escudo": "shield", "bandera": "flag", "reloj": "clock",
+    "trafalgar": "trafalgar", "goya": "goya", "alhambra": "alhambra",
+    "segovia": "segovia", "acueducto": "aqueduct", "catedral": "cathedral",
+    "giralda": "giralda", "sevilla": "sevilla", "salamanca": "salamanca",
+    "granada": "granada", "madrid": "madrid", "toledo": "toledo"
+}
+
+def search_by_filename(text_to_search):
+    """Cherche une image dont le nom contient un mot-clé du texte."""
+    assets_dir = pathlib.Path("assets/history")
+    if not assets_dir.exists():
+        return None
+    
+    search_terms = []
+    for es_word, en_word in TRANSLATIONS.items():
+        if es_word in text_to_search:
+            search_terms.append(en_word)
+    
+    if not search_terms:
+        return None
+    
+    matching_images = []
+    for img in assets_dir.glob("*.jpg"):
+        img_name_lower = img.name.lower()
+        for term in search_terms:
+            if term in img_name_lower:
+                matching_images.append(img)
+                break
+    
+    if matching_images:
+        return random.choice(matching_images)
+    return None
+
 def search_europeana(query):
     """Cherche une image libre de droits sur Europeana."""
     if not EUROPEANA_KEY:
         print("⚠️ Pas de clé EUROPEANA_API_KEY.")
         return None
-    
     url = "https://api.europeana.eu/record/v2/search.json"
     params = {
         "wskey": EUROPEANA_KEY,
@@ -23,24 +67,17 @@ def search_europeana(query):
         "qf": "TYPE:IMAGE",
         "rows": 5
     }
-    
     try:
         r = requests.get(url, params=params, timeout=30)
         r.raise_for_status()
         data = r.json()
-        
         items = data.get("items", [])
-        if not items:
-            print(f"⚠️ Aucun résultat Europeana pour : {query}")
-            return None
-            
         for item in items:
             image_url = item.get("edmIsShownBy", [None])[0]
             if image_url:
                 title = item.get("title", ["Sans titre"])[0]
                 print(f"✅ Image Europeana : {title[:50]}...")
                 return image_url
-                
     except Exception as e:
         print(f"❌ Erreur Europeana : {e}")
     return None
@@ -60,12 +97,17 @@ def get_best_image(narration, hook, media_prompt=""):
                 shutil.copy(image_path, final_path)
                 return final_path
     
-    # NIVEAU 2 : Recherche Europeana (libre de droits)
-    # On utilise le media_prompt (en anglais) ou le hook
+    # NIVEAU 1.5 : Recherche par nom de fichier (Google Flow)
+    img = search_by_filename(text_to_search)
+    if img:
+        print(f"✅ [Nom de fichier] {img.name}")
+        shutil.copy(img, final_path)
+        return final_path
+    
+    # NIVEAU 2 : Recherche Europeana
     query = media_prompt if media_prompt else hook.split(":")[0].strip()
     if len(query) > 80:
         query = query[:80]
-    
     image_url = search_europeana(query)
     if image_url:
         try:
@@ -76,7 +118,7 @@ def get_best_image(narration, hook, media_prompt=""):
         except Exception as e:
             print(f"❌ Erreur téléchargement : {e}")
     
-    # NIVEAU 3 : Hasard dans assets/history
+    # NIVEAU 3 : Hasard
     images = list(pathlib.Path("assets/history").glob("*.jpg"))
     if images:
         selected = random.choice(images)
