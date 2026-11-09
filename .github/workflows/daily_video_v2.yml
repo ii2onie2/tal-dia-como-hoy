@@ -82,7 +82,7 @@ jobs:
       - name: Publish to Buffer
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-        run: python publier.py "$CONTENT_FILE" "$VIDEO_URL"
+        run: python publier.py tal "$CONTENT_FILE" "$VIDEO_URL"
 
       - name: Commit and Push History
         run: |
