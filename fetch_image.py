@@ -34,6 +34,21 @@ TRANSLATIONS = {
     "zurbaran": "zurbaran", "picasso": "picasso", "dalí": "dali"
 }
 
+def get_recent_images():
+    """Lit l'historique des 10 dernières images utilisées."""
+    history_file = pathlib.Path("last_images.txt")
+    if history_file.exists():
+        return history_file.read_text(encoding="utf-8").splitlines()[-10:]
+    return []
+
+def add_to_history(image_name):
+    """Ajoute une image à l'historique."""
+    history_file = pathlib.Path("last_images.txt")
+    recent = get_recent_images()
+    recent.append(image_name)
+    history_file.write_text("
+".join(recent[-10:]), encoding="utf-8")
+
 def search_by_filename(text_to_search):
     """Cherche une image dont le nom contient un mot-clé du texte."""
     assets_dir = pathlib.Path("assets/history")
@@ -48,8 +63,11 @@ def search_by_filename(text_to_search):
     if not search_terms:
         return None
     
+    recent = get_recent_images()
     matching_images = []
     for img in assets_dir.glob("*.jpg"):
+        if img.name in recent:
+            continue
         img_name_lower = img.name.lower()
         for term in search_terms:
             if term in img_name_lower:
@@ -109,6 +127,7 @@ def get_best_image(narration, hook, media_prompt=""):
     if img:
         print(f"✅ [Nom de fichier] {img.name}")
         shutil.copy(img, final_path)
+        add_to_history(img.name)
         return final_path
     
     # NIVEAU 2 : Recherche Europeana
