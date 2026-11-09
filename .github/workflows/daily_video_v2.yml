@@ -2,46 +2,6 @@ name: Daily History Video (Tal Día)
 
 on:
   schedule:
-    - cron: '0 7 * * *'   # 7h UTC -> Vidéo 1 (Tal Día Como Hoy)
-    - cron: '0 14 * * *'  # 14h UTC -> Vidéo 2 (¿Sabías que...?)
-    - cron: '0 18 * * *'  # 18h UTC -> Vidéo 3 (El detalle...)
-  workflow_dispatch:
-
-jobs:
-  generate-and-publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-dejavu-core wget git build-essential autoconf automake libtool pkg-config
-          pip install -r requirements.txt
-
-      - name: Install espeak-ng from source
-        run: |
-          git clone --depth 1 https://github.com/rhasspy/espeak-ng.git
-          cd espeak-ng
-          ./autogen.sh && ./configure --prefix=/usr && make -j$(nproc) && sudo make install && sudo ldconfig
-
-      - name: Install Piper TTS
-        run: |
-          wget https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_linux_x86_64.tar.gz
-          tar -xzf piper_linux_x86_64.tar.gz
-          sudo cp piper/piper /usr/local/bin/
-          sudo cp piper/libpiper_phonemize.so* /usr/lib/ 2>/dev/null || true
-          sudo cp piper/libonnxruntime.so* /usr/liecho "CONTENT_FILE=content/episode_$(date +%Y%m%d_%H%M%S).json" >> $GITHUB_ENV
-name: Daily History Video (Tal Día)
-
-on:
-  schedule:
     - cron: '0 7, 14, 18 * * *'
   workflow_dispatch:
 
@@ -88,6 +48,15 @@ jobs:
       - name: Generate Content
         run: |
           ollama serve &
+          for i in $(seq 1 30); do
+            if curl -s http://localhost:11434/api/tags > /dev/null; then break; fi
+            sleep 2
+          done
+          ollama pull llama3.2:3b
+          export CONTENT_FILE=content/episode_$(date +%Y%m%d_%H%M%S).json
+          echo "CONTENT_FILE=$CONTENT_FILE" >> $GITHUB_ENV
+          python generer_script.py "$CONTENT_FILE"
+
       - name: Fetch Image
         env:
           EUROPEANA_API_KEY: ${{ secrets.EUROPEANA_API_KEY }}
