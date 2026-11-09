@@ -1,0 +1,31 @@
+name: Keep Alive
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check days since last commit
+        id: check
+        run: |
+          LAST_COMMIT=$(git log -1 --format=%ct)
+          NOW=$(date +%s)
+          DAYS=$(( (NOW - LAST_COMMIT) / 86400 ))
+          echo "days=$DAYS" >> $GITHUB_OUTPUT
+          echo "Jours depuis le dernier commit : $DAYS"
+
+      - name: Create empty commit if needed
+        if: steps.check.outputs.days >= 55
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: keep alive [$(date -u +'%Y-%m-%d')]"
+          git push
