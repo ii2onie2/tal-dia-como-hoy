@@ -106,6 +106,7 @@ def main():
         "force_style='FontName=DejaVu Sans,FontSize=18,Outline=2,Shadow=0,"
         "Alignment=2,MarginV=120'"
     )
+    video_filters = ",noise=alls=18:allf=t,eq=saturation=1.25:contrast=1.18"
     hook_end=min(4.5,max(2.5,duration*0.12))
     cta_start=max(0.0,duration-5.5)
     branding=(
@@ -177,6 +178,7 @@ def main():
             "-t",f"{duration:.3f}",
             "-c:v","libx264","-preset","medium","-crf","21",
             "-c:a","aac","-b:a","192k","-pix_fmt","yuv420p",
+            "-af","loudnorm=I=-14:TP=-1.5:LRA=11",
             "-movflags","+faststart",video
         ]
         run(cmd)
