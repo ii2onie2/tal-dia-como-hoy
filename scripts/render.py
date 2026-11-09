@@ -51,7 +51,7 @@ def main():
     wav=str(out/"voice.wav")
     if not args.voice_model:
         raise SystemExit("PIPER_VOICE_MODEL absent")
-    cmd=["piper","--model",args.voice_model,"--output_file",wav]
+    cmd=["piper","--model",args.voice_model,"--config",args.voice_model+".json","--output_file",wav]
     if args.voice_config:
         cmd += ["--config",args.voice_config]
     narration = narration.replace("*", "").replace("#", "").replace("_", "").replace("`", "").replace("’", "\x27")
