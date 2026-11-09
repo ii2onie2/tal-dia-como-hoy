@@ -87,3 +87,13 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: |
           python publier.py tal "$CONTENT_FILE" "$VIDEO_URL"
+      - name: Commit image history
+        run: |
+          if [ -f last_images.txt ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add last_images.txt
+            git commit -m "chore: update image history [skip ci]" || echo "No changes"
+            git push
+          fi
+
