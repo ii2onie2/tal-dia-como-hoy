@@ -17,9 +17,6 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-      - name: Install FFmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
         run: |
           python -m pip install --upgrade pip
           pip install requests ollama
