@@ -176,8 +176,8 @@ def main():
             "-filter_complex",";".join(parts),
             "-map","[vout]","-map",f"{audio_index}:a",
             "-t",f"{duration:.3f}",
-            "-c:v","libx264","-preset","medium","-crf","21",
-            "-c:a","aac","-b:a","192k","-pix_fmt","yuv420p",
+            "-c:v","libx264","-preset","medium","-crf","25",
+            "-c:a","aac","-b:a","128k","-pix_fmt","yuv420p",
             "-af","loudnorm=I=-14:TP=-1.5:LRA=11",
             "-movflags","+faststart",video
         ]
