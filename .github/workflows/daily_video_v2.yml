@@ -94,6 +94,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add last_images.txt
             git commit -m "chore: update image history [skip ci]" || echo "No changes"
+            git pull --rebase origin main
             git push
           fi
 
