@@ -49,23 +49,6 @@ jobs:
       - name: Install Ollama
         run: curl -fsSL https://ollama.com/install.sh | sh
 
-      - name: Generate Content
-        run: |
-          ollama serve &
-          for i in $(seq 1 30); do
-            if curl -s http://localhost:11434/api/tags > /dev/null; then break; fi
-            sleep 2
-          done
-          ollama pull llama3.2:3b
-          echo "CONTENT_FILE=content/episode_$(date +%Y%m%d_%H%M%S).json" >> $GITHUB_ENV
-          python generer_script.py "$CONTENT_FILE"
-
-      - name: Set Content File Name
-        run: echo "CONTENT_FILE=content/episode_$(date +%Y%m%d_%H%M%S).json" >> $GITHUB_ENV
-
-      - name: Generate Content
-        run: python generer_script.py "$CONTENT_FILE"
-
       - name: Fetch Image
         env:
           EUROPEANA_API_KEY: ${{ secrets.EUROPEANA_API_KEY }}
