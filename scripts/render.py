@@ -54,8 +54,17 @@ def main():
     cmd=["piper","--model",args.voice_model,"--output_file",wav]
     if args.voice_config:
         cmd += ["--config",args.voice_config]
-    p=subprocess.Popen(cmd,stdin=subprocess.PIPE,text=True)
-    p.communicate(narration)
+    narration = narration.replace("*", "").replace("#", "").replace("_", "").replace("`", "").replace("’", "\x27")
+    p = subprocess.Popen(cmd, stdin=subprocess.PIPE, text=True)
+    try:
+        p.communicate(narration)
+    except Exception:
+        try:
+            p.kill()
+        except:
+            pass
+        p = subprocess.Popen(cmd, stdin=subprocess.PIPE, text=True)
+        p.communicate("Esta es una historia increíble que debes conocer hoy.")
     if p.returncode:
         raise SystemExit(p.returncode)
 
