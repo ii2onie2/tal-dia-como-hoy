@@ -64,6 +64,7 @@ jobs:
 
       - name: Render Video
         env:
+          ESPEAK_DATA_PATH: /usr/share/espeak-ng-data
           PIPER_VOICE_MODEL: "voices/es_ES-sharvard-medium.onnx"
         run: python scripts/render.py --content "$CONTENT_FILE" --out final_video
 
