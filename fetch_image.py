@@ -8,7 +8,6 @@ import requests
 
 EUROPEANA_KEY = os.environ.get("EUROPEANA_API_KEY")
 
-# Dictionnaire de traduction (Espagnol -> Anglais) pour matcher les noms de fichiers
 TRANSLATIONS = {
     "espada": "sword", "rey": "king", "reina": "queen",
     "batalla": "battle", "castillo": "castle", "iglesia": "church",
@@ -25,32 +24,26 @@ TRANSLATIONS = {
     "segovia": "segovia", "acueducto": "aqueduct", "catedral": "cathedral",
     "giralda": "giralda", "sevilla": "sevilla", "salamanca": "salamanca",
     "granada": "granada", "madrid": "madrid", "toledo": "toledo",
-    "acueducto": "aqueduct", "catedral": "cathedral", "alcazar": "alcazar",
-    "mezquita": "mosque", "sinagoga": "synagogue", "muralla": "wall",
+    "alcazar": "alcazar", "mezquita": "mosque", "sinagoga": "synagogue",
     "puerta": "gate", "plaza": "square", "fuente": "fountain",
-    "jardin": "garden", "patio": "courtyard", "torre": "tower",
-    "palacio_real": "royal_palace", "escorial": "escorial", "prado": "prado",
-    "velazquez": "velazquez", "el_greco": "el_greco", "murillo": "murillo",
-    "zurbaran": "zurbaran", "picasso": "picasso", "dalí": "dali"
+    "jardin": "garden", "patio": "courtyard", "escorial": "escorial",
+    "prado": "prado", "velazquez": "velazquez", "el_greco": "el_greco",
+    "murillo": "murillo", "zurbaran": "zurbaran", "picasso": "picasso"
 }
 
 def get_recent_images():
-    """Lit l'historique des 10 dernières images utilisées."""
     history_file = pathlib.Path("last_images.txt")
     if history_file.exists():
         return history_file.read_text(encoding="utf-8").splitlines()[-10:]
     return []
 
 def add_to_history(image_name):
-    """Ajoute une image à l'historique."""
     history_file = pathlib.Path("last_images.txt")
     recent = get_recent_images()
     recent.append(image_name)
-    history_file.write_text("
-".join(recent[-10:]), encoding="utf-8")
+    history_file.write_text("\n".join(recent[-10:]), encoding="utf-8")
 
 def search_by_filename(text_to_search):
-    """Cherche une image dont le nom contient un mot-clé du texte."""
     assets_dir = pathlib.Path("assets/history")
     if not assets_dir.exists():
         return None
@@ -79,9 +72,7 @@ def search_by_filename(text_to_search):
     return None
 
 def search_europeana(query):
-    """Cherche une image libre de droits sur Europeana."""
     if not EUROPEANA_KEY:
-        print("⚠️ Pas de clé EUROPEANA_API_KEY.")
         return None
     url = "https://api.europeana.eu/record/v2/search.json"
     params = {
@@ -100,8 +91,7 @@ def search_europeana(query):
         for item in items:
             image_url = item.get("edmIsShownBy", [None])[0]
             if image_url:
-                title = item.get("title", ["Sans titre"])[0]
-                print(f"✅ Image Europeana : {title[:50]}...")
+                print(f"✅ Image Europeana : {item.get('title', ['?'])[0][:50]}...")
                 return image_url
     except Exception as e:
         print(f"❌ Erreur Europeana : {e}")
@@ -113,16 +103,15 @@ def get_best_image(narration, hook, media_prompt=""):
     media_dir.mkdir(exist_ok=True)
     final_path = media_dir / "image_01.jpg"
     
-    # NIVEAU 1 : Sujets manuels (sujets.json)
     if pathlib.Path("sujets.json").exists():
         sujets = json.loads(pathlib.Path("sujets.json").read_text(encoding="utf-8"))
         for keyword, image_path in sujets.items():
             if keyword in text_to_search and pathlib.Path(image_path).exists():
-                print(f"✅ [Manuel] {keyword} -> {image_path}")
+                print(f"✅ [Manuel] {keyword}")
                 shutil.copy(image_path, final_path)
+                add_to_history(pathlib.Path(image_path).name)
                 return final_path
     
-    # NIVEAU 1.5 : Recherche par nom de fichier (Google Flow)
     img = search_by_filename(text_to_search)
     if img:
         print(f"✅ [Nom de fichier] {img.name}")
@@ -130,7 +119,6 @@ def get_best_image(narration, hook, media_prompt=""):
         add_to_history(img.name)
         return final_path
     
-    # NIVEAU 2 : Recherche Europeana
     query = media_prompt if media_prompt else hook.split(":")[0].strip()
     if len(query) > 80:
         query = query[:80]
@@ -144,12 +132,12 @@ def get_best_image(narration, hook, media_prompt=""):
         except Exception as e:
             print(f"❌ Erreur téléchargement : {e}")
     
-    # NIVEAU 3 : Hasard
     images = list(pathlib.Path("assets/history").glob("*.jpg"))
     if images:
         selected = random.choice(images)
         print(f"⚠️ [Hasard] {selected.name}")
         shutil.copy(selected, final_path)
+        add_to_history(selected.name)
         return final_path
     
     return None
