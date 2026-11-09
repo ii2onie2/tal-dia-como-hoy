@@ -17,7 +17,16 @@ schema = {
     "required": ["date", "hook", "narration", "caption", "hashtags", "media_prompt"]
 }
 
+def get_series_name(format_type):
+    if format_type == "date":
+        return "Un Día en la Historia"
+    elif format_type == "sabias":
+        return "¿Sabías que...?"
+    else:
+        return "El Detalle que Casi Nadie Ve"
+
 def generer_contenu(format_type):
+    series_name = get_series_name(format_type)
     print(f"Génération du script ({format_type})...")
     
     if format_type == "date":
@@ -72,6 +81,7 @@ def generer_contenu(format_type):
             print("⚠️ Texte trop court, on ajoute une conclusion pour rallonger.")
             data['narration'] += " Si te ha gustado esta historia, no olvides seguirnos para descubrir cada día un nuevo episodio de la historia de España. ¡Nos vemos en el próximo vídeo!"
             
+        data["series_name"] = series_name
         return data
     except Exception as e:
         print(f"\n❌ ERREUR OLLAMA : {e}\n")

@@ -63,7 +63,7 @@ def main():
     srt=str(out/"subtitles.srt")
     make_srt(narration,duration,srt)
 
-    series=(data.get("series") or "Tal Día Como Hoy").strip()
+    series=(data.get("series_name") or data.get("series") or "Tal Día Como Hoy").strip()
     hook=(data.get("hook") or "").strip()
     date_label=(data.get("date") or "").strip()
     if date_label:
