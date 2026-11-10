@@ -46,20 +46,23 @@ def main():
     if not args.voice_model:
         raise SystemExit("PIPER_VOICE_MODEL absent")
 
-    # === CORRECTION AUDIO : Nettoyage pour Piper ===
-    # 1. On nettoie les caractères spéciaux qui font planter Piper
+    # === CORRECTION AUDIO : Nettoyage + Fallback ===
     narration_clean = re.sub(r'[^\w\s,\.\!\?\;\:\-\'\"\(\)]', '', narration)
-    # 2. On remplace les apostrophes typographiques par des apostrophes simples
     narration_clean = narration_clean.replace("’", "'").replace("“", '"').replace("”", '"')
+    narration_clean = narration_clean.encode('ascii', 'ignore').decode('ascii')
 
     cmd = ["piper", "--model", args.voice_model, "--output_file", wav]
     if args.voice_config:
         cmd += ["--config", args.voice_config]
 
-    p = subprocess.Popen(cmd, stdin=subprocess.PIPE, text=True)
-    p.communicate(narration_clean)
-    if p.returncode:
-        raise SystemExit(p.returncode)
+    try:
+        p = subprocess.Popen(cmd, stdin=subprocess.PIPE, text=True)
+        p.communicate(narration_clean)
+        if p.returncode != 0:
+            raise Exception("Piper a crashé")
+    except Exception as e:
+        print(f"⚠️ Piper a échoué, bascule sur espeak-ng. Erreur: {e}")
+        subprocess.run(["espeak-ng", "-v", "es", "-s", "150", "-w", wav, narration_clean], check=True)
 
     duration = probe_duration(wav)
     srt = str(out / "subtitles.srt")
