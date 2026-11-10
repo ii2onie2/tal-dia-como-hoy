@@ -90,5 +90,5 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add last_images.txt content/*.json || true
           git commit -m "chore: update history and content [skip ci]" || true
-          git pull --rebase
+          git pull --rebase -X theirs
           git push
