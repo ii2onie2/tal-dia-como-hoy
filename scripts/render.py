@@ -1,4 +1,15 @@
-import argparse, json, math, os, pathlib, subprocess, textwrap, re
+import argparse, json, math, os, pathlib, subprocess, textwrap, re, sys
+
+# Installation automatique de Kokoro
+try:
+    import kokoro
+except ImportError:
+    subprocess.run([sys.executable, "-m", "pip", "install", "kokoro>=0.9.2", "soundfile"], check=True)
+    import kokoro
+
+from kokoro import KPipeline
+import soundfile as sf
+import numpy as np
 
 def probe_duration(path):
     p = subprocess.run(
@@ -29,8 +40,6 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--content", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--voice-model", default=os.environ.get("PIPER_VOICE_MODEL"))
-    ap.add_argument("--voice-config", default=os.environ.get("PIPER_VOICE_CONFIG"))
     args = ap.parse_args()
 
     out = pathlib.Path(args.out)
@@ -43,30 +52,29 @@ def main():
     narration = re.sub(r'\s+', ' ', narration).strip()
 
     wav = str(out / "voice.wav")
-    if not args.voice_model:
-        raise SystemExit("PIPER_VOICE_MODEL absent")
 
-    # === CORRECTION AUDIO : Nettoyage + Fallback ===
-    narration_clean = re.sub(r'[^\w\s,\.\!\?\;\:\-\'\"\(\)]', '', narration)
-    narration_clean = narration_clean.replace("’", "'").replace("“", '"').replace("”", '"')
-    narration_clean = narration_clean.encode('ascii', 'ignore').decode('ascii')
+    # === MOTEUR KOKORO (Qualité Studio) ===
+    print("Initialisation de Kokoro...")
+    pipeline = KPipeline(lang_code='e') # 'e' pour l'espagnol
+    
+    # Voix espagnole naturelle (ef_dora = femme, em_alex = homme)
+    voice = 'ef_dora' 
+    
+    print("Génération audio avec Kokoro...")
+    generator = pipeline(narration, voice=voice, speed=1.0)
+    
+    all_audio = []
+    sample_rate = 24000
+    for _, _, audio in generator:
+        all_audio.append(audio)
 
-    cmd = ["piper", "--model", args.voice_model, "--output_file", wav]
-    if args.voice_config:
-        cmd += ["--config", args.voice_config]
-
-    try:
-        p = subprocess.Popen(cmd, stdin=subprocess.PIPE, text=True)
-        p.communicate(narration_clean)
-        if p.returncode != 0:
-            raise Exception("Piper a crashé")
-    except Exception as e:
-        print(f"⚠️ Piper a échoué, bascule sur espeak-ng. Erreur: {e}")
-        subprocess.run(["espeak-ng", "-v", "es", "-s", "150", "-w", wav, narration_clean], check=True)
+    final_audio = np.concatenate(all_audio)
+    sf.write(wav, final_audio, sample_rate)
+    print("Audio généré avec Kokoro.")
 
     duration = probe_duration(wav)
     srt = str(out / "subtitles.srt")
-    make_srt(narration_clean, duration, srt)
+    make_srt(narration, duration, srt)
 
     series = (data.get("series_name") or data.get("series") or "Tal Día Como Hoy").strip()
     hook = (data.get("hook") or "").strip()
@@ -126,7 +134,7 @@ def main():
 
     (out / "caption.txt").write_text(narration, encoding="utf-8")
     (out / "sources.json").write_text(json.dumps([], ensure_ascii=False), encoding="utf-8")
-    print(f"Vidéo générée : {video_out}")
+    print(f"Vidéo générée avec Kokoro : {video_out}")
 
 if __name__ == "__main__":
     main()
