@@ -1,0 +1,20 @@
+{
+  "date": "2023-12-20",
+  "series": "¿Sabías que...?",
+  "hook": "¿Sabías que en 1506, Francisco Pizarro capturó al Imperio Inca en solo 3 meses?",
+  "narration": "En el mundo de las curiosidades históricas, hay un hecho que nos deja atónitos. ¿Sabías que Francisco Pizarro, el conquistador peruano, logró capturar al Imperio Inca en un período de solo 3 meses? ¡Eso es lo que vamos a explorar hoy! Si te ha gustado esta historia, no olvides seguirnos para descubrir cada día un nuevo episodio de la historia de España. ¡Nos vemos en el próximo vídeo!",
+  "caption": "Francisco Pizarro, el conquistador peruano que cambió la historia de América del Sur.",
+  "hashtags": [
+    "francisco pizarro",
+    "imperio inca",
+    "conquista española",
+    "historia de América"
+  ],
+  "media": [
+    {
+      "path": "media/image_01.jpg"
+    }
+  ],
+  "format": "chronological_event",
+  "duration_target": "75-90s"
+}
