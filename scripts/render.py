@@ -1,15 +1,11 @@
-import argparse, json, math, os, pathlib, subprocess, textwrap, re, sys
+import argparse, json, math, os, pathlib, subprocess, textwrap, re, sys, asyncio
 
-# Installation automatique de Kokoro
+# Installation automatique d'edge-tts
 try:
-    import kokoro
+    import edge_tts
 except ImportError:
-    subprocess.run([sys.executable, "-m", "pip", "install", "kokoro>=0.9.2", "soundfile"], check=True)
-    import kokoro
-
-from kokoro import KPipeline
-import soundfile as sf
-import numpy as np
+    subprocess.run([sys.executable, "-m", "pip", "install", "edge-tts"], check=True)
+    import edge_tts
 
 def probe_duration(path):
     p = subprocess.run(
@@ -36,6 +32,13 @@ def make_srt(text, duration, out):
 def ffpath(p):
     return str(p).replace("'", "'\\''").replace(":", "\\:")
 
+async def generate_audio(text, output_path):
+    # Voix espagnole (Espagne) naturelle
+    # Autres options : "es-ES-ElviraNeural" (femme), "es-MX-JorgeNeural" (Mexique)
+    voice = "es-ES-AlvaroNeural"
+    communicate = edge_tts.Communicate(text, voice)
+    await communicate.save(output_path)
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--content", required=True)
@@ -51,26 +54,11 @@ def main():
         raise SystemExit("Narration vide")
     narration = re.sub(r'\s+', ' ', narration).strip()
 
-    wav = str(out / "voice.wav")
+    wav = str(out / "voice.mp3")
 
-    # === MOTEUR KOKORO (Qualité Studio) ===
-    print("Initialisation de Kokoro...")
-    pipeline = KPipeline(lang_code='e') # 'e' pour l'espagnol
-    
-    # Voix espagnole naturelle (ef_dora = femme, em_alex = homme)
-    voice = 'ef_dora' 
-    
-    print("Génération audio avec Kokoro...")
-    generator = pipeline(narration, voice=voice, speed=1.0)
-    
-    all_audio = []
-    sample_rate = 24000
-    for _, _, audio in generator:
-        all_audio.append(audio)
-
-    final_audio = np.concatenate(all_audio)
-    sf.write(wav, final_audio, sample_rate)
-    print("Audio généré avec Kokoro.")
+    print("Génération audio avec Edge TTS...")
+    asyncio.run(generate_audio(narration, wav))
+    print("Audio généré.")
 
     duration = probe_duration(wav)
     srt = str(out / "subtitles.srt")
@@ -134,7 +122,7 @@ def main():
 
     (out / "caption.txt").write_text(narration, encoding="utf-8")
     (out / "sources.json").write_text(json.dumps([], ensure_ascii=False), encoding="utf-8")
-    print(f"Vidéo générée avec Kokoro : {video_out}")
+    print(f"Vidéo générée avec Edge TTS : {video_out}")
 
 if __name__ == "__main__":
     main()
