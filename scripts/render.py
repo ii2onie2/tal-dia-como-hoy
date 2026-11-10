@@ -94,8 +94,16 @@ def main():
 
     video_out = out / "video.mp4"
 
+    # === CORRECTION IMAGE : On récupère le chemin depuis le JSON ===
+    image_path = data.get("image", "assets/history/sources/current.jpg")
+    if not os.path.exists(image_path):
+        # Si le chemin du JSON ne fonctionne pas, on cherche l'image par défaut
+        image_path = "media/image_01.jpg"
+        if not os.path.exists(image_path):
+            raise SystemExit(f"Image introuvable : {image_path}")
+
     cmd_ffmpeg = [
-        "ffmpeg", "-y", "-loop", "1", "-i", "assets/history/sources/current.jpg",
+        "ffmpeg", "-y", "-loop", "1", "-i", image_path,
         "-i", wav,
         "-filter_complex",
         f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
