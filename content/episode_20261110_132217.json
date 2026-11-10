@@ -1,0 +1,21 @@
+{
+  "date": "2023-12-01",
+  "series": "¿Sabías que...?",
+  "hook": "¿Sabías que la ciudad de Segovia en España fue el modelo inspirador para la ciudad de Disney en Estados Unidos?",
+  "narration": "En la historia de la arquitectura, hay muchas curiosidades sorprendentes que pueden cambiar nuestra forma de ver el mundo. Una de ellas es la conexión entre la ciudad de Segovia en España y la ciudad de Disney en Estados Unidos. ¿Sabías que la ciudad de Segovia fue el modelo inspirador para la ciudad de Disney? Si te ha gustado esta historia, no olvides seguirnos para descubrir cada día un nuevo episodio de la historia de España. ¡Nos vemos en el próximo vídeo!",
+  "caption": "La ciudad de Segovia, conocida por su imponente castillo, fue un modelo de inspiración para los diseñadores de Disney. La ciudad de Disney, ubicada en la Florida, cuenta con una réplica exacta del castillo de Segovia, incluyendo su arquitectura y detalles.",
+  "hashtags": [
+    "#Segovia",
+    "#Disney",
+    "#Arquitectura",
+    "#Historia",
+    "#Conexión"
+  ],
+  "media": [
+    {
+      "path": "media/image_01.jpg"
+    }
+  ],
+  "format": "chronological_event",
+  "duration_target": "75-90s"
+}
