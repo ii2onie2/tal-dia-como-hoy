@@ -31,12 +31,13 @@ def publier(chaîne, json_path, url_video):
     # Échappement du texte
     texte_echappe = json.dumps(texte_final)
 
-    # Requête GraphQL Buffer avec le champ "mode"
+    # Requête GraphQL Buffer avec les DEUX champs obligatoires
     query = f"""
     mutation {{
       createPost(input: {{
         channelId: "{channel_id}",
         text: {texte_echappe},
+        schedulingType: automatic,
         mode: addToQueue,
         assets: {{
           video: {{
