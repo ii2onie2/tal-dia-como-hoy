@@ -1,10 +1,11 @@
-import sys, json, os, datetime, requests
+import sys, json, os, datetime, requests, random
 
 def get_format():
     h = datetime.datetime.utcnow().hour
-    if h < 10: return "date"
-    elif h < 16: return "sabias"
-    else: return "detail"
+    # Ajusté pour les horaires UTC (7h, 14h, 18h)
+    if h < 12: return "date"      # 7h UTC -> Tal Día
+    elif h < 16: return "sabias"  # 14h UTC -> ¿Sabías que...?
+    else: return "detail"         # 18h UTC -> El detalle
 
 def call_ollama(prompt):
     url = "http://localhost:11434/api/generate"
@@ -31,15 +32,24 @@ def main():
     fmt = get_format()
     print(f"Heure UTC : {datetime.datetime.utcnow().hour}h. Format choisi : {fmt}")
 
-    # Règle absolue pour éviter le crash de Piper
-    rules = "RÈGLE ABSOLUE : N'utilise AUCUN mot en anglais, AUCUN symbole mathématique, AUCUNE émoticône. Écris uniquement en espagnol simple et littéraire, avec des phrases courtes. N'utilise pas de caractères spéciaux, uniquement des lettres, des chiffres et de la ponctuation de base (virgule, point, point d'interrogation, point d'exclamation)."
+    # Règles absolues : voix propre + durée minimale (150 mots = ~1m15)
+    rules = (
+        "RÈGLE ABSOLUE 1 : N'utilise AUCUN mot en anglais, AUCUN symbole mathématique, AUCUNE émoticône. "
+        "Écris uniquement en espagnol simple et littéraire, avec des phrases courtes.\n"
+        "RÈGLE ABSOLUE 2 : La narration DOIT faire au moins 150 mots pour durer plus d'1 minute 15. "
+        "Développe les faits, donne des détails, raconte une petite histoire."
+    )
 
     if fmt == "date":
-        prompt = f"Tu es un historien. Écris une narration pour TikTok sur un événement historique survenu le {datetime.date.today().strftime('%d/%m')} en Espagne. Sois captivant. {rules}"
+        # Sujet : Événement historique du jour
+        today_str = datetime.date.today().strftime('%d/%m')
+        prompt = f"Tu es un historien. Écris une narration pour TikTok sur un événement historique survenu le {today_str} en Espagne. Sois captivant. {rules}"
     elif fmt == "sabias":
-        prompt = f"Tu es un vulgarisateur. Écris une narration TikTok '¿Sabías que...?' sur un fait surprenant de l'histoire espagnole. Sois captivant. {rules}"
+        # Sujet : Anecdote / Curiosité (on force un thème différent de l'événement du jour)
+        prompt = f"Tu es un vulgarisateur. Écris une narration TikTok '¿Sabías que...?' sur une anecdote historique étonnante, une curiosité ou un fait peu connu de l'histoire de l'Espagne. Ne parle PAS de l'événement principal du jour, choisis un autre sujet. Sois captivant. {rules}"
     else:
-        prompt = f"Tu es un conteur. Écris une narration TikTok 'El detalle que casi nadie ve...' sur un détail méconnu de l'histoire espagnole. Sois captivant. {rules}"
+        # Sujet : Détail méconnu (monument, œuvre, tradition)
+        prompt = f"Tu es un conteur. Écris une narration TikTok 'El detalle que casi nadie ve...' sur un détail historique méconnu, caché dans un monument, une œuvre d'art ou une tradition espagnole. Ne parle PAS de l'événement principal du jour, choisis un autre sujet. Sois captivant. {rules}"
 
     print("Génération du script...")
     text = call_ollama(prompt)
@@ -47,9 +57,14 @@ def main():
     if not text:
         text = "No se pudo generar el texto. Inténtalo de nuevo más tarde."
 
-    # Nettoyage supplémentaire du texte
+    # Nettoyage supplémentaire
     text = text.replace('"', "'").replace('“', "'").replace('”', "'").replace('’', "'")
-    
+
+    # On force une longueur minimale si l'IA n'a pas assez écrit
+    if len(text.split()) < 120:
+        print("⚠️ Texte trop court, on ajoute une conclusion pour rallonger.")
+        text += "\n\nEn resumen, este es uno de los episodios más fascinantes de la historia de España, un recordatorio de cómo el pasado sigue moldeando nuestro presente."
+
     data = {
         "narration": text,
         "series_name": "Tal Día Como Hoy",
