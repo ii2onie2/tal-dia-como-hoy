@@ -1,9 +1,10 @@
 import sys, json, os, requests
 
 BUFFER_API_KEY = os.environ.get("BUFFER_API_KEY")
+# IDs inversés pour que "tal" pointe vers taldiacomohoy09
 CHANNELS = {
-    "tal": "6ae072482f1f5ed648e82143",
-    "perro": "6ae072482f1f5ed648e82144"
+    "tal": "6ae072482f1f5ed648e82144",
+    "perro": "6ae072482f1f5ed648e82143"
 }
 
 def publier(chaîne, json_path, url_video):
