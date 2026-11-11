@@ -23,23 +23,21 @@ def publier(chaîne, json_path, url_video):
         print(f"Erreur lecture JSON : {e}")
         sys.exit(1)
 
-    # Lecture du texte (narration ou caption)
+    # Lecture du texte
     caption = data.get("caption") or data.get("narration") or data.get("script") or ""
-    
-    # Ajout des hashtags si présents
     hashtags = data.get("hashtags", "#TalDíaComoHoy #Historia #España")
     texte_final = f"{caption}\n\n{hashtags}".strip()
     
-    # Échappement du texte pour la requête GraphQL
+    # Échappement du texte
     texte_echappe = json.dumps(texte_final)
 
-    # Requête GraphQL Buffer (Nouvelle URL)
+    # Requête GraphQL Buffer avec le champ "mode"
     query = f"""
     mutation {{
       createPost(input: {{
         channelId: "{channel_id}",
         text: {texte_echappe},
-        schedulingType: automatic,
+        mode: addToQueue,
         assets: {{
           video: {{
             url: "{url_video}"
@@ -66,11 +64,15 @@ def publier(chaîne, json_path, url_video):
     }
 
     print(f"Envoi à Buffer (chaîne: {chaîne})...")
-    # Nouvelle URL : api.buffer.com/graphql
     response = requests.post("https://api.buffer.com/graphql", json={"query": query}, headers=headers)
 
     if response.status_code == 200:
-        print("✅ Succès :", response.json())
+        data = response.json()
+        if "errors" in data:
+            print(f"❌ Erreur GraphQL Buffer : {data['errors'][0]['message']}")
+            sys.exit(1)
+        else:
+            print("✅ Succès :", data)
     else:
         print(f"❌ Erreur Buffer (HTTP {response.status_code}) : {response.text}")
         sys.exit(1)
