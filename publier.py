@@ -29,14 +29,16 @@ def publier(chaîne, json_path, url_video):
     # Ajout des hashtags si présents
     hashtags = data.get("hashtags", "#TalDíaComoHoy #Historia #España")
     texte_final = f"{caption}\n\n{hashtags}".strip()
-    texte_final_escaped = texte_final.replace('"""', '\\"\\"\\"')
+    
+    # Échappement du texte pour la requête GraphQL (évite les erreurs de syntaxe)
+    texte_echappe = json.dumps(texte_final)
 
     # Requête GraphQL Buffer
     query = f"""
     mutation {{
       createPost(input: {{
         channelId: "{channel_id}",
-        text: """{texte_final_escaped}""",
+        text: {texte_echappe},
         schedulingType: automatic,
         assets: {{
           video: {{
