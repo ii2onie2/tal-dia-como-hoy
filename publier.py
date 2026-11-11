@@ -30,10 +30,10 @@ def publier(chaîne, json_path, url_video):
     hashtags = data.get("hashtags", "#TalDíaComoHoy #Historia #España")
     texte_final = f"{caption}\n\n{hashtags}".strip()
     
-    # Échappement du texte pour la requête GraphQL (évite les erreurs de syntaxe)
+    # Échappement du texte pour la requête GraphQL
     texte_echappe = json.dumps(texte_final)
 
-    # Requête GraphQL Buffer
+    # Requête GraphQL Buffer (Nouvelle URL)
     query = f"""
     mutation {{
       createPost(input: {{
@@ -66,7 +66,8 @@ def publier(chaîne, json_path, url_video):
     }
 
     print(f"Envoi à Buffer (chaîne: {chaîne})...")
-    response = requests.post("https://api.bufferapp.com/1/graphql", json={"query": query}, headers=headers)
+    # Nouvelle URL : api.buffer.com/graphql
+    response = requests.post("https://api.buffer.com/graphql", json={"query": query}, headers=headers)
 
     if response.status_code == 200:
         print("✅ Succès :", response.json())
