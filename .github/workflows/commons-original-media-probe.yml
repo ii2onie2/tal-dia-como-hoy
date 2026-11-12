@@ -1,0 +1,50 @@
+name: Commons original media SHA256 probe (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      inventory_ref:
+        description: 'Approved research branch containing the inventory'
+        required: true
+        type: choice
+        options:
+          - work/20261030-three-source-candidates
+  pull_request:
+    paths:
+      - 'scripts/probe_commons_media_20261030.py'
+      - '.github/workflows/commons-original-media-probe.yml'
+      - 'tests/test_commons_media_probe.py'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+      - name: Fetch research inventory separately
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ inputs.inventory_ref }}
+          path: research-source
+      - name: Check Python syntax
+        run: python3 -m py_compile scripts/probe_commons_media_20261030.py
+      - name: Run offline probe tests
+        run: python3 -m unittest discover -s tests -p test_commons_media_probe.py -v
+      - name: Probe original Commons files without publishing
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          MEDIA_INVENTORY_PATH: research-source/content/research/2026-10-30.media-rights-inventory.json
+        run: python3 scripts/probe_commons_media_20261030.py
+      - name: Upload verification report even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: commons-media-probe-report
+          path: commons-media-probe-report.json
+          if-no-files-found: warn
+          retention-days: 14
