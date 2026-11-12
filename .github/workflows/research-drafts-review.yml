@@ -1,0 +1,24 @@
+name: Unapproved editorial research review (no render)
+on:
+  pull_request:
+    paths:
+      - "content/research/*.research.json"
+      - "scripts/check_research_drafts.py"
+      - ".github/workflows/research-drafts-review.yml"
+permissions:
+  contents: read
+jobs:
+  structural-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check dated research drafts, topics and unresolved media
+        run: |
+          python scripts/check_research_drafts.py \
+            content/research/2026-10-29.research.json \
+            content/research/2026-10-29-detalle.research.json \
+            content/research/2026-10-29-sabias.research.json

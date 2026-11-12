@@ -1,0 +1,40 @@
+{
+  "series": "Tal Día Como Hoy",
+  "title": "29 de octubre de 2004: la Constitución europea que nunca entró en vigor",
+  "date": "2026-10-29",
+  "slot": "10:00",
+  "hook": "El 29 de octubre de 2004 se firmó en Roma una Constitución para Europa. ¿Por qué nunca llegó a entrar en vigor?",
+  "narration": "El 29 de octubre de 2004, representantes de los Estados miembros de la Unión Europea firmaron en Roma el Tratado por el que se establece una Constitución para Europa. Era una propuesta ambiciosa para reorganizar las reglas comunes de una Unión que acababa de ampliarse. España participó en aquel proceso, y la firma tuvo además una presencia española destacada: Josep Borrell era entonces presidente del Parlamento Europeo y asistió al acto. El texto pretendía sustituir y ordenar gran parte de los tratados existentes. Pero firmar un tratado internacional no significa que entre en vigor inmediatamente. Para eso se necesitaba la ratificación de los países participantes. España comunicó su ratificación en junio de 2005, según el registro del Consejo de la Unión Europea. Sin embargo, la propuesta fue rechazada en los referendos de Francia y de los Países Bajos en mayo y junio de 2005. La Constitución europea no llegó a entrar en vigor. Después, los países europeos emprendieron otro camino de reforma que desembocaría en el Tratado de Lisboa. Este episodio recuerda que incluso un acuerdo firmado al más alto nivel puede cambiar de rumbo por los procedimientos democráticos. ¿Recordabas este proyecto europeo que no prosperó?",
+  "caption": "29 de octubre de 2004: se firmó en Roma la Constitución europea que no entró en vigor.",
+  "hashtags": [
+    "#TalDiaComoHoy",
+    "#HistoriaDeEspaña",
+    "#Patrimonio"
+  ],
+  "sources": [
+    {
+      "name": "Consejo de la Unión Europea — Tratado por el que se establece una Constitución para Europa, firma y ratificaciones",
+      "url": "https://www.consilium.europa.eu/es/documents/treaties-agreements/agreement/?id=2004066"
+    },
+    {
+      "name": "Parlamento Europeo — Proyecto de Tratado por el que se instituye una Constitución para Europa",
+      "url": "https://www.europarl.europa.eu/about-parliament/es/in-the-past/the-parliament-and-the-treaties/draft-treaty-establishing-a-constitution-for-europe"
+    }
+  ],
+  "media": [
+    {
+      "role": "Asset visual todavía no seleccionado; no reutilizar sin derechos verificados",
+      "asset_status": "NOT_SELECTED",
+      "license_note": "RIGHTS_UNVERIFIED_NO_RENDER"
+    }
+  ],
+  "cta": "Síguenos para conocer más historias de España.",
+  "format": "historical_educational",
+  "hook_pattern": "curiosity",
+  "topic_family": "tratado_constitucional_europeo_2004",
+  "duration_target": "65-80s",
+  "editorial_status": "RESEARCH_DRAFT_UNAPPROVED",
+  "media_rights_status": "NOT_VERIFIED",
+  "fact_reference_status": "DIRECT_OFFICIAL_SOURCES_REVIEWED",
+  "publishing_status": "FORBIDDEN_UNTIL_RIGHTS_AND_EDITORIAL_GATES"
+}
