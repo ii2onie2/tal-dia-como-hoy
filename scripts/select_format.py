@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json, pathlib, re, sys
 
-HISTORY=pathlib.Path("content/published_history.json")
+HISTORY=pathlib.Path("content/rendered_history.json")
 formats=[
 "chronological_event","historical_person","battle_or_conflict","place_with_history",
 "before_after","three_facts","mystery","invention_science_culture","forgotten_story","historical_object_word_custom"
