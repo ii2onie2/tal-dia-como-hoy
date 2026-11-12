@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-30",
+  "status": "DRAFT_UNVERIFIED",
+  "editorial_approval": "NOT_GRANTED",
+  "media_rights_approval": "NOT_GRANTED",
+  "render_authorized": false,
+  "publication_authorized": false,
+  "notes": "Original draft narrations only. Claims and source URLs require independent verification; no media selected. Do not copy into production content JSON before approvals.",
+  "drafts": [
+    {
+      "slot": "Tal Día Como Hoy",
+      "topic": "Miguel Hernández",
+      "narration": "El treinta de octubre de mil novecientos diez nació en Orihuela Miguel Hernández, uno de los nombres más reconocidos de la poesía española del siglo veinte. Su historia nos invita a mirar la literatura desde un lugar muy concreto: la vida cotidiana, el trabajo, el aprendizaje y el deseo de encontrar una voz propia. Cuando pensamos en un poeta, a veces imaginamos una biblioteca silenciosa, pero las palabras también nacen de las calles, del paisaje y de las conversaciones de una ciudad. Orihuela forma parte de ese recorrido. La obra de Hernández suele asociarse con imágenes de la naturaleza, con el amor y con experiencias humanas intensas. También está ligada a una época marcada por grandes conflictos en España. Para comprender sus poemas conviene distinguir los hechos documentados de las interpretaciones posteriores. No basta con repetir una frase famosa ni con compartir una imagen sin contexto. Hay que preguntar cuándo fue escrita, dónde se publicó y qué sabemos de su autor. Hoy, en el aniversario de su nacimiento, podemos recuperar esa pregunta esencial: ¿cómo consigue una persona convertir su experiencia en palabras que otros recuerdan? La respuesta no cabe en una sola fecha, pero esa fecha nos sirve como punto de partida. Sigue esta serie para explorar la historia de España a través de sus protagonistas. ¿Conocías la relación entre Miguel Hernández y Orihuela?",
+      "word_count": 224,
+      "source_verification": "PENDING",
+      "media_selection": "PENDING"
+    },
+    {
+      "slot": "El detalle que casi nadie ve",
+      "topic": "Batalla del Salado",
+      "narration": "El treinta de octubre de mil trescientos cuarenta nos lleva al entorno de Tarifa, en el actual territorio de Cádiz. Allí se sitúa la batalla del Salado, un episodio de la historia medieval de la península ibérica. Pero hoy no vamos a empezar por una lista de reyes ni por una cifra de soldados. Vamos a fijarnos en un detalle que a menudo desaparece cuando una batalla se resume en una sola línea: el terreno. Los caminos, los cursos de agua y la distancia entre posiciones podían influir en las decisiones de quienes participaban en un enfrentamiento. Un nombre geográfico, como Salado, puede convertirse con el tiempo en la manera habitual de recordar un acontecimiento mucho más complejo. También es importante recordar que los relatos de una batalla no siempre coinciden. Las crónicas pueden haber sido escritas desde posiciones distintas y sus cifras deben examinarse con cuidado. Por eso, al estudiar esta fecha, conviene separar lo que está sólidamente documentado de lo que sigue siendo objeto de interpretación histórica. La pregunta no es solo quién venció, sino cómo sabemos lo que creemos saber. Mirar un mapa, comparar fuentes y reconocer sus límites cambia nuestra forma de entender el pasado. Sigue esta serie para descubrir detalles que suelen quedar fuera de los titulares históricos. ¿Habías oído hablar de la batalla del Salado y su relación con Tarifa?",
+      "word_count": 226,
+      "source_verification": "PENDING",
+      "media_selection": "PENDING"
+    },
+    {
+      "slot": "¿Sabías esto de España?",
+      "topic": "Pío Baroja",
+      "narration": "¿Sabías que el treinta de octubre de mil novecientos cincuenta y seis murió en Madrid el escritor Pío Baroja? Su nombre aparece con frecuencia cuando se estudia la narrativa española de finales del siglo diecinueve y comienzos del veinte. Sin embargo, una fecha de fallecimiento es solo una puerta de entrada a una trayectoria literaria mucho más amplia. Baroja escribió novelas y dejó una mirada muy personal sobre personajes, ambientes y cambios sociales. Para acercarnos a su obra, podemos hacer un ejercicio sencillo: pensar en una ciudad como escenario de historias humanas. Una calle, una conversación o una decisión aparentemente pequeña pueden ayudar a retratar una época. Esa atención al entorno es una de las razones por las que la literatura también interesa a quienes estudian historia. Pero hay una precaución importante. Una novela no es un acta oficial ni un archivo de hechos comprobados. Es una creación literaria que puede dialogar con su tiempo sin reproducirlo de manera literal. Por eso conviene leer las obras y, al mismo tiempo, consultar fuentes biográficas fiables para situarlas en contexto. Hoy recordamos a Baroja sin convertir su vida en una sucesión de anécdotas difíciles de verificar. La fecha nos invita a volver a los libros y a formular nuevas preguntas. Sigue esta serie para descubrir conexiones entre cultura e historia de España. ¿Has leído alguna novela de Pío Baroja?",
+      "word_count": 227,
+      "source_verification": "PENDING",
+      "media_selection": "PENDING"
+    }
+  ]
+}

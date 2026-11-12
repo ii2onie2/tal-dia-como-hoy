@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-30",
+  "status": "RESEARCH_CANDIDATES_ONLY",
+  "editorial_approval": "NOT_GRANTED",
+  "media_rights": "NOT_VERIFIED",
+  "render_authorized": false,
+  "publication_authorized": false,
+  "slots": [
+    {
+      "slot": "Tal Día Como Hoy",
+      "topic": "Nacimiento de Miguel Hernández en Orihuela (1910)",
+      "claims": [
+        {
+          "text": "Miguel Hernández nació el 30 de octubre de 1910 en Orihuela.",
+          "status": "SOURCE_IDENTIFIED_PENDING_EDITORIAL_REVIEW"
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "Instituto Cervantes",
+          "url": "https://www.cervantes.es/lengua_y_ensenanza/hispanismo/monograficos/miguel-hernandez/miguel_hernandez.htm"
+        },
+        {
+          "publisher": "Biblioteca Virtual Miguel de Cervantes",
+          "url": "https://cervantesvirtual.com/portales/miguel_hernandez/cronologia/"
+        }
+      ]
+    },
+    {
+      "slot": "El detalle que casi nadie ve",
+      "topic": "Batalla del Salado cerca de Tarifa (1340)",
+      "claims": [
+        {
+          "text": "La batalla del Salado se libró el 30 de octubre de 1340 cerca de Tarifa, Cádiz.",
+          "status": "SOURCE_IDENTIFIED_PENDING_EDITORIAL_REVIEW"
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "Museo del Ejército",
+          "url": "https://ejercito.defensa.gob.es/museo/HECHOS_HISTORICOS/HECHOS_HISTORICOS/10.30_LA_BATALLA_DEL_SALADO.html"
+        },
+        {
+          "publisher": "Dialnet - estudio histórico",
+          "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=7817453"
+        }
+      ]
+    },
+    {
+      "slot": "¿Sabías esto de España?",
+      "topic": "Fallecimiento de Pío Baroja en Madrid (1956)",
+      "claims": [
+        {
+          "text": "Pío Baroja murió en Madrid el 30 de octubre de 1956.",
+          "status": "SOURCE_IDENTIFIED_PENDING_EDITORIAL_REVIEW"
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "PARES - Archivos Españoles",
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/108923"
+        },
+        {
+          "publisher": "Correos de España",
+          "url": "https://www.correos.es/es/es/particulares/filatelia/productos-filatelicos/sellos/espana/2006/personajes-50-aniversario-de-la-muerte-de-pio-baroja"
+        }
+      ]
+    }
+  ],
+  "next_gates": [
+    "Independent source and factual editorial review",
+    "Original narration and 180-word validator",
+    "Media asset selection and verified reuse licenses",
+    "Explicit editorial approval before render",
+    "No Buffer/TikTok posting without separate authorization"
+  ]
+}
