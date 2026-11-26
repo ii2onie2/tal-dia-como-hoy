@@ -1,4 +1,3 @@
-Velázquez_painting_The_Triumph_o…_20261109013535.jpg
 hist_020.jpg
 hist_277.jpg
 hist_034.jpg
@@ -8,3 +7,4 @@ hist_192.jpg
 Castle_on_hill_in_Andalusia_20261109010619_2.jpg
 hist_270.jpg
 Oil_fresco_mural_painting_Pentecost_20261109013535.jpg
+hist_259.jpg
